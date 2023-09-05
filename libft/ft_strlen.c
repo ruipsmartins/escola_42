@@ -1,44 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/05 17:22:02 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/09/05 18:08:54 by ruidos-s         ###   ########.fr       */
+/*   Created: 2023/09/05 18:00:48 by ruidos-s          #+#    #+#             */
+/*   Updated: 2023/09/05 18:05:13 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(char *str)
+int	ft_strlen(char *str)
 {
 	int	i;
-	int	sign;
-	int	res;
 
 	i = 0;
-	sign = 1;
-	res = 0;
-	while ((str[i] >= 7 && str[i] <= 13) || str[i] == ' ')
-	{
+	while (str[i])
 		i++;
-	}
-	while (str[i] == '+' || str[i] == '-')
-	{
-		if (str[i] == '-')
-		{
-			sign *= -1;
-		}
-		i++;
-	}
-	while (str[i] >= '0' && str [i] <= '9')
-	{
-		res = res * 10 + (str[i] - '0');
-		i++;
-	}
-	return (res * sign);
+	return (i);
 }
-/*
+
+
 #include <stdio.h>
 
 int	main(int ac, char **av)
@@ -47,9 +29,8 @@ int	main(int ac, char **av)
 
 	if (ac == 2)
 	{
-		nbr = ft_atoi(av[1]);
-		printf("%d\n", nbr);
+		nbr = ft_strlen(av[1]);
+		printf("a frase tem: %d caracteres\n", nbr);
 	}
 	return (0);
 }
-*/
