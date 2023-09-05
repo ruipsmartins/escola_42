@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 18:00:48 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/09/05 18:05:13 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/09/05 18:10:12 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@ int	ft_strlen(char *str)
 		i++;
 	return (i);
 }
-
-
+/*
 #include <stdio.h>
 
 int	main(int ac, char **av)
@@ -34,3 +33,4 @@ int	main(int ac, char **av)
 	}
 	return (0);
 }
+*/
