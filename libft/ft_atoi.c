@@ -4,14 +4,13 @@
 
 }
 */
-int	main (int ac, char **av)
+int	main(int ac, char **av)
 {
-	int nbr;
+	int	nbr;
+
 	if (ac > 1)
 	{
-	
-	printf("%d\n", nbr);
+		printf("%d\n", nbr);
 	}
-	
-	return 0;
+	return (0);
 }
