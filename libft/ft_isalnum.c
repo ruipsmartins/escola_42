@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/03 14:40:06 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/03 15:36:18 by ruidos-s         ###   ########.fr       */
+/*   Created: 2023/10/03 15:34:41 by ruidos-s          #+#    #+#             */
+/*   Updated: 2023/10/03 16:03:30 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalpha(int c)
+int	ft_isalnum(int c)
 {
 	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
-	{
 		return (1);
-	}
+	if (c >= '0' && c <= '9')
+		return (1);
 	return (0);
 }
 /* 
@@ -23,6 +23,6 @@ int	ft_isalpha(int c)
 
 int	main()
 {
-		printf("%d\n", ft_isalpha('Z'));
+		printf("%d\n", ft_isalnum('5'));
 }
  */
