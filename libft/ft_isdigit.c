@@ -6,7 +6,23 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 14:56:08 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/03 14:56:20 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/03 15:29:42 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+int	ft_isdigit(int d)
+{
+	if (d >= '0' && d <= '9')
+	{
+		return (1);
+	}
+	return (0);
+}
+/*
+#include <stdio.h>
+
+int	main()
+{
+		printf("%d\n", ft_isdigit('5'));
+}
+*/
