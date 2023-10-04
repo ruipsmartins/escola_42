@@ -1,2 +1,2 @@
 all:
-	cc -Wall -Wextra -Werror 
+	cc -Wall -Wextra -Werror testeatoi.c -o /bin/teste
