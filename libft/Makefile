@@ -6,7 +6,7 @@
 #    By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/04 14:19:42 by ruidos-s          #+#    #+#              #
-#    Updated: 2023/10/04 16:09:43 by ruidos-s         ###   ########.fr        #
+#    Updated: 2023/10/04 17:08:05 by ruidos-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,8 +27,14 @@ $(NAME): $(OBJS)
 
 clean:
 	rm -f $(OBJS)
+
+fclean: clean
 	rm -f $(NAME)
+	rm -f ./test*
 
-re: clean all
+re: fclean all
 
-.PHONY: all clean fclean re
+#test:
+#	$(CC) $(CFLAGS) -c $< -o test
+
+.PHONY: all clean fclean re test
