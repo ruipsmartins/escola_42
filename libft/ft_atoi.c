@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 17:22:02 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/03 13:07:50 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/04 15:59:38 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_atoi(char *str)
 	i = 0;
 	sign = 1;
 	res = 0;
-	while ((str[i] >= 7 && str[i] <= 13) || str[i] == ' ')
+	while ((str[i] >= '\t' && str[i] <= '\r') || str[i] == ' ')
 	{
 		i++;
 	}
@@ -38,18 +38,15 @@ int	ft_atoi(char *str)
 	}
 	return (res * sign);
 }
-/*
-#include <stdio.h>
 
-int	main(int ac, char **av)
+/* #include <stdio.h>
+
+int	main(void)
 {
 	int	nbr;
-
-	if (ac == 2)
-	{
-		nbr = ft_atoi(av[1]);
+	
+		nbr = ft_atoi("\007 8");
 		printf("%d\n", nbr);
-	}
+	
 	return (0);
-}
-*/
+}  */
