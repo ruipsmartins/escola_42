@@ -6,7 +6,7 @@
 #    By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/04 14:19:42 by ruidos-s          #+#    #+#              #
-#    Updated: 2023/10/05 10:47:52 by ruidos-s         ###   ########.fr        #
+#    Updated: 2023/10/05 10:50:21 by ruidos-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,7 @@ fclean: clean
 
 
 re: fclean all
+
 
 test: $(SRCS) main.c
 	$(CC) $(CFLAGS) $(SRCS) main.c -o teste_main
