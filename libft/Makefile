@@ -6,13 +6,13 @@
 #    By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/04 14:19:42 by ruidos-s          #+#    #+#              #
-#    Updated: 2023/10/04 17:19:30 by ruidos-s         ###   ########.fr        #
+#    Updated: 2023/10/05 10:27:00 by ruidos-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
-SRCS = ft_atoi.c  ft_isalnum.c  ft_isalpha.c  ft_isascii.c  ft_isdigit.c  ft_isprint.c  ft_strlen.c
+SRCS = ft_atoi.c  ft_isalnum.c  ft_isalpha.c  ft_isascii.c  ft_isdigit.c  ft_isprint.c  ft_strlen.c ft_memset.c
 OBJS = $(SRCS:.c=.o)
 NAME = libft.a
 
@@ -34,7 +34,8 @@ fclean: clean
 
 re: fclean all
 
-#test:
-#	$(CC) $(CFLAGS) main.c -c $< -o test
+test: $(SRCS) main.c
+	$(CC) $(CFLAGS) $(SRCS) main.c -o teste_main
+
 
 .PHONY: all clean fclean re test
