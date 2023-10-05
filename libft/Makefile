@@ -6,7 +6,7 @@
 #    By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/04 14:19:42 by ruidos-s          #+#    #+#              #
-#    Updated: 2023/10/05 11:03:57 by ruidos-s         ###   ########.fr        #
+#    Updated: 2023/10/05 11:28:05 by ruidos-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,7 @@ test: $(SRCS) main.c
 
 git:
 	git add .
-	git commit -m "guardar coisas no github2"
+	git commit -m "guardar coisas no github"
 	git push
 	git status
 
