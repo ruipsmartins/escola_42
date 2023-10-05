@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 14:37:58 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/05 12:02:02 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/05 12:51:12 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,6 @@ int		ft_isascii(int c);
 int		ft_isdigit(int d);
 int		ft_isprint(int c);
 void	*ft_memset(void *b, int c, size_t len);
+void	ft_bzero(void *s, size_t len);
 
 #endif
