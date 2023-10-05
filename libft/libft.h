@@ -6,13 +6,14 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 14:37:58 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/05 10:33:58 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/05 12:02:02 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 # include <string.h>
+# include <stdio.h>
 
 int		ft_atoi(const char *str);
 int		ft_strlen(const char *str);
