@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 17:05:34 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/07 11:11:56 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/07 11:18:02 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,14 @@
 
 int	main(void)
 {
-	char str1[] = "Hello World!";
-	char str2[20];
+	char	destino[20];
+	char	original[] = "Olá, mundo!";
 
-	puts("str1 before memmove \n"); 
-	puts(str1); 
+// Copia a string original para a string destino.
+	ft_memmove(destino, original, sizeof(original));
 
-	/* Copies contents of str2 to sr1 */
-	ft_memmove(str1, str2, sizeof(str1)); 
-
-	puts("str2 after memmove "); 
-	puts(str1); 
-
+  // Imprime a string destino.
+	printf("%s\n", destino);
+	puts(original);
 	return (0);
 }
