@@ -6,14 +6,14 @@
 #    By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/04 14:19:42 by ruidos-s          #+#    #+#              #
-#    Updated: 2023/10/06 12:38:10 by ruidos-s         ###   ########.fr        #
+#    Updated: 2023/10/07 12:37:50 by ruidos-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 SRCS = 	ft_atoi.c  ft_isalnum.c  ft_isalpha.c  ft_isascii.c  ft_isdigit.c  ft_isprint.c\
-		ft_strlen.c ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c
+		ft_strlen.c ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c ft_strlcpy.c
 OBJS = $(SRCS:.c=.o)
 NAME = libft.a
 

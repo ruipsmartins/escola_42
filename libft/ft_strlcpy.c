@@ -1,26 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/04 17:05:34 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/07 13:21:46 by ruidos-s         ###   ########.fr       */
+/*   Created: 2023/10/07 12:37:23 by ruidos-s          #+#    #+#             */
+/*   Updated: 2023/10/07 18:04:47 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	main(void)
+size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
-	char	src[] = "Hello, World!";
-	char	dest[10];
-	size_t len = ft_strlcpy(dest, src, sizeof(dest));
+	size_t	i;
+	size_t	sizesrc;
 
+	sizesrc = ft_strlen(src);
+	if (!dest || !src)
+		return (0);
 
-	printf("String copiada: %s\n", dest);
-	printf("Tamanho da string de origem: %zu\n", len);
+	i = 0;
+	if (size != 0)
+	{
+		while (src[i] != '\0' && i < (size -1))
+		{
+			dest[i] = src[i];
+			i++;
+		}
+		dest[i] = '\0';
+	}
 
-	return (0);
+	return (sizesrc);
 }

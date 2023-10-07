@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 12:08:29 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/07 11:23:19 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/07 12:39:15 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,3 +38,19 @@ void	*ft_memmove(void *dest, const void *src, size_t len)
 	}
 	return (dest);
 }
+
+/* int	main(void)
+{
+	char	destino[20];
+	char	original[] = "Olá, mundo!";
+
+// Copia a string original para a string destino.
+	ft_memmove(original + 2, original, sizeof(original));
+
+  // Imprime a string destino.
+	//printf("%s\n", destino);
+	
+	puts(original);
+	return (0);
+}
+ */
