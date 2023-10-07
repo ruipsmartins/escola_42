@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 17:05:34 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/07 18:09:46 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/07 18:22:32 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,12 @@
 
 int	main(void)
 {
-	char	src[] = "Hello, World!";
-	char	dest[15];
-	int		len = ft_strlcpy(dest, src, sizeof(dest));
+	char dest[20] = "Hello, ";
+    char src[] = "World!";
 
-	printf("sizeof(dest):%ld\n", sizeof(dest));
-	printf("String copiada: %s\n", dest);
-	printf("Tamanho da string de origem: %d\n", len);
+    size_t len = ft_strlcat(dest, src, sizeof(dest));
 
+    printf("String concatenada: %s\n", dest);
+    printf("Tamanho da string resultante: %zu\n", len);
 	return (0);
 }
