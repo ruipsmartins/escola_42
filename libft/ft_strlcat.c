@@ -1,26 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/04 17:05:34 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/07 18:09:46 by ruidos-s         ###   ########.fr       */
+/*   Created: 2023/10/07 18:12:46 by ruidos-s          #+#    #+#             */
+/*   Updated: 2023/10/07 18:12:47 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-int	main(void)
-{
-	char	src[] = "Hello, World!";
-	char	dest[15];
-	int		len = ft_strlcpy(dest, src, sizeof(dest));
-
-	printf("sizeof(dest):%ld\n", sizeof(dest));
-	printf("String copiada: %s\n", dest);
-	printf("Tamanho da string de origem: %d\n", len);
-
-	return (0);
-}
