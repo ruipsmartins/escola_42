@@ -6,13 +6,15 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 18:00:48 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/03 13:07:47 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/10 11:58:47 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
+#include "libft.h"
+
+size_t	ft_strlen(const char *str)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (str[i])

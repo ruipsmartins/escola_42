@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 12:37:23 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/07 18:10:40 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/10 12:42:28 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 	sizesrc = ft_strlen(src);
 	if (!dest || !src)
 		return (0);
-
 	i = 0;
 	if (size != 0)
 	{
@@ -31,7 +30,6 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 		}
 		dest[i] = '\0';
 	}
-
 	return (sizesrc);
 }
 
