@@ -6,13 +6,13 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 14:17:46 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/10 15:31:30 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/10 15:54:15 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *ft_strchr(const char *s, int c)
+char	*ft_strchr(const char *s, int c)
 {
 	int	i;
 
@@ -25,3 +25,11 @@ char *ft_strchr(const char *s, int c)
 	}
 	return ((char *)&s[i]);
 }
+/*
+int	main(void)
+{
+	printf("strchr: %s\n", strchr("teste", 101));
+	printf("ft_strchr: %s\n", ft_strchr( "101teste", 'e'));
+	return (0);
+}
+ */

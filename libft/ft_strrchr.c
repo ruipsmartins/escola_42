@@ -1,21 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/04 17:05:34 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/10 15:54:26 by ruidos-s         ###   ########.fr       */
+/*   Created: 2023/10/10 14:17:46 by ruidos-s          #+#    #+#             */
+/*   Updated: 2023/10/10 15:53:41 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-
-int	main(void)
+char	*ft_strchr(const char *s, int c)
 {
-	printf("strchr: %s\n", strchr("teste", 101));
-	printf("ft_strchr: %s\n", ft_strchr( "101teste", 'e'));
-	return (0);
+	int	i;
+
+	i = 0;
+	while (s[i] != (char)c)
+	{
+		if (s[i] == '\0')
+			return (NULL);
+		i++;
+	}
+	return ((char *)&s[i]);
 }
