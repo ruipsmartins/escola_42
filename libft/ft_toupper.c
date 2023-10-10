@@ -1,21 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/04 17:05:34 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/10 14:12:53 by ruidos-s         ###   ########.fr       */
+/*   Created: 2023/10/10 13:57:45 by ruidos-s          #+#    #+#             */
+/*   Updated: 2023/10/10 14:11:28 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <ctype.h>
+
+int	ft_toupper(int c)
+{
+	if (c >= 'a' && c <= 'z')
+	{
+		c -= 32;
+	}
+	return (c);
+}
+
+/* #include <ctype.h>
 
 int	main(void)
 {
-	printf("tolower: %c\n", tolower('z'));
-	printf("ft_tolower: %c\n", ft_tolower('z'));
+	printf("toupper: %c\n", toupper('r'));
+	printf("ft_toupper: %c\n", ft_toupper('r'));
 	return (0);
 }
+ */
