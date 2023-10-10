@@ -1,21 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/04 17:05:34 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/10 16:29:21 by ruidos-s         ###   ########.fr       */
+/*   Created: 2023/10/10 16:08:57 by ruidos-s          #+#    #+#             */
+/*   Updated: 2023/10/10 16:31:42 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-
-int	main(void)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	printf("strncmp: %d\n", strncmp("teste", "",0));
-	printf("ft_strncmp: %d\n", ft_strncmp("teste", "",0));
+	size_t	i;
+
+	i = 0;
+	if (n != 0)
+	{
+		while (i <= n || s1[i] != '\0' || s2[i] != '\0')
+		{
+			if (s1[i] > s2[i])
+				return (1);
+			if (s1[i] < s2[i])
+				return (-1);
+			i++;
+		}
+	}
 	return (0);
 }
