@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 16:12:26 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/11 17:03:12 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/11 17:08:01 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,3 +25,11 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	}
 	return (0);
 }
+
+/* int	main(void)
+{
+	printf("memcmp: %d\n", memcmp("teste", "testex", 6));
+	printf("ft_memcmp: %d\n", ft_memcmp("teste", "testex", 6));
+	return (0);
+}
+ */
