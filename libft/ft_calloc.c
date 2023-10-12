@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 15:09:43 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/12 17:01:26 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/12 17:03:27 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 		printf("%d ", array2[i]);
 		i++;
 	}
-    // Liberando a memória alocada
+	
 	free(array1);
 	free(array2);
 
