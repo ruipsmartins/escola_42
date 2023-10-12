@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 11:38:25 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/12 13:33:53 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/12 14:56:54 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,35 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	size_t	j;
 
 	i = 0;
-	if (*little == '\0')
+	if (!*little)
 		return ((char *)big);
-	while (i <= len)
+	if (!*big)
+		return (NULL);
+	while (i < len)
 	{
 		j = 0;
-		while (((char *)big)[i + j] == ((char *)little)[j])
+		while (big[i + j] == little[j] && (i + j) < len)
 		{
+			j++;
 			if (little[j] == '\0')
 				return ((char *)(big + i));
-			j++;
 		}
 		i++;
 	}
 	return (NULL);
 }
+
+#include "libft.h"
+#include <bsd/string.h>
+
+/* int	main(void)
+{
+	char	*b = "isto e uma mensagem";
+	char	*lil = "to";
+	size_t	len = 4;
+
+	printf("strnstr: %s\n", strnstr(b, lil, len));
+	printf("ft_strnstr: %s\n", ft_strnstr(b, lil, len));
+
+	return (0);
+} */
