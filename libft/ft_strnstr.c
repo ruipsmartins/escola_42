@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 11:38:25 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/12 14:56:54 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/12 15:07:36 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,10 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	return (NULL);
 }
 
-#include "libft.h"
+/* #include "libft.h"
 #include <bsd/string.h>
 
-/* int	main(void)
+int	main(void)
 {
 	char	*b = "isto e uma mensagem";
 	char	*lil = "to";
