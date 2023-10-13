@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 17:05:34 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/13 11:45:24 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/13 15:07:24 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,18 @@
 
 int	main(void)
 {
-	char	*str1;
-	char	*str2;
+	char *original = "";
+	char *substring = ft_substr(original, 1, -1);
 
-	str1 = strdup("um");
-	str2 = ft_strdup("dois");
-	printf("%s %s\n", str1, str2);
-	free(str1);
-	free(str2);
+	if (substring != NULL)
+	{
+		printf("Substring: %s\n", substring);
+		free(substring);
+	}
+	else
+	{
+		printf("Failed to create substring.\n");
+	}
+
 	return (0);
 }
