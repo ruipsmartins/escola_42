@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/04 17:05:34 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/13 16:00:46 by ruidos-s         ###   ########.fr       */
+/*   Created: 2023/10/13 15:46:33 by ruidos-s          #+#    #+#             */
+/*   Updated: 2023/10/13 16:08:02 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <string.h>
 
-int	main(void)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char *s1 = "hello ";
-	char *s2 = "world!";
-	char *newstr = ft_strjoin(s1, s2);
+	char	*newstr;
+	size_t	s1_len;
+	size_t	s2_len;
 
-	if (newstr != NULL)
-	{
-		printf("Substring: %s\n", newstr);
-		free(newstr);
-	}
-	else
-	{
-		printf("Failed to create substring.\n");
-	}
-
-	return (0);
+	s1_len = ft_strlen(s1);
+	s2_len = ft_strlen(s2);
+	newstr = (char *)malloc(s1_len + s2_len + 1);
+	if (!newstr)
+		return (NULL);
+	ft_strlcpy(newstr, s1, s1_len + 1);
+	ft_strlcat(newstr + s1_len, s2, s2_len + 1);
+	return (newstr);
 }
