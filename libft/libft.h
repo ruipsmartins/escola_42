@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 14:37:58 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/13 11:37:35 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/13 11:59:56 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 
+//Part 1 - Libc functions
 size_t	ft_strlen(const char *str);
 int		ft_isalnum(int c);
 int		ft_isalpha(int c);
@@ -39,5 +40,8 @@ char	*ft_strnstr(const char *big, const char *little, size_t len);
 int		ft_atoi(const char *str);
 void	*ft_calloc(size_t nmemb, size_t size);
 char	*ft_strdup(const char *s);
+
+//Part 2 - Additional functions
+char	*ft_substr(char const *s, unsigned int start, size_t len);
 
 #endif
