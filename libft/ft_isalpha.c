@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 14:40:06 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/16 11:43:58 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/16 12:54:16 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,7 @@ int	ft_isalpha(int c)
 int	main()
 {
 		printf("%d\n", ft_isalpha('Z'));
+		printf("%d\n", isalpha('Z'));
+		printf("%d\n", isalpha(38463));
 }
  */
