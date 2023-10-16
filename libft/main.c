@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 17:05:34 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/16 16:49:05 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/16 17:24:04 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,12 @@
 
 int	main(void)
 {
-	char	*s = "ola mansagem a";
+	char	*s = "ola hello world! allll";
 	char	*trim = "alo ";
-
-	printf("%s\n", ft_strtrim(s, trim));
+	char	*trimmed_str;
 	
+	trimmed_str = ft_strtrim(s, trim);
+	printf("%s\n", trimmed_str);
+	free(trimmed_str);
 	return (0);
 }
