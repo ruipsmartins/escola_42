@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 15:09:43 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/12 17:03:27 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/16 11:19:29 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	dest = malloc(total);
 	if (!dest)
 		return (0);
-	ft_memset(dest, 0, total);
+	ft_bzero(dest, total);
 	return (dest);
 }
 
