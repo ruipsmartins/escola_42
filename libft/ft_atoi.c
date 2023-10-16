@@ -6,10 +6,11 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 17:22:02 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/04 15:59:38 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/16 11:38:55 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+//convert ASCII string to integer.
 int	ft_atoi(char *str)
 {
 	int	i;

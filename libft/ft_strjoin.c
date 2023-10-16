@@ -6,10 +6,11 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 15:46:33 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/13 16:14:13 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/16 12:24:20 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+//concatenate two strings into a new string (with malloc)
 #include "libft.h"
 
 char	*ft_strjoin(char const *s1, char const *s2)

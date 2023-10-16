@@ -6,10 +6,11 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 10:49:52 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/04 10:59:18 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/16 11:45:31 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+//checks for any printable character including space.
 int	ft_isprint(int c)
 {
 	if (c >= 32 && c <= 126)

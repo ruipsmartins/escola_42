@@ -6,10 +6,12 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 14:40:06 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/03 15:36:18 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/16 11:43:58 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/* checks for an alphabetic character;
+ in the standard "C" locale, it is equivalent to (isupper(c) || islower(c)). */
 int	ft_isalpha(int c)
 {
 	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))

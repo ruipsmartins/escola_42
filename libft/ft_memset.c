@@ -6,10 +6,12 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 09:47:37 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/06 10:46:29 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/16 11:55:41 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/* 	The memset() function fills the first n bytes of the memory
+	area pointed to by s with the constant byte c. */
 #include "libft.h"
 
 void	*ft_memset(void *b, int c, size_t len)

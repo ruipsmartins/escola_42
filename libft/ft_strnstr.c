@@ -6,9 +6,18 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 11:38:25 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/12 15:07:36 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/16 12:33:21 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/* The strnstr() function locates the first occurrence
+of the null-terminated string little in the string big,
+where not more than len characters are searched.  
+Characters that appear after a ‘\0’ character are not searched.
+Since the strnstr() function is a
+FreeBSD specific API, it should only be used 
+when portability is not a concern. */
+//Utility functions from BSD systems (libbsd, -lbsd)
 
 #include "libft.h"
 

@@ -6,10 +6,12 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 14:17:46 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/10 15:54:15 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/16 11:56:54 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/* The strchr() function returns a pointer to the 
+	first occurrence of the character c in the string s. */
 #include "libft.h"
 
 char	*ft_strchr(const char *s, int c)

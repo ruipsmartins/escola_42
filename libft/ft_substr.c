@@ -6,10 +6,16 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 12:00:24 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/13 15:40:58 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/16 12:36:18 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+extract substring from string
+
+Allocates (with malloc(3)) and returns a substring from the string ’s’.
+The substring begins at index ’start’ and is of maximum size ’len’.
+*/
 #include "libft.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)

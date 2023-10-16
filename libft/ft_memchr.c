@@ -6,10 +6,13 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 12:03:37 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/11 15:47:24 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/16 11:47:59 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/* The  memchr()  function scans the initial n bytes of the memory
+area pointed to by s for the first instance of c.  Both c and the
+bytes of the memory area pointed to by s are interpreted as unsigned char. */
 #include "libft.h"
 
 void	*ft_memchr(const void *s, int c, size_t n)

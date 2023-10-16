@@ -6,10 +6,11 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 13:57:45 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/10 14:11:28 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/16 12:37:12 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+//return uppercase
 #include "libft.h"
 
 int	ft_toupper(int c)

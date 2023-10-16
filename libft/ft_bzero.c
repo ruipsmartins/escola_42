@@ -6,12 +6,13 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 12:31:31 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/06 10:43:56 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/16 11:39:44 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+//write zeroes to a byte string.
 void	ft_bzero(void *s, size_t len)
 {
 	ft_memset(s, '\0', len);

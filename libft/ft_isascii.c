@@ -6,10 +6,12 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 16:25:50 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/04 15:01:38 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/16 11:44:42 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/* checks whether c is a 7-bit unsigned char value that
+ fits into the ASCII character set. */
 int	ft_isascii(int c)
 {
 	if (c >= 0 && c <= 127)
