@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 14:18:53 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/17 17:01:39 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/17 17:06:29 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,9 @@ char	**ft_split(char const *s, char c)
 {
 	char	**box;
 
-	box = (char **)malloc(count_words(*s, c));
-
+	box = (char **)malloc(count_words(s, c));
+	if (!box)
+		return (NULL);
 
 
 	return (box);
