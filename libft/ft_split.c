@@ -1,18 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/04 17:05:34 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/17 16:53:37 by ruidos-s         ###   ########.fr       */
+/*   Created: 2023/10/17 14:18:53 by ruidos-s          #+#    #+#             */
+/*   Updated: 2023/10/17 17:01:39 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <string.h>
-#include <ctype.h>
+
+/* Allocates (with malloc(3)) and returns an array
+of strings obtained by splitting ’s’ using the
+character ’c’ as a delimiter. The array must end
+with a NULL pointer. */
 
 int	count_words(char const *str, char c)
 {
@@ -32,23 +35,13 @@ int	count_words(char const *str, char c)
 	return (count); 
 }
 
-int	main(void)
+char	**ft_split(char const *s, char c)
 {
-	char	*str = " hello world ";
-	char	c = ' ';
-	char	**splited;
-	size_t	i;
+	char	**box;
 
-	printf("%d\n",count_words(str,c));
+	box = (char **)malloc(count_words(*s, c));
 
-	/* splited = ft_split(str, c);
-	i = 0;
-	while (splited[i])
-	{
-		printf("%s\n",splited[i]);
-		i++;
-	}
 
-	free(splited); */
-	return (0);
+
+	return (box);
 }
