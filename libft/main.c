@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 17:05:34 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/17 17:08:41 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/17 19:32:11 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,12 @@ int	main(void)
 	char	c = ' ';
 	char	**splited;
 	size_t	i;
+	char	**box;
 
-	printf("%d\n",count_words(str,c));
-	sizeof(char *) ----> ver isto
+
+	printf("count_words:%d\n",count_words(str,c));
+	box = (char **)malloc((count_words(str, c) + 1) * sizeof(char *));
+
 
 	/* splited = ft_split(str, c);
 	i = 0;
@@ -49,7 +52,7 @@ int	main(void)
 		printf("%s\n",splited[i]);
 		i++;
 	}
-
-	free(splited); */
+*/
+	free(box); 
 	return (0);
 }
