@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 17:05:34 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/17 17:05:52 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/17 17:08:41 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ int	main(void)
 	size_t	i;
 
 	printf("%d\n",count_words(str,c));
+	sizeof(char *) ----> ver isto
 
 	/* splited = ft_split(str, c);
 	i = 0;
