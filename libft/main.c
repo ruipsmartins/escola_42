@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 17:05:34 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/18 15:07:16 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/18 15:27:24 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	main(void)
 		free(box[i]);
 		i++;
 	}
-
+	free(box[i]);
 	free(box); 
 	return (0);
 }
