@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 17:05:34 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/17 19:32:11 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/18 15:07:16 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,45 +14,24 @@
 #include <string.h>
 #include <ctype.h>
 
-int	count_words(char const *str, char c)
-{
-	int	count;
-	int	i;
-
-	count = 1;
-	i = 0;
-	while (str[i] == c)
-		i++;
-	while (str[i])
-	{
-		if (str[i] == c && str[i + 1] != c && str[i + 1] != '\0')
-			count++;
-		i++;
-	}
-	return (count); 
-}
 
 int	main(void)
 {
-	char	*str = " hello world ";
+	char	*str = "hello world    teste";
 	char	c = ' ';
-	char	**splited;
-	size_t	i;
+	int	i;
 	char	**box;
 
 
-	printf("count_words:%d\n",count_words(str,c));
-	box = (char **)malloc((count_words(str, c) + 1) * sizeof(char *));
-
-
-	/* splited = ft_split(str, c);
+	box = ft_split(str, c);
 	i = 0;
-	while (splited[i])
+	while (box[i])
 	{
-		printf("%s\n",splited[i]);
+		printf("%d --> %s\n", i, box[i]);
+		free(box[i]);
 		i++;
 	}
-*/
+
 	free(box); 
 	return (0);
 }
