@@ -1,20 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/04 17:05:34 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/20 15:05:18 by ruidos-s         ###   ########.fr       */
+/*   Created: 2023/10/20 14:05:26 by ruidos-s          #+#    #+#             */
+/*   Updated: 2023/10/20 15:08:01 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <string.h>
-#include <ctype.h>
+/* Applies the function ’f’ to each character of the
+string ’s’, and passing its index as first argument
+to create a new string (with malloc(3)) resulting
+from successive applications of ’f’. */
 
-char	ft_teste(unsigned int i, char c)
+#include "libft.h"
+
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+{
+	char				*result;
+	unsigned int		i;
+
+	result = (char *)malloc(ft_strlen(s) + 1);
+	if (!result)
+		return (NULL);
+	i = 0;
+	while (s[i])
+	{
+		result[i] = f(i, s[i]);
+		i++;
+	}
+	result[i] = '\0';
+	return (result);
+}
+
+/* char	ft_teste(unsigned int i, char c)
 {
 	i = 32;
 	if (c >= 'a' && c <= 'z')
@@ -33,4 +54,4 @@ int	main(void)
 	printf("ft_strmapi: %s\n", result);
 	free(result);
 	return (0);
-}
+} */
