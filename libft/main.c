@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 17:05:34 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/18 16:40:18 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/20 12:55:58 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,11 @@
 #include <string.h>
 #include <ctype.h>
 
-
 int	main(void)
 {
-	char	*str = "   hello world    teste";
-	char	c = ' ';
-	int	i;
-	char	**box;
+	int	num;
 
-
-	box = ft_split(str, c);
-	i = 0;
-	while (box[i])
-	{
-		printf("%d --> %s\n", i, box[i]);
-		free(box[i]);
-		i++;
-	}
-	free(box[i]);
-	free(box); 
+	num = -12354;
+	printf("ft_itoa: %s\n", ft_itoa(num));
 	return (0);
 }
