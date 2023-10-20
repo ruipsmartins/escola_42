@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 14:18:53 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/18 16:43:31 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/20 10:22:15 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static int	count_words(char const *str, char c)
 			count++;
 		i++;
 	}
-	return (count); 
+	return (count);
 }
 
 static char	*ft_words(char const *str, int inicio, int fim)
