@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 17:05:34 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/20 15:05:18 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/20 16:41:25 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,22 @@
 #include <string.h>
 #include <ctype.h>
 
-char	ft_teste(unsigned int i, char c)
+void	ft_teste(unsigned int i, char*c)
 {
-	i = 32;
-	if (c >= 'a' && c <= 'z')
+
+	if (*c >= 'a' && *c <= 'z')
 	{
-		c -= i;
+		*c -= 32;
+		printf("i = %i, Char: %c\n", i, *c);
 	}
-	return (c);
 }
 
 int	main(void)
 {
-	char	*str = "hello world!!";
-	char	*result;
+	char	str[] = "hello world!!";
 
-	result = ft_strmapi(str, ft_teste);
-	printf("ft_strmapi: %s\n", result);
-	free(result);
+	printf("Original String: %s\n", str);
+	ft_striteri(str, ft_teste);
+	printf("Modified String: %s\n", str);
 	return (0);
 }
