@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 17:49:38 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/22 18:27:29 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/22 18:34:10 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ t_list	*ft_lstnew(void *content)
 	t_list	*new;
 
 	new = (t_list *)malloc(sizeof(t_list));
-
 	if (!new)
 		return (NULL);
 	new->content = content;

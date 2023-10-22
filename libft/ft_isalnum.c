@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 15:34:41 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/16 11:42:43 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/22 18:41:52 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_isalnum(int c)
 /* 
  #include <stdio.h>
 
-int	main()
+int	main(void)
 {
 		printf("%d\n", ft_isalnum('5'));
 }

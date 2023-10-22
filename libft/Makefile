@@ -6,11 +6,11 @@
 #    By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/04 14:19:42 by ruidos-s          #+#    #+#              #
-#    Updated: 2023/10/22 18:12:43 by ruidos-s         ###   ########.fr        #
+#    Updated: 2023/10/22 18:38:43 by ruidos-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC = gcc
+CC = cc
 CFLAGS = -Wall -Wextra -Werror 
 SRCS = 	ft_atoi.c  ft_isalnum.c  ft_isalpha.c  ft_isascii.c  ft_isdigit.c  ft_isprint.c\
 		ft_strlen.c ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c ft_strlcpy.c\
@@ -38,12 +38,13 @@ $(NAME): $(OBJS)
 
 clean:
 	rm -f $(OBJS)
-
+	rm -f $(BONUS_OBJS)
+	
 fclean: clean
 	rm -f $(NAME)
 	rm -f ./test*
 
-re: fclean all
+re: fclean all bonus
 
 bonus:	$(OBJS) $(BONUS_OBJS)
 				ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
