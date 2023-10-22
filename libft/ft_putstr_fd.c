@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/22 10:11:06 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/22 10:32:24 by ruidos-s         ###   ########.fr       */
+/*   Created: 2023/10/22 10:33:15 by ruidos-s          #+#    #+#             */
+/*   Updated: 2023/10/22 11:04:19 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/* Outputs the character ’c’ to the given file
+/* Outputs the string ’s’ to the given file
 descriptor. */
-
 #include "libft.h"
 
-void	ft_putchar_fd(char c, int fd)
+void	ft_putstr_fd(char *s, int fd)
 {
-	write(fd, &c, 1);
+	while (*s)
+		ft_putchar_fd(*s++, fd);
 }
 
 /* int	main(void)
 {
-	char	c;
+	char	*str = "Hello World!!\n";
 
-	c = 'z';
-	ft_putchar_fd(c, 1);
+	ft_putstr_fd(str, 1);
+
 	return (0);
 }
  */
