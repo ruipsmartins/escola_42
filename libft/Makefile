@@ -6,7 +6,7 @@
 #    By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/04 14:19:42 by ruidos-s          #+#    #+#              #
-#    Updated: 2023/10/20 15:55:51 by ruidos-s         ###   ########.fr        #
+#    Updated: 2023/10/22 10:13:03 by ruidos-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,8 @@ SRCS = 	ft_atoi.c  ft_isalnum.c  ft_isalpha.c  ft_isascii.c  ft_isdigit.c  ft_is
 		ft_strlen.c ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c ft_strlcpy.c\
 		ft_strlcat.c ft_toupper.c ft_tolower.c ft_strchr.c ft_strrchr.c ft_strncmp.c\
 		ft_memchr.c ft_memcmp.c ft_strnstr.c ft_calloc.c ft_strdup.c ft_substr.c\
-		ft_strjoin.c ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c ft_striteri.c
+		ft_strjoin.c ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c ft_striteri.c\
+		ft_putchar_fd.c
 OBJS = $(SRCS:.c=.o)
 NAME = libft.a
 
@@ -36,9 +37,7 @@ fclean: clean
 	rm -f $(NAME)
 	rm -f ./test*
 
-
 re: fclean all
-
 
 test: $(SRCS) main.c
 	$(CC) $(CFLAGS) $(SRCS) main.c -o teste_main -lbsd
@@ -48,6 +47,5 @@ git:
 	git commit -m "guardar coisas no github"
 	git push
 	git status
-
 
 .PHONY: all clean fclean re test git
