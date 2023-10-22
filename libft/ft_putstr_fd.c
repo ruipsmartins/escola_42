@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 10:33:15 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/22 11:04:19 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/22 11:28:45 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,15 @@ void	ft_putstr_fd(char *s, int fd)
 		ft_putchar_fd(*s++, fd);
 }
 
-/* int	main(void)
+/* 
+#include <fcntl.h>
+int	main(void)
 {
 	char	*str = "Hello World!!\n";
+	int		fd;
 
-	ft_putstr_fd(str, 1);
-
+	fd = open("test.txt", O_RDWR | O_APPEND | O_CREAT, 0640);
+	ft_putstr_fd(str, fd);
 	return (0);
 }
  */
