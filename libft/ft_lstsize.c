@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 16:01:23 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/23 16:19:30 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/23 19:34:51 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,7 @@ int	main(void)
 		printf("Conteúdo do node: ");
 		if (current->content)
 		{
-			printf("%d (int)\n", *((int *)(current->content)));
-		}
-		else
-		{
-			printf("Nulo\n");
+			printf("%d\n", *((int *)(current->content)));
 		}
 
 		// Move para o próximo node

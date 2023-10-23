@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 17:05:34 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/23 16:58:34 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/23 19:37:59 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ int	main(void)
 	t_list	*b_node = ft_lstnew(&b);
 	t_list	*c_node = ft_lstnew(&c);
 
-	ft_lstadd_front(&lista, a_node);
-	ft_lstadd_front(&lista, b_node);
 	ft_lstadd_front(&lista, c_node);
+	ft_lstadd_front(&lista, b_node);
+	ft_lstadd_front(&lista, a_node);
 
 	t_list *last = (void *)ft_lstlast(lista);
 	printf("ultimo da lista: %d\n", *((int *)(last->content)));
@@ -39,13 +39,8 @@ int	main(void)
 		printf("Conteúdo do node: ");
 		if (current->content)
 		{
-			printf("%d (int)\n", *((int *)(current->content)));
+			printf("%d\n", *((int *)(current->content)));
 		}
-		else
-		{
-			printf("Nulo\n");
-		}
-
 		// Move para o próximo node
 		current = current->next;
 	}
@@ -55,3 +50,4 @@ int	main(void)
 	free(c_node);
 	return (0);
 }
+
