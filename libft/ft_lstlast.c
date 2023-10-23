@@ -1,33 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/23 16:01:23 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/23 16:19:30 by ruidos-s         ###   ########.fr       */
+/*   Created: 2023/10/23 16:20:10 by ruidos-s          #+#    #+#             */
+/*   Updated: 2023/10/23 16:59:29 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/* Counts the number of nodes in a list. */
+/* Returns the last node of the list. */
 
 #include "libft.h"
 
-int	ft_lstsize(t_list *lst)
+t_list	*ft_lstlast(t_list *lst)
 {
-	int	count;
-
-	count = 0;
-	while (lst)
+	if (!lst)
+		return (0);
+	while (lst->next)
 	{
-		count ++;
 		lst = lst->next;
 	}
-	return (count);
+	return (lst);
 }
-/* 
-int	main(void)
+/* int	main(void)
 {
 	int		a = 10;
 	int		b = 15;
@@ -38,12 +35,12 @@ int	main(void)
 	t_list	*b_node = ft_lstnew(&b);
 	t_list	*c_node = ft_lstnew(&c);
 
-
 	ft_lstadd_front(&lista, a_node);
 	ft_lstadd_front(&lista, b_node);
 	ft_lstadd_front(&lista, c_node);
 
-	printf("lst size: %d\n",ft_lstsize(lista));
+	t_list *last = (void *)ft_lstlast(lista);
+	printf("ultimo da lista: %d\n", *((int *)(last->content)));
 
 	t_list *current = lista;
 	while (current)
@@ -67,5 +64,4 @@ int	main(void)
 	free(c_node);
 	return (0);
 }
-
  */
