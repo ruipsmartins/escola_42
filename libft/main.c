@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 17:05:34 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/23 12:53:26 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/23 16:14:26 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,10 @@
 
 int	main(void)
 {
-	int		a;
-	int		b;
-	int		c;
-	t_list *lista;
-
-	lista = NULL;
-	a = 10;
-	b = 15;
-	c = 20;
+	int		a = 10;
+	int		b = 15;
+	int		c = 20;
+	t_list *lista = NULL;
 
 	t_list	*a_node = ft_lstnew(&a);
 	t_list	*b_node = ft_lstnew(&b);
@@ -36,10 +31,12 @@ int	main(void)
 	ft_lstadd_front(&lista, b_node);
 	ft_lstadd_front(&lista, c_node);
 
+	printf("lst size: %d\n",ft_lstsize(lista));
+
 	t_list *current = lista;
 	while (current)
 	{
-		printf("Conteúdo do nó: ");
+		printf("Conteúdo do node: ");
 		if (current->content)
 		{
 			printf("%d (int)\n", *((int *)(current->content)));
@@ -49,7 +46,7 @@ int	main(void)
 			printf("Nulo\n");
 		}
 
-		// Move para o próximo nó
+		// Move para o próximo node
 		current = current->next;
 	}
 

@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/23 11:53:51 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/23 15:57:49 by ruidos-s         ###   ########.fr       */
+/*   Created: 2023/10/23 16:01:23 by ruidos-s          #+#    #+#             */
+/*   Updated: 2023/10/23 16:18:08 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/* SYNOPSIS: add new element at beginning of list
-Adds the node ’new’ at the beginning of the list. */
+/* Counts the number of nodes in a list. */
 #include "libft.h"
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+int	ft_lstsize(t_list *lst)
 {
-	if (!new || !lst)
-		return ;
-	new->next = *lst;
-	*lst = new;
+	int	count;
+
+	count = 0;
+	while (lst)
+	{
+		count ++;
+		lst = lst->next;
+	}
+	return (count);
 }
 /* 
 int	main(void)
@@ -37,6 +41,8 @@ int	main(void)
 	ft_lstadd_front(&lista, a_node);
 	ft_lstadd_front(&lista, b_node);
 	ft_lstadd_front(&lista, c_node);
+
+	printf("lst size: %d\n",ft_lstsize(lista));
 
 	t_list *current = lista;
 	while (current)
@@ -60,4 +66,5 @@ int	main(void)
 	free(c_node);
 	return (0);
 }
+
  */

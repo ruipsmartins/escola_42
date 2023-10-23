@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 14:37:58 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/23 11:54:41 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/23 16:02:13 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,6 @@ void	ft_putnbr_fd(int n, int fd);
 //Bonus part
 t_list	*ft_lstnew(void *content);
 void	ft_lstadd_front(t_list **lst, t_list *new);
+int		ft_lstsize(t_list *lst);
 
 #endif

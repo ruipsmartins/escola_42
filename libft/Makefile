@@ -6,7 +6,7 @@
 #    By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/04 14:19:42 by ruidos-s          #+#    #+#              #
-#    Updated: 2023/10/23 11:54:10 by ruidos-s         ###   ########.fr        #
+#    Updated: 2023/10/23 16:01:47 by ruidos-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ OBJS = $(SRCS:.c=.o)
 
 NAME = libft.a
 
-BONUS = ft_lstnew.c ft_lstadd_front.c
+BONUS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c
 
 BONUS_OBJS = $(BONUS:.c=.o)
 
