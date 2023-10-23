@@ -6,7 +6,7 @@
 #    By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/04 14:19:42 by ruidos-s          #+#    #+#              #
-#    Updated: 2023/10/22 18:38:43 by ruidos-s         ###   ########.fr        #
+#    Updated: 2023/10/23 11:54:10 by ruidos-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ OBJS = $(SRCS:.c=.o)
 
 NAME = libft.a
 
-BONUS = ft_lstnew.c
+BONUS = ft_lstnew.c ft_lstadd_front.c
 
 BONUS_OBJS = $(BONUS:.c=.o)
 
@@ -50,7 +50,7 @@ bonus:	$(OBJS) $(BONUS_OBJS)
 				ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
 
 test: $(SRCS) main.c
-	$(CC) $(CFLAGS) $(SRCS) main.c -o teste_main -lbsd
+	$(CC) $(CFLAGS) $(SRCS) $(BONUS) main.c -o teste_main -lbsd
 
 git:
 	git add .

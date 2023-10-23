@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 17:49:38 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/22 18:34:10 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/23 11:45:18 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,3 +28,34 @@ t_list	*ft_lstnew(void *content)
 	new->next = NULL;
 	return (new);
 }
+/*
+int	main(void)
+{
+	int		int_data;
+	float	float_data;
+	char	char_data;
+
+	int_data = 10;
+	float_data = 15.7;
+	char_data = 'Z';
+
+	t_list	*int_node = ft_lstnew(&int_data);
+	t_list	*float_node = ft_lstnew(&float_data);
+	t_list	*char_node = ft_lstnew(&char_data);
+
+	int_node->next = float_node;
+	float_node->next = char_node;
+
+	printf("conteudo do int_node: %d\n", *(int *)int_node->content);
+	printf("conteudo do float_node: %f\n", *(float *)float_node->content);
+	printf("conteudo do char_node: %c\n", *(char *)char_node->content);
+
+	printf("conteudo do char_node atravez do 
+	float_node %c\n",*(char *)float_node->next->content);
+
+	free(int_node);
+	free(float_node);
+	free(char_node);
+	return (0);
+}
+ */
