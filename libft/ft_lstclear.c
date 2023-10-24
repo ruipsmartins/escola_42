@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 16:40:21 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/24 16:59:53 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/24 19:24:33 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,15 @@ NULL. */
 
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	t_list	*node;
+	t_list	*aux;
 
 	if (!*lst)
 		return ;
 	while (*lst)
 	{
-		node = (*lst)->next;
-		ft_lstdelone(*lst, del);
-		*lst = node;
+		aux = *lst;
+		*lst = (*lst)->next;
+		ft_lstdelone(aux, del);
 	}
 	*lst = NULL;
 }
