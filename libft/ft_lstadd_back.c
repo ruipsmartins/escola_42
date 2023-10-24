@@ -1,21 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/04 17:05:34 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/24 11:59:19 by ruidos-s         ###   ########.fr       */
+/*   Created: 2023/10/24 11:23:04 by ruidos-s          #+#    #+#             */
+/*   Updated: 2023/10/24 11:57:57 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <string.h>
-#include <ctype.h>
-#include <fcntl.h>
+/* Adds the node ’new’ at the end of the list. */
 
-int	main(void)
+#include "libft.h"
+
+void	ft_lstadd_back(t_list **lst, t_list *new)
+{
+	t_list	*last_node;
+
+	if (!new)
+		return ;
+	if (!*lst)
+	{
+		*lst = new;
+		return ;
+	}
+	last_node = ft_lstlast(*lst);
+	last_node->next = new;
+}
+/* int	main(void)
 {
 	int		a = 10;
 	int		b = 15;
@@ -28,7 +41,7 @@ int	main(void)
 
 	ft_lstadd_front(&lista, c_node);
 	ft_lstadd_front(&lista, a_node);
-	ft_lstadd_back(&lista, b_node);
+	ft_lstadd_back(NULL, b_node);
 
 
 	t_list *current = lista;
@@ -51,3 +64,4 @@ int	main(void)
 	return (0);
 }
 
+ */
