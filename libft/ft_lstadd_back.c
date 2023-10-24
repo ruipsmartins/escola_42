@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 11:23:04 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/24 11:57:57 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/24 12:02:14 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 
 	ft_lstadd_front(&lista, c_node);
 	ft_lstadd_front(&lista, a_node);
-	ft_lstadd_back(NULL, b_node);
+	ft_lstadd_back(&lista, b_node);
 
 
 	t_list *current = lista;
