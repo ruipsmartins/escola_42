@@ -6,7 +6,7 @@
 #    By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/04 14:19:42 by ruidos-s          #+#    #+#              #
-#    Updated: 2023/10/25 13:10:11 by ruidos-s         ###   ########.fr        #
+#    Updated: 2023/10/25 15:10:46 by ruidos-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	ar rc $(NAME) $(OBJS)
-	ranlib $(NAME)
+	
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -44,11 +44,13 @@ clean:
 fclean: clean
 	rm -f $(NAME)
 	rm -f ./test*
+	rm -f bonus
 
 re: fclean all bonus
 
 bonus:	$(OBJS) $(BONUS_OBJS)
 				ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
+				@touch bonus
 
 test: $(SRCS) main.c
 	$(CC) $(CFLAGS) $(SRCS) $(BONUS) main.c -o teste_main -lbsd
