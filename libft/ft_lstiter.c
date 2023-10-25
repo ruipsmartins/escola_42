@@ -1,21 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/04 17:05:34 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/25 12:50:28 by ruidos-s         ###   ########.fr       */
+/*   Created: 2023/10/25 12:00:19 by ruidos-s          #+#    #+#             */
+/*   Updated: 2023/10/25 12:51:02 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <string.h>
-#include <ctype.h>
-#include <fcntl.h>
+/*Iterates the list ’lst’ and applies the function
+’f’ on the content of each node.*/
 
-void    ft_test(void *content)
+#include "libft.h"
+
+void	ft_lstiter(t_list *lst, void (*f)(void *))
+{
+	if (!lst)
+		return ;
+	while (lst)
+	{
+		f(lst->content);
+		lst = lst->next;
+	}
+}
+
+/*void    ft_test(void *content)
 {
     char	*str;
 
@@ -52,5 +63,4 @@ int main(void)
     ft_lstclear(&node_a, free);
 	
     return (0);
-}
-
+}*/
