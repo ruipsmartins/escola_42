@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 17:05:34 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/25 11:24:23 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/25 11:40:48 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,20 +38,19 @@ int main(void)
         current = current->next;
     }
 
-    ft_lstdelone(node_b, &ft_del);
-	//node_a->next = node_c;
-    printf("Conteúdo depois da ft_lstdelone:\n");
+    ft_lstclear(&node_b, &ft_del);
+	node_a->next = NULL;
     current = node_a;
+    printf("Conteúdo depois da ft_lstdelone:\n");
     while (current)
     {
         printf("%s\n", (char *)(current->content));
         current = current->next;
     }
 
-    // Liberando a memória dos nós restantes
     free(node_a);
-    free(node_c);
-
+	//free(node_b);
+    //free(node_c);
     return (0);
 }
 

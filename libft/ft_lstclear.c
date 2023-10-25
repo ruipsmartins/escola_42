@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 16:40:21 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/24 19:24:33 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/25 11:41:37 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,41 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 	}
 	*lst = NULL;
 }
-//FAZER TESTES!!!!!!!!!!!!!
+/*void    ft_del(void *content)
+{
+    free(content);
+}
+
+int main(void)
+{
+
+    t_list *node_a = ft_lstnew(ft_strdup("um"));
+    t_list *node_b = ft_lstnew(ft_strdup("dois"));
+    t_list *node_c = ft_lstnew(ft_strdup("tres"));
+
+    node_a->next = node_b;
+    node_b->next = node_c;
+
+    printf("Conteúdo antes da ft_lstdelone:\n");
+    t_list *current = node_a;
+    while (current)
+    {
+        printf("%s\n", (char *)(current->content));
+        current = current->next;
+    }
+
+    ft_lstclear(&node_b, &ft_del);
+	node_a->next = NULL;
+    current = node_a;
+    printf("Conteúdo depois da ft_lstdelone:\n");
+    while (current)
+    {
+        printf("%s\n", (char *)(current->content));
+        current = current->next;
+    }
+
+    free(node_a);
+	//free(node_b);
+    //free(node_c);
+    return (0);
+}*/
