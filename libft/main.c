@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 17:05:34 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/24 16:42:15 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/25 11:08:43 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,53 +15,48 @@
 #include <ctype.h>
 #include <fcntl.h>
 
-void ft_del(void *node)
+void    ft_del(void *content)
 {
-	t_list *new_node = (t_list *)node;
-	new_node->content = NULL;
+    content = NULL;
 }
 
-int    main(void)
+int main(void)
 {
-	int        a = 100;
-	int        b = 200;
-	int        c = 300;
-	t_list *lista = NULL;
+    int a = 10;
+    int b = 20;
+    int c = 30;
 
-	t_list    *a_node = ft_lstnew(&a);
-	t_list    *b_node = ft_lstnew(&b);
-	t_list    *c_node = ft_lstnew(&c);
+    t_list *node_a = ft_lstnew(&a);
+    t_list *node_b = ft_lstnew(&b);
+    t_list *node_c = ft_lstnew(&c);
 
-	ft_lstadd_front(&lista, c_node);
-	ft_lstadd_front(&lista, b_node);
-	ft_lstadd_front(&lista, a_node);
+    // Criando a lista encadeada
+    node_a->next = node_b;
+    node_b->next = node_c;
 
-	t_list *current = lista;
-	while (current)
-	{
-		if (current->content)
-		{
-			printf("Conteúdo do node: %d\n", *((int *)(current->content)));
-		}
-		current = current->next;
-	}
-	printf("depois de apagar:\n");
-	ft_lstdelone(c_node, &ft_del);
-	b_node->next = NULL;
-	lista = a_node;
-	current = lista;
-	while (current)
-	{
-		if (current->content)
-		{
-			printf("Conteúdo do node: %d\n", *((int *)(current->content)));
-		}
-		current = current->next;
-	}
+    printf("Conteúdo antes da deleção:\n");
+    t_list *current = node_a;
+    while (current)
+    {
+        printf("%d\n", *((int *)(current->content)));
+        current = current->next;
+    }
 
-	free(a_node);
-	free(b_node);
-	//free(c_node);
-	return (0);
+    // Deletando um nó específico da lista
+    ft_lstdelone(node_b, &ft_del);
+	node_a->next = node_c;
+    printf("Conteúdo depois da deleção:\n");
+    //current = node_a;
+    while (current)
+    {
+        printf("%d\n", *((int *)(current->content)));
+        current = current->next;
+    }
+
+    // Liberando a memória dos nós restantes
+    free(node_a);
+    free(node_c);
+
+    return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 11:53:51 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/23 19:35:47 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/25 10:28:48 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ int	main(void)
 		{
 			printf("%d (int)\n", *((int *)(current->content)));
 		}
-		// Move para o próximo node
 		current = current->next;
 	}
 
