@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 13:05:41 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/25 13:11:17 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/25 13:13:46 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,10 @@ delete the content of a node if needed.*/
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list new_lst;
+	t_list new_list;
 	
+	if (!lst || !f)
+		return NULL;
+	
+	return (new_list)
 }
