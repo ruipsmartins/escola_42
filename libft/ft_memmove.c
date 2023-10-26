@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 12:08:29 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/26 16:30:15 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/26 19:28:51 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,25 +19,23 @@ then copied from the temporary array to dest. */
 
 void	*ft_memmove(void *dest, const void *src, size_t len)
 {
-	size_t			i;
-	unsigned char	*ptr;
-	unsigned char	*ptr2;
+	const char	*s;
+	char		*d;
 
-	ptr = (unsigned char*)dest;
-	ptr2 = (unsigned char*)src;
-	i = 0;
-	if (ptr == NULL && ptr2 == NULL)
-		return (NULL);
-	if (ptr2 < ptr)
-		while (++i <= len)
-			ptr[len - i] = ptr2[len - i];
-	else
-		while (len-- > 0)
-			*(ptr++) = *(ptr2++);
-	return (dest);
+	d = dest;
+	s = src;
+	if (d == s)
+		return (d);
+	else if (s < d)
+		while (len)
+		{
+			len--;
+			d[len] = s[len];
+		}
+	else if (s > d)
+		ft_memcpy(d, s, len);
+	return (d);
 }
-
-
 
 /*
 #include <stdio.h>
