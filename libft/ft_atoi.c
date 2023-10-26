@@ -6,12 +6,15 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 17:22:02 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/16 11:38:55 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/26 11:16:14 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //convert ASCII string to integer.
-int	ft_atoi(char *str)
+
+#include "libft.h"
+
+int	ft_atoi(const char *str)
 {
 	int	i;
 	int	sign;

@@ -6,12 +6,16 @@
 #    By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/04 14:19:42 by ruidos-s          #+#    #+#              #
-#    Updated: 2023/10/25 15:10:46 by ruidos-s         ###   ########.fr        #
+#    Updated: 2023/10/26 11:20:32 by ruidos-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+NAME = libft.a
+
 CC = cc
-CFLAGS = -Wall -Wextra -Werror 
+
+CFLAGS = -Wall -Wextra -Werror
+
 SRCS = 	ft_atoi.c  ft_isalnum.c  ft_isalpha.c  ft_isascii.c  ft_isdigit.c  ft_isprint.c\
 		ft_strlen.c ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c ft_strlcpy.c\
 		ft_strlcat.c ft_toupper.c ft_tolower.c ft_strchr.c ft_strrchr.c ft_strncmp.c\
@@ -21,7 +25,6 @@ SRCS = 	ft_atoi.c  ft_isalnum.c  ft_isalpha.c  ft_isascii.c  ft_isdigit.c  ft_is
 		
 OBJS = $(SRCS:.c=.o)
 
-NAME = libft.a
 
 BONUS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c\
 		ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c 
@@ -38,14 +41,11 @@ $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJS)
-	rm -f $(BONUS_OBJS)
+	rm -f $(OBJS) $(BONUS_OBJS) bonus
 	
 fclean: clean
-	rm -f $(NAME)
-	rm -f ./test*
-	rm -f bonus
-
+	rm -f $(NAME) ./test*
+	
 re: fclean all bonus
 
 bonus:	$(OBJS) $(BONUS_OBJS)
