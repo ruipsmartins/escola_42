@@ -6,7 +6,7 @@
 #    By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/04 14:19:42 by ruidos-s          #+#    #+#              #
-#    Updated: 2023/10/26 11:20:32 by ruidos-s         ###   ########.fr        #
+#    Updated: 2023/10/26 13:20:27 by ruidos-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,7 +49,7 @@ fclean: clean
 re: fclean all bonus
 
 bonus:	$(OBJS) $(BONUS_OBJS)
-				ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
+				ar rc $(NAME) $(OBJS) $(BONUS_OBJS)
 				@touch bonus
 
 test: $(SRCS) main.c

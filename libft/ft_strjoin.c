@@ -6,11 +6,14 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 15:46:33 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/16 12:24:20 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/26 13:41:13 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//concatenate two strings into a new string (with malloc)
+/*Allocates (with malloc(3)) and returns a new
+string, which is the result of the concatenation
+of ’s1’ and ’s2’*/
+
 #include "libft.h"
 
 char	*ft_strjoin(char const *s1, char const *s2)

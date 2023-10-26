@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 12:31:31 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/16 11:39:44 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/26 15:06:41 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,12 @@ void	ft_bzero(void *s, size_t len)
 	ft_memset(s, '\0', len);
 }
 
-/* 
+/*
+#include <stdio.h>
+
 int	main(void)
 {
-	char	str[50] = "Hello World!";
+	char	str[] = "Hello World!";
 
 	printf("antes do ft_bzero: %s\n", str);
 	ft_bzero(str + 5, 5);
