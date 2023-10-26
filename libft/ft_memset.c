@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 09:47:37 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/26 15:04:46 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/26 15:38:16 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 	area pointed to by s with the constant byte c. */
 #include "libft.h"
 
-void	*ft_memset(void *b, int c, size_t len)
+void	*ft_memset(void *s, int c, size_t len)
 {
 	while (len--)
-		((unsigned char *)b)[len] = (unsigned char)c;
-	return (b);
+		((char *)s)[len] = (char)c;
+	return (s);
 }
 
 /*
@@ -27,9 +27,17 @@ void	*ft_memset(void *b, int c, size_t len)
 int    main(void)
 {
     char    str[] = "Hello World!";
+	int		numbers[5];
 
     printf("antes do ft_memset: %s\n", str);
-    ft_memset(str,'x', 5);
+    ft_memset(str,'X', 5);
     printf("depois do ft_memset: %s\n", str);
+
+    ft_memset(numbers, 0, sizeof(numbers));
+    
+    for (int i = 0; i < 5; ++i) {
+        printf("%d ", numbers[i]);
+    }
+    
     return (0);
 } */

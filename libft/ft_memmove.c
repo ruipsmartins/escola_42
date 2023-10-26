@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 12:08:29 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/16 11:54:50 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/26 16:30:15 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,43 +19,43 @@ then copied from the temporary array to dest. */
 
 void	*ft_memmove(void *dest, const void *src, size_t len)
 {
-	size_t	i;
+	size_t			i;
+	unsigned char	*ptr;
+	unsigned char	*ptr2;
 
+	ptr = (unsigned char*)dest;
+	ptr2 = (unsigned char*)src;
 	i = 0;
-	if (!dest && !src)
-		return (0);
-	if ((size_t)dest - (size_t)src < len)
-	{
-		i = len - 1;
-		while (i < len)
-		{
-			((unsigned char *)dest)[i] = ((unsigned char *)src)[i];
-			i--;
-		}
-	}
+	if (ptr == NULL && ptr2 == NULL)
+		return (NULL);
+	if (ptr2 < ptr)
+		while (++i <= len)
+			ptr[len - i] = ptr2[len - i];
 	else
-	{
-		while (i < len)
-		{
-			((char *)dest)[i] = ((char *)src)[i];
-			i++;
-		}
-	}
+		while (len-- > 0)
+			*(ptr++) = *(ptr2++);
 	return (dest);
 }
 
-/* int	main(void)
+
+
+/*
+#include <stdio.h>
+
+int	main(void)
 {
-	char	destino[20];
-	char	original[] = "Olá, mundo!";
+	char	original[] = "hello, world!";
+	char	destino[5];
 
 // Copia a string original para a string destino.
-	ft_memmove(original + 2, original, sizeof(original));
-
+	//ft_memmove(destino, original, 20);
+	printf("(size_t)destino: %zu\n",(size_t)destino);
+	printf("(size_t)original: %zu\n",(size_t)original);
+	memmove(destino, original, ft_strlen(original));
   // Imprime a string destino.
-	//printf("%s\n", destino);
 	
-	puts(original);
+	printf("original: %s\n", original);
+	printf("destino: %s\n", destino);
 	return (0);
 }
- */
+*/
