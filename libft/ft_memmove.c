@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 12:08:29 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/26 19:28:51 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/27 10:51:01 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,33 +27,29 @@ void	*ft_memmove(void *dest, const void *src, size_t len)
 	if (d == s)
 		return (d);
 	else if (s < d)
+	{
 		while (len)
 		{
 			len--;
 			d[len] = s[len];
 		}
+	}
 	else if (s > d)
 		ft_memcpy(d, s, len);
 	return (d);
 }
 
-/*
-#include <stdio.h>
+/* #include <stdio.h>
 
-int	main(void)
+int    main(void)
 {
-	char	original[] = "hello, world!";
-	char	destino[5];
+   char str[] = "ABCDEFGH";
 
-// Copia a string original para a string destino.
-	//ft_memmove(destino, original, 20);
-	printf("(size_t)destino: %zu\n",(size_t)destino);
-	printf("(size_t)original: %zu\n",(size_t)original);
-	memmove(destino, original, ft_strlen(original));
-  // Imprime a string destino.
-	
-	printf("original: %s\n", original);
-	printf("destino: %s\n", destino);
-	return (0);
+    ft_memmove(str + 2, str, 7);
+    //ft_memcpy(str + 2, str, 7);
+  
+    
+    printf("sorce: %s\n", str);
+    return (0);
 }
-*/
+} */
