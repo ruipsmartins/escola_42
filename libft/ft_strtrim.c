@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 10:09:49 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/16 17:28:09 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/27 19:04:03 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,10 @@ char	*ft_strtrim(char const *s1, char const *set)
 		i--;
 	return (ft_substr(s1, 0, i + 1));
 }
+/* 
+#include <stdio.h>
 
-/* int	main(void)
+int	main(void)
 {
 	char	*s = "ola hello world! allll";
 	char	*trim = "alo ";

@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 12:00:24 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/16 16:59:36 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/27 19:33:28 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,21 +41,19 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	substring[i] = '\0';
 	return (substring);
 }
-/* int	main(void)
-{
-	char *original = "";
-	char *substring = ft_substr(original, 1, -1);
 
-	if (substring != NULL)
+/* #include <stdio.h>
+
+int	main(void)
+{
+	char *original = "Hello world!";
+	char *substring = ft_substr(original, 3, 5);
+
+	if (substring)
 	{
 		printf("Substring: %s\n", substring);
 		free(substring);
 	}
-	else
-	{
-		printf("Failed to create substring.\n");
-	}
-
 	return (0);
 }
- */
+  */
