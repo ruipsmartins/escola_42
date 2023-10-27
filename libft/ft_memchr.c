@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 12:03:37 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/16 11:47:59 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/27 16:24:53 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,12 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	}
 	return (0);
 }
+/* #include <stdio.h>
 
-/* int	main(void)
+ int	main(void)
 {
 	printf("strchr: %p\n", memchr("teste", 'e', 3));
 	printf("ft_strchr: %p\n", ft_memchr( "teste", 'e', 3));
 	return (0);
-} */
+}
+ */

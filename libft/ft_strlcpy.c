@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 12:37:23 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/16 12:26:59 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/27 11:49:56 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,16 +45,18 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 	return (sizesrc);
 }
 
-/* int	main(void)
+/* #include <stdio.h>
+
+ int	main(void)
 {
 	char	src[] = "Hello, World!";
-	char	dest[15];
+	char	dest[10];
 	int		len = ft_strlcpy(dest, src, sizeof(dest));
 
-	printf("sizeof(dest):%ld\n", sizeof(dest));
+	//printf("sizeof(): %li\n",sizeof(src));
 	printf("String copiada: %s\n", dest);
 	printf("Tamanho da string de origem: %d\n", len);
 
 	return (0);
 }
- */
+  */

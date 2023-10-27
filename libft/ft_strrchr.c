@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 14:17:46 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/16 12:34:13 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/27 16:06:29 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,11 @@ char	*ft_strrchr(const char *s, int c)
 	return ((char *)&s[i]);
 }
 
-/* int	main(void)
+/* #include <stdio.h>
+
+ int	main(void)
 {
-	printf("strrchr: %s\n", strrchr("teste", 'e'));
-	printf("ft_strrchr: %s\n", ft_strrchr( "101teste", 'e'));
+	printf("strrchr: %s\n", strrchr("teste 123 ", 'e'));
+	printf("ft_strrchr: %s\n", ft_strrchr( "teste 123", 'e'));
 	return (0);
-} */
+}  */

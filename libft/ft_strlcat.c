@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 18:12:46 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/16 12:26:36 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/27 12:15:18 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,14 +43,16 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 	return (ft_strlen(dest) + ft_strlen(&src[i]));
 }
 
-/* int	main(void)
+/* #include <stdio.h>
+
+int	main(void)
 {
 	char dest[20] = "Hello, ";
     char src[] = "World!";
 
-    size_t len = ft_strlcat(dest, src, sizeof(dest));
+    size_t len = ft_strlcat(dest, src, 18);
 
     printf("String concatenada: %s\n", dest);
     printf("Tamanho da string resultante: %zu\n", len);
 	return (0);
-} */
+}  */

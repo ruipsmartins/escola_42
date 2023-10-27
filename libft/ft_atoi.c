@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 17:22:02 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/26 11:16:14 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/27 17:57:37 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,14 +43,18 @@ int	ft_atoi(const char *str)
 	return (res * sign);
 }
 
-/* #include <stdio.h>
+/*  #include <stdio.h>
 
 int	main(void)
 {
-	int	nbr;
+	int		nbr;
+	int		nbr2;
+	char	str[] = " \t   -007 8";
 	
-		nbr = ft_atoi("\007 8");
-		printf("%d\n", nbr);
+	nbr = ft_atoi(str);
+	nbr2 = atoi(str);
+	printf("%d\n", nbr);
+	printf("%d\n", nbr2);
 	
 	return (0);
 }  */

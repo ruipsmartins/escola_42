@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 16:08:57 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/16 12:31:12 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/27 16:09:14 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,9 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	}
 	return ((unsigned char)(s1[i]) - (unsigned char)(s2[i]));
 }
+/* #include <stdio.h>
 
-/* int	main(void)
+ int	main(void)
 {
 	printf("strncmp: %d\n", strncmp("abc", "abc", 7));
 	printf("ft_strncmp: %d\n", ft_strncmp("abc", "abc", 7));
@@ -40,4 +41,4 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	printf("strncmp: %d\n", strncmp("abcdef", "abc\375xx", 5));
     printf("ft_strncmp: %d\n", ft_strncmp("abcdef", "abc\375xx", 5));
 	return (0);
-} */
+}  */

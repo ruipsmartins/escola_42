@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 10:43:15 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/16 12:00:11 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/27 18:37:10 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,17 +32,18 @@ char	*ft_strdup(const char *s)
 	dup[i] = '\0';
 	return (dup);
 }
+/* #include <stdio.h>
 
-/* int	main(void)
+ int	main(void)
 {
 	char	*str1;
 	char	*str2;
 
-	str1 = strdup("um");
-	str2 = ft_strdup("dois");
-	printf("%s %s\n", str1, str2);
+	str1 = strdup("NULL");
+	str2 = ft_strdup(NULL);
+	printf("strdup: %s\n", str1);
+	printf("ft_strdup: %s\n", str2);
 	free(str1);
 	free(str2);
 	return (0);
-}
- */
+} */

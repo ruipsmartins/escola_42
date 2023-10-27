@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 12:08:29 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/27 11:03:43 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/27 11:32:03 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ void	*ft_memmove(void *dest, const void *src, size_t len)
 		ft_memcpy(d, s, len);
 	return (d);
 }
-/* 
- #include <stdio.h>
+
+/*  #include <stdio.h>
 
 int    main(void)
 {
@@ -51,5 +51,4 @@ int    main(void)
 
     printf("str: %s\n", str);
     return (0);
-}
- */
+} */

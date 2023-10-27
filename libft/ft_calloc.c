@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 15:09:43 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/16 11:41:45 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/27 18:26:27 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,26 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	return (dest);
 }
 
-/* int	main(void)
+/* #include <stdio.h>
+
+int	main(void)
 {
 	int		*array1;
 	int		*array2;
 	size_t	num_elements = 10;
 	size_t	i;
+	int		*junk;
 
-	array1 = (int *)calloc(num_elements, sizeof(int));
-	array2 = (int *)ft_calloc(num_elements, 8);
+	junk = malloc(10*sizeof(int));
+
+	for (size_t i = 0; i < 10; i++)
+	{
+		junk[i] = i;
+	}
+	free(junk);
+
+	array1 = (int *)ft_calloc(num_elements, sizeof(int));
+	array2 = (int *)calloc(num_elements, sizeof(int));
 
 	i = 0;
 	printf("Array1 com zeros: ");
@@ -52,7 +63,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 		printf("%d ", array2[i]);
 		i++;
 	}
-	
+	printf("\n");
 	free(array1);
 	free(array2);
 
