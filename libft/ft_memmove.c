@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 12:08:29 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/27 10:51:01 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/27 11:03:43 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,18 +38,18 @@ void	*ft_memmove(void *dest, const void *src, size_t len)
 		ft_memcpy(d, s, len);
 	return (d);
 }
-
-/* #include <stdio.h>
+/* 
+ #include <stdio.h>
 
 int    main(void)
 {
    char str[] = "ABCDEFGH";
 
-    ft_memmove(str + 2, str, 7);
-    //ft_memcpy(str + 2, str, 7);
-  
-    
-    printf("sorce: %s\n", str);
+    ft_memmove(str + 2, str, 6);
+    //ft_memcpy(str + 2, str, 6);
+	ft_memset(str,'0', 2);
+
+    printf("str: %s\n", str);
     return (0);
 }
-} */
+ */
