@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 14:18:53 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/20 10:22:15 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/28 16:43:34 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static char	*ft_words(char const *str, int inicio, int fim)
 	char	*word;
 	int		i;
 
-	word = (char *)malloc(fim - inicio + 1 * sizeof(char));
+	word = (char *)malloc((fim - inicio + 1) * sizeof(char));
 	if (!word)
 		return (NULL);
 	i = 0;
@@ -84,9 +84,12 @@ char	**ft_split(char const *s, char c)
 	box[j] = NULL;
 	return (box);
 }
-/* int	main(void)
+/* 
+#include <stdio.h>
+
+int	main(void)
 {
-	char	*str = "hello world    teste";
+	char	*str = "hello to this world!";
 	char	c = ' ';
 	int	i;
 	char	**box;
@@ -103,4 +106,4 @@ char	**ft_split(char const *s, char c)
 	free(box); 
 	return (0);
 }
- */
+   */
