@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 10:23:34 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/20 12:55:54 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/30 11:23:36 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,12 +58,18 @@ char	*ft_itoa(int n)
 	}
 	return (str_num);
 }
-/* int	main(void)
+/* 
+#include <stdio.h>
+
+int	main(void)
 {
-	int	num;
+	int		num;
+	char	*str;
 
 	num = -12345;
-	printf("ft_itoa: %s\n", ft_itoa(num));
+	str = ft_itoa(num);
+	printf("ft_itoa: %s\n", str);
+	free(str);
 	return (0);
 }
- */
+  */

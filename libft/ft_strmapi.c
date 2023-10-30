@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 14:05:26 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/20 15:16:24 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/30 11:29:22 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,9 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	result[i] = '\0';
 	return (result);
 }
-
-/* char	ft_teste(unsigned int i, char c)
+/*
+#include <stdio.h>
+char	ft_teste(unsigned int i, char c)
 {
 	i = 32;
 	if (c >= 'a' && c <= 'z')
@@ -54,4 +55,4 @@ int	main(void)
 	printf("ft_strmapi: %s\n", result);
 	free(result);
 	return (0);
-} */
+}  */
