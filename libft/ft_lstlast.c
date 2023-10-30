@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 16:20:10 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/30 12:04:37 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/30 12:11:46 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ t_list	*ft_lstlast(t_list *lst)
 		lst = lst->next;
 	return (lst);
 }
-/* 
-#include <stdio.h>
+
+/* #include <stdio.h>
 
 int	main(void)
 {
@@ -52,7 +52,6 @@ int	main(void)
 			printf("%d\n", *((int *)(current->content)));
 		}
 
-		// Move para o próximo node
 		current = current->next;
 	}
 
@@ -60,5 +59,4 @@ int	main(void)
 	free(b_node);
 	free(c_node);
 	return (0);
-}
- */
+} */

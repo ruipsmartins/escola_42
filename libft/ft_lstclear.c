@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 16:40:21 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/30 12:05:01 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/30 12:33:49 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 	}
 	*lst = NULL;
 }
-/*
-#include <stdio.h>
+
+/* #include <stdio.h>
 
 void    ft_del(void *content)
 {
@@ -50,7 +50,7 @@ int main(void)
     node_a->next = node_b;
     node_b->next = node_c;
 
-    printf("Conteúdo antes da ft_lstdelone:\n");
+    printf("Conteúdo antes da ft_lstclear:\n");
     t_list *current = node_a;
     while (current)
     {
@@ -61,7 +61,7 @@ int main(void)
     ft_lstclear(&node_b, &ft_del);
 	node_a->next = NULL;
     current = node_a;
-    printf("Conteúdo depois da ft_lstdelone:\n");
+    printf("Conteúdo depois da ft_lstclear:\n");
     while (current)
     {
         printf("%s\n", (char *)(current->content));
@@ -72,4 +72,4 @@ int main(void)
 	//free(node_b);
     //free(node_c);
     return (0);
-}*/
+} */

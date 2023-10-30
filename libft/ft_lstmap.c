@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 13:05:41 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/30 12:04:23 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/30 12:35:54 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	}
 	return (new_list);
 }
-/*
+
 #include <stdio.h>
 
 void    ft_test(void *content)
@@ -77,8 +77,8 @@ int main(void)
         current = current->next;
     }
 
-    //ft_lstclear(&node_a, free);
+    ft_lstclear(&node_a, free);
     ft_lstclear(&new_list, free);
 	
     return (0);
-}*/
+}
