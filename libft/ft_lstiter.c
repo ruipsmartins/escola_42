@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 12:00:19 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/25 12:51:02 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/30 12:04:47 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,10 @@ void	ft_lstiter(t_list *lst, void (*f)(void *))
 	}
 }
 
-/*void    ft_test(void *content)
+/*
+#include <stdio.h>
+
+void    ft_test(void *content)
 {
     char	*str;
 

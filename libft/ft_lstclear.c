@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 16:40:21 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/25 11:41:37 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/30 12:05:01 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,10 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 	}
 	*lst = NULL;
 }
-/*void    ft_del(void *content)
+/*
+#include <stdio.h>
+
+void    ft_del(void *content)
 {
     free(content);
 }

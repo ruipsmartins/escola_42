@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 11:53:51 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/25 10:28:48 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/30 12:05:08 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 	*lst = new;
 }
 /* 
+#include <stdio.h>
+
 int	main(void)
 {
 	int		a = 10;

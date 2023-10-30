@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 17:49:38 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/23 11:45:18 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/30 12:04:26 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,9 @@ t_list	*ft_lstnew(void *content)
 	new->next = NULL;
 	return (new);
 }
-/*
+/* 
+#include <stdio.h>
+
 int	main(void)
 {
 	int		int_data;

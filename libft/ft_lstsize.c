@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 16:01:23 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/23 19:34:51 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/30 12:08:00 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ int	ft_lstsize(t_list *lst)
 	return (count);
 }
 /* 
+#include <stdio.h>
+
 int	main(void)
 {
 	int		a = 10;
