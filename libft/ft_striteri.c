@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 15:46:42 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/26 13:40:26 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/10/30 11:32:17 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 	}
 }
 /* 
+#include <stdio.h>
+
 void	ft_teste(unsigned int i, char*c)
 {
 
