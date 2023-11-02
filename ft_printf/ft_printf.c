@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 15:36:27 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/11/02 10:46:51 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/11/02 11:22:16 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	ft_printf(const char *format, ...)
 			count += print_format(*(++format), ap);
 		else
 			count += write(1, format, 1);
-		++format;
+		format++;
 	}
 	va_end(ap);
 	return (count);
