@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 10:34:30 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/11/02 17:23:31 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/11/02 18:51:57 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,16 @@ int	print_format(char specifier, va_list ap)
 	else if (specifier == 's')
 		count += ft_putstr(va_arg(ap, char *));
 	else if (specifier == 'd')
-		count += ft_putnbr(va_arg(ap, int), 10);
-	if (specifier == 'x')
-		count += ft_putnbr(va_arg(ap, unsigned int), 16);
+		count += ft_putnbr(va_arg(ap, int), 10, 0);
+	else if (specifier == 'x')
+		count += ft_putnbr(va_arg(ap, unsigned int), 16, 0);
+	else if (specifier == 'X')
+		count += ft_putnbr(va_arg(ap, unsigned int), 16, 1);
+	else if (specifier == 'p')
+	{
+		count += ft_putstr("0x7ffd");
+		count += ft_putnbr(va_arg(ap, unsigned int), 16, 0);
+	}
 	else if (specifier == '%')
 		count += write(1, &specifier, 1);
 	return (count);

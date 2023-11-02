@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 09:33:36 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/11/02 17:29:40 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/11/02 18:26:20 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,20 @@
 
 int	main(void)
 {
-	int	count1;
-	int	count2;
+	int		count1;
+	int		count2;
+	char	c;
+	char	str[] = "hello";
+	int		num;
 
-	char	c = 'A';
-	char	str[]="hello";
-	int		num = -100;
-
+	c = 'A';
+	num = -42;
 	count1 = 0;
 	count2 = 0;
-	count1 = printf("teu_printf --> %%c=%c s=%s, d=%d, x=%x\n", c, str, num, num);
-	count2 = ft_printf("meu_printf --> %%c=%c s=%s, d=%d, x=%x\n", c, str, num, num);
+	count1 = printf("teu_printf --> %%c=%c s=%s, d=%d, x=%x X=%X p=%p\n", c,
+			str, num, num, num, &num);
+	count2 = ft_printf("meu_printf --> %%c=%c s=%s, d=%d, x=%x X=%X p=%p\n", c, str,
+			num, num, num, &num);
 	printf("\ncount1 = %d, count2 = %d\n", count1, count2);
 	return (0);
 }
