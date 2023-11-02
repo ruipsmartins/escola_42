@@ -1,44 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/22 12:07:16 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/11/02 12:10:36 by ruidos-s         ###   ########.fr       */
+/*   Created: 2023/11/02 16:57:50 by ruidos-s          #+#    #+#             */
+/*   Updated: 2023/11/02 17:24:03 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/* Outputs the integer ’n’ to the given file
-descriptor. */
 #include "libftprintf.h"
 
-int	ft_putnbr_fd(int n, int fd)
+int	ft_putnbr(long nbr, int base)
 {
-	int	count;
+	char	*symbols;
+	int		count;
 
+	symbols = "0123456789abcdef";
 	count = 0;
-	if (n == -2147483648)
+	if (nbr < 0)
 	{
-		ft_putstr_fd("-2147483648", fd);
-		count = 11;
+		write(1, "-", 1);
+		return (ft_putnbr(-nbr, base) + 1);
 	}
-	else if (n < 0)
+	if (nbr < base)
 	{
-		ft_putchar_fd('-', fd);
-		n *= -1;
-		ft_putnbr_fd(n, fd);
-	}
-	else if (n > 9)
-	{
-		ft_putnbr_fd(n / 10, fd);
-		ft_putnbr_fd(n % 10, fd);
+		return (ft_putchar(symbols[nbr]));
 	}
 	else
 	{
-		ft_putchar_fd(n + 48, fd);
-		count++;
+		count = ft_putnbr(nbr / base, base);
+		return (count + ft_putnbr(nbr % base, base));
 	}
-	return (count);
 }

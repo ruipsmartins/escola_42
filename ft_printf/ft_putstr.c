@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 10:33:15 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/11/02 11:45:53 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/11/02 17:24:46 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 descriptor. */
 #include "libftprintf.h"
 
-int	ft_putstr_fd(char *s, int fd)
+int	ft_putstr(char *s)
 {
 	int	count;
 
 	count = 0;
 	while (*s)
 	{
-		ft_putchar_fd(*s++, fd);
+		ft_putchar(*s++);
 		count++;
 	}
 	return (count);
