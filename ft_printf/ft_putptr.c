@@ -1,30 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_putptr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/22 10:33:15 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/11/06 12:23:12 by ruidos-s         ###   ########.fr       */
+/*   Created: 2023/11/06 14:02:31 by ruidos-s          #+#    #+#             */
+/*   Updated: 2023/11/06 14:43:11 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/* Outputs the string ’s’ to the given file
-descriptor. */
 #include "ft_printf.h"
 
-int	ft_putstr(char *s)
+int	ft_putptr(unsigned long nbr, int base, int reset)
 {
-	int	count;
+	int		count;
+	char	*symbols;
 
+	symbols = "0123456789abcdef";
 	count = 0;
-	if (s == NULL)
-		s = ("(null)");
-	while (*s)
+	if (reset == 1)
 	{
-		ft_putchar(*s++);
+		if (nbr == 0)
+			return (ft_putstr("(nil)"));
+		count += ft_putstr("0x");
+	}
+	if (nbr < (unsigned long)base)
+	{
+		ft_putchar(symbols[nbr]);
 		count++;
+	}
+	else
+	{
+		count += ft_putptr(nbr / base, base, 0);
+		count += ft_putptr(nbr % base, base, 0);
 	}
 	return (count);
 }

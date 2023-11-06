@@ -22,5 +22,6 @@ int	print_format(char specifier, va_list ap);
 int	ft_putchar(char c);
 int	ft_putstr(char *s);
 int	ft_putnbr(long nbr, int base, int upper);
+int	ft_putptr(unsigned long nbr, int base, int reset);
 
 #endif

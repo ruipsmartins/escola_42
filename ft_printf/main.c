@@ -6,11 +6,12 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 09:33:36 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/11/06 11:56:10 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/11/06 14:31:46 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <limits.h>
 
 int	main(void)
 {
@@ -30,9 +31,10 @@ int	main(void)
 			num, num, num, &num);
 	printf("\ncount1 = %d, count2 = %d\n", count1, count2);
 
-	count1 = printf(" NULL %p NULL \n", NULL);
-	count2 = ft_printf(" NULL %p NULL \n", NULL);
-	printf("\ncount1 = %d, count2 = %d\n", count1, count2);
+	ft_printf(" %p", NULL);
+	//ft_printf(" %p", LONG_MIN);
+
+	//printf("\ncount1 = %d, count2 = %d\n", count1, count2);
 
 	return (0);
 }
