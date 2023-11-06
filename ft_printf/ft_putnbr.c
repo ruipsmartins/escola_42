@@ -6,11 +6,11 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 16:57:50 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/11/02 17:41:54 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/11/06 09:57:22 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_toupper(int c)
 {

@@ -6,11 +6,11 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 15:36:27 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/11/02 11:22:16 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/11/06 09:57:24 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_printf(const char *format, ...)
 {
