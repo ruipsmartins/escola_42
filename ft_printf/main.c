@@ -6,12 +6,13 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 09:33:36 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/11/06 14:45:54 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/11/06 15:25:27 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <limits.h>
+# include <stdio.h>
 
 int	main(void)
 {
