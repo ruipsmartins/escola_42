@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 09:33:36 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/11/06 14:31:46 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/11/06 14:45:54 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,7 @@ int	main(void)
 	printf("\ncount1 = %d, count2 = %d\n", count1, count2);
 
 	ft_printf(" %p", NULL);
-	//ft_printf(" %p", LONG_MIN);
-
-	//printf("\ncount1 = %d, count2 = %d\n", count1, count2);
+	ft_printf(" %p", LONG_MIN);
 
 	return (0);
 }
