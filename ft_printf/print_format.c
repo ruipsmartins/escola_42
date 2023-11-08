@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 10:34:30 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/11/06 14:28:47 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/11/08 15:41:24 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	print_format(char specifier, va_list ap)
 		count += ft_putnbr(va_arg(ap, unsigned int), 16, 1);
 	else if (specifier == 'p')
 		count += ft_putptr(va_arg(ap, unsigned long), 16, 1);
-	else if (specifier == '%')
+	else
 		count += write(1, &specifier, 1);
 	return (count);
 }
