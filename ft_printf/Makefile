@@ -6,7 +6,7 @@
 #    By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/31 16:07:09 by ruidos-s          #+#    #+#              #
-#    Updated: 2023/11/06 14:03:31 by ruidos-s         ###   ########.fr        #
+#    Updated: 2023/11/08 10:13:00 by ruidos-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,7 @@ fclean: clean
 re: fclean all bonus
 
 test: $(SRCS) main.c
-	$(CC) $(CFLAGS) $(SRCS) libft.a main.c -o teste_main 
+	$(CC) $(CFLAGS) $(SRCS) main.c -o teste_main 
 
 git:
 	git add .
