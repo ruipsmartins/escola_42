@@ -1,28 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/13 12:25:22 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/11/13 16:33:11 by ruidos-s         ###   ########.fr       */
+/*   Created: 2023/11/13 16:16:18 by ruidos-s          #+#    #+#             */
+/*   Updated: 2023/11/13 16:28:29 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "get_next_line.h"
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 5
-# endif
+int	main(void)
+{
+	int		fd;
+	char	*line;
+	int		count;
 
-# include <stdio.h>
-# include <stdlib.h>
-# include <unistd.h>
-# include <fcntl.h>
-
-char	*get_next_line(int fd);
-void	*ft_calloc(size_t nmemb, size_t size);
-
-#endif
+	count = 0;
+	fd = open("file.txt", O_RDONLY);
+	if (fd == -1)
+	{
+		printf("Error opening file");
+		return (1);
+	}
+	while (1)
+	{
+		line = get_next_line(fd);
+		if (line == NULL)
+			break ;
+		count++;
+		printf("[%d]:%s\n", count, line);
+		free(line);
+		line = NULL;
+	}
+	close(fd);
+	return (0);
+}

@@ -6,12 +6,11 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 12:25:17 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/11/13 16:32:26 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/11/14 09:41:12 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {
@@ -23,6 +22,6 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	if (!dest)
 		return (0);
 	while (total--)
-		((char *)dest)[total] = (char)0;
+		((char *)dest)[total] = '\0';
 	return (dest);
 }
