@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 16:16:18 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/11/13 16:28:29 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/11/14 10:41:18 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	main(void)
 	int		count;
 
 	count = 0;
-	fd = open("file.txt", O_RDONLY);
+	fd = open("example.txt", O_RDONLY);
 	if (fd == -1)
 	{
 		printf("Error opening file");

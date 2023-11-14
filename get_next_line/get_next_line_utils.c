@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 12:25:17 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/11/14 09:41:12 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/11/14 10:50:17 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,23 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	while (total--)
 		((char *)dest)[total] = '\0';
 	return (dest);
+}
+
+char	*read_from_file(int fd)
+{
+	int			bytes_read;
+	char		*cup_buffer;
+	static int	count = 1;
+
+	printf("ft_calloc#[%d]---", count ++);
+	cup_buffer = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
+	if (!cup_buffer)
+		return (NULL);
+	bytes_read = read(fd, cup_buffer, BUFFER_SIZE);
+	if (bytes_read <= 0)
+	{
+		free(cup_buffer);
+		return (NULL);
+	}
+	return (cup_buffer);
 }
