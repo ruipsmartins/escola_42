@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 12:25:17 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/11/14 11:55:33 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/11/14 16:30:10 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,32 +26,33 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	return (dest);
 }
 
-void    print_newline_helper(char *buffer)
+int	ft_zeros(char *cup_buffer, char mode)
 {
+	int	i;
 
-    while (*buffer &&  *buffer != '\0')
-    {
-        if (*buffer == '\n') 
-        {
-            *buffer= '?';
-        }
-        printf("%c",*buffer);
-        buffer++;
-    }
+	i = 0;
+	if (mode == 'i')
+	{
+		while (cup_buffer[i] == 0 && i < BUFFER_SIZE)
+			i++;
+	}
+	if (mode == 'c')
+	{
+		while (i <= BUFFER_SIZE)
+			cup_buffer[i++] = 0;
+	}
+	return (i);
 }
 
-char	*read_from_file(int fd)
+char	*read_from_file(int fd, char *basin_buffer)
 {
 	int			bytes_read;
-	char		*cup_buffer;
-	static int	count = 1;
 
-	printf("ft_calloc#[%d]---", count ++);
+
 	cup_buffer = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
 	if (!cup_buffer)
 		return (NULL);
 	bytes_read = read(fd, cup_buffer, BUFFER_SIZE);
-	 print_newline_helper(cup_buffer);
 	if (bytes_read <= 0)
 	{
 		free(cup_buffer);
