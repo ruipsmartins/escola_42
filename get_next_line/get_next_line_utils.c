@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 12:25:17 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/11/14 10:50:17 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/11/14 11:55:33 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,20 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	return (dest);
 }
 
+void    print_newline_helper(char *buffer)
+{
+
+    while (*buffer &&  *buffer != '\0')
+    {
+        if (*buffer == '\n') 
+        {
+            *buffer= '?';
+        }
+        printf("%c",*buffer);
+        buffer++;
+    }
+}
+
 char	*read_from_file(int fd)
 {
 	int			bytes_read;
@@ -37,6 +51,7 @@ char	*read_from_file(int fd)
 	if (!cup_buffer)
 		return (NULL);
 	bytes_read = read(fd, cup_buffer, BUFFER_SIZE);
+	 print_newline_helper(cup_buffer);
 	if (bytes_read <= 0)
 	{
 		free(cup_buffer);
