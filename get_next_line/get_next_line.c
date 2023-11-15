@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 15:53:49 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/11/15 14:29:41 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/11/15 14:54:30 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,15 @@
 
 char	*get_next_line(int fd)
 {
-	static char	*small_buffer;
-	int			nbytes;
+	static char	*buffer;
+	char		*new_line;
 
-	small_buffer = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
-	if (!small_buffer)
-		return (NULL);
-	nbytes = read(fd, small_buffer, BUFFER_SIZE);
-	if (nbytes < 1)
+	if (fd < 0 || BUFFER_SIZE < 1 || read(fd, buffer, 0) < 0)
 	{
-		free(small_buffer);
 		return (NULL);
 	}
-	return (small_buffer);
+	new_line = ft_create_line(fd, buffer);
+	if (!new_line)
+		return (NULL);
+	return (new_line);
 }

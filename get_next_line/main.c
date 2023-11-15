@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 16:16:18 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/11/15 14:26:55 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/11/15 14:48:03 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	main(void)
 		line = get_next_line(fd);
 		if (!line)
 			break ;
-		printf("%d: %s\n", i, line);
+		printf("|%d: %s", i, line);
 		free(line);
 	}
 	free(line);
