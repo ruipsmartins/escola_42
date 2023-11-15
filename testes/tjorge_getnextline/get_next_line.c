@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 15:07:27 by tjorge-d          #+#    #+#             */
-/*   Updated: 2023/11/15 09:55:51 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/11/15 12:37:44 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char	*get_next_line(int fd)
 	return (new_line);
 }
 
-int	main(void)
+/* int	main(void)
 {
 	int		fd;
 	char	*line;
@@ -48,4 +48,4 @@ int	main(void)
 
 
 	return (0);
-}
+} */

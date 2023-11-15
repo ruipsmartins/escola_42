@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 15:53:49 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/11/15 10:24:30 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/11/15 14:15:56 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,17 @@
 
 char	*get_next_line(int fd)
 {
-	int			bytes_read;
-	char		*cup_buffer;
-	static int	count = 1;
+	char	*buffer;
+	int		nbytes;
 
-	printf("ft_calloc#[%d]---", count ++);
-	cup_buffer = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
-	if (!cup_buffer)
+	buffer = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
+	if (!buffer)
 		return (NULL);
-	bytes_read = read(fd, cup_buffer, BUFFER_SIZE);
-	if (bytes_read <= 0)
+	nbytes = read(fd, buffer, BUFFER_SIZE);
+	if (nbytes < 1)
 	{
-		free(cup_buffer);
+		free(buffer);
 		return (NULL);
 	}
-	return (cup_buffer);
+	return (buffer);
 }
