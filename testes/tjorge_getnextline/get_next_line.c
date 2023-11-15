@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/13 15:53:49 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/11/14 10:30:53 by ruidos-s         ###   ########.fr       */
+/*   Created: 2023/10/31 15:07:27 by tjorge-d          #+#    #+#             */
+/*   Updated: 2023/11/15 09:55:51 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,38 @@
 
 char	*get_next_line(int fd)
 {
-	int			bytes_read;
-	char		*cup_buffer;
-	static int	count = 1;
+	static char	buffer[BUFFER_SIZE + 1];
+	char		*new_line;
 
-	printf("ft_calloc#[%d]---", count ++);
-	cup_buffer = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
-	if (!cup_buffer)
-		return (NULL);
-	bytes_read = read(fd, cup_buffer, BUFFER_SIZE);
-	if (bytes_read <= 0)
+	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, buffer, 0) < 0)
 	{
-		free(cup_buffer);
+		ft_zeros(buffer, 'c');
 		return (NULL);
 	}
-	return (cup_buffer);
+	new_line = ft_line_creator(buffer, fd);
+	if (new_line == NULL)
+		return (NULL);
+	return (new_line);
+}
+
+int	main(void)
+{
+	int		fd;
+	char	*line;
+	int		i;
+
+	i = 0;
+	fd = open("file.txt", O_RDONLY);
+	while (++i)
+	{
+		line = get_next_line(fd);
+		if (!line)
+			break ;
+		printf("%d: %s", i, line);
+		free(line);
+	}
+	free(line);
+
+
+	return (0);
 }
