@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 12:25:17 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/11/15 16:16:32 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/11/15 17:01:53 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,25 +68,20 @@ char	*ft_create_line(int fd, char *buffer)
 {
 	char	*new_line;
 	int		nbytes;
-	int		i;
-	int		j;
-
-	new_line = (char *)ft_calloc(1, sizeof(char));
-	if (!new_line)
-		return (NULL);
 
 	buffer = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
 	if (!buffer)
 		return (NULL);
-
-	nbytes = read(fd, buffer, BUFFER_SIZE);
-	if (nbytes < 1)
+	new_line = ft_calloc(1, sizeof(char));
+	if (!new_line)
+		return (free(buffer), NULL);
+	while (1)//ver a partir daqui se o buffer tem /n
 	{
-		free(buffer);
-		return (NULL);
+		nbytes = read(fd, buffer, BUFFER_SIZE);
+		if (nbytes < 1)
+			return (free(buffer), new_line);
+		else
+			new_line = ft_strjoin(new_line, buffer);
 	}
-
-
-	new_line = buffer;
 	return (new_line);
 }
