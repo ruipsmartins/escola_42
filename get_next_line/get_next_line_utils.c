@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 12:25:17 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/11/15 17:01:53 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/11/16 14:39:58 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,19 @@ size_t	ft_strlen(const char *str)
 	return (i);
 }
 
+char	*ft_strchr(const char *s, int c)
+{
+	int	i;
+
+	i = 0;
+	while (s[i] != (char)c)
+	{
+		if (s[i] == '\0')
+			return (NULL);
+		i++;
+	}
+	return ((char *)&s[i]);
+}
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
@@ -55,7 +68,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		i++;
 	}
 	j = 0;
-	while (s2[j])
+	while (s2[j] && s2[j - 1] != '\n')
 	{
 		newstr[i + j] = s2[j];
 		j++;
@@ -69,19 +82,18 @@ char	*ft_create_line(int fd, char *buffer)
 	char	*new_line;
 	int		nbytes;
 
-	buffer = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
-	if (!buffer)
-		return (NULL);
 	new_line = ft_calloc(1, sizeof(char));
 	if (!new_line)
 		return (free(buffer), NULL);
-	while (1)//ver a partir daqui se o buffer tem /n
+	while (!ft_strchr(buffer, '\n'))
 	{
 		nbytes = read(fd, buffer, BUFFER_SIZE);
 		if (nbytes < 1)
 			return (free(buffer), new_line);
 		else
+		{
 			new_line = ft_strjoin(new_line, buffer);
+		}
 	}
 	return (new_line);
 }
