@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 12:25:17 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/11/16 16:56:44 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/11/16 17:10:36 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,11 +63,17 @@ char	*ft_strjoin(char *old_str, char *buffer)
 		return (free(old_str), NULL);
 	i = 0;
 	while (old_str[i])
-		new_str[i++] = old_str[i];
+	{
+		new_str[i] = old_str[i];
+		i++;
+	}
 	free(old_str);
 	j = 0;
 	while (buffer[j] && buffer[j - 1] != '\n')
-		new_str[i + j++] = buffer[j];
+	{
+		new_str[i + j] = buffer[j];
+		j++;
+	}
 	new_str[i + j] = '\0';
 	return (new_str);
 }
@@ -77,6 +83,7 @@ char	*ft_create_line(int fd, char *buffer)
 	char	*line;
 	int		nbytes;
 	int		i = 0;
+
 	line = malloc(1 * sizeof(char));
 	if (!line)
 		return (NULL);
@@ -85,15 +92,17 @@ char	*ft_create_line(int fd, char *buffer)
 	{
 		nbytes = read(fd, buffer, BUFFER_SIZE);
 		if (nbytes < 1)
-			return (NULL);
+			return (free(line), NULL);
 		else
 		{
 			line = ft_strjoin(line, buffer);
 		}
 	}
-	while(i < BUFFER_SIZE + 1)
+	while (i < BUFFER_SIZE + 1)
 	{
 		buffer[i++] = 0;
 	}
 	return (line);
 }
+// já esta a funcionar mais ou menos sem leaks, falta arranjar quando nao ten \n na ultima linha e ver quando o BUFFERSIZE é de numeros diferentes,
+// provavelmente o erro está quando eu estou a ver se o buffer tem um \n e depois nao estou a guardar o antigo e passa á frente
