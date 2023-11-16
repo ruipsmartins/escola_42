@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 12:25:22 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/11/16 14:50:11 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/11/16 16:59:06 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@
 char	*get_next_line(int fd);
 char	*ft_create_line(int fd, char *buffer);
 void	*ft_calloc(size_t nmemb, size_t size);
-size_t	ft_strlen(const char *str);
-char	*ft_strjoin(char const *s1, char const *s2);
+size_t	ft_strlen(char *str);
+char	*ft_strjoin(char *s1, char *s2);
 
 
 #endif

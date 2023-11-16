@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 12:25:17 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/11/16 14:39:58 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/11/16 16:56:44 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	return (dest);
 }
 
-size_t	ft_strlen(const char *str)
+size_t	ft_strlen(char *str)
 {
 	size_t	i;
 
@@ -36,7 +36,7 @@ size_t	ft_strlen(const char *str)
 	return (i);
 }
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strchr(char *s, int c)
 {
 	int	i;
 
@@ -50,50 +50,50 @@ char	*ft_strchr(const char *s, int c)
 	return ((char *)&s[i]);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char *old_str, char *buffer)
 {
-	char		*newstr;
+	char		*new_str;
 	size_t		i;
 	size_t		j;
 
-	if (!s1 || !s2)
-		return (0);
-	newstr = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
-	if (!newstr)
-		return (0);
+	if (!old_str || !buffer)
+		return (free(old_str), NULL);
+	new_str = malloc(ft_strlen(old_str) + ft_strlen(buffer) + 1);
+	if (!new_str)
+		return (free(old_str), NULL);
 	i = 0;
-	while (s1[i])
-	{
-		newstr[i] = s1[i];
-		i++;
-	}
+	while (old_str[i])
+		new_str[i++] = old_str[i];
+	free(old_str);
 	j = 0;
-	while (s2[j] && s2[j - 1] != '\n')
-	{
-		newstr[i + j] = s2[j];
-		j++;
-	}
-	newstr[i + j] = '\0';
-	return (newstr);
+	while (buffer[j] && buffer[j - 1] != '\n')
+		new_str[i + j++] = buffer[j];
+	new_str[i + j] = '\0';
+	return (new_str);
 }
 
 char	*ft_create_line(int fd, char *buffer)
 {
-	char	*new_line;
+	char	*line;
 	int		nbytes;
-
-	new_line = ft_calloc(1, sizeof(char));
-	if (!new_line)
-		return (free(buffer), NULL);
+	int		i = 0;
+	line = malloc(1 * sizeof(char));
+	if (!line)
+		return (NULL);
+	line[0] = '\0';
 	while (!ft_strchr(buffer, '\n'))
 	{
 		nbytes = read(fd, buffer, BUFFER_SIZE);
 		if (nbytes < 1)
-			return (free(buffer), new_line);
+			return (NULL);
 		else
 		{
-			new_line = ft_strjoin(new_line, buffer);
+			line = ft_strjoin(line, buffer);
 		}
 	}
-	return (new_line);
+	while(i < BUFFER_SIZE + 1)
+	{
+		buffer[i++] = 0;
+	}
+	return (line);
 }
