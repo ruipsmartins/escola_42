@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 12:25:17 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/11/17 16:43:12 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/11/17 17:07:55 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,11 +60,22 @@ void	ft_clean_buffer(char *buffer)
 	int	j;
 
 	i = 0;
-	j = 0;
 	//meter os primeiros caracteres ate ao \n a 0
-	
-	// se o buffer[i] for \n entao meter 0 e comessar a copiar para traz e meter os ultimos a \0
-	
+	while (i < BUFFER_SIZE && buffer[i] != '\n')
+		buffer[i++] = 0;
+	// se o buffer[i] for \n entao meter 0 e comessar a copiar para traz e meter os ultimos a 0
+	if (buffer[i] == '\n')
+	{
+		j = 0;
+		buffer[i] = 0;
+		while (i < BUFFER_SIZE + 1)
+		{
+			buffer[j] = buffer[i];
+			buffer[i] = 0;
+			i++;
+			j++;
+		}
+	}
 }
 
 char	*ft_create_line(int fd, char *buffer)
