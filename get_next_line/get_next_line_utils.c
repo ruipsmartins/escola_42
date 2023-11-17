@@ -6,32 +6,21 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 12:25:17 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/11/16 17:10:36 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/11/17 13:16:18 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
-{
-	void	*dest;
-	size_t	total;
-
-	total = nmemb * size;
-	dest = malloc(total);
-	if (!dest)
-		return (0);
-	while (total--)
-		((char *)dest)[total] = '\0';
-	return (dest);
-}
-
 size_t	ft_strlen(char *str)
 {
 	size_t	i;
-
+	if (str == NULL)
+		return (0);
 	i = 0;
-	while (str[i])
+	while (str[i] && str[i] != '\n')
+		i++;
+	if (str[i] == '\n')
 		i++;
 	return (i);
 }
@@ -50,28 +39,29 @@ char	*ft_strchr(char *s, int c)
 	return ((char *)&s[i]);
 }
 
+
 char	*ft_strjoin(char *old_str, char *buffer)
 {
 	char		*new_str;
 	size_t		i;
 	size_t		j;
 
-	if (!old_str || !buffer)
-		return (free(old_str), NULL);
 	new_str = malloc(ft_strlen(old_str) + ft_strlen(buffer) + 1);
 	if (!new_str)
 		return (free(old_str), NULL);
 	i = 0;
-	while (old_str[i])
+	while (old_str && old_str[i])
 	{
 		new_str[i] = old_str[i];
 		i++;
 	}
 	free(old_str);
 	j = 0;
-	while (buffer[j] && buffer[j - 1] != '\n')
+	while (buffer[j])
 	{
 		new_str[i + j] = buffer[j];
+		if (buffer[j] == '\n' && ++j)
+			break ;
 		j++;
 	}
 	new_str[i + j] = '\0';
@@ -84,10 +74,7 @@ char	*ft_create_line(int fd, char *buffer)
 	int		nbytes;
 	int		i = 0;
 
-	line = malloc(1 * sizeof(char));
-	if (!line)
-		return (NULL);
-	line[0] = '\0';
+	line = NULL;
 	while (!ft_strchr(buffer, '\n'))
 	{
 		nbytes = read(fd, buffer, BUFFER_SIZE);
@@ -96,6 +83,7 @@ char	*ft_create_line(int fd, char *buffer)
 		else
 		{
 			line = ft_strjoin(line, buffer);
+			//"ABC\NDE"
 		}
 	}
 	while (i < BUFFER_SIZE + 1)
