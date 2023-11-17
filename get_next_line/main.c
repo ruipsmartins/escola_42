@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 16:16:18 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/11/16 16:58:08 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/11/17 16:29:15 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,16 +31,6 @@ int	main(void)
 		printf("|%d: %s", i, line);
 		free(line);
 	}
-	printf("......nada.aqui......\n");
+	//printf("......nada.aqui......\n");
 	return (0);
 }
-/* cup_buffer = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
-	if (!cup_buffer)
-		return (NULL);
-	bytes_read = read(fd, cup_buffer, BUFFER_SIZE);
-	if (bytes_read <= 0)
-	{
-		free(cup_buffer);
-		return (NULL);
-	}
-	return (cup_buffer); */

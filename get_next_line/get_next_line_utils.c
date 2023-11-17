@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 12:25:17 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/11/17 13:16:18 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/11/17 16:43:12 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 size_t	ft_strlen(char *str)
 {
 	size_t	i;
+
 	if (str == NULL)
 		return (0);
 	i = 0;
@@ -24,21 +25,6 @@ size_t	ft_strlen(char *str)
 		i++;
 	return (i);
 }
-
-char	*ft_strchr(char *s, int c)
-{
-	int	i;
-
-	i = 0;
-	while (s[i] != (char)c)
-	{
-		if (s[i] == '\0')
-			return (NULL);
-		i++;
-	}
-	return ((char *)&s[i]);
-}
-
 
 char	*ft_strjoin(char *old_str, char *buffer)
 {
@@ -68,29 +54,30 @@ char	*ft_strjoin(char *old_str, char *buffer)
 	return (new_str);
 }
 
+void	ft_clean_buffer(char *buffer)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	//meter os primeiros caracteres ate ao \n a 0
+	
+	// se o buffer[i] for \n entao meter 0 e comessar a copiar para traz e meter os ultimos a \0
+	
+}
+
 char	*ft_create_line(int fd, char *buffer)
 {
 	char	*line;
-	int		nbytes;
-	int		i = 0;
 
 	line = NULL;
-	while (!ft_strchr(buffer, '\n'))
+	while (buffer[0] || read(fd, buffer, BUFFER_SIZE) > 0)
 	{
-		nbytes = read(fd, buffer, BUFFER_SIZE);
-		if (nbytes < 1)
-			return (free(line), NULL);
-		else
-		{
-			line = ft_strjoin(line, buffer);
-			//"ABC\NDE"
-		}
-	}
-	while (i < BUFFER_SIZE + 1)
-	{
-		buffer[i++] = 0;
+		line = ft_strjoin(line, buffer);
+		ft_clean_buffer(buffer);
+		if (line[ft_strlen(line) - 1] == '\n')
+			return (line);
 	}
 	return (line);
 }
-// já esta a funcionar mais ou menos sem leaks, falta arranjar quando nao ten \n na ultima linha e ver quando o BUFFERSIZE é de numeros diferentes,
-// provavelmente o erro está quando eu estou a ver se o buffer tem um \n e depois nao estou a guardar o antigo e passa á frente

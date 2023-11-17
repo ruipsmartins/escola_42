@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 16:16:18 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/11/17 12:46:02 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/11/17 16:11:32 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,6 @@ int	main(void)
 		printf("|%d: %s", i, line);
 		free(line);
 	}
-	//printf("......nada.aqui......\n");
+	//printf("\n......nada.aqui......");
 	return (0);
 }
