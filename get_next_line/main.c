@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 16:16:18 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/11/17 16:29:15 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/11/18 09:52:44 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	main(void)
 	int		i;
 
 	i = 0;
-	fd = open("example.txt", O_RDONLY);
+	fd = open("file.txt", O_RDONLY);
 	while (++i)
 	{
 		line = get_next_line(fd);
@@ -31,6 +31,6 @@ int	main(void)
 		printf("|%d: %s", i, line);
 		free(line);
 	}
-	//printf("......nada.aqui......\n");
+	printf("......nada.aqui......\n");
 	return (0);
 }
