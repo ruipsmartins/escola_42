@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 15:53:49 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/11/20 10:50:35 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/11/20 13:37:39 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,14 @@ char	*get_next_line(int fd)
 	return (new_line);
 }
 
-/* int	main(void)
+ int	main(void)
 {
 	int		fd;
 	char	*line;
 	int		i;
 
 	i = 0;
-	fd = open("file2.txt", O_RDONLY);
+	fd = open("file1.txt", O_RDONLY);
 	while (++i)
 	{
 		line = get_next_line(fd);
@@ -52,4 +52,4 @@ char	*get_next_line(int fd)
 		free(line);
 	}
 	return (0);
-} */
+}
