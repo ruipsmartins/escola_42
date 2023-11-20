@@ -1,48 +1,61 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 15:53:49 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/11/20 10:50:35 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/11/20 12:13:39 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*get_next_line(int fd)
 {
-	static char	buffer[BUFFER_SIZE +1];
+	static char	buffer[FOPEN_MAX][BUFFER_SIZE +1];
 	char		*new_line;
 	int			i;
 
 	i = 0;
-	if (fd < 0 || BUFFER_SIZE < 1 || read(fd, buffer, 0) < 0)
+	if (fd < 0 || BUFFER_SIZE < 1 || read(fd, buffer, 0) < 0 || FOPEN_MAX <= fd)
 	{
-		while (i <= BUFFER_SIZE)
-			buffer[i++] = 0;
+		if (fd > 0 && FOPEN_MAX > fd)
+			while (buffer[fd][i])
+				buffer[fd][i++] = '\0';
 		return (NULL);
 	}
 	new_line = NULL;
-	new_line = ft_create_line(fd, buffer);
+	new_line = ft_create_line(fd, buffer[fd]);
 	if (!new_line || !*new_line)
 		return (NULL);
 	return (new_line);
 }
-
 /* int	main(void)
 {
-	int		fd;
+	int		fd1;
+	int		fd2;
 	char	*line;
 	int		i;
+	int		change_fd;
 
 	i = 0;
-	fd = open("file2.txt", O_RDONLY);
+	change_fd = 1;
+	fd1 = open("file1.txt", O_RDONLY);
+	fd2 = open("file2.txt", O_RDONLY);
 	while (++i)
 	{
-		line = get_next_line(fd);
+		if (change_fd > 0)
+		{
+			line = get_next_line(fd1);
+			change_fd *= -1;
+		}
+		else
+		{
+			line = get_next_line(fd2);
+			change_fd *= -1;
+		}
 		if (!line)
 		{
 			free(line);

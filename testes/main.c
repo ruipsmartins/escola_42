@@ -10,35 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
-
-int	main(void)
-{
-	int		fd;
-	char	*line;
-	int		count;
-
-	count = 0;
-	fd = open("file.txt", O_RDONLY);
-	while (++count)
-	{
-		line = get_next_line(fd);
-		if (line == NULL)
-			break ;
-		printf("[%d]:%s\n", count, line);
-		free(line);
-		line = NULL;
-	}
-	close(fd);
-	return (0);
+#include <stdio.h>
+ 
+int main (){
+  //displaying the value of FOPEN_MAX
+  printf("FOPEN_MAX = %d\n", FOPEN_MAX);
+ 
+  return 0;
 }
-/* cup_buffer = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
-	if (!cup_buffer)
-		return (NULL);
-	bytes_read = read(fd, cup_buffer, BUFFER_SIZE);
-	if (bytes_read <= 0)
-	{
-		free(cup_buffer);
-		return (NULL);
-	}
-	return (cup_buffer); */

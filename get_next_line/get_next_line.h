@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 12:25:22 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/11/18 09:51:52 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/11/20 10:48:21 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define GET_NEXT_LINE_H
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 10000
+#  define BUFFER_SIZE 5
 # endif
 
 # include <stdio.h>
