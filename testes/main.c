@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: rui <rui@student.1337.ma>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/13 16:16:18 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/11/20 18:57:12 by ruidos-s         ###   ########.fr       */
+/*   Created: 2023/11/24 10:58:27 by rui               #+#    #+#             */
+/*   Updated: 2023/11/24 10:58:36 by rui              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <fcntl.h>
- 
- void	ft_clean_buffer(char *buffer)
+
+void    ft_clean_buffer(char *buffer)
 {
 	int	i;
 	int	j;
@@ -39,12 +39,13 @@
 int main (){
 
 static char	buffer[11] = "12\n3456";
-int		fd;
+int         fd;
+
 	fd = open("file1.txt", O_RDONLY);
 	read(fd, buffer, 1);
 	ft_clean_buffer(buffer);
 	read(fd, buffer, 1);
 
 	printf("buffer = %s\n", buffer);
-  return 0;
+  return (0);
 }
