@@ -6,7 +6,7 @@
 #    By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/04 14:19:42 by ruidos-s          #+#    #+#              #
-#    Updated: 2023/12/20 10:27:03 by ruidos-s         ###   ########.fr        #
+#    Updated: 2023/12/20 10:28:18 by ruidos-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,6 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	ar rc $(NAME) $(OBJS)
-	
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
