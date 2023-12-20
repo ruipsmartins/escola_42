@@ -1,9 +1,9 @@
-NAME = push_swap
+NAME = push_swap.a
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 SRCS = main.c
 OBJS = $(SRCS:.c=.o)
-LIBFT = libft.a
+LIBFT = libft/libft.a
 
 all: $(NAME)
 
