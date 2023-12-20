@@ -6,7 +6,7 @@
 #    By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/20 11:11:30 by ruidos-s          #+#    #+#              #
-#    Updated: 2023/12/20 12:48:21 by ruidos-s         ###   ########.fr        #
+#    Updated: 2023/12/20 12:51:23 by ruidos-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,6 +42,7 @@ git:
 	git commit -m "guardar coisas no github"
 	git push
 	git status
+
 test:
 	$(CC) $(CFLAGS) $(SRCS) $(LIBFT) $(NAME) -o teste 
 
