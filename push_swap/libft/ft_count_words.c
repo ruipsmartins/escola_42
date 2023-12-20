@@ -1,36 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_count_words.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/18 17:07:12 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/12/20 16:59:44 by ruidos-s         ###   ########.fr       */
+/*   Created: 2023/12/20 16:57:29 by ruidos-s          #+#    #+#             */
+/*   Updated: 2023/12/20 16:58:28 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include <stdio.h>
+#include "libft.h"
 
-int	main(void)
+int	ft_count_words(char const *str, char c)
 {
+	int		count;
 	int		i;
-	char	**argv;
-	int		*intbox;
 
-	argv = ft_split("10 15 -42 98", ' ');
-	intbox = malloc(ft_count_words("10 15 -42 98", ' ') * sizeof(int));
+	if (ft_strlen(str) == 0)
+		return (0);
+	count = 1;
 	i = 0;
-
-	while (argv[i])
+	while (str[i] == c)
+		i++;
+	while (str[i])
 	{
-		intbox[i] = ft_atoi(argv[i]);
-		printf("%i\n", intbox[i]);
-		free(argv[i]);
+		if (str[i] == c && str[i + 1] != c && str[i + 1] != '\0')
+			count++;
 		i++;
 	}
-	free(argv);
-	free(intbox);
-	return (0);
+	return (count);
 }

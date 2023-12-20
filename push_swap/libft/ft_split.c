@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 14:18:53 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/28 16:43:34 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/12/20 16:57:42 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,26 +16,6 @@
 of strings obtained by splitting ’s’ using the
 character ’c’ as a delimiter. The array must end
 with a NULL pointer. */
-
-static int	count_words(char const *str, char c)
-{
-	int		count;
-	int		i;
-
-	if (ft_strlen(str) == 0)
-		return (0);
-	count = 1;
-	i = 0;
-	while (str[i] == c)
-		i++;
-	while (str[i])
-	{
-		if (str[i] == c && str[i + 1] != c && str[i + 1] != '\0')
-			count++;
-		i++;
-	}
-	return (count);
-}
 
 static char	*ft_words(char const *str, int inicio, int fim)
 {
@@ -63,7 +43,7 @@ char	**ft_split(char const *s, char c)
 	size_t	fim;
 	int		j;
 
-	box = (char **)malloc((count_words(s, c) + 1) * sizeof(char *));
+	box = (char **)malloc((ft_count_words(s, c) + 1) * sizeof(char *));
 	if (!box)
 		return (NULL);
 	fim = 0;

@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 11:06:56 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/12/20 12:37:00 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/12/20 16:43:20 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,11 @@
 # include <unistd.h>
 # include "libft/libft.h"
 
-typedef struct	s_list
+typedef struct s_list
 {
 	int				nbr;
 	int				index;
 	struct s_list	*next;
 }				t_list;
-
-
 
 #endif
