@@ -6,7 +6,7 @@
 #    By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/20 11:11:30 by ruidos-s          #+#    #+#              #
-#    Updated: 2023/12/20 12:29:20 by ruidos-s         ###   ########.fr        #
+#    Updated: 2023/12/20 12:48:21 by ruidos-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,16 +22,18 @@ OBJS = $(SRCS:.c=.o)
 
 LIBFT = libft/libft.a
 
-all: $(NAME)
 
+all: $(NAME)
+$(LIBFT):
+		make -C ./libft && make clean -C libft/
 $(NAME): $(OBJS) $(LIBFT)
-		ar rc $(NAME) $(OBJS) 
+		ar rc $(NAME) $(OBJS)
 
 clean:
 		rm -f $(OBJS)
 
 fclean: clean
-		rm -f $(NAME) ./test*
+		rm -f $(NAME) ./test* && make fclean -C libft/
 
 re: fclean all
 
