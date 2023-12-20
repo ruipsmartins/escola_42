@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/12/20 11:11:30 by ruidos-s          #+#    #+#              #
+#    Updated: 2023/12/20 11:40:05 by ruidos-s         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = push_swap.a
 
 CC = cc
@@ -13,23 +25,23 @@ LIBFT = libft/libft.a
 all: $(NAME)
 
 $(NAME): $(OBJS) $(LIBFT)
-    $(CC) $(CFLAGS) $(OBJS) -L. -lft -o $(NAME)
+		ar rc $(NAME) $(OBJS) 
 
 clean:
-    rm -f $(OBJS)
+		rm -f $(OBJS)
 
 fclean: clean
-    rm -f $(NAME)
+		rm -f $(NAME) ./test*
 
 re: fclean all
-
-test: $(SRCS) $(LIBFT)
-    $(CC) $(CFLAGS) $(SRCS) -L. -lft -o teste_main -lbsd
 
 git:
 	git add .
 	git commit -m "guardar coisas no github"
 	git push
 	git status
+test:
+	$(CC) $(CFLAGS) $(SRCS) $(LIBFT) $(NAME) -o teste
+
 
 .PHONY: all clean fclean re test git

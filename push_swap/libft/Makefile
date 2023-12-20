@@ -6,7 +6,7 @@
 #    By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/04 14:19:42 by ruidos-s          #+#    #+#              #
-#    Updated: 2023/12/20 10:29:23 by ruidos-s         ###   ########.fr        #
+#    Updated: 2023/12/20 11:18:29 by ruidos-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,19 +30,13 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	ar rc $(NAME) $(OBJS)
 
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
-
 clean:
-	rm -f $(OBJS) $(BONUS_OBJS) bonus
+	rm -f $(OBJS)
 	
 fclean: clean
 	rm -f $(NAME) ./test*
 	
 re: fclean all
-
-test: $(SRCS) main.c
-	$(CC) $(CFLAGS) $(SRCS) $(BONUS) main.c -o teste_main -lbsd
 
 git:
 	git add .
