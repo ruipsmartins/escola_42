@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 17:07:12 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/12/20 15:53:52 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/12/20 16:09:59 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,18 @@
 int main (void)
 {
 	int		i;
-	char	**box = ft_split("10 15 42 98", ' ');
+	char	**argv = ft_split("10 15 -42 98", ' ');
+	int		intbox[20];
 
-	while (box[i])
+	while (argv[i])
 	{
-	printf("%s\n",box[i]);
-	free(box[i]);
+	intbox[i] = ft_atoi(argv[i]);
+	printf("%i\n", intbox[i]);
+	free(argv[i]);
 	i++;
 	}
-	if (box)
-		free(box);
+	if (argv)
+		free(argv);
 	
 	return (0);
 }
