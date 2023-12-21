@@ -6,7 +6,7 @@
 #    By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/20 11:11:30 by ruidos-s          #+#    #+#              #
-#    Updated: 2023/12/21 15:33:01 by ruidos-s         ###   ########.fr        #
+#    Updated: 2023/12/21 16:21:55 by ruidos-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CC = cc
 
 CFLAGS = -Wall -Wextra -Werror
 
-SRCS = $(wildcard *.c)
+SRCS = $(wildcard src/*.c)
 
 OBJS = $(SRCS:.c=.o)
 
@@ -35,8 +35,9 @@ clean:
 fclean: clean
 		rm -f $(NAME) ./test* && make fclean -C libft/
 
-re: fclean all
-
+re: fclean all 
+		make clean && clear
+#alterar o make clean e clear
 git:
 	git add .
 	git commit -m "guardar coisas no github"
