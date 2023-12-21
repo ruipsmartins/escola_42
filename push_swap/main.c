@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 17:07:12 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/12/21 16:50:27 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/12/21 18:13:47 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,26 +15,30 @@
 int	main(int argc, char **argv)
 {
 	int		i;
-	char	**numstr;
-	long	*intbox;
-	t_stack	*a;
-
+	t_stack	*stack_a;
+	t_stack	*tmp;
+	//t_stack	*stack_b;
+	//ver os erros---------------------
 	if (argc < 2 || !argv[1][0])
 		ft_print_error();
-	a = NULL;
-	a++;
-	numstr = ft_split(argv[1], ' ');
 	ft_find_errors(argv[1]);
-	intbox = malloc(ft_count_words(argv[1], ' ') * sizeof(int));
+	argv = ft_split(argv[1], ' ');
+	stack_a = NULL;
 	i = 0;
-	while (numstr[i])
+	//adicionar tudo ao stack_a
+	while (argv[i])
+		ft_add_stack(&stack_a, ft_atol(argv[i++]));
+	//fazer print do que esta no stack a
+	while (stack_a)
 	{
-		intbox[i] = ft_atol(numstr[i]);
-		printf("%li\n", intbox[i]);
-		free(numstr[i]);
-		i++;
+		printf("Conteúdo do node: ");
+		if (stack_a->content)
+		{	
+			tmp =  stack_a;
+			printf("%li\n", tmp->content);
+			free(stack_a);
+		}
+		stack_a = tmp->next;
 	}
-	free(numstr);
-	free(intbox);
 	return (0);
 }

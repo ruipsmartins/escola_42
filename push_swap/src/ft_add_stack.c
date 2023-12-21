@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 15:37:43 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/12/21 17:06:11 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/12/21 17:30:12 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ t_stack	*ft_lstnew(long content)
 	if (!new)
 		return (NULL);
 	new->content = content;
+	new->prev = NULL;
 	new->next = NULL;
 	return (new);
 }
@@ -33,10 +34,12 @@ t_stack	*ft_lstlast(t_stack *lst)
 	return (lst);
 }
 
-void	ft_lstadd_back(t_stack **lst, t_stack *new)
+void	ft_add_stack(t_stack **lst, long num)
 {
 	t_stack	*last_node;
+	t_stack *new;
 
+	new = ft_lstnew(num);
 	if (!new)
 		return ;
 	if (!*lst)
@@ -46,4 +49,5 @@ void	ft_lstadd_back(t_stack **lst, t_stack *new)
 	}
 	last_node = ft_lstlast(*lst);
 	last_node->next = new;
+	new->prev = last_node;
 }
