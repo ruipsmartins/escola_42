@@ -6,7 +6,7 @@
 #    By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/20 11:11:30 by ruidos-s          #+#    #+#              #
-#    Updated: 2023/12/21 16:21:55 by ruidos-s         ###   ########.fr        #
+#    Updated: 2023/12/21 16:42:55 by ruidos-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CC = cc
 
 CFLAGS = -Wall -Wextra -Werror
 
-SRCS = $(wildcard src/*.c)
+SRCS = $(wildcard src/*.c) main.c
 
 OBJS = $(SRCS:.c=.o)
 
