@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_find_error.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/18 11:06:56 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/12/21 12:47:48 by ruidos-s         ###   ########.fr       */
+/*   Created: 2023/12/21 12:02:34 by ruidos-s          #+#    #+#             */
+/*   Updated: 2023/12/21 13:09:40 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-# include <stdlib.h>
-# include <unistd.h>
-# include "libft/libft.h"
-
-typedef struct s_stack
+void	ft_find_error(char *str)
 {
-	long				nbr;
-	long				index;
-	struct s_stack	*next;
-	struct s_stack	*prev;
-}				t_stack;
+	int	i;
 
-void	ft_find_error(char *str);
-int		ft_print_error(void);
-
-
-#endif
+	i = 0;
+	while (str[i])
+	{
+		if ((str[i] < '0'|| str[i] > '9') && str[i] != ' ' && str[i] != '-')
+			ft_print_error();
+		i++;
+	}
+}

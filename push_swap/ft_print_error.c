@@ -1,32 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/18 11:06:56 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/12/21 12:47:48 by ruidos-s         ###   ########.fr       */
+/*   Created: 2023/12/21 10:34:08 by ruidos-s          #+#    #+#             */
+/*   Updated: 2023/12/21 10:55:59 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-# include <stdlib.h>
-# include <unistd.h>
-# include "libft/libft.h"
-
-typedef struct s_stack
+int	ft_print_error(void)
 {
-	long				nbr;
-	long				index;
-	struct s_stack	*next;
-	struct s_stack	*prev;
-}				t_stack;
-
-void	ft_find_error(char *str);
-int		ft_print_error(void);
-
-
-#endif
+	ft_putstr_fd("Error\n", 1);
+	exit(1);
+}
