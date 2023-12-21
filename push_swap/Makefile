@@ -6,7 +6,7 @@
 #    By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/20 11:11:30 by ruidos-s          #+#    #+#              #
-#    Updated: 2023/12/21 12:48:37 by ruidos-s         ###   ########.fr        #
+#    Updated: 2023/12/21 15:33:01 by ruidos-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CC = cc
 
 CFLAGS = -Wall -Wextra -Werror
 
-SRCS = main.c ft_print_error.c ft_find_error.c
+SRCS = $(wildcard *.c)
 
 OBJS = $(SRCS:.c=.o)
 
