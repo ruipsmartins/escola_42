@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 11:06:56 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/12/21 17:34:50 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/12/30 10:51:38 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,6 @@ typedef struct s_stack
 void	ft_find_errors(char *str);
 int		ft_print_error(void);
 void	ft_add_stack(t_stack **lst, long num);
+void	process_and_add_to_stack(t_stack **stack_a, char *input);
 
 #endif

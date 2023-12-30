@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_find_error.c                                    :+:      :+:    :+:   */
+/*   process_string.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/21 12:02:34 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/12/30 10:59:17 by ruidos-s         ###   ########.fr       */
+/*   Created: 2023/12/30 10:50:32 by ruidos-s          #+#    #+#             */
+/*   Updated: 2023/12/30 10:59:48 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	ft_find_errors(char *str)
+void	process_and_add_to_stack(t_stack **stack_a, char *input)
 {
-	int	i;
+	char	**splited_input;
+	int		i;
 
+	ft_find_errors(input);
+	splited_input = ft_split(input, ' ');
 	i = 0;
-	while (str[i])
+	while (splited_input[i])
 	{
-		if ((str[i] < '0' || str[i] > '9') && str[i] != ' ' 
-			&& str[i] != '-' && str[i] != '+')
-			ft_print_error();
-		if ((str[i] == '-' || str[i] == '+') && (str[i + 1] < '0'
-				|| str[i + 1] > '9'))
-			ft_print_error();
-		i++;
+		ft_add_stack(stack_a, ft_atol(splited_input[i]));
+		free(splited_input[i++]);
 	}
+	free(splited_input);
 }
