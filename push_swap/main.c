@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 17:07:12 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/12/30 16:28:13 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/12/30 16:35:10 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,8 @@ int	main(int argc, char **argv)
 	stack_a = NULL;
 	if (argc < 2 || !argv[1][0])
 		ft_print_error();
-	if(argc == 2)
-		process_and_add_to_stack(&stack_a, argv[1]);
-	if (argc > 2)
+	if (argc >= 2)
 		concatenate_and_process_args(&stack_a, argc, argv);
-	
 	//fazer print do que esta no stack a
 	while (stack_a)
 	{
