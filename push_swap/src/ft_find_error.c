@@ -6,11 +6,17 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 12:02:34 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/12/30 10:59:17 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/12/30 14:19:16 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+int	ft_print_error(void)
+{
+	ft_putstr_fd("Error\n", 1);
+	exit(1);
+}
 
 void	ft_find_errors(char *str)
 {

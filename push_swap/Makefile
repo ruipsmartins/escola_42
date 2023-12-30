@@ -6,7 +6,7 @@
 #    By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/20 11:11:30 by ruidos-s          #+#    #+#              #
-#    Updated: 2023/12/21 17:56:56 by ruidos-s         ###   ########.fr        #
+#    Updated: 2023/12/30 14:17:38 by ruidos-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,7 +48,7 @@ test:
 	$(CC) $(CFLAGS) -g $(SRCS) $(LIBFT) $(NAME) -o teste 
 
 valgrind:
-	valgrind --leak-check=full ./teste "45 78 -586 -8 775"
+	valgrind --leak-check=full ./teste "45 78" 35 " -586 -8" 775
 
 # trocar de teste para push_swap!
 
