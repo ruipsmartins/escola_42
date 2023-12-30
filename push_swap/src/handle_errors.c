@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_find_error.c                                    :+:      :+:    :+:   */
+/*   handle_errors.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 12:02:34 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/12/30 14:19:16 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/12/30 16:25:11 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,17 @@ void	ft_find_errors(char *str)
 				|| str[i + 1] > '9'))
 			ft_print_error();
 		i++;
+	}
+}
+
+void	ft_clear_stack(t_stack **stack_a)
+{
+	t_stack *tmp;
+
+	while (*stack_a)
+	{
+		tmp = *stack_a;
+		*stack_a = (*stack_a)->next;
+		free(tmp);
 	}
 }
