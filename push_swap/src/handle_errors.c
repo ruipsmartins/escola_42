@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 12:02:34 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/12/30 16:40:26 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2023/12/30 16:57:54 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	ft_find_errors(char *str)
 
 void	ft_clear_stack(t_stack **stack_a)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 
 	while (*stack_a)
 	{
@@ -47,19 +47,12 @@ void	ft_clear_stack(t_stack **stack_a)
 	}
 }
 
-void	handle_errors_and_free(t_stack **stack_a, char **splited_input, char *input)
+void	free_and_clear(t_stack **stack_a, char **splited, char *input, int i)
 {
-	int	i;
-
-	i = 0;
 	ft_clear_stack(stack_a);
-
-			while (splited_input[i])
-			{	
-				printf("freed splited_input %d\n",i);
-				free(splited_input[i++]);
-			}
-			free(splited_input);
-			free(input);
-			ft_print_error();
+	while (splited[i])
+		free(splited[i++]);
+	free(splited);
+	free(input);
+	ft_print_error();
 }
