@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 12:02:34 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/12/30 16:57:54 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/01/02 17:33:38 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,31 @@ void	free_and_clear(t_stack **stack_a, char **splited, char *input, int i)
 	free(splited);
 	free(input);
 	ft_print_error();
+}
+
+void	check_duplicates(char **splited, char *input)
+{
+	int		i;
+	int		l;
+
+	i = 0;
+	l = 1;
+	while (splited[i])
+	{
+		while (splited[l])
+		{
+			if (ft_atol(splited[i]) == ft_atol(splited[l]))
+			{
+				i = 0;
+				while (splited[i])
+					free(splited[i++]);
+				free(splited);
+				free(input);
+				ft_print_error();
+			}
+			l++;
+		}
+		l = i + 2;
+		i++;
+	}
 }

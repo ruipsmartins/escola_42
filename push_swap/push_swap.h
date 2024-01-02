@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 11:06:56 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/12/30 16:52:41 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/01/02 17:28:11 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,6 @@ void	process_and_add_to_stack(t_stack **stack_a, char *input);
 void	concatenate_and_process_args(t_stack **stack_a, int argc, char **argv);
 void	ft_clear_stack(t_stack **stack_a);
 void	free_and_clear(t_stack **stack_a, char **splited_input, char *input, int i);
+void	check_duplicates(char **splited, char *input);
 
 #endif
