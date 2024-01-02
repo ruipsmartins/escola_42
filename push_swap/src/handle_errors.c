@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 12:02:34 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/01/02 17:33:38 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/01/02 17:49:38 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_print_error(void)
 {
-	ft_putstr_fd("Error\n", 1);
+	write(1, "Error\n", 7);
 	exit(1);
 }
 
