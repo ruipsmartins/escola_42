@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 11:06:56 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/01/02 17:28:11 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/01/03 16:23:40 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 typedef struct s_stack
 {
 	long				content;
-	long				index;
+	int					index;
 	struct s_stack		*next;
 	struct s_stack		*prev;
 }				t_stack;

@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 17:07:12 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/01/03 15:51:36 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/01/03 17:23:39 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,10 @@ int	main(int argc, char **argv)
 	if (argc >= 2)
 		concatenate_and_process_args(&stack_a, argc, argv);
 	//fazer print do que esta no stack a
-	while (stack_a)
+	tmp =  stack_a;
+	while (tmp)
 	{
 		printf("Conteúdo do node: ");
-		tmp =  stack_a;
-		stack_a = stack_a->next;
 		if (tmp->content)
 			{
 				printf("%li\n", tmp->content);
@@ -41,9 +40,15 @@ int	main(int argc, char **argv)
 					printf("next: %li\n", tmp->next->content);
 				else
 					printf("next: NULL\n");
-				printf("---------------------------------\n");
+				printf("----------------------------\n");
 			}
-		free(tmp);
+			tmp = tmp->next;
+	}
+
+	while(stack_a->next)
+	{
+		stack_a = stack_a->next;
+		free(stack_a->prev); 
 	}
 	free(stack_a);
 	return (0);
