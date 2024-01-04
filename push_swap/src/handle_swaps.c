@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 17:29:58 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/01/04 11:43:49 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/01/04 11:47:56 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,13 @@
 
 static void	swap(t_stack **node)
 {
-	(*node)->prev = (*node)->next->next;
-	(*node) = (*node)->next;
+	*node = (*node)->next;
+	(*node)->prev->prev = *node;
+	(*node)->prev->next = (*node)->next;
+	if ((*node)->next)
+		(*node)->next->prev = (*node)->prev;
 	(*node)->next = (*node)->prev;
 	(*node)->prev = NULL;
-	(*node)->next->next = (*node)->next->prev;
-	(*node)->next->prev = (*node)->next;
-	(*node)->next->next->prev = (*node)->next;
-	(*node)->next->prev = (*node);
 }
 
 void	sa(t_stack **a)

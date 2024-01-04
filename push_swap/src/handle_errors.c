@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 12:02:34 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/01/02 17:49:38 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/01/04 12:14:29 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,13 @@ int	ft_print_error(void)
 void	ft_find_errors(char *str)
 {
 	int	i;
-
+	int num;
 	i = 0;
+	num = 0;
 	while (str[i])
 	{
+		if (ft_isdigit(str[i]))
+			num = 1;
 		if ((str[i] < '0' || str[i] > '9') && str[i] != ' ' 
 			&& str[i] != '-' && str[i] != '+')
 			ft_print_error();
@@ -33,6 +36,9 @@ void	ft_find_errors(char *str)
 			ft_print_error();
 		i++;
 	}
+	//aqui ver se é para dar erro ou exit.
+	if (num == 0)
+		exit(1);
 }
 
 void	ft_clear_stack(t_stack **stack_a)

@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 17:07:12 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/01/04 11:42:56 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/01/04 11:53:57 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,10 @@ int	main(int argc, char **argv)
 	stack_a = NULL;
 	// Perguntar ao pessoal se é para fazer print ao erro ou nao se nao tiver args
 	if (argc < 2 || !argv[1][0])
-		return (0);
+		exit(1);
 	if (argc >= 2)
 		concatenate_and_process_args(&stack_a, argc, argv);
 	sa(&stack_a);
-	
 	//fazer print do que esta no stack a
 	printStackInfo(stack_a);
 
