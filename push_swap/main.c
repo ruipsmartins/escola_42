@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 17:07:12 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/01/04 11:53:57 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/01/05 10:17:31 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ int	main(int argc, char **argv)
 		exit(1);
 	if (argc >= 2)
 		concatenate_and_process_args(&stack_a, argc, argv);
-	sa(&stack_a);
 	//fazer print do que esta no stack a
 	printStackInfo(stack_a);
 

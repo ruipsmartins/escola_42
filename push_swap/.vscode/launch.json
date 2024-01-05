@@ -9,7 +9,7 @@
 			"name": "(gdb) Launch",
 			"type": "cppdbg",
 			"request": "launch",
-			"program": "/home/rui/escola_42/push_swap/teste",
+			"program": "${workspaceFolder}/teste",
 			"args": ["10", "20", "30"],
 			"stopAtEntry": false,
 			"cwd": "${fileDirname}",
