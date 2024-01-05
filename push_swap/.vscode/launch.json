@@ -10,7 +10,7 @@
 			"type": "cppdbg",
 			"request": "launch",
 			"program": "${workspaceFolder}/teste",
-			"args": ["45", "78 2", "64t", "65 27 ", "-2", "6"],
+			"args": ["45", "78 2", "64", "65 27 ", "-2", "6"],
 			"stopAtEntry": false,
 			"cwd": "${fileDirname}",
 			"environment": [],

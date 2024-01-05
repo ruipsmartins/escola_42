@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 12:02:34 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/01/04 12:14:29 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/01/05 15:32:47 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,9 @@ int	ft_print_error(void)
 
 void	ft_find_errors(char *str)
 {
-	int	i;
-	int num;
+	int		i;
+	int		num;
+
 	i = 0;
 	num = 0;
 	while (str[i])

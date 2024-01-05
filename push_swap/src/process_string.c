@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 10:50:32 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/01/02 17:27:37 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/01/05 15:33:22 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ void	concatenate_and_process_args(t_stack **stack_a, int argc, char **argv)
 	i = 1;
 	while (i < argc)
 		ft_find_errors(argv[i++]);
-	
 	i = 2;
 	concatenated_str = ft_strjoin(argv[1], " ");
 	while (i < argc)

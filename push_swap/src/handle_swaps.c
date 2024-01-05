@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 17:29:58 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/01/05 11:34:58 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/01/05 15:31:47 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void	sb(t_stack **b)
 	swap(b);
 	write(1, "sb\n", 3);
 }
+
 void	ss(t_stack **a, t_stack **b)
 {
 	if (!(*a) || !(*a)->next)
