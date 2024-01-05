@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 11:06:56 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/01/05 15:28:24 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/01/05 17:57:35 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,20 @@ void	ft_clear_stack(t_stack **stack_a);
 void	free_and_clear(t_stack **stack_a, char **splited_input,
 			char *input, int i);
 void	check_duplicates(char **splited, char *input);
+//
 void	sa(t_stack **a);
 void	sb(t_stack **b);
 void	ss(t_stack **a, t_stack **b);
 void	pa(t_stack **a, t_stack **b);
 void	pb(t_stack **a, t_stack **b);
+void	ra(t_stack **a);
+void	rb(t_stack **b);
+void	rr(t_stack **a, t_stack **b);
 //helper functions
 void	ft_free_stacks(t_stack *a, t_stack *b);
 void	print_stack_info(t_stack *stack);
 void	ft_print_stacks(t_stack *a, t_stack *b);
+t_stack	*find_last_node(t_stack *stack);
+
 
 #endif

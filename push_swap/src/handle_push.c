@@ -6,13 +6,13 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 17:21:11 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/01/05 15:25:15 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/01/05 16:38:31 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	push(t_stack **x, t_stack **y)
+static void	push(t_stack **x, t_stack **y)
 {
 	t_stack	*temp;
 
