@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 17:29:58 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/01/04 11:47:56 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/01/05 11:34:58 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static void	swap(t_stack **node)
 
 void	sa(t_stack **a)
 {
-	if (!(*a)->next)
+	if (!(*a) || !(*a)->next)
 		return ;
 	swap(a);
 	write(1, "sa\n", 3);
