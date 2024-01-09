@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 17:07:12 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/01/09 10:27:02 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/01/09 10:38:10 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,17 +25,24 @@ int	main(int argc, char **argv)
 	if (argc >= 2)
 		concatenate_and_process_args(&a, argc, argv);
 	//fazer print do que esta no stack a
+	 
 	
-	ra(&a); 
-	
-
-	
+	pb(&a, &b);
+	rra(&a);
+	pa(&a, &b);
+	ra(&a);
 /* 	
-	pb(&a,&b);
-	rb(&b);
-	pb(&a,&b);
+	sa(&a);
+	sb(&b);
+	ss(&a, &b);
 	pa(&a,&b);
+	pb(&a,&b);
 	ra(&a); 
+	rb(&b);
+	rr(&a, &b);
+	rra(&a);
+	rrb(&b);
+	rrr(&a, &b);
 	*/
 
 
