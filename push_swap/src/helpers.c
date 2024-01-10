@@ -6,13 +6,13 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 15:17:15 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/01/10 09:35:24 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/01/10 14:52:19 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	print_stack_info(t_stack *stack)
+void	print_nodes(t_stack *stack)
 {
 	t_stack		*tmp_stack;
 
@@ -42,9 +42,9 @@ void	print_stack_info(t_stack *stack)
 void	ft_print_stacks(t_stack *a, t_stack *b)
 {
 	printf("\nstack a:\n");
-	print_stack_info(a);
+	print_nodes(a);
 	printf("\nstack b:\n");
-	print_stack_info(b);
+	print_nodes(b);
 }
 
 t_stack	*find_last_node(t_stack *stack)
@@ -92,4 +92,19 @@ int	check_if_sorted(t_stack *stack)
 
 	printf("is sorted!\n");
 	return (1);
+}
+
+int	count_nodes(t_stack *stack)
+{
+	int	count;
+
+	count = 0;
+
+	while (stack)
+	{
+		count++;
+		stack = stack->next;
+	}
+	printf("o stack tem %d nodes\n", count);
+	return (count);
 }

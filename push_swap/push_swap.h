@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 11:06:56 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/01/10 09:03:50 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/01/10 10:49:34 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,9 @@ typedef struct s_stack
 	struct s_stack		*prev;
 }				t_stack;
 
+// error handling and creating stack a
 void	ft_find_errors(char *str);
+void	check_duplicates(char **splited, char *input);
 int		ft_print_error(void);
 void	ft_add_stack(t_stack **lst, long num);
 void	process_and_add_to_stack(t_stack **stack_a, char *input);
@@ -36,7 +38,6 @@ void	concatenate_and_process_args(t_stack **stack_a, int argc, char **argv);
 void	ft_clear_stack(t_stack **stack_a);
 void	free_and_clear(t_stack **stack_a, char **splited_input,
 			char *input, int i);
-void	check_duplicates(char **splited, char *input);
 
 //sorting stuff
 void	sa(t_stack **a);
@@ -50,12 +51,15 @@ void	rr(t_stack **a, t_stack **b);
 void	rra(t_stack **a);
 void	rrb(t_stack **b);
 void	rrr(t_stack **a, t_stack **b);
+void	sort_three(t_stack **a);
 
 //helper functions
 void	ft_free_stacks(t_stack *a, t_stack *b);
-void	print_stack_info(t_stack *stack);
+void	print_nodes(t_stack *stack);
 void	ft_print_stacks(t_stack *a, t_stack *b);
 t_stack	*find_last_node(t_stack *stack);
 int		check_if_sorted(t_stack *stack);
+int	count_nodes(t_stack *stack);
+
 
 #endif

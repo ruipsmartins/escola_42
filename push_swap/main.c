@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 17:07:12 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/01/10 09:04:38 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/01/10 15:33:24 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,13 @@ int	main(int argc, char **argv)
 		exit(1);
 	if (argc >= 2)
 		concatenate_and_process_args(&a, argc, argv);
-	//fazer print do que esta no stack a
-	 
-	check_if_sorted(a);
 
+	//fazer print do que esta no stack a
+	if(count_nodes(a) <= 3)
+		if (!check_if_sorted(a))
+			sort_three(&a);
+
+	
 /* 	
 	sa(&a);
 	sb(&b);
@@ -40,8 +43,8 @@ int	main(int argc, char **argv)
 	rra(&a);
 	rrb(&b);
 	rrr(&a, &b);
-	*/
 
+*/
 
 	ft_print_stacks(a, b);
 	ft_free_stacks(a, b);
