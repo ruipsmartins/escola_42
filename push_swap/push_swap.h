@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 11:06:56 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/01/09 10:43:48 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/01/10 09:03:50 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,6 @@ void	ft_free_stacks(t_stack *a, t_stack *b);
 void	print_stack_info(t_stack *stack);
 void	ft_print_stacks(t_stack *a, t_stack *b);
 t_stack	*find_last_node(t_stack *stack);
-
+int		check_if_sorted(t_stack *stack);
 
 #endif

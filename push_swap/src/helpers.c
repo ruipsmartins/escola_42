@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 15:17:15 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/01/05 17:58:43 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/01/10 09:35:24 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,4 +76,20 @@ void	ft_free_stacks(t_stack *a, t_stack *b)
 		}
 		free(b);
 	}
+}
+
+int	check_if_sorted(t_stack *stack)
+{
+	while(stack->next)
+	{
+		if(stack->content > stack->next->content)
+		{
+			printf("not sorted!\n");
+			return (0);
+		}
+		stack = stack->next;
+	}
+
+	printf("is sorted!\n");
+	return (1);
 }
