@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 15:17:15 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/01/10 14:52:19 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/01/11 11:23:34 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,19 +21,17 @@ void	print_nodes(t_stack *stack)
 		tmp_stack = stack;
 		while (tmp_stack)
 		{
-			if (tmp_stack->content)
-			{
-				printf("----------------------------\n");
-				printf("Conteúdo do node: %li\n", tmp_stack->content);
-				if (tmp_stack->prev)
-					printf("prev: %li\n", tmp_stack->prev->content);
-				else
-					printf("prev = NULL\n");
-				if (tmp_stack->next)
-					printf("next: %li\n", tmp_stack->next->content);
-				else
-					printf("next: NULL\n----------------------------\n");
-			}
+			printf("----------------------------\n");
+			printf("Conteúdo do node: %li\n", tmp_stack->content);
+			if (tmp_stack->prev)
+				printf("prev: %li\n", tmp_stack->prev->content);
+			else
+				printf("prev = NULL\n");
+			if (tmp_stack->next)
+				printf("next: %li\n", tmp_stack->next->content);
+			else
+				printf("next: NULL\n----------------------------\n");
+
 			tmp_stack = tmp_stack->next;
 		}
 	}
@@ -107,4 +105,37 @@ int	count_nodes(t_stack *stack)
 	}
 	printf("o stack tem %d nodes\n", count);
 	return (count);
+}
+t_stack	*find_bigger(t_stack *a)
+{
+	t_stack *bigger;
+
+	bigger = a;
+	while (a)
+	{
+		if (a->content > bigger->content)
+		{
+			bigger = a;
+		}
+		a = a->next;
+	}
+	printf("o maior do stack é : %ld\n", bigger->content);
+	return (bigger);
+}
+
+t_stack	*find_smaller(t_stack *a)
+{
+	t_stack *smaller;
+
+	smaller = a;
+	while (a)
+	{
+		if (a->content < smaller->content)
+		{
+			smaller = a;
+		}
+		a = a->next;
+	}
+	printf("o menor do stack é : %ld\n", smaller->content);
+	return (smaller);
 }

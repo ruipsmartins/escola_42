@@ -10,7 +10,7 @@
 			"type": "cppdbg",
 			"request": "launch",
 			"program": "${workspaceFolder}/teste",
-			"args": ["30 -20    -300"],
+			"args": ["-10 -20 0 "],
 			"stopAtEntry": false,
 			"cwd": "${fileDirname}",
 			"environment": [],
