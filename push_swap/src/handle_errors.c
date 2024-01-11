@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 12:02:34 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/01/05 15:32:47 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/01/11 14:34:35 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ void	ft_clear_stack(t_stack **stack_a)
 {
 	t_stack	*tmp;
 
+	if (!*stack_a)
+		return ;
 	while (*stack_a)
 	{
 		tmp = *stack_a;
