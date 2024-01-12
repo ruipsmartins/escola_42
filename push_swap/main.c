@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 17:07:12 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/01/11 10:56:00 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/01/11 15:25:34 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,11 @@ int	main(int argc, char **argv)
 
 	
 /* 	
+	pa(&a,&b);
+	pb(&a,&b);
 	sa(&a);
 	sb(&b);
 	ss(&a, &b);
-	pa(&a,&b);
-	pb(&a,&b);
 	ra(&a); 
 	rb(&b);
 	rr(&a, &b);

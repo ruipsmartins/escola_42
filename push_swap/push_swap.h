@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 11:06:56 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/01/11 11:42:10 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/01/12 14:52:42 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,17 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <limits.h>
+# include <stdbool.h>
 # include "libft/libft.h"
 
 typedef struct s_stack
 {
 	long				content;
 	int					index;
+	int					push_cost;
+	bool				above_median;
+	bool				cheapest;
+	struct s_stack		*target_node;
 	struct s_stack		*next;
 	struct s_stack		*prev;
 }				t_stack;
