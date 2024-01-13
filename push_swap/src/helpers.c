@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 15:17:15 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/01/11 14:36:48 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/01/12 15:33:02 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,10 @@ int	check_if_sorted(t_stack *stack)
 	{
 		if(stack->content > stack->next->content)
 		{
-			printf("not sorted!\n");
 			return (0);
 		}
 		stack = stack->next;
 	}
-
-	printf("is sorted!\n");
 	return (1);
 }
 
@@ -62,7 +59,6 @@ int	count_nodes(t_stack *stack)
 		count++;
 		stack = stack->next;
 	}
-	printf("o stack tem %d nodes\n", count);
 	return (count);
 }
 t_stack	*find_bigger(t_stack *a)

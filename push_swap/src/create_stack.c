@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 15:37:43 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/01/11 14:33:36 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/01/13 17:28:08 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,10 @@ t_stack	*ft_lstnew(long content)
 		return (NULL);
 	new->content = content;
 	new->index = 0;
+	new->above_median = false;
+	new->cheapest = false;
+	new->push_cost = 0;
+	new->target_node = NULL;
 	new->prev = NULL;
 	new->next = NULL;
 	return (new);

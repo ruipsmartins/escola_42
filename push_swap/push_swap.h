@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 11:06:56 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/01/12 14:52:42 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/01/13 17:31:21 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,18 +56,22 @@ void	rr(t_stack **a, t_stack **b);
 void	rra(t_stack **a);
 void	rrb(t_stack **b);
 void	rrr(t_stack **a, t_stack **b);
-void	sort_three(t_stack **a);
+
+//sorting
+int		check_if_sorted(t_stack *stack);
+void	small_sort(t_stack **a);
+void	big_sort(t_stack **a, t_stack **b);
+void	init_nodes_a(t_stack *a, t_stack *b);
 
 //helper functions
-void	ft_free_stacks(t_stack *a, t_stack *b);
-void	print_nodes(t_stack *stack);
-void	ft_print_stacks(t_stack *a, t_stack *b);
-t_stack	*find_last_node(t_stack *stack);
-int		check_if_sorted(t_stack *stack);
 int		count_nodes(t_stack *stack);
+void	print_nodes(t_stack *stack);
+t_stack	*find_last_node(t_stack *stack);
 t_stack	*find_bigger(t_stack *a);
 t_stack	*find_smaller(t_stack *a);
-
+void	ft_print_stacks(t_stack *a, t_stack *b);
+void	ft_free_stacks(t_stack *a, t_stack *b);
+void	set_index_median(t_stack *node);
 
 
 #endif

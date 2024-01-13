@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 11:57:44 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/01/11 11:58:35 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/01/13 11:40:46 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ void	print_nodes(t_stack *stack)
 		{
 			printf("----------------------------\n");
 			printf("Conteúdo do node: %li\n", tmp_stack->content);
+			printf("index: %d\n",tmp_stack->index);
+			printf("acima do meio: %d\n", tmp_stack->above_median);
 			if (tmp_stack->prev)
 				printf("prev: %li\n", tmp_stack->prev->content);
 			else
@@ -31,7 +33,6 @@ void	print_nodes(t_stack *stack)
 				printf("next: %li\n", tmp_stack->next->content);
 			else
 				printf("next: NULL\n----------------------------\n");
-
 			tmp_stack = tmp_stack->next;
 		}
 	}

@@ -6,14 +6,14 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 10:11:20 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/01/11 11:24:14 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/01/12 15:40:12 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
 
-void sort_three(t_stack **a)
+void small_sort(t_stack **a)
 {
 	t_stack	*bigger_node;
 

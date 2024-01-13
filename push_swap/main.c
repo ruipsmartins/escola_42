@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 17:07:12 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/01/11 15:25:34 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/01/12 15:40:12 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,9 @@ int	main(int argc, char **argv)
 	if (!check_if_sorted(a))
 	{
 		if(count_nodes(a) <= 3)
-				sort_three(&a);
+				small_sort(&a);
+		else
+			big_sort(&a, &b);
 	}
 
 	
