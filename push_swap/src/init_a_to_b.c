@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 12:31:22 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/01/13 17:25:30 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/01/13 17:54:55 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,12 +59,52 @@ static void	set_target_a(t_stack *a, t_stack *b)
 		a = a->next;
 	}
 }
+static void	cost_analysis_a(t_stack *a, t_stack *b)
+{
+	int	len_a;
+	int	len_b;
+
+	len_a = count_nodes(a);
+	len_b = count_nodes(b);
+	while (a)
+	{
+		a->push_cost = a->index;
+		if (!(a->above_median))
+			a->push_cost = len_a - (a->index);
+		if (a->target_node->above_median)
+			a->push_cost += a->target_node->index;
+		else
+			a->push_cost += len_b - (a->target_node->index);
+		a = a->next;
+	}
+	
+}
+
+void	set_cheapest(t_stack *stack)
+{
+	long	cheapest_value;
+	t_stack	*cheapest_node;
+
+	if(!stack)
+		return ;
+	cheapest_value = LONG_MAX;
+	while (stack)
+	{
+		if (stack->push_cost < cheapest_value)
+		{
+			cheapest_value = stack->push_cost;
+			cheapest_node = stack;
+		}
+		stack = stack->next;
+	}
+	cheapest_node->cheapest = true;
+}
 
 void	init_nodes_a(t_stack *a, t_stack *b)
 {
 	set_index_median(a);
 	set_index_median(b);
 	set_target_a(a, b);
-	//cost_analysis_a(a, b);
-	//set_cheapest(a);
+	cost_analysis_a(a, b);
+	set_cheapest(a);
 }
