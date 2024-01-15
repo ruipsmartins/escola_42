@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 15:14:53 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/01/15 14:37:59 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/01/15 15:19:26 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,13 @@
 
 t_stack *get_cheapest(t_stack *node)
 {
+	if(!node)
+		return (NULL);
 	while (node)
 	{
-		if(node->cheapest == true)
+		if(node->cheapest)
 			return (node);
+		node = node->next;
 	}
 	return (NULL);
 }
