@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 17:21:11 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/01/05 16:38:31 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/01/15 17:23:36 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	pa(t_stack **a, t_stack **b)
 		return ;
 	}
 	push(b, a);
-	write(1, "pa\n", 4);
+	write(1, "pa\n", 3);
 }
 
 void	pb(t_stack **a, t_stack **b)
@@ -45,5 +45,5 @@ void	pb(t_stack **a, t_stack **b)
 		return ;
 	}
 	push(a, b);
-	write(1, "pb\n", 4);
+	write(1, "pb\n", 3);
 }

@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 16:07:02 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/01/15 11:35:09 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/01/15 17:16:53 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void	reverse(t_stack **stack)
 {
 	t_stack	*last_node;
-	
+
 	last_node = find_last_node(*stack);
 	last_node->prev->next = NULL;
 	last_node->next = *stack;
@@ -50,6 +50,7 @@ void	rrr(t_stack **a, t_stack **b)
 	reverse(b);
 	write(1, "rrr\n", 4);
 }
+
 void	rev_rotate_both(t_stack **a,
 					t_stack **b,
 					t_stack *cheapest_node)

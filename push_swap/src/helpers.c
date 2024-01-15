@@ -6,12 +6,11 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 15:17:15 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/01/15 14:41:34 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/01/15 17:18:15 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
 
 void	ft_free_stacks(t_stack *a, t_stack *b)
 {
@@ -37,9 +36,9 @@ void	ft_free_stacks(t_stack *a, t_stack *b)
 
 int	check_if_sorted(t_stack *stack)
 {
-	while(stack->next)
+	while (stack->next)
 	{
-		if(stack->content > stack->next->content)
+		if (stack->content > stack->next->content)
 		{
 			return (0);
 		}
@@ -53,7 +52,6 @@ int	count_nodes(t_stack *stack)
 	int	count;
 
 	count = 0;
-
 	while (stack)
 	{
 		count++;
@@ -61,9 +59,10 @@ int	count_nodes(t_stack *stack)
 	}
 	return (count);
 }
+
 t_stack	*find_bigger(t_stack *a)
 {
-	t_stack *bigger;
+	t_stack	*bigger;
 
 	bigger = a;
 	while (a)
@@ -79,7 +78,7 @@ t_stack	*find_bigger(t_stack *a)
 
 t_stack	*find_smaller(t_stack *a)
 {
-	t_stack *smaller;
+	t_stack	*smaller;
 
 	smaller = a;
 	while (a)

@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 11:06:56 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/01/15 14:38:52 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/01/15 17:24:28 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,6 @@ t_stack	*find_smaller(t_stack *a);
 void	ft_print_stacks(t_stack *a, t_stack *b);
 void	ft_free_stacks(t_stack *a, t_stack *b);
 void	set_index_median(t_stack *node);
-
+t_stack	*get_cheapest(t_stack *node);
 
 #endif

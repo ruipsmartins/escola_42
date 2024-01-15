@@ -6,7 +6,7 @@
 #    By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/20 11:11:30 by ruidos-s          #+#    #+#              #
-#    Updated: 2024/01/05 14:40:58 by ruidos-s         ###   ########.fr        #
+#    Updated: 2024/01/15 17:26:07 by ruidos-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ clean:
 		rm -f $(OBJS)
 
 fclean: clean
-		rm -f $(NAME) ./test* && make fclean -C libft/
+		rm -f $(NAME) ./push_swap && make fclean -C libft/
 
 re: fclean all 
 		make clean && clear
@@ -45,10 +45,10 @@ git:
 	git status
 
 test:
-	$(CC) $(CFLAGS) -g $(SRCS) $(LIBFT) $(NAME) -o teste 
+	$(CC) $(CFLAGS) -g $(SRCS) $(LIBFT) $(NAME) -o push_swap 
 
 valgrind:
-	valgrind --show-leak-kinds=all --leak-check=full ./teste 45 "78 2" 64 "65 27 " -2 6
+	valgrind --show-leak-kinds=all --leak-check=full ./teste  9 5 45 "78 +2" 64 "65  -27 " -2 6
 
 # trocar de teste para push_swap!
 

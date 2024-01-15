@@ -6,11 +6,24 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 14:25:06 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/01/15 14:39:58 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/01/15 17:30:18 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+t_stack	*get_cheapest(t_stack *node)
+{
+	if (!node)
+		return (NULL);
+	while (node)
+	{
+		if (node->cheapest)
+			return (node);
+		node = node->next;
+	}
+	return (NULL);
+}
 
 static void	set_target_b(t_stack *a, t_stack *b) //Define a function that sets for the current `a` node, its target node from stack `a`
 {

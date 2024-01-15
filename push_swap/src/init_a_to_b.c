@@ -6,19 +6,19 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 12:31:22 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/01/13 17:54:55 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/01/15 17:15:55 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void set_index_median(t_stack *node)
+void	set_index_median(t_stack *node)
 {
-	int		index;
-	int 	median;
+	int	index;
+	int	median;
 
 	if (!node)
-	return ;
+		return ;
 	median = count_nodes(node) / 2;
 	index = 0;
 	while (node)
@@ -34,7 +34,7 @@ void set_index_median(t_stack *node)
 
 static void	set_target_a(t_stack *a, t_stack *b)
 {
-	t_stack *current_b;
+	t_stack	*current_b;
 	t_stack	*target_node;
 	long	best_match_index;	
 
@@ -59,6 +59,7 @@ static void	set_target_a(t_stack *a, t_stack *b)
 		a = a->next;
 	}
 }
+
 static void	cost_analysis_a(t_stack *a, t_stack *b)
 {
 	int	len_a;
@@ -77,7 +78,6 @@ static void	cost_analysis_a(t_stack *a, t_stack *b)
 			a->push_cost += len_b - (a->target_node->index);
 		a = a->next;
 	}
-	
 }
 
 void	set_cheapest(t_stack *stack)
@@ -85,7 +85,7 @@ void	set_cheapest(t_stack *stack)
 	long	cheapest_value;
 	t_stack	*cheapest_node;
 
-	if(!stack)
+	if (!stack)
 		return ;
 	cheapest_value = LONG_MAX;
 	while (stack)
