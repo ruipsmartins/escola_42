@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 11:06:56 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/01/13 17:31:21 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/01/15 14:38:52 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,12 +56,15 @@ void	rr(t_stack **a, t_stack **b);
 void	rra(t_stack **a);
 void	rrb(t_stack **b);
 void	rrr(t_stack **a, t_stack **b);
-
+void	rotate_both(t_stack **a, t_stack **b, t_stack *cheapest_node);
+void	rev_rotate_both(t_stack **a, t_stack **b, t_stack *cheapest_node);
+void	prep_for_push(t_stack **stack, t_stack *top_node,	char stack_name);
 //sorting
 int		check_if_sorted(t_stack *stack);
 void	small_sort(t_stack **a);
 void	big_sort(t_stack **a, t_stack **b);
 void	init_nodes_a(t_stack *a, t_stack *b);
+void	init_nodes_b(t_stack *a, t_stack *b);
 
 //helper functions
 int		count_nodes(t_stack *stack);

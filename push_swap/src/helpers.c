@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 15:17:15 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/01/12 15:33:02 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/01/15 14:41:34 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,6 @@ t_stack	*find_bigger(t_stack *a)
 		}
 		a = a->next;
 	}
-	printf("o maior do stack é : %ld\n", bigger->content);
 	return (bigger);
 }
 
@@ -91,6 +90,5 @@ t_stack	*find_smaller(t_stack *a)
 		}
 		a = a->next;
 	}
-	printf("o menor do stack é : %ld\n", smaller->content);
 	return (smaller);
 }

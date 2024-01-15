@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 17:07:12 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/01/12 15:40:12 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/01/15 15:07:55 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ int	main(int argc, char **argv)
 			big_sort(&a, &b);
 	}
 
-	
 /* 	
 	pa(&a,&b);
 	pb(&a,&b);
@@ -49,8 +48,7 @@ int	main(int argc, char **argv)
 
 */
 
-	ft_print_stacks(a, b);
+	//ft_print_stacks(a, b);
 	ft_free_stacks(a, b);
-	
 	return (0);
 }
