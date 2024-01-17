@@ -6,11 +6,11 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 11:57:44 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/01/15 17:29:12 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/01/15 17:32:18 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/* #include "../push_swap.h"
+#include "../push_swap.h"
 
 void	print_nodes(t_stack *stack)
 {
@@ -45,12 +45,3 @@ void	ft_print_stacks(t_stack *a, t_stack *b)
 	printf("\nstack b:\n");
 	print_nodes(b);
 }
-t_stack	*find_last_node(t_stack *stack)
-{
-	if(!stack)
-		return (NULL);
-	while (stack->next)
-		stack = stack->next;
-	return (stack);
-}
- */

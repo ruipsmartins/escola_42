@@ -6,7 +6,7 @@
 #    By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/20 11:11:30 by ruidos-s          #+#    #+#              #
-#    Updated: 2024/01/15 17:26:07 by ruidos-s         ###   ########.fr        #
+#    Updated: 2024/01/17 11:57:01 by ruidos-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ $(LIBFT):
 		make -C ./libft && make clean -C libft/
 $(NAME): $(OBJS) $(LIBFT)
 		ar rc $(NAME) $(OBJS)
+		make test
 
 clean:
 		rm -f $(OBJS)
@@ -48,7 +49,7 @@ test:
 	$(CC) $(CFLAGS) -g $(SRCS) $(LIBFT) $(NAME) -o push_swap 
 
 valgrind:
-	valgrind --show-leak-kinds=all --leak-check=full ./teste  9 5 45 "78 +2" 64 "65  -27 " -2 6
+	valgrind --show-leak-kinds=all --leak-check=full ./push_swap  9 5 45 "78 +2" 64 "65  -27 " -2 6
 
 # trocar de teste para push_swap!
 

@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 17:21:11 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/01/15 17:23:36 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/01/17 11:52:20 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,7 @@ static void	push(t_stack **x, t_stack **y)
 void	pa(t_stack **a, t_stack **b)
 {
 	if (*b == NULL)
-	{
-		printf("stack b não tem nada.\n");
 		return ;
-	}
 	push(b, a);
 	write(1, "pa\n", 3);
 }
@@ -40,10 +37,7 @@ void	pa(t_stack **a, t_stack **b)
 void	pb(t_stack **a, t_stack **b)
 {
 	if (*a == NULL)
-	{
-		printf("stack a não tem nada.\n");
 		return ;
-	}
 	push(a, b);
 	write(1, "pb\n", 3);
 }
