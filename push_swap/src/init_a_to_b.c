@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 12:31:22 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/01/15 17:15:55 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/01/17 14:58:43 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,13 @@ void	set_index_median(t_stack *node)
 	index = 0;
 	while (node)
 	{
-		node->index = index++;
+		node->index = index;
 		if (index <= median)
 			node->above_median = true;
 		else
 			node->above_median = false;
 		node = node->next;
+		index++;
 	}
 }
 
