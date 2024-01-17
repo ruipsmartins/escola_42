@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 15:14:53 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/01/15 17:57:57 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/01/17 15:49:09 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	big_sort(t_stack **a, t_stack **b)
 	int	len_a;
 
 	len_a = count_nodes(*a);
- 	if (len_a-- > 3 && !check_if_sorted(*a))
+	if (len_a-- > 3 && !check_if_sorted(*a))
 		pb(a, b);
 	if (len_a-- > 3 && !check_if_sorted(*a))
 		pb(a, b);

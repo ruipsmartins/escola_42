@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 15:17:15 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/01/17 14:52:30 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/01/17 15:47:41 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	count_nodes(t_stack *stack)
 {
 	int	count;
 
-	if(!stack)
+	if (!stack)
 		return (0);
 	count = 0;
 	while (stack)

@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 12:02:34 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/01/17 14:40:14 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/01/17 15:51:29 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ void	ft_find_errors(char *str)
 			ft_print_error();
 		i++;
 	}
-	//aqui ver se é para dar erro ou exit.
 	if (num == 0)
 		exit(1);
 }

@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 14:25:06 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/01/17 15:43:32 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/01/17 15:48:00 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ static void	set_target_b(t_stack *a, t_stack *b)
 		b = b->next;
 	}
 }
-
 
 void	init_nodes_b(t_stack *a, t_stack *b)
 {
