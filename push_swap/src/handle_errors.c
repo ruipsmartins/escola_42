@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 12:02:34 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/01/17 15:51:29 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/01/18 13:49:11 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	ft_print_error(void)
 {
 	write(2, "Error\n", 6);
-	exit(3);
+	exit(1);
 }
 
 void	ft_find_errors(char *str)
@@ -38,7 +38,7 @@ void	ft_find_errors(char *str)
 		i++;
 	}
 	if (num == 0)
-		exit(1);
+		ft_print_error();
 }
 
 void	ft_clear_stack(t_stack **stack_a)

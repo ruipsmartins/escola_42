@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 10:50:32 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/01/05 15:33:22 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/01/18 13:46:19 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ void	concatenate_and_process_args(t_stack **stack_a, int argc, char **argv)
 	char	*temp_str;
 	int		i;
 
+	if(!argv[1])
+		ft_print_error();
 	i = 1;
 	while (i < argc)
 		ft_find_errors(argv[i++]);
