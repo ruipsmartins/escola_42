@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 12:02:34 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/01/18 13:49:11 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/01/19 09:23:18 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,14 @@ int	ft_print_error(void)
 void	ft_find_errors(char *str)
 {
 	int		i;
-	int		num;
+	bool	num;
 
 	i = 0;
-	num = 0;
+	num = false;
 	while (str[i])
 	{
 		if (ft_isdigit(str[i]))
-			num = 1;
+			num = true;
 		if ((str[i] < '0' || str[i] > '9') && str[i] != ' ' 
 			&& str[i] != '-' && str[i] != '+')
 			ft_print_error();
@@ -37,7 +37,7 @@ void	ft_find_errors(char *str)
 			ft_print_error();
 		i++;
 	}
-	if (num == 0)
+	if (num == false)
 		ft_print_error();
 }
 

@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 11:06:56 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/01/15 17:24:28 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/01/19 10:43:38 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define PUSH_SWAP_H
 
 //nao esquecer de apagar stdio.h
-# include <stdio.h>
+//# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 # include <limits.h>
