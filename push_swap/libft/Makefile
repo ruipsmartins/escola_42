@@ -6,7 +6,7 @@
 #    By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/04 14:19:42 by ruidos-s          #+#    #+#              #
-#    Updated: 2024/01/30 14:39:07 by ruidos-s         ###   ########.fr        #
+#    Updated: 2024/01/30 14:53:35 by ruidos-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,6 @@ SRCS = 	ft_atol.c  ft_atoi.c  ft_isalnum.c  ft_isalpha.c  ft_isascii.c  ft_isdig
 
 OBJS = $(SRCS:.c=.o)
 
-
 #BONUS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c\
 		ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c 
 
@@ -39,10 +38,6 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	ar rc $(NAME) $(OBJS)
 	
-
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
-
 clean:
 	rm -f $(OBJS) $(BONUS_OBJS) bonus
 	
