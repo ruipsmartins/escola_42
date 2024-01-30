@@ -6,7 +6,7 @@
 #    By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/04 14:19:42 by ruidos-s          #+#    #+#              #
-#    Updated: 2024/01/30 13:39:59 by ruidos-s         ###   ########.fr        #
+#    Updated: 2024/01/30 14:39:07 by ruidos-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,8 @@ NAME = libft.a
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror 
+# -fsanitize=address
 
 SRCS = 	ft_atol.c  ft_atoi.c  ft_isalnum.c  ft_isalpha.c  ft_isascii.c  ft_isdigit.c  ft_isprint.c\
 		ft_strlen.c ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c ft_strlcpy.c\
@@ -28,10 +29,10 @@ SRCS = 	ft_atol.c  ft_atoi.c  ft_isalnum.c  ft_isalpha.c  ft_isascii.c  ft_isdig
 OBJS = $(SRCS:.c=.o)
 
 
-BONUS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c\
+#BONUS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c\
 		ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c 
 
-BONUS_OBJS = $(BONUS:.c=.o)
+#BONUS_OBJS = $(BONUS:.c=.o)
 
 all: $(NAME)
 
@@ -50,9 +51,9 @@ fclean: clean
 	
 re: fclean all bonus
 
-bonus:	$(OBJS) $(BONUS_OBJS)
-				ar rc $(NAME) $(OBJS) $(BONUS_OBJS)
-				@touch bonus
+#bonus:	$(OBJS) $(BONUS_OBJS)
+#				ar rc $(NAME) $(OBJS) $(BONUS_OBJS)
+#				@touch bonus
 
 test: $(SRCS) main.c
 	$(CC) $(CFLAGS) $(SRCS) $(BONUS) main.c -o teste_main

@@ -6,29 +6,30 @@
 #    By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/20 11:11:30 by ruidos-s          #+#    #+#              #
-#    Updated: 2024/01/19 10:23:31 by ruidos-s         ###   ########.fr        #
+#    Updated: 2024/01/30 14:49:27 by ruidos-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = push_swap.a
+NAME = push_swap
 
 CC = cc
 
 CFLAGS = -Wall -Wextra -Werror
 
-SRCS = $(wildcard src/*.c) main.c
+SRCS = $(wildcard src/*.c)
 
 OBJS = $(SRCS:.c=.o)
 
 LIBFT = libft/libft.a
 
 
-all: $(NAME)
+all: $(LIBFT) $(NAME)
+
 $(LIBFT):
 		make -C ./libft && make clean -C libft/
-$(NAME): $(OBJS) $(LIBFT)
-		ar rc $(NAME) $(OBJS)
-		make test
+
+$(NAME): $(OBJS)
+		$(CC) $(CFLAGS) -g $(OBJS) $(LIBFT) -o $@
 
 clean:
 		rm -f $(OBJS)
@@ -38,6 +39,7 @@ fclean: clean
 
 re: fclean all 
 		make clean && clear
+
 #alterar o make clean e clear
 git:
 	git add .
@@ -45,12 +47,8 @@ git:
 	git push
 	git status
 
-test:
-	$(CC) $(CFLAGS) -g $(SRCS) $(LIBFT) $(NAME) -o push_swap 
-
 valgrind:
 	valgrind --show-leak-kinds=all --leak-check=full ./push_swap  
 
-# trocar de teste para push_swap!
 
 .PHONY: all clean fclean re test git valgrind
