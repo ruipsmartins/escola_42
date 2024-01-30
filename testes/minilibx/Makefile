@@ -1,6 +1,12 @@
 
+CC = cc
+
+CFLAGS = -Wall -Wextra -Werror -fsanitize=address
+
+SRCS = $(wildcard *.c)
+
 all:
-	cc 1.c ./mlx_linux/libmlx.a -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o teste
+	$(CC) $(CFLAGS) $(SRCS) ./mlx_linux/libmlx.a -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o teste
 
 
 git:
