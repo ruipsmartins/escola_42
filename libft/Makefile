@@ -6,7 +6,7 @@
 #    By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/04 14:19:42 by ruidos-s          #+#    #+#              #
-#    Updated: 2023/10/26 13:20:27 by ruidos-s         ###   ########.fr        #
+#    Updated: 2024/01/30 12:27:13 by ruidos-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ SRCS = 	ft_atoi.c  ft_isalnum.c  ft_isalpha.c  ft_isascii.c  ft_isdigit.c  ft_is
 		ft_memchr.c ft_memcmp.c ft_strnstr.c ft_calloc.c ft_strdup.c ft_substr.c\
 		ft_strjoin.c ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c ft_striteri.c\
 		ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c\
+		ft_printf.c print_format.c printf_putchar.c printf_putstr.c printf_putnbr.c printf_putptr.c\
 		
 OBJS = $(SRCS:.c=.o)
 
@@ -53,7 +54,7 @@ bonus:	$(OBJS) $(BONUS_OBJS)
 				@touch bonus
 
 test: $(SRCS) main.c
-	$(CC) $(CFLAGS) $(SRCS) $(BONUS) main.c -o teste_main -lbsd
+	$(CC) $(CFLAGS) $(SRCS) $(BONUS) main.c -o teste_main
 
 git:
 	git add .
