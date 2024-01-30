@@ -6,8 +6,16 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 12:37:54 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/01/29 12:38:11 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/01/30 15:13:56 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft/libft.h"
 
+int	main (void)
+{
+	ft_printf("hello world\n");
+
+
+	return 0;
+}
