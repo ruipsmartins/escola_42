@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 17:07:12 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/01/30 14:42:19 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/01/30 15:00:20 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,3 @@ int	main(int argc, char **argv)
 	ft_free_stacks(a, b);
 	return (0);
 }
-//Perguntar ao pessoal se é para fazer print ao erro ou nao se nao tiver args
-//ARG="5 -3 42 7 8 654 41 -55"; ./teste $ARG | ./checker_linux $ARG

@@ -6,12 +6,12 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 15:53:49 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/01/30 12:59:21 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/01/30 15:01:57 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-# include <stdio.h>
+#include <stdio.h>
 
 char	*get_next_line(int fd)
 {
