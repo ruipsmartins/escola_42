@@ -6,7 +6,7 @@
 #    By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/20 11:11:30 by ruidos-s          #+#    #+#              #
-#    Updated: 2024/01/30 15:51:58 by ruidos-s         ###   ########.fr        #
+#    Updated: 2024/01/30 16:25:00 by ruidos-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = so_long
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror -g 
+CFLAGS = -Wall -Wextra -Werror 
 # -fsanitize=address
 
 SRCS =	main.c
@@ -32,7 +32,7 @@ $(LIBFT):
 $(MLX):
 		make -C ./mlx_linux
 
-$(NAME): $(OBJS) $(LIBFT)
+$(NAME): $(OBJS) $(LIBFT) $(MLX)
 		$(CC) $(CFLAGS) $(LIBFT) $(OBJS) $(MLX) -o $@ 
 
 clean:
