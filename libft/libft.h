@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 14:37:58 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/01/30 13:41:35 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/01/30 15:03:51 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@
 # include <unistd.h>
 # include <stdarg.h>
 # include <fcntl.h>
-
 
 typedef struct s_list
 {

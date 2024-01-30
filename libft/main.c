@@ -6,12 +6,11 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 16:16:18 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/01/30 13:03:57 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/01/30 15:04:16 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
 
 int	main(void)
 {
