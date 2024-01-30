@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/22 10:33:15 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/11/06 12:23:12 by ruidos-s         ###   ########.fr       */
+/*   Created: 2023/10/05 12:31:31 by ruidos-s          #+#    #+#             */
+/*   Updated: 2023/10/26 15:06:41 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/* Outputs the string ’s’ to the given file
-descriptor. */
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_putstr(char *s)
+//write zeroes to a byte string.
+void	ft_bzero(void *s, size_t len)
 {
-	int	count;
-
-	count = 0;
-	if (s == NULL)
-		s = ("(null)");
-	while (*s)
-	{
-		ft_putchar(*s++);
-		count++;
-	}
-	return (count);
+	ft_memset(s, '\0', len);
 }
+
+/*
+#include <stdio.h>
+
+int	main(void)
+{
+	char	str[] = "Hello World!";
+
+	printf("antes do ft_bzero: %s\n", str);
+	ft_bzero(str + 5, 5);
+	printf("depois do ft_bzero: %s\n", str);
+	return (0);
+}
+ */

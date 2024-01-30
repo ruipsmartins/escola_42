@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                      :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/31 16:19:13 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/11/02 17:43:05 by ruidos-s         ###   ########.fr       */
+/*   Created: 2023/10/03 16:25:50 by ruidos-s          #+#    #+#             */
+/*   Updated: 2023/10/26 14:53:19 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-# include <stdarg.h>
-# include <stdlib.h>
-# include <unistd.h>
+/* checks whether c is a 7-bit unsigned char value that
+ fits into the ASCII character set. */
 
-int	ft_printf(const char *format, ...);
-int	print_format(char specifier, va_list ap);
-int	printf_putchar(char c);
-int	printf_putstr(char *s);
-int	printf_putnbr(long nbr, int base, int upper);
-int	printf_putptr(unsigned long nbr, int base, int reset);
+#include "libft.h"
 
-#endif
+int	ft_isascii(int c)
+{
+	if (c >= 0 && c <= 127)
+		return (1);
+	return (0);
+}
+/*
+#include <stdio.h>
+#include <ctype.h>
+int	main()
+{
+		printf("%d\n", ft_isascii('/'));
+		printf("%d\n", isascii('/'));
+}
+ */

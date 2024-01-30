@@ -1,26 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                      :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/31 16:19:13 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/11/02 17:43:05 by ruidos-s         ###   ########.fr       */
+/*   Created: 2023/10/04 10:49:52 by ruidos-s          #+#    #+#             */
+/*   Updated: 2023/10/26 14:55:33 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-# include <stdarg.h>
-# include <stdlib.h>
-# include <unistd.h>
+//checks for any printable character including space.
 
-int	ft_printf(const char *format, ...);
-int	print_format(char specifier, va_list ap);
-int	printf_putchar(char c);
-int	printf_putstr(char *s);
-int	printf_putnbr(long nbr, int base, int upper);
-int	printf_putptr(unsigned long nbr, int base, int reset);
+#include "libft.h"
 
-#endif
+int	ft_isprint(int c)
+{
+	if (c >= 32 && c <= 126)
+		return (1);
+	return (0);
+}
+
+/*
+#include <stdio.h>
+#include <ctype.h>
+
+int	main()
+{
+	printf("%d\n", ft_isprint(30));
+
+	int c;
+	for(c = 1; c <= 127; ++c)
+   	if (ft_isprint(c)!= 0)
+             printf("%c ", c);
+   return 0;
+}
+*/

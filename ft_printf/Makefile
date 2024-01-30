@@ -6,14 +6,14 @@
 #    By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/31 16:07:09 by ruidos-s          #+#    #+#              #
-#    Updated: 2023/11/08 10:13:00 by ruidos-s         ###   ########.fr        #
+#    Updated: 2024/01/30 12:10:28 by ruidos-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	libftprintf.a
 CC 		=	 cc
 CFLAGS 	=	-Wall -Wextra -Werror
-SRCS	=	ft_printf.c print_format.c ft_putchar.c ft_putstr.c ft_putnbr.c ft_putptr.c 
+SRCS	=	ft_printf.c print_format.c printf_putchar.c printf_putstr.c printf_putnbr.c printf_putptr.c 
 
 OBJS 	=	 $(SRCS:.c=.o)
 

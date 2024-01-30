@@ -6,11 +6,11 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 10:34:30 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/01/30 12:09:58 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/01/30 12:12:59 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 int	print_format(char specifier, va_list ap)
 {

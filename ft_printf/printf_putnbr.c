@@ -1,39 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putptr.c                                        :+:      :+:    :+:   */
+/*   printf_putnbr.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/06 14:02:31 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/11/06 14:43:11 by ruidos-s         ###   ########.fr       */
+/*   Created: 2023/11/02 16:57:50 by ruidos-s          #+#    #+#             */
+/*   Updated: 2024/01/30 12:09:30 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putptr(unsigned long nbr, int base, int reset)
+int	printf_toupper(int c)
 {
-	int		count;
+	if (c >= 'a' && c <= 'z')
+		c -= 32;
+	return (c);
+}
+
+int	printf_putnbr(long nbr, int base, int upper)
+{
 	char	*symbols;
+	int		count;
 
 	symbols = "0123456789abcdef";
 	count = 0;
-	if (reset == 1)
+	if (nbr < 0)
 	{
-		if (nbr == 0)
-			return (ft_putstr("(nil)"));
-		count += ft_putstr("0x");
+		write(1, "-", 1);
+		return (printf_putnbr(-nbr, base, upper) + 1);
 	}
-	if (nbr < (unsigned long)base)
+	if (nbr < base)
 	{
-		ft_putchar(symbols[nbr]);
-		count++;
+		if (upper == 1)
+			return ((printf_putchar(printf_toupper(symbols[nbr]))));
+		return (printf_putchar(symbols[nbr]));
 	}
 	else
 	{
-		count += ft_putptr(nbr / base, base, 0);
-		count += ft_putptr(nbr % base, base, 0);
+		count = printf_putnbr(nbr / base, base, upper);
+		return (count + printf_putnbr(nbr % base, base, upper));
 	}
-	return (count);
 }

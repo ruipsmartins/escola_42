@@ -19,7 +19,7 @@ int main(void)
 		mlx_pixel_put(mlx_connection, mlx_window, x, y, rand () % 0x1000000);
 		}
 	}
-	mlx_string_put(mlx_connection, mlx_window, WIDTH * 0.8, HEIGHT * 0.95, 0x00ffff, "My pollock");
+	mlx_string_put(mlx_connection, mlx_window, WIDTH * 0.8, HEIGHT * 0.95, 0x00ffff, "My pollllllllock");
 	mlx_loop(mlx_connection);
 
 	return 0;

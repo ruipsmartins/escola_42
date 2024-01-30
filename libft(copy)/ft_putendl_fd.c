@@ -1,26 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                      :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/31 16:19:13 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/11/02 17:43:05 by ruidos-s         ###   ########.fr       */
+/*   Created: 2023/10/22 11:31:32 by ruidos-s          #+#    #+#             */
+/*   Updated: 2023/10/22 12:04:18 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-# include <stdarg.h>
-# include <stdlib.h>
-# include <unistd.h>
+/* Outputs the string ’s’ to the given file descriptor
+followed by a newline. */
+#include "libft.h"
 
-int	ft_printf(const char *format, ...);
-int	print_format(char specifier, va_list ap);
-int	printf_putchar(char c);
-int	printf_putstr(char *s);
-int	printf_putnbr(long nbr, int base, int upper);
-int	printf_putptr(unsigned long nbr, int base, int reset);
+void	ft_putendl_fd(char *s, int fd)
+{
+	ft_putstr_fd(s, fd);
+	ft_putchar_fd('\n', fd);
+}
 
-#endif
+/* 
+#include <fcntl.h>
+
+int	main(void)
+{
+	char	*str = "Hello World!!";
+	int		fd;
+
+	fd = open("test.txt", O_RDWR | O_APPEND | O_CREAT, 0640);
+	ft_putendl_fd(str, fd);
+	return (0);
+}
+ */
