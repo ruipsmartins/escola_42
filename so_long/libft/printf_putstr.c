@@ -1,33 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_count_words.c                                   :+:      :+:    :+:   */
+/*   printf_putstr.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/20 16:57:29 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/12/20 17:03:58 by ruidos-s         ###   ########.fr       */
+/*   Created: 2023/10/22 10:33:15 by ruidos-s          #+#    #+#             */
+/*   Updated: 2024/01/30 12:13:27 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/* Outputs the string ’s’ to the given file
+descriptor. */
 #include "libft.h"
 
-int	ft_count_words(char const *str, char c)
+int	printf_putstr(char *s)
 {
-	int		count;
-	int		i;
+	int	count;
 
-	if (ft_strlen(str) == 0)
-		return (0);
-	count = 1;
-	i = 0;
-	while (str[i] == c)
-		i++;
-	while (str[i])
+	count = 0;
+	if (s == NULL)
+		s = ("(null)");
+	while (*s)
 	{
-		if (str[i] == c && str[i + 1] != c && str[i + 1] != '\0')
-			count++;
-		i++;
+		printf_putchar(*s++);
+		count++;
 	}
 	return (count);
 }

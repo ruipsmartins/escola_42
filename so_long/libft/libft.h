@@ -6,16 +6,29 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 14:37:58 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/12/21 16:07:08 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/01/30 15:02:19 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 5
+# endif
+
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdarg.h>
+# include <fcntl.h>
 
+/* typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+}					t_list;
+ */
 //Part 1 - Libc functions
 size_t	ft_strlen(const char *str);
 int		ft_isalnum(int c);
@@ -37,6 +50,7 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n);
 void	*ft_memchr(const void *s, int c, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 char	*ft_strnstr(const char *big, const char *little, size_t len);
+int		ft_atoi(const char *str);
 long	ft_atol(const char *str);
 void	*ft_calloc(size_t nmemb, size_t size);
 char	*ft_strdup(const char *s);
@@ -53,6 +67,31 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
-int		ft_count_words(char const *str, char c);
+
+//Bonus part
+/* t_list	*ft_lstnew(void *content);
+void	ft_lstadd_front(t_list **lst, t_list *newnode);
+int		ft_lstsize(t_list *lst);
+t_list	*ft_lstlast(t_list *lst);
+void	ft_lstadd_back(t_list **lst, t_list *newnode);
+void	ft_lstdelone(t_list *lst, void (*del)(void*));
+void	ft_lstclear(t_list **lst, void (*del)(void *));
+void	ft_lstiter(t_list *lst, void (*f)(void *));
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *)); */
+
+//ft_printf
+int		ft_printf(const char *format, ...);
+int		print_format(char specifier, va_list ap);
+int		printf_putchar(char c);
+int		printf_putstr(char *s);
+int		printf_putnbr(long nbr, int base, int upper);
+int		printf_putptr(unsigned long nbr, int base, int reset);
+
+//get_next_line
+char	*get_next_line(int fd);
+char	*gnl_create_line(int fd, char *buffer);
+size_t	gnl_strlen(char *str);
+char	*gnl_strjoin(char *s1, char *s2);
+void	gnl_clean_buffer(char *buffer);
 
 #endif

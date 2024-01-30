@@ -6,7 +6,7 @@
 #    By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/20 11:11:30 by ruidos-s          #+#    #+#              #
-#    Updated: 2024/01/19 14:24:29 by ruidos-s         ###   ########.fr        #
+#    Updated: 2024/01/30 15:11:07 by ruidos-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = so_long
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror 
+CFLAGS = -Wall -Wextra -Werror -fsanitize=address
 
 SRCS =	main.c 
 		
@@ -23,19 +23,29 @@ OBJS = $(SRCS:.c=.o)
 LIBFT = libft/libft.a
 
 
-all: $(NAME)
+all: $(LIBFT) $(NAME)
 $(LIBFT):
 		make -C ./libft && make clean -C libft/
 
-$(NAME): $(OBJS) $(LIBFT)
-		$(CC) $(CFLAGS) $(SRCS) $(LIBFT)  -o so_long 
+$(NAME): $(OBJS)
+		$(CC) $(CFLAGS) -g $(OBJS) $(LIBFT) -o $@ 
 
 clean:
 		rm -f $(OBJS)
 
 fclean: clean
-		rm -f $(NAME) ./push_swap && make fclean -C libft/
+		rm -f $(NAME) && make fclean -C libft/
 
 re: fclean all 
+		make clean && clear
+#alterar o make clean e clear
+git:
+	git add .
+	git commit -m "guardar coisas no github"
+	git push
+	git status
 
-.PHONY: all clean fclean re
+valgrind:
+	valgrind --show-leak-kinds=all --leak-check=full ./push_swap  
+
+.PHONY: all clean fclean re test git valgrind
