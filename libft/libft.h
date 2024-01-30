@@ -6,16 +6,23 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 14:37:58 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/01/30 12:20:30 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/01/30 13:01:13 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 5
+# endif
+
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdarg.h>
+# include <fcntl.h>
+
 
 typedef struct s_list
 {
@@ -79,5 +86,12 @@ int		printf_putchar(char c);
 int		printf_putstr(char *s);
 int		printf_putnbr(long nbr, int base, int upper);
 int		printf_putptr(unsigned long nbr, int base, int reset);
+
+//get_next_line
+char	*get_next_line(int fd);
+char	*gnl_create_line(int fd, char *buffer);
+size_t	gnl_strlen(char *str);
+char	*gnl_strjoin(char *s1, char *s2);
+void	gnl_clean_buffer(char *buffer);
 
 #endif

@@ -5,36 +5,45 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/02 09:33:36 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/01/30 12:20:03 by ruidos-s         ###   ########.fr       */
+/*   Created: 2023/11/13 16:16:18 by ruidos-s          #+#    #+#             */
+/*   Updated: 2024/01/30 13:03:57 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <limits.h>
-#include <stdio.h>
+
 
 int	main(void)
 {
-	int		count1;
-	int		count2;
-	char	c;
-	char	str[] = "hello";
-	int		num;
+	int		fd1;
+	int		fd2;
+	char	*line;
+	int		i;
+	int		change_fd;
 
-	c = 'A';
-	num = -42;
-	count1 = 0;
-	count2 = 0;
-	 count1 = printf("teu_printf --> %%c=%c s=%s, u=%u, x=%x X=%X p=%p\n", c,
-			str, num, num, num, &num);
-	count2 = ft_printf("meu_printf --> %%c=%c s=%s, u=%u, x=%x X=%X p=%p\n", c, str,
-			num, num, num, &num);
-
-	//count2 = ft_printf(NULL);
-	//count1 = printf(NULL);
-
-	printf("\ncount1 = %d, count2 = %d\n", count1, count2);
-
+	i = 0;
+	change_fd = 1;
+	fd1 = open("file1.txt", O_RDONLY);
+	fd2 = open("file2.txt", O_RDONLY);
+	while (++i)
+	{
+		if (change_fd > 0)
+		{
+			line = get_next_line(fd1);
+			change_fd *= -1;
+		}
+		else
+		{
+			line = get_next_line(fd2);
+			change_fd *= -1;
+		}
+		if (!line)
+		{
+			free(line);
+			break ;
+		}
+		ft_printf("|%d: %s", i, line);
+		free(line);
+	}
 	return (0);
 }

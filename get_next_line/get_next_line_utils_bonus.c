@@ -6,13 +6,13 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 12:25:17 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/11/20 11:27:46 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/01/30 12:54:57 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
 
-size_t	ft_strlen(char *str)
+size_t	gnl_strlen(char *str)
 {
 	size_t	i;
 
@@ -26,13 +26,13 @@ size_t	ft_strlen(char *str)
 	return (i);
 }
 
-char	*ft_strjoin(char *old_str, char *buffer)
+char	*gnl_strjoin(char *old_str, char *buffer)
 {
 	char		*new_str;
 	size_t		i;
 	size_t		j;
 
-	new_str = malloc(ft_strlen(old_str) + ft_strlen(buffer) + 1);
+	new_str = malloc(gnl_strlen(old_str) + gnl_strlen(buffer) + 1);
 	if (!new_str)
 		return (free(old_str), NULL);
 	i = 0;
@@ -54,7 +54,7 @@ char	*ft_strjoin(char *old_str, char *buffer)
 	return (new_str);
 }
 
-void	ft_clean_buffer(char *buffer)
+void	gnl_clean_buffer(char *buffer)
 {
 	int	i;
 	int	j;
@@ -76,16 +76,16 @@ void	ft_clean_buffer(char *buffer)
 	}
 }
 
-char	*ft_create_line(int fd, char *buffer)
+char	*gnl_create_line(int fd, char *buffer)
 {
 	char	*line;
 
 	line = NULL;
 	while (buffer[0] || read(fd, buffer, BUFFER_SIZE) > 0)
 	{
-		line = ft_strjoin(line, buffer);
-		ft_clean_buffer(buffer);
-		if (line[ft_strlen(line) - 1] == '\n')
+		line = gnl_strjoin(line, buffer);
+		gnl_clean_buffer(buffer);
+		if (line[gnl_strlen(line) - 1] == '\n')
 			return (line);
 	}
 	return (line);
