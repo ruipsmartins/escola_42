@@ -6,7 +6,7 @@
 #    By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/20 11:11:30 by ruidos-s          #+#    #+#              #
-#    Updated: 2024/01/30 14:49:27 by ruidos-s         ###   ########.fr        #
+#    Updated: 2024/01/30 14:50:25 by ruidos-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,6 +49,5 @@ git:
 
 valgrind:
 	valgrind --show-leak-kinds=all --leak-check=full ./push_swap  
-
 
 .PHONY: all clean fclean re test git valgrind
