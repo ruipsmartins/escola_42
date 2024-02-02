@@ -60,8 +60,6 @@ int main(void)
 	
 	if (!(data.mlx_ptr = mlx_init()))
 		return (MALLOC_ERROR);
-	
-	
 	if (!(data.win_ptr = mlx_new_window(data.mlx_ptr, WIDTH, HEIGHT, "my first window")))
 	{
 		free(data.mlx_ptr);
@@ -73,9 +71,6 @@ int main(void)
 		printf("erro a abrir a imagem\n");
 		exit(1);
 	}
-	
-
-	
 
 	mlx_string_put(data.mlx_ptr, data.win_ptr, WIDTH * 0.8, HEIGHT * 0.95, 0x00ffff, "My polock");
 	mlx_key_hook(data.win_ptr, handle_input, &data);
