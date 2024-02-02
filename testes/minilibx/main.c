@@ -1,67 +1,85 @@
 #include <stdlib.h>
 #include "mlx_linux/mlx.h"
+#include <stdio.h>
+//#include <X11/keysym.h>
 
 #define MALLOC_ERROR 11
 #define WIDTH 800
-#define HEIGHT 500
+#define HEIGHT 800
 
-typedef struct	s_data
+typedef struct s_mlx_data
 {
-	void	*img;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-}				t_data;
+    void	*mlx_ptr;
+    void	*win_ptr;
+	void	*img_ptr;
+	int		x;
+	int		y;
+}               t_mlx_data;
 
 
-/* int main(void)
+int	handle_input(int keycode, t_mlx_data *data)
 {
-	void *mlx;
-	void *img;
+	int		passada = 40;
+
+	if (keycode == 65307)
+	{
+		printf("The %d key (ESC) has been pressed\n\n", keycode);
+		mlx_destroy_window(data->mlx_ptr, data->win_ptr);
+		mlx_destroy_image(data->mlx_ptr, data->img_ptr);
+		mlx_destroy_display(data->mlx_ptr);
+		free(data->mlx_ptr);
+		exit(1);	
+	}
+
+	if (keycode == 115 && data->y < 600)
+		data->y += passada;
+	if (keycode == 119 && data->y > 50)
+		data->y -= passada;
+	if (keycode == 100 && data->x < 600)
+		data->x += passada;
+	if (keycode == 97 && data->x > 50)
+		data->x -= passada;
 	
-	mlx = mlx_init();
-	img = mlx_new_image(mlx, 1920, 1080);
-	if (!img)
-		return 1;
+	mlx_clear_window(data->mlx_ptr, data->win_ptr);
+	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_ptr, data->x, data->y);
 	
-	mlx_destroy_display(mlx);
-	//mlx_destroy_image(mlx, img);
-	free(mlx);
-	return 0;
-} */
 
 
+	printf("The %d key has been pressed\n\n", keycode);
+    return (0);
+}
 
 
 int main(void)
 {
-	void	*mlx_connection;
-	void	*mlx_window;
+	t_mlx_data data;
+	int	xpm1_x;
+	int	xpm1_y;
+	data.x=80;
+	data.y=80;
+	
+	if (!(data.mlx_ptr = mlx_init()))
+		return (MALLOC_ERROR);
+	
+	
+	if (!(data.win_ptr = mlx_new_window(data.mlx_ptr, WIDTH, HEIGHT, "my first window")))
+	{
+		free(data.mlx_ptr);
+		return (MALLOC_ERROR);
+	}
 
-	mlx_connection = mlx_init();
-	if (!mlx_connection)
-		return (MALLOC_ERROR);
-	
-	mlx_window = mlx_new_window(mlx_connection, WIDTH, HEIGHT, "my first window");
-	if (!mlx_window)
+	if (!(data.img_ptr = mlx_xpm_file_to_image(data.mlx_ptr, "./img/open.xpm", &xpm1_x, &xpm1_y)))
 	{
-		free(mlx_connection);
-		return (MALLOC_ERROR);
+		printf("erro a abrir a imagem\n");
+		exit(1);
 	}
 	
-	for (int y = HEIGHT * 0.1; y < HEIGHT *0.9; y++)
-	{
-		for (int x = WIDTH * 0.1; x < WIDTH *0.9; x++)
-		{
-		mlx_pixel_put(mlx_connection, mlx_window, x, y, rand () % 0x1000000);
-		}
-	}
-	mlx_string_put(mlx_connection, mlx_window, WIDTH * 0.8, HEIGHT * 0.95, 0x00ffff, "My polock");
-	//mlx_loop(mlx_connection);
-	mlx_destroy_window(mlx_connection, mlx_window);
-	mlx_destroy_display(mlx_connection);
-	free(mlx_connection);
+
+	
+
+	mlx_string_put(data.mlx_ptr, data.win_ptr, WIDTH * 0.8, HEIGHT * 0.95, 0x00ffff, "My polock");
+	mlx_key_hook(data.win_ptr, handle_input, &data);
+	mlx_loop(data.mlx_ptr);
 	return 0;
 }
 
