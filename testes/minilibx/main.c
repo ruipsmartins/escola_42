@@ -5,6 +5,34 @@
 #define WIDTH 800
 #define HEIGHT 500
 
+typedef struct	s_data
+{
+	void	*img;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+}				t_data;
+
+
+/* int main(void)
+{
+	void *mlx;
+	void *img;
+	
+	mlx = mlx_init();
+	img = mlx_new_image(mlx, 1920, 1080);
+	if (!img)
+		return 1;
+	
+	mlx_destroy_display(mlx);
+	//mlx_destroy_image(mlx, img);
+	free(mlx);
+	return 0;
+} */
+
+
+
 
 int main(void)
 {
