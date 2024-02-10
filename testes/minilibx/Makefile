@@ -6,7 +6,7 @@
 #    By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/20 11:11:30 by ruidos-s          #+#    #+#              #
-#    Updated: 2024/02/02 11:04:04 by ruidos-s         ###   ########.fr        #
+#    Updated: 2024/02/10 07:27:48 by ruidos-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = so_long
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror# -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -g# -fsanitize=address
 
 
 SRCS =	main.c
