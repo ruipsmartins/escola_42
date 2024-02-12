@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 11:49:35 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/02/10 07:29:35 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/02/10 11:07:38 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	handle_input(int keycode, t_mlx_data *data)
 {
 	int		passada = 20;
 
-	if (keycode == 65307 || keycode == Button3)
+	if (keycode == 65307)
 	{
 		printf("The %d key (ESC) has been pressed\n\n", keycode);
 		mlx_destroy_window(data->mlx_ptr, data->win_ptr);
