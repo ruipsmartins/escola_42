@@ -6,13 +6,13 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 10:59:29 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/02/10 12:14:49 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/02/18 15:30:43 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	handle_input(int keycode, t_mlx_data *data)
+int	handle_input(int keycode, t_data *data)
 {
 	int		passada = 40;
 	int		xpm1_x;
@@ -28,33 +28,33 @@ int	handle_input(int keycode, t_mlx_data *data)
 		exit(1);	
 	}
 
-	if (keycode == 115 && data->y < 920)
+	if (keycode == 115 && data->y_player < 920)
 	{
-		data->y += passada;
+		data->y_player += passada;
 		mlx_destroy_image(data->mlx_ptr, data->img_ptr);
 		data->img_ptr = mlx_xpm_file_to_image(data->mlx_ptr, "./img/boneco_d.xpm", &xpm1_x, &xpm1_y);
 	}
-	if (keycode == 119 && data->y > 50)
+	if (keycode == 119 && data->y_player > 50)
 		{
 		mlx_destroy_image(data->mlx_ptr, data->img_ptr);
 		data->img_ptr = mlx_xpm_file_to_image(data->mlx_ptr, "./img/boneco_u.xpm", &xpm1_x, &xpm1_y);
-		data->y -= passada;
+		data->y_player -= passada;
 		}
-	if (keycode == 100 && data->x < 920)
+	if (keycode == 100 && data->x_player < 920)
 	{
 		mlx_destroy_image(data->mlx_ptr, data->img_ptr);
 		data->img_ptr = mlx_xpm_file_to_image(data->mlx_ptr, "./img/boneco_r.xpm", &xpm1_x, &xpm1_y);
-		data->x += passada;
+		data->x_player += passada;
 	}
-	if (keycode == 97 && data->x > 50)
+	if (keycode == 97 && data->x_player > 50)
 		{
 		mlx_destroy_image(data->mlx_ptr, data->img_ptr);
 		data->img_ptr = mlx_xpm_file_to_image(data->mlx_ptr, "./img/boneco_l.xpm", &xpm1_x, &xpm1_y);
-		data->x -= passada;
+		data->x_player -= passada;
 		}
 	
 	mlx_clear_window(data->mlx_ptr, data->win_ptr);
-	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_ptr, data->x, data->y);
+	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_ptr, data->x_player, data->y_player);
 	
 	ft_printf("The %d key has been pressed\n\n", keycode);
     return (0);

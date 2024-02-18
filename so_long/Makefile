@@ -6,7 +6,7 @@
 #    By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/20 11:11:30 by ruidos-s          #+#    #+#              #
-#    Updated: 2024/02/10 11:10:55 by ruidos-s         ###   ########.fr        #
+#    Updated: 2024/02/18 16:40:22 by ruidos-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,20 +16,24 @@ CC = cc
 
 CFLAGS = -Wall -Wextra -Werror -g
 
-SRCS =	main.c handle_input.c
+SRCS_FILES =	main.c handle_input.c
+
+SRCS_DIR = src
+
+SRCS = $(addprefix $(SRCS_DIR)/, $(SRCS_FILES))
 
 OBJS = $(SRCS:.c=.o)
 
-LIBFT = ./libft/libft.a
+LIBFT = ./libs/libft/libft.a
 
-MLX = ./mlx_linux/libmlx.a -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
+MLX = ./libs/mlx_linux/libmlx.a -Llibs/mlx_linux -lmlx -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
 
 all: $(LIBFT) $(MLX) $(NAME)
 $(LIBFT):
-		make -C ./libft && make clean -C libft/
+		make -C ./libs/libft && make clean -C libs/libft/
 
 $(MLX):
-		make -C ./mlx_linux
+		make -C ./libs/mlx_linux
 
 $(NAME): $(OBJS) $(LIBFT) $(MLX)
 		$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(MLX) -o $@ 
@@ -38,7 +42,7 @@ clean:
 		rm -f $(OBJS)
 
 fclean: clean
-		rm -f $(NAME) && make fclean -C libft/ && make clean -C ./mlx_linux
+		rm -f $(NAME) && make fclean -C libs/libft/ && make clean -C ./libs/mlx_linux
 
 re: fclean all 
 		make clean && clear
