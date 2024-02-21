@@ -6,11 +6,23 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 10:59:29 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/02/21 18:11:12 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/02/21 18:24:27 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void free_all(t_data *data)
+{
+		//ft_printf("The %d key (ESC) has been pressed\n\n", keycode);
+		mlx_destroy_window(data->mlx_ptr, data->win_ptr);
+		mlx_destroy_image(data->mlx_ptr, data->img_player);
+		mlx_destroy_display(data->mlx_ptr);
+		free(data->mlx_ptr);
+		ft_putchar_fd('\n',1);
+		exit(0);	
+
+}
 
 int	handle_input(int keycode, t_data *data)
 {
@@ -19,14 +31,8 @@ int	handle_input(int keycode, t_data *data)
 	int		xpm1_y;
 
 	if (keycode == 65307)
-	{
-		ft_printf("The %d key (ESC) has been pressed\n\n", keycode);
-		mlx_destroy_window(data->mlx_ptr, data->win_ptr);
-		mlx_destroy_image(data->mlx_ptr, data->img_player);
-		mlx_destroy_display(data->mlx_ptr);
-		free(data->mlx_ptr);
-		exit(1);	
-	}
+		free_all(data);
+	
 	if (keycode == 115 && data->y_player < 920)
 	{
 		data->moves++;
