@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 09:11:06 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/02/21 14:18:09 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/02/21 18:10:33 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,21 @@ typedef struct s_data
 {
     void	*mlx_ptr;
     void	*win_ptr;
-	void	*img_ptr;
+	char	**map;
+	void	*img_player;
+	void	*img_wall;
+	void	*img_collectable;
+	void	*img_exit;
 	int		x_player;
 	int		y_player;
 	int		moves;
+	int		n_collectables;
+	int		n_exit;
+	int		n_start;
 }               t_data;
 
 int		handle_input(int keycode, t_data *data);
-void	read_map(char *path);
+char	**read_map(char *path);
 
 
 #endif
