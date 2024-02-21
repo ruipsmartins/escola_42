@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 09:11:06 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/02/18 15:38:13 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/02/21 14:18:09 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,11 @@ typedef struct s_data
 	void	*img_ptr;
 	int		x_player;
 	int		y_player;
+	int		moves;
 }               t_data;
 
 int		handle_input(int keycode, t_data *data);
+void	read_map(char *path);
+
 
 #endif
