@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 09:11:06 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/02/22 18:33:23 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/02/22 19:02:43 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int		handle_input(int keycode, t_data *data);
 char	**open_map(char *path);
 void	map_checker(t_data *data);
 void 	free_map(t_data *data);
+void	init_game(t_data *data);
 
 
 #endif
