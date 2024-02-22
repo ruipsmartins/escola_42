@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 12:37:54 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/02/21 18:10:00 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/02/22 16:07:28 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,10 @@ int	main(int argc, char **argv)
 
 	if (argc == 2)
 	{
-		read_map(argv[1]);
+		data.map = open_map(argv[1]);
 		data.moves = 0;
 		data.x_player = 50;
 		data.y_player = 50;
-
 		data.mlx_ptr = mlx_init();
 		data.win_ptr = mlx_new_window(data.mlx_ptr, 1000, 1000, "so_l0ng");
 		data.img_player = mlx_xpm_file_to_image(data.mlx_ptr, "./img/boneco_d.xpm", &xpm1_x, &xpm1_y);

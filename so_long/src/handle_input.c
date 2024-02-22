@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 10:59:29 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/02/21 18:43:03 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/02/22 15:53:30 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,16 @@
 
 void free_all(t_data *data)
 {
-	//ft_printf("The %d key (ESC) has been pressed\n\n", keycode);
+	int	i;
+
+	i = 0;
 	mlx_destroy_window(data->mlx_ptr, data->win_ptr);
 	mlx_destroy_image(data->mlx_ptr, data->img_player);
 	mlx_destroy_display(data->mlx_ptr);
 	free(data->mlx_ptr);
+	while (data->map[i])
+		free(data->map[i++]);
+	free(data->map);
 	ft_putchar_fd('\n',1);
 	exit(0);	
 

@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 09:11:06 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/02/21 18:10:33 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/02/22 15:46:24 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ typedef struct s_data
 }               t_data;
 
 int		handle_input(int keycode, t_data *data);
-char	**read_map(char *path);
+char	**open_map(char *path);
 
 
 #endif
