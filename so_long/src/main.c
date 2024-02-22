@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 12:37:54 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/02/22 16:07:28 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/02/22 17:09:10 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int	main(int argc, char **argv)
 	if (argc == 2)
 	{
 		data.map = open_map(argv[1]);
+		map_checker(&data);
 		data.moves = 0;
 		data.x_player = 50;
 		data.y_player = 50;

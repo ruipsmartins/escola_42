@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 09:11:06 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/02/22 15:46:24 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/02/22 18:06:17 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,11 @@ typedef struct s_data
 	int		y_player;
 	int		moves;
 	int		n_collectables;
-	int		n_exit;
-	int		n_start;
 }               t_data;
 
 int		handle_input(int keycode, t_data *data);
 char	**open_map(char *path);
+int		map_checker(t_data *data);
 
 
 #endif

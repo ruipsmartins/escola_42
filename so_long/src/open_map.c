@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 16:49:32 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/02/22 16:01:48 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/02/22 17:56:37 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,11 @@ char	**open_map(char *path)
 	fd = open(path, O_RDONLY);
 	if (fd == -1)
 	{
-		ft_printf("error loading map\n");
+		ft_printf("error opening map\n");
 		exit (1);
 	}
 	map_data = ft_strdup("");
-	
-	while (1)
+	while (true)
 	{
  		line = get_next_line(fd);
 		if (!line)
