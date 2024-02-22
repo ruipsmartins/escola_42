@@ -6,11 +6,21 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 16:49:32 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/02/22 17:56:37 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/02/22 18:39:03 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void free_map(t_data *data)
+{
+	int i;
+
+	i = 0;
+	while (data->map[i])
+		free(data->map[i++]);
+	free(data->map);
+}
 
 char	**open_map(char *path)
 {
@@ -40,6 +50,7 @@ char	**open_map(char *path)
 	}
 	map = ft_split(map_data, '\n');
 	free(map_data);
+	ft_printf("\n");
 	close(fd);
 	return (map);
 }

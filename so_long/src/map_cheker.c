@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 17:02:55 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/02/22 18:24:14 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/02/22 18:45:14 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,13 +83,20 @@ static int	p_e_c_checker(t_data *data)
 	return (true);
 }
 
-int	map_checker(t_data *data)
+void	map_checker(t_data *data)
 {
-	if (retangular_check(data->map))
-		ft_printf("é retangular\n");
-	if (walls_checker(data->map))
-		ft_printf("tem as paredes todas\n");
-	if (p_e_c_checker(data))
-		ft_printf("tem o p e c todos\n");
-	return (0);
+	data->n_collectables = 0;
+	if (!retangular_check(data->map) || !walls_checker(data->map) || !p_e_c_checker(data))
+	{
+		free_map(data);
+		ft_printf("está algum erro no mapa!\n");
+		exit (1);
+	}
+	if (data->n_collectables < 1)
+	{
+		free_map(data);
+		ft_printf("o mapa tem que ter pelo menos um C\n");
+		exit (1);
+	}
+	
 }
