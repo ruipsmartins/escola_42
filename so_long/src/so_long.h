@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 09:11:06 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/02/22 19:02:43 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/02/23 15:20:29 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ typedef struct s_data
 	int		y_player;
 	int		moves;
 	int		n_collectables;
+	int		n_player;
+	int		n_exit;
 }               t_data;
 
 int		handle_input(int keycode, t_data *data);

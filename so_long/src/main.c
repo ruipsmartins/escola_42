@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 12:37:54 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/02/23 14:21:10 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/02/23 15:25:56 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,11 @@ int	main(int argc, char **argv)
 		init_game(&data);
 		mlx_hook(data.win_ptr, KeyPress, KeyPressMask, handle_input, &data);
 		mlx_loop(data.mlx_ptr);
+	}
+	else
+	{
+		ft_printf("invalid arguments\n");
+		exit (1);
 	}
 	return (0);
 }
