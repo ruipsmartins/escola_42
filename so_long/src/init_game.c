@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 18:48:11 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/02/26 17:59:16 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/02/26 18:36:32 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ static void window_size(t_data *data)
 	int	y;
 
 	y = 0;
-	data->map_x = (ft_strlen(data->map[0]) * 64) + 64;
+	data->map_x = (ft_strlen(data->map[0]) * 64);
 	while (data->map[y])
 		y++;
-	data->map_y = y * 64 + 64;
+	data->map_y = y * 64;
 }
 
 void	init_game(t_data *data)
