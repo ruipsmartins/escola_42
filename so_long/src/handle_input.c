@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 10:59:29 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/02/26 18:02:46 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/02/26 18:20:09 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ void free_all(t_data *data)
 	free_map(data);
 	ft_putchar_fd('\n',1);
 	exit(0);	
-
 }
 
 int	handle_input(int keycode, t_data *data)
@@ -36,14 +35,16 @@ int	handle_input(int keycode, t_data *data)
 
 	if (keycode == 65307)
 		free_all(data);
-	
+	//S
 	if (keycode == 115 && data->player_y < data->map_y - 64 * 2)
 	{
 		data->moves++;
 		data->player_y += passada;
 		mlx_destroy_image(data->mlx_ptr, data->img_player);
+
 		data->img_player = mlx_xpm_file_to_image(data->mlx_ptr, "./img/boneco_d.xpm", &xpm1_x, &xpm1_y);
 	}
+	//W
 	if (keycode == 119 && data->player_y > 64)
 		{
 		data->moves++;
@@ -51,6 +52,7 @@ int	handle_input(int keycode, t_data *data)
 		data->img_player = mlx_xpm_file_to_image(data->mlx_ptr, "./img/boneco_u.xpm", &xpm1_x, &xpm1_y);
 		data->player_y -= passada;
 		}
+	//D
 	if (keycode == 100 && data->player_x < data->map_x - 64 * 2)
 	{
 		data->moves++;
@@ -58,6 +60,7 @@ int	handle_input(int keycode, t_data *data)
 		data->img_player = mlx_xpm_file_to_image(data->mlx_ptr, "./img/boneco_r.xpm", &xpm1_x, &xpm1_y);
 		data->player_x += passada;
 	}
+	//A
 	if (keycode == 97 && data->player_x > 64)
 		{
 		data->moves++;
