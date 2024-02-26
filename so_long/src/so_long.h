@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 09:11:06 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/02/26 16:28:49 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/02/26 17:40:07 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,12 @@ typedef struct s_data
 	int		map_x;
 	int		map_y;
 	void	*img_player;
-	void	*img_wall;
-	void	*img_collectable;
-	void	*img_exit;
 	int		player_x;
 	int		player_y;
+	void	*img_wall;
+	void	*img_ground;
+	void	*img_collectable;
+	void	*img_exit;
 	int		moves;
 	int		n_collectables;
 	int		n_player;
@@ -42,6 +43,6 @@ char	**open_map(char *path);
 void	map_checker(t_data *data);
 void 	free_map(t_data *data);
 void	init_game(t_data *data);
-
+void	map_draw(t_data *data);
 
 #endif
