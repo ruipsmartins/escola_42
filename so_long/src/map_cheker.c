@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 17:02:55 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/02/23 15:24:17 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/02/26 16:57:39 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,11 @@ static int	p_e_c_checker(t_data *data)
 		while (data->map[i][j])
 		{
 			if (data->map[i][j] == 'P' && data->n_player == 0)
-				data->n_player++;
+				{
+					data->n_player++;
+					data->player_x = (j + 1) * 64;
+					data->player_y = (i + 1) * 64;
+				}
 			else if (data->map[i][j] == 'E' && data->n_exit == 0)
 				data->n_exit++;
 			else if (data->map[i][j] == 'C')

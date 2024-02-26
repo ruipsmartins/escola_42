@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 09:11:06 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/02/23 15:20:29 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/02/26 16:28:49 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,14 @@ typedef struct s_data
     void	*mlx_ptr;
     void	*win_ptr;
 	char	**map;
+	int		map_x;
+	int		map_y;
 	void	*img_player;
 	void	*img_wall;
 	void	*img_collectable;
 	void	*img_exit;
-	int		x_player;
-	int		y_player;
+	int		player_x;
+	int		player_y;
 	int		moves;
 	int		n_collectables;
 	int		n_player;
