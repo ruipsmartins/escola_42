@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 10:59:29 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/02/27 10:56:40 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/02/27 11:45:30 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,10 @@ int	handle_input(int keycode, t_data *data)
 	else if (keycode == 115)
 		move_player_s(data);
 	else if (keycode == 100)
-		move_player_d(data);	
+		move_player_d(data);
 	ft_printf("\033[2K\r");
-	ft_printf("moves: %d", data->moves);
+	ft_printf("collectables: %d | moves: %d",data->n_collectables, data->moves);
 	mlx_clear_window(data->mlx_ptr, data->win_ptr);
 	map_draw(data);
-	//mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_player, data->player_x, data->player_y);
-	//ft_printf("The %d key has been pressed\n\n", keycode);
     return (0);
 }
