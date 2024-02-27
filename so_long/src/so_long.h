@@ -6,22 +6,22 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 09:11:06 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/02/26 17:40:07 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/02/27 10:50:12 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-#include "../libs/mlx_linux/mlx.h"
-#include "../libs/libft/libft.h"
-#include <X11/keysym.h>
-#include <X11/X.h>
+# include "../libs/mlx_linux/mlx.h"
+# include "../libs/libft/libft.h"
+# include <X11/keysym.h>
+# include <X11/X.h>
 
 typedef struct s_data
 {
-    void	*mlx_ptr;
-    void	*win_ptr;
+	void	*mlx_ptr;
+	void	*win_ptr;
 	char	**map;
 	int		map_x;
 	int		map_y;
@@ -36,13 +36,20 @@ typedef struct s_data
 	int		n_collectables;
 	int		n_player;
 	int		n_exit;
-}               t_data;
+	int		img_width;
+	int		img_height;
+}						t_data;
 
-int		handle_input(int keycode, t_data *data);
-char	**open_map(char *path);
-void	map_checker(t_data *data);
-void 	free_map(t_data *data);
-void	init_game(t_data *data);
-void	map_draw(t_data *data);
+int			handle_input(int keycode, t_data *data);
+char		**open_map(char *path);
+void		map_checker(t_data *data);
+void		free_map(t_data *data);
+void		init_game(t_data *data);
+void		map_draw(t_data *data);
+void		free_all(t_data *data);
+void		move_player_w(t_data *data);
+void		move_player_a(t_data *data);
+void		move_player_s(t_data *data);
+void		move_player_d(t_data *data);
 
 #endif

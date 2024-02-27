@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 10:59:29 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/02/26 19:19:18 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/02/27 10:56:40 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,54 +27,19 @@ void free_all(t_data *data)
 	exit(0);	
 }
 
-/* static void move_player(t_data *data, keycode)
-{
-int	x;
-int	y;
 
-
-} */
 int	handle_input(int keycode, t_data *data)
 {
-	int		passada = 64;
-	int		xpm1_x;
-	int		xpm1_y;
-
 	if (keycode == 65307)
 		free_all(data);
-	//S
-	if (keycode == 115)
-	{
-		data->moves++;
-		data->map[1][1] = '0';
-		data->map[2][1] = 'P';
-		mlx_destroy_image(data->mlx_ptr, data->img_player);
-		data->img_player = mlx_xpm_file_to_image(data->mlx_ptr, "./img/boneco_d.xpm", &xpm1_x, &xpm1_y);
-	}
-	//W
-	if (keycode == 119)
-		{
-		data->moves++;
-		mlx_destroy_image(data->mlx_ptr, data->img_player);
-		data->img_player = mlx_xpm_file_to_image(data->mlx_ptr, "./img/boneco_u.xpm", &xpm1_x, &xpm1_y);
-		data->player_y -= passada;
-		}
-	//D
-	if (keycode == 100)
-	{
-		data->moves++;
-		mlx_destroy_image(data->mlx_ptr, data->img_player);
-		data->img_player = mlx_xpm_file_to_image(data->mlx_ptr, "./img/boneco_r.xpm", &xpm1_x, &xpm1_y);
-		data->player_x += passada;
-	}
-	//A
-	if (keycode == 97)
-		{
-		data->moves++;
-		mlx_destroy_image(data->mlx_ptr, data->img_player);
-		data->img_player = mlx_xpm_file_to_image(data->mlx_ptr, "./img/boneco_l.xpm", &xpm1_x, &xpm1_y);
-		data->player_x -= passada;
-		}
+	else if (keycode == 119)
+		move_player_w(data);
+	else if (keycode == 97)
+		move_player_a(data);
+	else if (keycode == 115)
+		move_player_s(data);
+	else if (keycode == 100)
+		move_player_d(data);	
 	ft_printf("\033[2K\r");
 	ft_printf("moves: %d", data->moves);
 	mlx_clear_window(data->mlx_ptr, data->win_ptr);

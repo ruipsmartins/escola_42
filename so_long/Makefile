@@ -6,7 +6,7 @@
 #    By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/20 11:11:30 by ruidos-s          #+#    #+#              #
-#    Updated: 2024/02/26 17:29:50 by ruidos-s         ###   ########.fr        #
+#    Updated: 2024/02/27 10:14:35 by ruidos-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CC = cc
 
 CFLAGS = -Wall -Wextra -Werror -g
 
-SRCS_FILES =	main.c handle_input.c open_map.c map_cheker.c init_game.c map_draw.c
+SRCS_FILES =	main.c handle_input.c open_map.c map_cheker.c init_game.c map_draw.c move_player.c
 
 SRCS_DIR = src
 

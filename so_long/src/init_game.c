@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 18:48:11 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/02/26 18:36:32 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/02/27 11:02:01 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	init_game(t_data *data)
 	window_size(data);
 	data->mlx_ptr = mlx_init();
 	data->win_ptr = mlx_new_window(data->mlx_ptr, data->map_x, data->map_y, "so_long");
-	data->img_player = mlx_xpm_file_to_image(data->mlx_ptr, "./img/boneco_d.xpm", &xpm1_x, &xpm1_y);
+	data->img_player = mlx_xpm_file_to_image(data->mlx_ptr, "./img/player_s.xpm", &xpm1_x, &xpm1_y);
 	data->img_ground = mlx_xpm_file_to_image(data->mlx_ptr, "./img/fundo.xpm", &xpm1_x, &xpm1_y);
 	data->img_wall = mlx_xpm_file_to_image(data->mlx_ptr, "./img/bricksx64.xpm", &xpm1_x, &xpm1_y);
 	data->img_collectable = mlx_xpm_file_to_image(data->mlx_ptr, "./img/gold-coin.xpm", &xpm1_x, &xpm1_y);
