@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 17:02:55 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/02/27 12:39:20 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/02/27 12:44:21 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,18 +27,19 @@ static int	retangular_check(char **map)
 	}
 	return (true);
 }
-static	int	walls_checker(char **map)
+
+static int	walls_checker(char **map)
 {
 	int	i;
 	int	j;
-	int len;
+	int	len;
 
 	i = 0;
 	j = 0;
 	len = ft_strlen(map[0]);
-	while(map[i])
+	while (map[i])
 		i++;
-	while(map[0][j])
+	while (map[0][j])
 	{
 		if (map[0][j] != '1' || map[i - 1][j] != '1')
 			return (false);
@@ -53,10 +54,11 @@ static	int	walls_checker(char **map)
 	}
 	return (true);
 }
+
 static int	p_e_c_checker(t_data *data)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	data->n_player = 0;
 	data->n_exit = 0;
@@ -67,12 +69,12 @@ static int	p_e_c_checker(t_data *data)
 		while (data->map[i][j])
 		{
 			if (data->map[i][j] == 'P' && data->n_player == 0)
-					data->n_player++;
+				data->n_player++;
 			else if (data->map[i][j] == 'E' && data->n_exit == 0)
 				data->n_exit++;
 			else if (data->map[i][j] == 'C')
 				data->n_collectables++;
-			else if(data->map[i][j] != '1' && data->map[i][j] != '0')
+			else if (data->map[i][j] != '1' && data->map[i][j] != '0')
 				return (false);
 			j++;
 		}
@@ -84,7 +86,8 @@ static int	p_e_c_checker(t_data *data)
 void	map_checker(t_data *data)
 {
 	data->n_collectables = 0;
-	if (!retangular_check(data->map) || !walls_checker(data->map) || !p_e_c_checker(data))
+	if (!retangular_check(data->map) || !walls_checker(data->map)
+		|| !p_e_c_checker(data))
 	{
 		free_map(data);
 		ft_printf("está algum erro no mapa!\n");
@@ -96,5 +99,4 @@ void	map_checker(t_data *data)
 		ft_printf("o mapa tem que ter pelo menos um C, e apenas 1 E e um P\n");
 		exit (1);
 	}
-	
 }
