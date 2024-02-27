@@ -6,15 +6,16 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 17:29:08 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/02/26 17:48:34 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/02/27 12:19:24 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static void img_draw(t_data *data, void *image, int x, int y)
+static void	img_draw(t_data *data, void *image, int x, int y)
 {
-	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, image, x * 64, y * 64);
+	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
+		image, x * 64, y * 64);
 }
 
 static void	player_draw(t_data *data, void *image, int x, int y)
@@ -30,10 +31,10 @@ void	map_draw(t_data *data)
 	int	y;
 
 	y = 0;
-	while(data->map[y])
+	while (data->map[y])
 	{
 		x = 0;
-		while(data->map[y][x])
+		while (data->map[y][x])
 		{
 			if (data->map[y][x] == '1')
 				img_draw(data, data->img_wall, x, y);
@@ -49,5 +50,4 @@ void	map_draw(t_data *data)
 		}
 		y++;
 	}
-
 }
