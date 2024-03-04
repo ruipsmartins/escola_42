@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 10:14:38 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/03/04 14:18:33 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/03/04 14:55:37 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ static void	update_player(t_data *data, char c)
 		data->img_player = mlx_xpm_file_to_image(data->mlx_ptr,
 				"./img/player_d.xpm", &data->img_width, &data->img_height);
 }
-
 
 void	move_player_w(t_data *data)
 {
@@ -62,10 +61,9 @@ void	move_player_a(t_data *data)
 		data->map[data->player_y][data->player_x] = '0';
 		data->map[data->player_y][data->player_x - 1] = 'P';
 		data->moves++;
-	update_exit(data);
+		update_exit(data);
 	}
 }
-
 
 void	move_player_s(t_data *data)
 {
