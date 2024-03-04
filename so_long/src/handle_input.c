@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 10:59:29 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/02/27 12:34:04 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/03/04 14:19:07 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,16 @@ void	close_game(t_data *data)
 	free_map(data);
 	ft_putchar_fd('\n', 1);
 	exit(0);
+}
+
+void	update_exit(t_data *data)
+{
+	if (data->n_collectables == 0)
+	{
+		mlx_destroy_image(data->mlx_ptr, data->img_exit);
+		data->img_exit = mlx_xpm_file_to_image(data->mlx_ptr,
+				"./img/exit_open.xpm", &data->img_width, &data->img_height);
+	}
 }
 
 int	handle_input(int keycode, t_data *data)

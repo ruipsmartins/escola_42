@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 10:14:38 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/02/27 12:26:46 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/03/04 14:18:33 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,20 +29,22 @@ static void	update_player(t_data *data, char c)
 				"./img/player_d.xpm", &data->img_width, &data->img_height);
 }
 
+
 void	move_player_w(t_data *data)
 {
 	if (data->map[data->player_y - 1][data->player_x] == 'E'
 		&& data->n_collectables == 0)
 		close_game(data);
 	update_player(data, 'w');
-	if (data->map[data->player_y - 1][data->player_x] != '1' &&
-		data->map[data->player_y - 1][data->player_x] != 'E')
+	if (data->map[data->player_y - 1][data->player_x] != '1'
+		&& data->map[data->player_y - 1][data->player_x] != 'E')
 	{
 		if (data->map[data->player_y - 1][data->player_x] == 'C')
 			data->n_collectables--;
 		data->map[data->player_y][data->player_x] = '0';
 		data->map[data->player_y - 1][data->player_x] = 'P';
 		data->moves++;
+		update_exit(data);
 	}
 }
 
@@ -52,16 +54,18 @@ void	move_player_a(t_data *data)
 	if (data->map[data->player_y][data->player_x - 1] == 'E'
 		&& data->n_collectables == 0)
 		close_game(data);
-	if (data->map[data->player_y][data->player_x - 1] != '1' &&
-		data->map[data->player_y][data->player_x - 1] != 'E')
+	if (data->map[data->player_y][data->player_x - 1] != '1'
+		&& data->map[data->player_y][data->player_x - 1] != 'E')
 	{
 		if (data->map[data->player_y][data->player_x - 1] == 'C')
 			data->n_collectables--;
 		data->map[data->player_y][data->player_x] = '0';
 		data->map[data->player_y][data->player_x - 1] = 'P';
 		data->moves++;
+	update_exit(data);
 	}
 }
+
 
 void	move_player_s(t_data *data)
 {
@@ -69,14 +73,15 @@ void	move_player_s(t_data *data)
 		&& data->n_collectables == 0)
 		close_game(data);
 	update_player(data, 's');
-	if (data->map[data->player_y + 1][data->player_x] != '1' &&
-		data->map[data->player_y + 1][data->player_x] != 'E')
+	if (data->map[data->player_y + 1][data->player_x] != '1'
+		&& data->map[data->player_y + 1][data->player_x] != 'E')
 	{
 		if (data->map[data->player_y + 1][data->player_x] == 'C')
 			data->n_collectables--;
 		data->map[data->player_y][data->player_x] = '0';
 		data->map[data->player_y + 1][data->player_x] = 'P';
 		data->moves++;
+		update_exit(data);
 	}
 }
 
@@ -86,13 +91,14 @@ void	move_player_d(t_data *data)
 		&& data->n_collectables == 0)
 		close_game(data);
 	update_player(data, 'd');
-	if (data->map[data->player_y][data->player_x + 1] != '1' &&
-		data->map[data->player_y][data->player_x + 1] != 'E')
+	if (data->map[data->player_y][data->player_x + 1] != '1'
+		&& data->map[data->player_y][data->player_x + 1] != 'E')
 	{
 		if (data->map[data->player_y][data->player_x + 1] == 'C')
 			data->n_collectables--;
 		data->map[data->player_y][data->player_x] = '0';
 		data->map[data->player_y][data->player_x + 1] = 'P';
 		data->moves++;
+		update_exit(data);
 	}
 }

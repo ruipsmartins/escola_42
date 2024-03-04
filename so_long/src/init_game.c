@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 18:48:11 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/02/27 12:25:50 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/03/04 14:09:28 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,6 @@ void	init_game(t_data *data)
 	data->img_collectable = mlx_xpm_file_to_image(data->mlx_ptr,
 			"./img/gold-coin.xpm", &data->img_width, &data->img_height);
 	data->img_exit = mlx_xpm_file_to_image(data->mlx_ptr,
-			"./img/exit.xpm", &data->img_width, &data->img_height);
+			"./img/exit_close.xpm", &data->img_width, &data->img_height);
 	map_draw(data);
 }
