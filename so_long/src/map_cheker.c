@@ -6,13 +6,13 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 17:02:55 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/02/27 12:44:21 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/03/06 15:58:23 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static int	retangular_check(char **map)
+static int	retangular_check(char **map, t_data *data)
 {
 	int	i;
 
@@ -25,6 +25,8 @@ static int	retangular_check(char **map)
 			return (false);
 		i++;
 	}
+	data->map_size_x = ft_strlen(map[0]);
+	data->map_size_y = i;
 	return (true);
 }
 
@@ -86,13 +88,15 @@ static int	p_e_c_checker(t_data *data)
 void	map_checker(t_data *data)
 {
 	data->n_collectables = 0;
-	if (!retangular_check(data->map) || !walls_checker(data->map)
+	if (!retangular_check(data->map, data) || !walls_checker(data->map)
 		|| !p_e_c_checker(data))
 	{
 		free_map(data);
 		ft_printf("está algum erro no mapa!\n");
 		exit (1);
 	}
+	window_size(data);
+
 	if (data->n_collectables < 1 || data->n_player != 1 || data->n_exit != 1)
 	{
 		free_map(data);

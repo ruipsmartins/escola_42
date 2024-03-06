@@ -6,91 +6,79 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 14:35:07 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/03/06 14:35:18 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/03/06 15:42:17 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "so_long.h"
 
-  typedef struct  s_point
-  {
-    int		x;
-    int		y;
-	int		c_count;
-	int		e_count;
-	int		p_count;
-  }               t_point;
-
-
-void f_fill(char **tab, t_point *size, int row, int col)
+void  flood_fill(char **flooded_map, t_data *data, int player_x, int player_y)
 {
-    if (row < 0 || col < 0 || row >= size->y || col >= size->x)
+/*     if (player_x < 0 || player_y < 0 || player_x >= y || player_y >= x)
+        return; */
+    if (flooded_map[player_x][player_y] == 'F' || flooded_map[player_x][player_y] == '1')
         return;
-    else if (tab[row][col] == 'F' || tab[row][col] == '1')
-        return;
-	else if (tab[row][col] == 'C')
-		size->c_count ++;
-	else if (tab[row][col] == 'P')
-		size->p_count ++;
-	else if (tab[row][col] == 'E')
-		size->e_count ++;
-    tab[row][col] = 'F';
+	else if (flooded_map[player_x][player_y] == 'C')
+		data->c_count ++;
+	else if (flooded_map[player_x][player_y] == 'P')
+		data->p_count ++;
+	else if (flooded_map[player_x][player_y] == 'E')
+		data->e_count ++;
+    flooded_map[player_x][player_y] = 'F';
 	
 
-    f_fill(tab, size, row - 1, col);
-    f_fill(tab, size, row + 1, col);
-    f_fill(tab, size, row, col - 1);
-    f_fill(tab, size, row, col + 1);
+    flood_fill(flooded_map, data, player_x - 1, player_y);
+    flood_fill(flooded_map, data, player_x + 1, player_y);
+    flood_fill(flooded_map, data, player_x, player_y - 1);
+    flood_fill(flooded_map, data, player_x, player_y + 1);
 	return;
-}
-
-void  flood_fill(char **tab, t_point *size, t_point begin)
-{
-    f_fill(tab, size, begin.y, begin.x);
 }
 
 
 #include <stdio.h>
 #include <stdlib.h>
-char **make_area(char **zone, int _x, int _y)
+char **make_flooded_map(char **zone, int _x, int _y)
 {
-	char **area;
-	area = (char **)malloc(sizeof(char *) * _y);
+	char **flooded_map;
+	flooded_map = (char **)malloc(sizeof(char *) * _y);
 	for (int i = 0; i < _y; ++i)
 	{
-		area[i] = (char *)malloc(sizeof(char) * _x);
+		flooded_map[i] = (char *)malloc(sizeof(char) * _x);
 		for (int j = 0; j < _x; ++j)
-			area[i][j] = zone[i][2 * j];
+			flooded_map[i][j] = zone[i][2 * j];
 	}
-	return (area);
+	return (flooded_map);
 }
 
-int main(void)
+int flood_test(t_data *data)
 {
-	char *zone[] = {
-		"1 1 1 1 1 1 1 1",
-		"1 P 0 C 0 0 C 1",
-		"1 0 0 1 1 E 1 1",
-		"1 0 0 C 1 0 C 1",
-		"1 1 1 1 1 1 1 1",
-	};
-	t_point size  = {8, 5, 0, 0, 0};
-	t_point begin = {2, 2, 0, 0, 0};
+	int player_x;
+	int player_y;
 
-	char **area = make_area(zone, size.x, size.y);
+	player_x = data->player_x;
+	player_y = data->player_y;
+	data->c_count = 0;
+	data->p_count = 0;
+	data->e_count = 0;
+	char **flooded_map = make_flooded_map(data->map, data->map_size_x, data->map_size_y);
 
-	flood_fill(area, &size, begin);
-	for (int y = 0; y < size.y; y++)
+	flood_fill(flooded_map, data, player_x, player_y);
+	for (int y = 0; y < data->map_size_y; y++)
 	{
-		for (int x = 0; x < size.x; x++)
+		for (int x = 0; x < data->map_size_x; x++)
 		{
 			if (x != 0)
 				printf(" ");
-			printf("%c", area[y][x]);
+			printf("%c", flooded_map[y][x]);
 		}
-			free(area[y]);
+			free(flooded_map[y]);
 		printf("\n");
 	}
-	printf("numero de C: %d de E: %d e de P:%d\n", size.c_count, size.e_count, size.p_count);
-	free(area);
-	return (0);
+	printf("numero de C: %d de E: %d e de P:%d\n", data->c_count, data->e_count, data->p_count);
+	free(flooded_map);
+
+	if (data->c_count != data->n_collectables || data->e_count != 1 || data->p_count != 1)
+		return 0;
+
+	return (1);
 }

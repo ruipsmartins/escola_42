@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 09:11:06 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/03/04 14:20:06 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/03/06 15:56:25 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ typedef struct s_data
 	void	*mlx_ptr;
 	void	*win_ptr;
 	char	**map;
-	int		map_x;
-	int		map_y;
+	int		map_size_x;
+	int		map_size_y;
 	void	*img_player;
 	int		player_x;
 	int		player_y;
@@ -38,6 +38,9 @@ typedef struct s_data
 	int		n_exit;
 	int		img_width;
 	int		img_height;
+	int		c_count;
+	int		p_count;
+	int		e_count;
 }						t_data;
 
 int			handle_input(int keycode, t_data *data);
@@ -52,5 +55,7 @@ void		move_player_w(t_data *data);
 void		move_player_a(t_data *data);
 void		move_player_s(t_data *data);
 void		move_player_d(t_data *data);
+int			flood_test(t_data *data);
+void		window_size(t_data *data);
 
 #endif
