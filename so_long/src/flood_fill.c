@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 14:35:07 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/03/06 19:23:55 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/03/06 19:40:15 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,8 @@ char **make_flooded_map(char **map, int x, int y, t_data *data)
 
 int flood_test(t_data *data)
 {
-	int start_x;
-	int start_y;
+	int	start_x;
+	int	start_y;
 	int	i;
 
 	data->c_count = 0;
