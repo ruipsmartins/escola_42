@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 14:35:07 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/03/06 17:25:48 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/03/06 18:00:28 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void  flood_fill(char **flooded_map, t_data *data, int player_x, int player_y)
 
 #include <stdio.h>
 #include <stdlib.h>
-char **make_flooded_map(char **map, int _x, int _y)
+char **make_flooded_map(char **map, int _x, int _y, t_data *data)
 {
 	char **flooded_map;
 	flooded_map = (char **)malloc(sizeof(char *) * _y);
@@ -45,7 +45,14 @@ char **make_flooded_map(char **map, int _x, int _y)
 	{
 		flooded_map[i] = (char *)malloc(sizeof(char) * _x);
 		for (int j = 0; j < _x; ++j)
+		{
 			flooded_map[i][j] = map[i][j];
+			if (map[i][j]== 'P')
+			{
+				data->player_x = j;
+				data->player_y = i;
+			}
+		}
 	}
 	return (flooded_map);
 }
@@ -55,12 +62,12 @@ int flood_test(t_data *data)
 	int player_x;
 	int player_y;
 
-	player_x = 1;
-	player_y = 2;
 	data->c_count = 0;
 	data->p_count = 0;
 	data->e_count = 0;
-	char **flooded_map = make_flooded_map(data->map, data->map_size_x, data->map_size_y);
+	char **flooded_map = make_flooded_map(data->map, data->map_size_x, data->map_size_y, data);
+	player_x = data->player_x;
+	player_y = data->player_y;
 
 	flood_fill(flooded_map, data, player_x, player_y);
 	for (int y = 0; y < data->map_size_y; y++)
