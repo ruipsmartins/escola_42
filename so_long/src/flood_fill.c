@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 14:35:07 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/03/06 19:15:51 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/03/06 19:23:55 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,5 @@ int flood_test(t_data *data)
 		ft_printf("não consegue apanhar todas as moedas ou sair\n");
 		return 0;
 	}
-	ft_printf("numero de C: %d de E: %d e de P:%d\n", data->c_count, data->e_count, data->p_count);
 	return (1);
 }

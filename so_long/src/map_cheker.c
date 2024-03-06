@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 17:02:55 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/03/06 16:47:44 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/03/06 19:29:21 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ static int	walls_checker(char **map)
 	return (true);
 }
 
-static int	p_e_c_checker(t_data *data)
+static int	c_checker(t_data *data)
 {
 	int	i;
 	int	j;
@@ -89,18 +89,22 @@ void	map_checker(t_data *data)
 {
 	data->n_collectables = 0;
 	if (!retangular_check(data->map, data) || !walls_checker(data->map)
-		|| !p_e_c_checker(data))
+		|| !c_checker(data))
 	{
 		free_map(data);
 		ft_printf("está algum erro no mapa!\n");
 		exit (1);
 	}
 	window_size(data);
-	flood_test(data);
-	if (data->n_collectables < 1 || data->n_player != 1 || data->n_exit != 1)
+	if (!flood_test(data))
 	{
 		free_map(data);
-		ft_printf("o mapa tem que ter pelo menos um C, e apenas 1 E e um P\n");
+		exit (1);
+	}
+	if (data->n_collectables < 1)
+	{
+		free_map(data);
+		ft_printf("o mapa tem que ter pelo menos um C\n");
 		exit (1);
 	}
 }
