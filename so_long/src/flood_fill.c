@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 14:35:07 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/03/06 19:44:54 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/03/06 19:47:27 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,26 +60,28 @@ char	**make_flooded_map(char **map, int x, int y, t_data *data)
 
 int	flood_test(t_data *data)
 {
-	int	start_x;
-	int	start_y;
-	int	i;
-	char **flooded_map;
+	int		start_x;
+	int		start_y;
+	int		i;
+	char	**flooded_map;
 
 	data->c_count = 0;
 	data->p_count = 0;
 	data->e_count = 0;
 	i = 0;
-	flooded_map = make_flooded_map(data->map, data->map_size_x, data->map_size_y, data);
+	flooded_map = make_flooded_map(data->map, data->map_size_x,
+			data->map_size_y, data);
 	start_x = data->player_x;
 	start_y = data->player_y;
 	flood_fill(flooded_map, data, start_x, start_y);
 	while (i < data->map_size_y)
 		free(flooded_map[i++]);
 	free(flooded_map);
-	if (data->c_count != data->n_collectables || data->e_count != 1 || data->p_count != 1)
+	if (data->c_count != data->n_collectables || data->e_count != 1
+		|| data->p_count != 1)
 	{
 		ft_printf("não consegue apanhar todas as moedas ou sair\n");
-		return 0;
+		return (0);
 	}
 	return (1);
 }
