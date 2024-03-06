@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 17:02:55 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/03/06 15:58:23 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/03/06 16:46:45 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ void	map_checker(t_data *data)
 		exit (1);
 	}
 	window_size(data);
-
+	//flood_test(data);
 	if (data->n_collectables < 1 || data->n_player != 1 || data->n_exit != 1)
 	{
 		free_map(data);

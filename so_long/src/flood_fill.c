@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 14:35:07 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/03/06 15:42:17 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/03/06 16:44:37 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void  flood_fill(char **flooded_map, t_data *data, int player_x, int player_y)
 {
-/*     if (player_x < 0 || player_y < 0 || player_x >= y || player_y >= x)
-        return; */
-    if (flooded_map[player_x][player_y] == 'F' || flooded_map[player_x][player_y] == '1')
+	if (player_x < 0 || player_y < 0 || player_x >= data->map_size_x || player_y >= data->map_size_y)
+        return;
+	else if (flooded_map[player_x][player_y] == 'F' || flooded_map[player_x][player_y] == '1')
         return;
 	else if (flooded_map[player_x][player_y] == 'C')
 		data->c_count ++;
@@ -37,7 +37,7 @@ void  flood_fill(char **flooded_map, t_data *data, int player_x, int player_y)
 
 #include <stdio.h>
 #include <stdlib.h>
-char **make_flooded_map(char **zone, int _x, int _y)
+char **make_flooded_map(char **map, int _x, int _y)
 {
 	char **flooded_map;
 	flooded_map = (char **)malloc(sizeof(char *) * _y);
@@ -45,7 +45,7 @@ char **make_flooded_map(char **zone, int _x, int _y)
 	{
 		flooded_map[i] = (char *)malloc(sizeof(char) * _x);
 		for (int j = 0; j < _x; ++j)
-			flooded_map[i][j] = zone[i][2 * j];
+			flooded_map[i][j] = map[i][j];
 	}
 	return (flooded_map);
 }
@@ -55,8 +55,8 @@ int flood_test(t_data *data)
 	int player_x;
 	int player_y;
 
-	player_x = data->player_x;
-	player_y = data->player_y;
+	player_x = 1;
+	player_y = 2;
 	data->c_count = 0;
 	data->p_count = 0;
 	data->e_count = 0;
