@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 14:35:07 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/03/06 18:07:51 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/03/06 18:30:36 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,26 +25,25 @@ void  flood_fill(char **flooded_map, t_data *data, int player_x, int player_y)
 	else if (flooded_map[player_x][player_y] == 'E')
 		data->e_count ++;
     flooded_map[player_x][player_y] = 'F';
-	
-
    	flood_fill(flooded_map, data, player_x - 1, player_y);
     flood_fill(flooded_map, data, player_x + 1, player_y);
     flood_fill(flooded_map, data, player_x, player_y - 1);
     flood_fill(flooded_map, data, player_x, player_y + 1);
+	
 	return;
 }
 
 
 #include <stdio.h>
 #include <stdlib.h>
-char **make_flooded_map(char **map, int _x, int _y, t_data *data)
+char **make_flooded_map(char **map, int x, int y, t_data *data)
 {
 	char **flooded_map;
-	flooded_map = (char **)malloc(sizeof(char *) * _y);
-	for (int i = 0; i < _y; ++i)
+	flooded_map = (char **)malloc(sizeof(char *) * y);
+	for (int i = 0; i < y; ++i)
 	{
-		flooded_map[i] = (char *)malloc(sizeof(char) * _x);
-		for (int j = 0; j < _x; ++j)
+		flooded_map[i] = (char *)malloc(sizeof(char) * x);
+		for (int j = 0; j < x; ++j)
 		{
 			flooded_map[i][j] = map[i][j];
 			if (map[i][j]== 'P')
@@ -59,17 +58,17 @@ char **make_flooded_map(char **map, int _x, int _y, t_data *data)
 
 int flood_test(t_data *data)
 {
-	int player_x;
-	int player_y;
+	int start_x;
+	int start_y;
 
 	data->c_count = 0;
 	data->p_count = 0;
 	data->e_count = 0;
 	char **flooded_map = make_flooded_map(data->map, data->map_size_x, data->map_size_y, data);
-	player_x = data->player_x;
-	player_y = data->player_y;
+	start_x = data->player_x;
+	start_y = data->player_y;
 
-	flood_fill(flooded_map, data, player_x, player_y);
+	flood_fill(flooded_map, data, start_x, start_y);
 	for (int y = 0; y < data->map_size_y; y++)
 	{
 		for (int x = 0; x < data->map_size_x; x++)
