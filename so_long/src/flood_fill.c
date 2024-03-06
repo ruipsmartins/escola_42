@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 14:35:07 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/03/06 18:00:28 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/03/06 18:07:51 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void  flood_fill(char **flooded_map, t_data *data, int player_x, int player_y)
 {
-/* 	if (player_x < 0 || player_y < 0 || player_x >= data->map_size_x || player_y >= data->map_size_y)
+	/* if (player_x < 0 || player_y < 0 || player_x >= data->map_size_x || player_y >= data->map_size_y)
         return; */
 	if (flooded_map[player_x][player_y] == 'F' || flooded_map[player_x][player_y] == '1')
         return;
@@ -49,8 +49,8 @@ char **make_flooded_map(char **map, int _x, int _y, t_data *data)
 			flooded_map[i][j] = map[i][j];
 			if (map[i][j]== 'P')
 			{
-				data->player_x = j;
-				data->player_y = i;
+				data->player_x = i;
+				data->player_y = j;
 			}
 		}
 	}
