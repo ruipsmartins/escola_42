@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 14:35:07 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/03/06 16:44:37 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/03/06 17:25:48 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void  flood_fill(char **flooded_map, t_data *data, int player_x, int player_y)
 {
-	if (player_x < 0 || player_y < 0 || player_x >= data->map_size_x || player_y >= data->map_size_y)
-        return;
-	else if (flooded_map[player_x][player_y] == 'F' || flooded_map[player_x][player_y] == '1')
+/* 	if (player_x < 0 || player_y < 0 || player_x >= data->map_size_x || player_y >= data->map_size_y)
+        return; */
+	if (flooded_map[player_x][player_y] == 'F' || flooded_map[player_x][player_y] == '1')
         return;
 	else if (flooded_map[player_x][player_y] == 'C')
 		data->c_count ++;
@@ -27,7 +27,7 @@ void  flood_fill(char **flooded_map, t_data *data, int player_x, int player_y)
     flooded_map[player_x][player_y] = 'F';
 	
 
-    flood_fill(flooded_map, data, player_x - 1, player_y);
+   	flood_fill(flooded_map, data, player_x - 1, player_y);
     flood_fill(flooded_map, data, player_x + 1, player_y);
     flood_fill(flooded_map, data, player_x, player_y - 1);
     flood_fill(flooded_map, data, player_x, player_y + 1);
@@ -67,8 +67,6 @@ int flood_test(t_data *data)
 	{
 		for (int x = 0; x < data->map_size_x; x++)
 		{
-			if (x != 0)
-				printf(" ");
 			printf("%c", flooded_map[y][x]);
 		}
 			free(flooded_map[y]);
