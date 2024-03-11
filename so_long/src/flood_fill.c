@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 14:35:07 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/03/11 09:23:37 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/03/11 11:12:07 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,11 @@ void	flood_fill(char **flooded_map, t_data *data, int start_x, int start_y)
 	else if (flooded_map[start_x][start_y] == 'P')
 		data->p_count ++;
 	else if (flooded_map[start_x][start_y] == 'E')
+	{
 		data->e_count ++;
+		flooded_map[start_x][start_y] = 'F';
+		return ;
+	}
 	flooded_map[start_x][start_y] = 'F';
 	flood_fill(flooded_map, data, start_x - 1, start_y);
 	flood_fill(flooded_map, data, start_x + 1, start_y);
