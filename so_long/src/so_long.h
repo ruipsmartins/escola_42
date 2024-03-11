@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 09:11:06 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/03/06 15:56:25 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/03/11 10:36:50 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void		map_checker(t_data *data);
 void		free_map(t_data *data);
 void		init_game(t_data *data);
 void		map_draw(t_data *data);
-void		close_game(t_data *data);
+int			close_game(t_data *data);
 void		update_exit(t_data *data);
 void		move_player_w(t_data *data);
 void		move_player_a(t_data *data);
