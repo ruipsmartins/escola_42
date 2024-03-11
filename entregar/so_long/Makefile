@@ -6,7 +6,7 @@
 #    By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/20 11:11:30 by ruidos-s          #+#    #+#              #
-#    Updated: 2024/03/11 15:46:35 by ruidos-s         ###   ########.fr        #
+#    Updated: 2024/03/11 15:54:49 by ruidos-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ MLX = ./libs/mlx_linux/libmlx.a -Llibs/mlx_linux -lmlx -L/usr/lib -Imlx_linux -l
 
 all: $(NAME)
 $(LIBFT):
-		make -C ./libs/libft && make clean -C libs/libft/
+		make -C ./libs/libft
 
 $(MLX):
 		make -C ./libs/mlx_linux
