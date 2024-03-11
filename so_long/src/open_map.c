@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 16:49:32 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/02/27 12:50:50 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/03/11 09:25:41 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ char	**open_map(char *path)
 
 	fd = open(path, O_RDONLY);
 	if (fd == -1)
-		exit (1);
+		return (NULL);
 	map_data = ft_strdup("");
 	while (true)
 	{

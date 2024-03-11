@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 17:02:55 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/03/06 19:29:21 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/03/11 09:22:36 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ void	map_checker(t_data *data)
 		|| !c_checker(data))
 	{
 		free_map(data);
-		ft_printf("está algum erro no mapa!\n");
+		ft_printf("There's an error on the map!\n");
 		exit (1);
 	}
 	window_size(data);
@@ -104,7 +104,7 @@ void	map_checker(t_data *data)
 	if (data->n_collectables < 1)
 	{
 		free_map(data);
-		ft_printf("o mapa tem que ter pelo menos um C\n");
+		ft_printf("The map must have at least one C.\n");
 		exit (1);
 	}
 }

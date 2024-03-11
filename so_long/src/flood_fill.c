@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 14:35:07 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/03/06 19:47:27 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/03/11 09:23:37 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ int	flood_test(t_data *data)
 	if (data->c_count != data->n_collectables || data->e_count != 1
 		|| data->p_count != 1)
 	{
-		ft_printf("não consegue apanhar todas as moedas ou sair\n");
+		ft_printf("Can't catch all the coins or exit.\n");
 		return (0);
 	}
 	return (1);
