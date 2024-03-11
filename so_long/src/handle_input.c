@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 10:59:29 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/03/11 10:42:00 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/03/11 10:51:59 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ int	handle_input(int keycode, t_data *data)
 	ft_printf("collectables: %d | moves: %d",
 		data->n_collectables, data->moves);
 	mlx_clear_window(data->mlx_ptr, data->win_ptr);
-	ft_printf("keycode: %d\n", keycode);
 	map_draw(data);
 	return (0);
 }
