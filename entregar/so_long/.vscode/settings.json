@@ -1,0 +1,6 @@
+{
+	"files.associations": {
+		"*.c": "c",
+		"so_long.h": "c"
+	}
+}
