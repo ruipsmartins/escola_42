@@ -6,7 +6,7 @@
 #    By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/20 11:11:30 by ruidos-s          #+#    #+#              #
-#    Updated: 2024/03/11 15:54:49 by ruidos-s         ###   ########.fr        #
+#    Updated: 2024/03/11 15:59:51 by ruidos-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,7 +45,6 @@ fclean: clean
 		rm -f $(NAME) && make fclean -C libs/libft/ && make clean -C ./libs/mlx_linux
 
 re: fclean all 
-
 
 git:
 	git add .
