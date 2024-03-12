@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 17:02:55 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/03/11 09:22:36 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/03/12 14:31:30 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ static int	walls_checker(char **map)
 	return (true);
 }
 
-static int	c_checker(t_data *data)
+static int	p_e_c_checker(t_data *data)
 {
 	int	i;
 	int	j;
@@ -82,29 +82,40 @@ static int	c_checker(t_data *data)
 		}
 		i++;
 	}
+	/* if (!data->n_player || !data->n_exit)
+		return (false); */
 	return (true);
 }
-
+static void error_print(int n, t_data *data)
+{
+	free_map(data);
+	if (n == 1)
+		ft_printf("There's an error on the map!\n");
+	else if (n == 2)
+		ft_printf("Can't catch all the coins or exit.\n");
+	else if (n == 3)
+		ft_printf("The map must have at least one C.\n");
+	exit (1);
+}
 void	map_checker(t_data *data)
 {
 	data->n_collectables = 0;
-	if (!retangular_check(data->map, data) || !walls_checker(data->map)
-		|| !c_checker(data))
-	{
-		free_map(data);
-		ft_printf("There's an error on the map!\n");
-		exit (1);
-	}
+	if (!data->map[0])
+		error_print(1,data);
+	if (!retangular_check(data->map, data))
+		error_print(1, data);
+	if (!walls_checker(data->map))
+		error_print(1, data);
+	if (!p_e_c_checker(data))
+		error_print(1, data);
+	if (!data->n_player || !data->n_exit)
+		error_print(1, data);
+/* 	if (!data->map[0] || !retangular_check(data->map, data) 
+		|| !walls_checker(data->map) || !p_e_c_checker(data))
+		error_print(1, data); */
 	window_size(data);
 	if (!flood_test(data))
-	{
-		free_map(data);
-		exit (1);
-	}
+		error_print(2, data);
 	if (data->n_collectables < 1)
-	{
-		free_map(data);
-		ft_printf("The map must have at least one C.\n");
-		exit (1);
-	}
+		error_print(3, data);
 }

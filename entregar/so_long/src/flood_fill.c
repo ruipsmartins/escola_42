@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 14:35:07 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/03/11 11:12:07 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/03/12 14:13:49 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,9 +83,6 @@ int	flood_test(t_data *data)
 	free(flooded_map);
 	if (data->c_count != data->n_collectables || data->e_count != 1
 		|| data->p_count != 1)
-	{
-		ft_printf("Can't catch all the coins or exit.\n");
 		return (0);
-	}
 	return (1);
 }
