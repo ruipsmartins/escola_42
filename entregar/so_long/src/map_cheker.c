@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 17:02:55 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/03/12 14:31:30 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/03/12 14:53:38 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,18 +82,24 @@ static int	p_e_c_checker(t_data *data)
 		}
 		i++;
 	}
-	/* if (!data->n_player || !data->n_exit)
-		return (false); */
 	return (true);
 }
 static void error_print(int n, t_data *data)
 {
 	free_map(data);
 	if (n == 1)
-		ft_printf("There's an error on the map!\n");
+		ft_printf("The map cannot be empty.\n");
 	else if (n == 2)
-		ft_printf("Can't catch all the coins or exit.\n");
+		ft_printf("The map must be rectangular.\n");
 	else if (n == 3)
+		ft_printf("The map must be surrounded by walls.\n");
+	else if (n == 4)
+		ft_printf("The map contains an invalid character.\n");
+	else if (n == 5)
+		ft_printf("Must have one 'E' and one 'P' on the map.\n");
+	else if (n == 6)
+		ft_printf("Can't catch all the coins or exit.\n");
+	else
 		ft_printf("The map must have at least one C.\n");
 	exit (1);
 }
@@ -103,19 +109,16 @@ void	map_checker(t_data *data)
 	if (!data->map[0])
 		error_print(1,data);
 	if (!retangular_check(data->map, data))
-		error_print(1, data);
+		error_print(2, data);
 	if (!walls_checker(data->map))
-		error_print(1, data);
+		error_print(3, data);
 	if (!p_e_c_checker(data))
-		error_print(1, data);
+		error_print(4, data);
 	if (!data->n_player || !data->n_exit)
-		error_print(1, data);
-/* 	if (!data->map[0] || !retangular_check(data->map, data) 
-		|| !walls_checker(data->map) || !p_e_c_checker(data))
-		error_print(1, data); */
+		error_print(5, data);
 	window_size(data);
 	if (!flood_test(data))
-		error_print(2, data);
+		error_print(6, data);
 	if (data->n_collectables < 1)
-		error_print(3, data);
+		error_print(7, data);
 }
