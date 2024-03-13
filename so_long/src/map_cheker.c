@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 17:02:55 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/03/11 09:22:36 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/03/12 15:07:26 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ static int	walls_checker(char **map)
 	return (true);
 }
 
-static int	c_checker(t_data *data)
+static int	p_e_c_checker(t_data *data)
 {
 	int	i;
 	int	j;
@@ -70,9 +70,9 @@ static int	c_checker(t_data *data)
 		j = 0;
 		while (data->map[i][j])
 		{
-			if (data->map[i][j] == 'P' && data->n_player == 0)
+			if (data->map[i][j] == 'P')
 				data->n_player++;
-			else if (data->map[i][j] == 'E' && data->n_exit == 0)
+			else if (data->map[i][j] == 'E')
 				data->n_exit++;
 			else if (data->map[i][j] == 'C')
 				data->n_collectables++;
@@ -85,26 +85,42 @@ static int	c_checker(t_data *data)
 	return (true);
 }
 
+static void	error_print(int n, t_data *data)
+{
+	free_map(data);
+	if (n == 1)
+		ft_printf("The map cannot be empty.\n");
+	else if (n == 2)
+		ft_printf("The map must be rectangular.\n");
+	else if (n == 3)
+		ft_printf("The map must be surrounded by walls.\n");
+	else if (n == 4)
+		ft_printf("The map contains an invalid character.\n");
+	else if (n == 5)
+		ft_printf("Must have one 'E' and one 'P' on the map.\n");
+	else if (n == 6)
+		ft_printf("Can't catch all the coins or exit.\n");
+	else if (n == 7)
+		ft_printf("The map must have at least one C.\n");
+	exit (1);
+}
+
 void	map_checker(t_data *data)
 {
 	data->n_collectables = 0;
-	if (!retangular_check(data->map, data) || !walls_checker(data->map)
-		|| !c_checker(data))
-	{
-		free_map(data);
-		ft_printf("There's an error on the map!\n");
-		exit (1);
-	}
+	if (!data->map[0])
+		error_print(1, data);
+	if (!retangular_check(data->map, data))
+		error_print(2, data);
+	if (!walls_checker(data->map))
+		error_print(3, data);
+	if (!p_e_c_checker(data))
+		error_print(4, data);
+	if (data->n_player != 1 || data->n_exit != 1)
+		error_print(5, data);
 	window_size(data);
 	if (!flood_test(data))
-	{
-		free_map(data);
-		exit (1);
-	}
+		error_print(6, data);
 	if (data->n_collectables < 1)
-	{
-		free_map(data);
-		ft_printf("The map must have at least one C.\n");
-		exit (1);
-	}
+		error_print(7, data);
 }

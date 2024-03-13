@@ -6,7 +6,7 @@
 #    By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/20 11:11:30 by ruidos-s          #+#    #+#              #
-#    Updated: 2024/03/06 14:40:45 by ruidos-s         ###   ########.fr        #
+#    Updated: 2024/03/12 13:46:14 by ruidos-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,9 +28,9 @@ LIBFT = ./libs/libft/libft.a
 
 MLX = ./libs/mlx_linux/libmlx.a -Llibs/mlx_linux -lmlx -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
 
-all: $(LIBFT) $(MLX) $(NAME)
+all: $(NAME)
 $(LIBFT):
-		make -C ./libs/libft && make clean -C libs/libft/
+		make -C ./libs/libft
 
 $(MLX):
 		make -C ./libs/mlx_linux
@@ -45,8 +45,6 @@ fclean: clean
 		rm -f $(NAME) && make fclean -C libs/libft/ && make clean -C ./libs/mlx_linux
 
 re: fclean all 
-		make clean && clear
-#alterar o make clean e clear
 
 git:
 	git add .
