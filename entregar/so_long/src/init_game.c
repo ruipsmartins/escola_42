@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 18:48:11 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/03/06 19:34:37 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/03/13 15:21:13 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	init_game(t_data *data)
 {
 	data->moves = 0;
 	data->mlx_ptr = mlx_init();
+	image_checker(data);
 	data->win_ptr = mlx_new_window(data->mlx_ptr, data->map_size_x * 64,
 			data->map_size_y * 64, "so_long");
 	data->img_player = mlx_xpm_file_to_image(data->mlx_ptr,

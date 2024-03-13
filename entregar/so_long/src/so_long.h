@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 09:11:06 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/03/11 10:36:50 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/03/13 13:12:54 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ typedef struct s_data
 	int		e_count;
 }						t_data;
 
+void		image_checker(t_data *data);
 int			handle_input(int keycode, t_data *data);
 char		**open_map(char *path);
 void		map_checker(t_data *data);
