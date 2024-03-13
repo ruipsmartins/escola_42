@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 12:52:07 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/03/13 15:51:22 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/03/13 15:55:26 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void exit_and_clear(t_data *data)
 {
-	ft_printf("There is an error in the images.\n");
+	ft_printf("There is something wrong with the images\n");
 	mlx_destroy_display(data->mlx_ptr);
 	free(data->mlx_ptr);
 	free_map(data);
