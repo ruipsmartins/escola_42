@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reverse_bits.c                                     :+:      :+:    :+:   */
+/*   reverse_bits2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:47:25 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/03/21 11:41:50 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/03/21 11:39:20 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,7 @@ void print_bits(unsigned char octet)
 
 	while (i--)
 	{
-		bit = (octet % 2) + '0';
-		octet /=2;
+		bit = (octet >> i & 1) + '0';
 		write(1, &bit, 1);
 	}
 		write(1, "\n", 1);
@@ -31,14 +30,13 @@ void print_bits(unsigned char octet)
 
 unsigned char	reverse_bits(unsigned char octet)
 {
-	int i = 0;
+	int i = 8;
 	unsigned char reversed = 0;
 	
-	while(i < 8)
+	while(i--)
 	{
-		reversed = (reversed * 2) + (octet % 2);
-		octet/=2;
-		i++;
+		reversed = (reversed << 1) | (octet & 1);
+		octet >>= 1;
 	}
 	print_bits(reversed);
 	return (reversed);

@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reverse_bits.c                                     :+:      :+:    :+:   */
+/*   swap_bits.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/20 18:47:25 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/03/21 11:41:50 by ruidos-s         ###   ########.fr       */
+/*   Created: 2024/03/21 11:43:40 by ruidos-s          #+#    #+#             */
+/*   Updated: 2024/03/21 13:04:34 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include<stdio.h>
 #include<unistd.h>
 
-void print_bits(unsigned char octet)
+
+/* void print_bits(unsigned char octet)
 {
 	int	i = 8;
 	unsigned char 	bit;
@@ -27,31 +27,36 @@ void print_bits(unsigned char octet)
 	}
 		write(1, "\n", 1);
 
-}
-
-unsigned char	reverse_bits(unsigned char octet)
+} */
+void print_bits(unsigned char octet)
 {
-	int i = 0;
-	unsigned char reversed = 0;
-	
-	while(i < 8)
+	int	i = 8;
+	unsigned char 	bit;
+
+	while (i--)
 	{
-		reversed = (reversed * 2) + (octet % 2);
-		octet/=2;
-		i++;
+		bit = (octet >> i & 1) + '0';
+		write(1, &bit, 1);
 	}
-	print_bits(reversed);
-	return (reversed);
+		write(1, "\n", 1);
+
 }
 
-
-
+unsigned char	swap_bits(unsigned char octet)
+{
+	int y = 4;
+	unsigned char temp = 0;
+	print_bits(octet);
+	octet = (octet >> 4) | (octet << 4);
+	//octet = (octet * 4) + (octet / 4);
+	print_bits(octet);
+	return octet;
+}
 int main()
 {
-    unsigned char byte = 38;
+    unsigned char byte = 65;
 
-	print_bits(byte);
-    unsigned char byte_invertido = reverse_bits(byte);
+    unsigned char swaped = swap_bits(byte);
 
     return 0;
 }
