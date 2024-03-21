@@ -6,7 +6,7 @@
 #    By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/20 11:11:30 by ruidos-s          #+#    #+#              #
-#    Updated: 2024/03/14 12:23:21 by ruidos-s         ###   ########.fr        #
+#    Updated: 2024/03/21 15:20:04 by ruidos-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,9 +16,9 @@ CC = cc
 
 CFLAGS = -Wall -Wextra -Werror -g
 
-SRCS_FILES =	main.c handle_input.c open_map.c map_cheker.c init_game.c map_draw.c move_player.c flood_fill.c image_checker.c
-
 SRCS_DIR = src
+
+SRCS_FILES =	main.c handle_input.c open_map.c map_cheker.c init_game.c map_draw.c move_player.c flood_fill.c image_checker.c
 
 SRCS = $(addprefix $(SRCS_DIR)/, $(SRCS_FILES))
 
@@ -26,7 +26,7 @@ OBJS = $(SRCS:.c=.o)
 
 LIBFT = ./libs/libft/libft.a
 
-MLX = ./libs/mlx_linux/libmlx.a -Llibs/mlx_linux -lmlx -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
+MLX = ./libs/mlx_linux/libmlx.a -lXext -lX11 -lm -lz
 
 all: $(NAME)
 $(LIBFT):
