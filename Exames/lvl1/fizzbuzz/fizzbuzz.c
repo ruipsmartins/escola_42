@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 11:38:07 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/03/18 12:53:29 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/04/03 10:33:31 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void put_number(int n)
 {
 	char number;
 
-	number = n + 48;
+	number = n + '0';
 
 	if (n > 9)
 	{
