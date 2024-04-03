@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:47:25 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/03/21 11:41:50 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/04/03 11:04:27 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,9 @@ void print_bits(unsigned char octet)
 
 	while (i--)
 	{
-		bit = (octet % 2) + '0';
-		octet /=2;
+		bit = (octet >> i & 1) + '0';
 		write(1, &bit, 1);
 	}
-		write(1, "\n", 1);
-
 }
 
 unsigned char	reverse_bits(unsigned char octet)
