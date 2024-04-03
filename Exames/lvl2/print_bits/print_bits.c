@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 15:56:14 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/03/20 16:22:32 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/04/03 10:57:33 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ void print_bits(unsigned char octet)
 	}
 }
 
-int main (int argc, char **argv)
+int main ()
 {
 
-	print_bits(argv[1][0]);
+	print_bits(1);
 
 	return 0;
 }
