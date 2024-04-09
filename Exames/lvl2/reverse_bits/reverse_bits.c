@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:47:25 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/04/03 11:04:27 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/04/09 12:52:55 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ unsigned char	reverse_bits(unsigned char octet)
 	
 	while(i < 8)
 	{
-		reversed = (reversed * 2) + (octet % 2);
+		reversed = (reversed * 2) + (octet % 2) - '0';
 		octet/=2;
 		i++;
 	}
