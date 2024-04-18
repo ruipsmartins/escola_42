@@ -6,7 +6,7 @@
 #    By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/20 11:11:30 by ruidos-s          #+#    #+#              #
-#    Updated: 2024/04/18 14:41:24 by ruidos-s         ###   ########.fr        #
+#    Updated: 2024/04/18 14:41:59 by ruidos-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,6 +50,6 @@ git:
 	git status
 
 valgrind:
-	valgrind --show-leak-kinds=all --leak-check=full ./so_long "maps/map.ber"
+	valgrind --show-leak-kinds=all --leak-check=full ./pipex "hello world"
 
 .PHONY: all clean fclean re test git valgrind
