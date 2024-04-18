@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 12:07:16 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/22 15:16:15 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/04/18 14:43:49 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	ft_putnbr_fd(int n, int fd)
 		ft_putnbr_fd(n / 10, fd);
 		ft_putnbr_fd(n % 10, fd);
 	}
-	else 
+	else
 		ft_putchar_fd(n + 48, fd);
 }
 /* int	main(void)
