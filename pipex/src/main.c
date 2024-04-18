@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 14:37:49 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/04/18 14:43:20 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/04/18 14:51:19 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,19 @@
 
 int main (int ac, char **av)
 {
-	if (ac == 2)
+	int i = 1;
+	if (ac == 5)
 	{
-		ft_printf(av[1]);
+		while (i<ac)
+		{
+		ft_printf(av[i]);
+		ft_printf("\n");
+		i++;
+			
+		}
+		
 	}
 	
-	ft_printf("\n");
 
 	return (0);
 }
