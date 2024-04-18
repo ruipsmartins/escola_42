@@ -6,27 +6,25 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 14:37:49 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/04/18 14:51:19 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/04/18 15:48:38 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./pipex.h"
 
-int main (int ac, char **av)
+int	main(int ac, char **av)
 {
-	int i = 1;
+	int	i;
+
 	if (ac == 5)
 	{
-		while (i<ac)
+		i = 1;
+		while (i < ac)
 		{
-		ft_printf(av[i]);
-		ft_printf("\n");
-		i++;
-			
+			ft_printf(av[i]);
+			ft_printf("\n");
+			i++;
 		}
-		
 	}
-	
-
 	return (0);
 }

@@ -6,7 +6,7 @@
 #    By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/20 11:11:30 by ruidos-s          #+#    #+#              #
-#    Updated: 2024/04/18 14:52:45 by ruidos-s         ###   ########.fr        #
+#    Updated: 2024/04/18 14:55:57 by ruidos-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,7 @@ $(NAME): $(OBJS) $(LIBFT)
 		$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $@ 
 
 clean:
-		rm -f $(OBJS)
+		rm -f $(OBJS) && make clean -C libft/
 
 fclean: clean
 		rm -f $(NAME) && make fclean -C libft/

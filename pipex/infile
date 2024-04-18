@@ -1,0 +1,7 @@
+total 36
+-rw-rw-r-- 1 rui rui     0 abr 18 15:47 infile
+drwxrwxr-x 2 rui rui  4096 abr 18 14:56 libft
+-rw-rw-r-- 1 rui rui  1534 abr 18 14:55 Makefile
+-rw-rw-r-- 1 rui rui     2 abr 18 15:46 outfile
+-rwxrwxr-x 1 rui rui 19520 abr 18 15:45 pipex
+drwxrwxr-x 2 rui rui  4096 abr 18 15:45 src
