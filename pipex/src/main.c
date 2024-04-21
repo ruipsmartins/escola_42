@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 14:37:49 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/04/21 11:48:43 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/04/21 12:28:26 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 int	main(int ac, char **av)
 {
 	int	i;
+	int fd[2];
 
 	if (ac != 5)
 	{
@@ -24,13 +25,23 @@ int	main(int ac, char **av)
 	else if (ac == 5)
 	{
 		i = 1;
-		execve("/bin/bash", (char *[]){"bash", "-c", av[2], NULL}, NULL);
-		while (i < ac)
+		pipe(fd);
+		int id = fork();
+
+		if (id == 0)
 		{
-			ft_printf(av[i]);
-			ft_printf("\n");
-			i++;
+			execve("/bin/bash", (char *[]){"bash", "-c", av[2], NULL}, NULL);
 		}
+		else if (id != 0)
+		{
+			wait(NULL);
+			while (i < ac)
+			{
+				ft_printf(av[i]);
+				ft_printf("\n");
+				i++;
+			}
+		}	
 	}
 	return (0);
 }
