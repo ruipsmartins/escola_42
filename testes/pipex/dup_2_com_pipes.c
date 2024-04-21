@@ -8,7 +8,7 @@
 int main(int ac, char **av)
 {
 	int fd[2];
-	pid_t pid;
+	int pid;
 	int file;
 
 	if (ac == 2)
@@ -37,7 +37,7 @@ int main(int ac, char **av)
 		} else {
 			// Pai
 			close(fd[1]); // Fecha a extremidade de escrita do tubo
-			dup2(fd[0], STDIN_FILENO); // Redireciona a entrada padrão para o tubo
+			//dup2(fd[0], STDIN_FILENO); // Redireciona a entrada padrão para o tubo
 			close(fd[0]); // Fecha a extremidade de leitura do tubo
 			printf("programa acabado!\n"); // Escreve "programa acabado!" na consola
 			wait(NULL); // Espera que o filho termine
