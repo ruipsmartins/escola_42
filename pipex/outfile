@@ -1,7 +1,9 @@
-total 40
--rw-rw-r-- 1 rui rui  1534 Apr 18 14:55 Makefile
--rw-rw-r-- 1 rui rui   279 Apr 21 15:15 infile
-drwxrwxr-x 2 rui rui  4096 Apr 21 16:58 libft
--rw-rw-r-- 1 rui rui     2 Apr 21 17:00 outfile
--rwxrwxr-x 1 rui rui 18880 Apr 21 16:58 pipex
-drwxrwxr-x 2 rui rui  4096 Apr 21 16:58 src
+total 48
+drwxrwxr-x  4 rui rui  4096 Apr 21 17:03 .
+drwxrwxr-x 15 rui rui  4096 Apr  4 10:42 ..
+-rw-rw-r--  1 rui rui  1534 Apr 18 14:55 Makefile
+-rw-rw-r--  1 rui rui   279 Apr 21 15:15 infile
+drwxrwxr-x  2 rui rui  4096 Apr 21 17:03 libft
+-rw-rw-r--  1 rui rui   382 Apr 21 17:08 outfile
+-rwxrwxr-x  1 rui rui 18880 Apr 21 17:03 pipex
+drwxrwxr-x  2 rui rui  4096 Apr 21 17:03 src
