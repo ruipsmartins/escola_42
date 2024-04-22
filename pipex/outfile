@@ -1,7 +1,1 @@
-total 40
--rw-r--r-- 1 ruidos-s 2023_lisboa  1534 Apr 22 09:11 Makefile
--rw-r--r-- 1 ruidos-s 2023_lisboa    26 Apr 22 10:28 infile
-drwxr-xr-x 2 ruidos-s 2023_lisboa  4096 Apr 22 10:55 libft
--rwxr-xr-x 1 ruidos-s 2023_lisboa   367 Apr 22 12:25 outfile
--rwxr-xr-x 1 ruidos-s 2023_lisboa 17848 Apr 22 12:40 pipex
-drwxr-xr-x 2 ruidos-s 2023_lisboa    49 Apr 22 12:40 src
+7

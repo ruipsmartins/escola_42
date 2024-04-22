@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 14:37:49 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/04/22 12:40:25 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/04/22 14:42:58 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,24 +32,22 @@ int	main(int ac, char **av)
 		{
 			// Filho
 			close(fd[0]);	// Fecha a extremidade de leitura do pipe
-			out_file = open(av[4], O_WRONLY | O_CREAT, 0777);
-			
-			dup2(out_file, STDOUT_FILENO);	// Redireciona a saída padrão para o arquivo
-			execve("/bin/bash", (char *[]){"bash", "-c", av[2], NULL}, NULL);
-			fd[1] = out_file;
-			close(out_file);	// Fecha o arquivo
+			dup2(fd[1], STDOUT_FILENO);	// Redireciona a saída padrão para o pipe
 			close(fd[1]);	// Fecha a extremidade de escrita do pipe
-			exit(0);
-
+			execve("/bin/zsh", (char *[]){"zsh", "-c", av[2], NULL}, NULL);
 		}
 		else if (pid != 0)
 		{
-			close(fd[1]);	// Fecha a extremidade de escrita do pipe
-			ft_printf("%s", fd[0]);
-			close(fd[0]);	// Fecha a extremidade de leitura do pipe
 			wait(NULL);
+			close(fd[1]);	// Fecha a extremidade de escrita do pipe
+			out_file = open(av[4], O_WRONLY | O_CREAT | O_TRUNC, 0777);
+			dup2(out_file, STDOUT_FILENO);
+			dup2(fd[0], STDIN_FILENO);
+			close(out_file);	// Fecha o arquivo
+			close(fd[0]);	// Fecha a extremidade de leitura do pipe
+			execve("/bin/zsh", (char *[]){"zsh", "-c", av[3], NULL}, NULL);
 		}	
-			ft_printf("programa acabado! \n");
+			//ft_printf("programa acabado! \n");
 	}
 	return (0);
 }
