@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 14:37:49 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/04/22 14:42:58 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/04/22 15:22:00 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,7 @@ int	main(int ac, char **av)
 	int out_file;
 	int pid;
 
-	if (ac != 5)
-	{
-		perror("wrong args, ex: ./pipex infile \"ls -l\" \"wc -l\" outfile");
-		return (1);
-	}
-	else if (ac == 5)
+	if (ac == 5)
 	{
 		pipe(fd);
 		pid = fork();
@@ -48,6 +43,11 @@ int	main(int ac, char **av)
 			execve("/bin/zsh", (char *[]){"zsh", "-c", av[3], NULL}, NULL);
 		}	
 			//ft_printf("programa acabado! \n");
+	}
+	else
+	{
+		perror("wrong args, ex: ./pipex infile \"ls -l\" \"wc -l\" outfile");
+		return (1);
 	}
 	return (0);
 }
