@@ -6,17 +6,14 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 10:08:20 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/04/23 15:14:33 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/04/23 15:53:26 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-
-void	ft_child(char **av, int *fd)
+void check_file(char **av)
 {
-	int	in_file;
-
 	if (access(av[1], F_OK) == -1)
 	{
 		ft_printf("zsh: no such file or directory: %s\n", av[1]);
@@ -27,6 +24,12 @@ void	ft_child(char **av, int *fd)
 		ft_printf("zsh: permission denied: %s\n", av[1]);
 		exit(1);
 	}
+}
+
+void	ft_child(char **av, int *fd)
+{
+	int	in_file;
+
 	in_file = open(av[1], O_RDONLY);
 	if (in_file == -1)
 	{

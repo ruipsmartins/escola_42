@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 14:37:49 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/04/23 15:16:48 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/04/23 15:54:26 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int	main(int ac, char **av)
 
 	if (ac == 5)
 	{
+		check_file(av);
 		pipe(fd);
 		pid = fork();
 		if (pid == 0)
