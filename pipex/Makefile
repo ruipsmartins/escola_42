@@ -1,15 +1,3 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/12/20 11:11:30 by ruidos-s          #+#    #+#              #
-#    Updated: 2024/04/23 10:50:51 by ruidos-s         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 NAME = pipex
 
 CC = cc
@@ -50,6 +38,7 @@ git:
 	git status
 
 valgrind:
-	valgrind --track-fds=yes --trace-children=yes ./pipex infile "ls -l" "wc -l" outfile
+	valgrind --show-leak-kinds=all --leak-check=full --track-fds=yes --trace-children=yes ./pipex infile "ls -l" "wc -l" outfile
+
 
 .PHONY: all clean fclean re test git valgrind
