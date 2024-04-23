@@ -6,16 +6,19 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 14:37:49 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/04/22 15:22:00 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/04/23 11:38:50 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./pipex.h"
 
+
+
 int	main(int ac, char **av)
 {
 	int fd[2];
 	int out_file;
+	int in_file;
 	int pid;
 
 	if (ac == 5)
@@ -25,9 +28,15 @@ int	main(int ac, char **av)
 
 		if (pid == 0)
 		{
-			// Filho
+			in_file = open(av[1], O_RDONLY);
+			if (in_file == -1)
+			{
+				ft_printf("zsh: no such file or directory: %s\n", av[01]);
+				exit(1);
+			}
 			close(fd[0]);	// Fecha a extremidade de leitura do pipe
 			dup2(fd[1], STDOUT_FILENO);	// Redireciona a saída padrão para o pipe
+			dup2(in_file, STDIN_FILENO);
 			close(fd[1]);	// Fecha a extremidade de escrita do pipe
 			execve("/bin/zsh", (char *[]){"zsh", "-c", av[2], NULL}, NULL);
 		}
@@ -46,7 +55,7 @@ int	main(int ac, char **av)
 	}
 	else
 	{
-		perror("wrong args, ex: ./pipex infile \"ls -l\" \"wc -l\" outfile");
+		ft_printf("wrong args, ex: ./pipex infile \"ls -l\" \"wc -l\" outfile\n");
 		return (1);
 	}
 	return (0);
