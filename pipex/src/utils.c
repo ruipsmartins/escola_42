@@ -6,13 +6,13 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 10:08:20 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/04/23 15:53:26 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/04/24 11:17:09 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-void check_file(char **av)
+void check_files(char **av)
 {
 	if (access(av[1], F_OK) == -1)
 	{
@@ -24,12 +24,22 @@ void check_file(char **av)
 		ft_printf("zsh: permission denied: %s\n", av[1]);
 		exit(1);
 	}
+	if (access(av[4], F_OK) != -1)
+	{
+		if (access(av[4], W_OK)== -1)
+		{
+			ft_printf("zsh: permission denied: %s\n", av[4]);
+			exit(1);
+		}
+		
+	}
+	
 }
 
 void	ft_child(char **av, int *fd)
 {
 	int	in_file;
-
+	check_files(av);
 	in_file = open(av[1], O_RDONLY);
 	if (in_file == -1)
 	{
