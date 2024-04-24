@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 10:08:20 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/04/24 12:35:54 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/04/24 13:17:40 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	check_outfile(char **av, int *fd)
 	return (0);
 }
 
-void	ft_child(char **av, int *fd)
+void	ft_child(char **av, int *fd, char **envp)
 {
 	int	in_file;
 
@@ -60,10 +60,10 @@ void	ft_child(char **av, int *fd)
 	dup2(in_file, STDIN_FILENO);
 	close(in_file);
 	close(fd[1]);
-	execve("/bin/zsh", (char *[]){"zsh", "-c", av[2], NULL}, NULL);
+	execve("/bin/zsh", (char *[]){"zsh", "-c", av[2], NULL}, envp);
 }
 
-void	ft_parent(char **av, int *fd)
+void	ft_parent(char **av, int *fd, char **envp)
 {
 	int	out_file;
 
@@ -78,5 +78,5 @@ void	ft_parent(char **av, int *fd)
 	dup2(fd[0], STDIN_FILENO);
 	close(out_file);
 	close(fd[0]);
-	execve("/bin/zsh", (char *[]){"zsh", "-c", av[3], NULL}, NULL);
+	execve("/bin/zsh", (char *[]){"zsh", "-c", av[3], NULL}, envp);
 }

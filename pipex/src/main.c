@@ -6,13 +6,13 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 14:37:49 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/04/24 12:48:05 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/04/24 14:17:22 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./pipex.h"
 
-int	main(int ac, char **av)
+int	main(int ac, char **av, char **envp)
 {
 	int	fd[2];
 	int	pid;
@@ -25,9 +25,9 @@ int	main(int ac, char **av)
 		if (pid < 0)
 			exit(1);
 		if (pid == 0)
-			ft_child(av, fd);
+			ft_child(av, fd, envp);
 		else
-			ft_parent(av, fd);
+			ft_parent(av, fd, envp);
 	}
 	else
 	{

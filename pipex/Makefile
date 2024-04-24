@@ -38,7 +38,7 @@ git:
 	git status
 
 valgrind:
-	valgrind --show-leak-kinds=all --leak-check=full --track-fds=yes --trace-children=yes ./pipex infile "ls -l" "wc -l" outfile
+	valgrind --show-leak-kinds=all --leak-check=full --track-fds=yes --trace-children=yes ./pipex infile "ls -l" "wc -w" outfile
 
 
 .PHONY: all clean fclean re test git valgrind
