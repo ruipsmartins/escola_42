@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 10:08:20 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/04/24 14:47:52 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/04/24 15:14:03 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	check_infile(char **av, int *fd)
 	}
 	if (access(av[1], R_OK) == -1)
 	{
-		ft_printf("zsh: permission denied: %s\n", av[1]);
+		ft_printf("permission denied: %s\n", av[1]);
 		close_fds(fd);
 		return (1);
 	}
@@ -41,7 +41,7 @@ int	check_outfile(char **av, int *fd)
 	{
 		if (access(av[4], W_OK) == -1)
 		{
-			ft_printf("zsh: permission denied: %s\n", av[4]);
+			ft_printf("permission denied: %s\n", av[4]);
 			close_fds(fd);
 			return (1);
 		}
@@ -62,7 +62,7 @@ void	ft_child(char **av, int *fd, char **envp)
 	dup2(in_file, STDIN_FILENO);
 	close(in_file);
 	close_fds(fd);
-	execve("/bin/zsh", (char *[]){"zsh", "-c", av[2], NULL}, envp);
+	execve("/bin/bash", (char *[]){"bash", "-c", av[2], NULL}, envp);
 }
 
 void	ft_parent(char **av, int *fd, char **envp)
@@ -79,5 +79,5 @@ void	ft_parent(char **av, int *fd, char **envp)
 	dup2(fd[0], STDIN_FILENO);
 	close(out_file);
 	close_fds(fd);
-	execve("/bin/zsh", (char *[]){"zsh", "-c", av[3], NULL}, envp);
+	execve("/bin/bash", (char *[]){"bash", "-c", av[3], NULL}, envp);
 }
