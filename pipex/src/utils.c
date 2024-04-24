@@ -6,34 +6,40 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 10:08:20 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/04/24 11:32:19 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/04/24 11:57:44 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-int check_infile(char **av)
+int check_infile(char **av, int *fd)
 {
 	if (access(av[1], F_OK) == -1)
 	{
 		ft_printf("zsh: no such file or directory: %s\n", av[1]);
+		close(fd[0]);
+		close(fd[1]);
 		return (1);
 	}
 	if (access(av[1], R_OK) == -1)
 	{
 		ft_printf("zsh: permission denied: %s\n", av[1]);
+		close(fd[0]);
+		close(fd[1]);
 		return (1);
 	}
 	return (0);
 }
 
-int check_outfile(char **av)
+int check_outfile(char **av, int *fd)
 {
 	if (access(av[4], F_OK) != -1)
 	{
 		if (access(av[4], W_OK)== -1)
 		{
 			ft_printf("zsh: permission denied: %s\n", av[4]);
+			close(fd[0]);
+			close(fd[1]);
 			return (1);
 		}
 	}
@@ -44,7 +50,7 @@ void	ft_child(char **av, int *fd)
 {
 	int	in_file;
 
-	if(check_infile(av))
+	if(check_infile(av, fd))
 		exit(1);
 	in_file = open(av[1], O_RDONLY);
 	if (in_file == -1)
@@ -65,7 +71,7 @@ void	ft_parent(char **av, int *fd)
 	int	out_file;
 
 	wait(NULL);
-	if(check_outfile(av))
+	if(check_outfile(av, fd))
 		exit(1);
 	close(fd[1]);
 	out_file = open(av[4], O_WRONLY | O_CREAT | O_TRUNC, 0777);
