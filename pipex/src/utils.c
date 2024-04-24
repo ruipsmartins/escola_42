@@ -6,16 +6,18 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 10:08:20 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/04/24 14:37:02 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/04/24 14:47:52 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
+
 void	close_fds(int *fd)
 {
-		close(fd[0]);
-		close(fd[1]);
+	close(fd[0]);
+	close(fd[1]);
 }
+
 int	check_infile(char **av, int *fd)
 {
 	if (access(av[1], F_OK) == -1)
