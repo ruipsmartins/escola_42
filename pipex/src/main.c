@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 14:37:49 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/04/24 14:17:22 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/04/24 14:37:08 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,10 @@ int	main(int ac, char **av, char **envp)
 			exit(1);
 		pid = fork();
 		if (pid < 0)
+		{
+			close_fds(fd);
 			exit(1);
+		}
 		if (pid == 0)
 			ft_child(av, fd, envp);
 		else
