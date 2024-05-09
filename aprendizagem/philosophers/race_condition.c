@@ -27,7 +27,6 @@ int main()
 	if (pthread_create(baristas + i, NULL, update_ledger, NULL))
 		exit(EXIT_FAILURE);
 	}
-	
 
 	for (size_t i = 0; i < 1000; i++)
 	{
