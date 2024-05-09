@@ -22,7 +22,6 @@ void f_fill(char **tab, t_point *size, int row, int col)
 	else if (tab[row][col] == 'E')
 		size->e_count ++;
     tab[row][col] = 'F';
-	
 
     f_fill(tab, size, row - 1, col);
     f_fill(tab, size, row + 1, col);
