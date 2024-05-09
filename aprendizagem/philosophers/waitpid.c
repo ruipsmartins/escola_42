@@ -33,8 +33,11 @@ int main(int ac, char **av)
 		return 0;
 	}
 
-	wait(NULL);	
-	wait(NULL);
+	int pid1_res = waitpid(pid1, NULL, 0);
+	printf("waited for %d \n", pid1_res);	
+	int pid2_res = waitpid(pid2, NULL, 0);
+	printf("waited for %d \n", pid2_res);	
+	
 
 	return 0;
 }
