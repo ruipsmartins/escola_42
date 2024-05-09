@@ -28,9 +28,22 @@ uint64_t get_time(void)
 	if (gettimeofday(&tv, NULL))
 		return(0);
 
-	return((tv.tv_sec * (uint64_t)1000) + (tv.tv_sec / 1000));
+	return((tv.tv_sec * (uint64_t)1000) + (tv.tv_usec / 1000));
 }
 
+void myusleep(long int time)
+{
+	struct timeval tv;
+
+	if (gettimeofday(&tv, NULL))
+		return(0);
+
+    uint64_t espera = tv.tv_usec + time;
+    while (??? < espera) {
+        // Espera até que o tempo atual seja maior que o tempo de espera
+        // Não faça nada aqui
+    }
+}
 
 void example_2()
 {
@@ -38,7 +51,7 @@ void example_2()
 	uint64_t now;
 
 	start_time = get_time();
-	usleep(100000);
+	usleep(2001);
 	now = get_time();
 	printf("%ld milliseconds passed since the start\n", now - start_time);
 }
