@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/09 16:30:36 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/05/09 16:39:08 by ruidos-s         ###   ########.fr       */
+/*   Created: 2024/05/09 16:30:31 by ruidos-s          #+#    #+#             */
+/*   Updated: 2024/05/09 16:58:40 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#ifndef PHILO_H
+# define PHILO_H
 
-int	main(int ac, char **av)
-{
-	if (ac > 0)
-	{
-		write(1, "hello\n", strlen("hello\n"));
-		printf("hello %s!\n", av[0]);
-	}
-	
+#include <unistd.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <threads.h>
+#include <sys/time.h>
 
-	return (0);
-}
+
+
+
+#endif
