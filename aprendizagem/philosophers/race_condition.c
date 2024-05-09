@@ -12,22 +12,23 @@ void *update_ledger(void *data)
 {
 	pthread_mutex_lock(&ledger_lock);
 	ledger += 1;
+	printf("ledger number:%ld | thread id:%ld\n", ledger, pthread_self());
 	pthread_mutex_unlock(&ledger_lock);
 	return NULL;
 }
 
 int main()
 {
-	pthread_t	baristas[10000];
+	pthread_t	baristas[1000];
 
 	pthread_mutex_init(&ledger_lock, NULL);
-	for (size_t i = 0; i < 10000; i++)
+	for (size_t i = 0; i < 1000; i++)
 	{
 	if (pthread_create(baristas + i, NULL, update_ledger, NULL))
 		exit(EXIT_FAILURE);
 	}
 
-	for (size_t i = 0; i < 10000; i++)
+	for (size_t i = 0; i < 1000; i++)
 	{
 		pthread_join(baristas[i],NULL);
 	}
