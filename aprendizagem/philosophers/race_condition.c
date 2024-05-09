@@ -21,7 +21,6 @@ int main()
 	pthread_t	baristas[1000];
 
 	pthread_mutex_init(&ledger_lock, NULL);
-
 	for (size_t i = 0; i < 1000; i++)
 	{
 	if (pthread_create(baristas + i, NULL, update_ledger, NULL))
@@ -32,7 +31,6 @@ int main()
 	{
 		pthread_join(baristas[i],NULL);
 	}
-
 	printf("%lu\n", ledger);
 	
 	return 0;
