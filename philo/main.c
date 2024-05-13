@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 16:30:36 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/05/09 16:39:08 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/05/13 16:55:36 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	main(int ac, char **av)
 {
 	if (ac > 0)
 	{
-		write(1, "hello\n", strlen("hello\n"));
+		write(1, "hello\n",6);
 		printf("hello %s!\n", av[0]);
 	}
 	
