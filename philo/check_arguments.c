@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 16:01:52 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/05/15 17:19:23 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/05/15 17:36:51 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,9 @@ void	check_arguments(t_table table, char **av)
 	i++;
 	check_errors(av);
 	table.nbr_philos = ft_atol(av[1]);
-	table.time_to_die = ft_atol(av[2]);
-	table.time_to_eat = ft_atol(av[3]);
-	table.time_to_sleep = ft_atol(av[4]);
+	table.time_to_die = ft_atol(av[2]) * 1000;
+	table.time_to_eat = ft_atol(av[3]) * 1000;
+	table.time_to_sleep = ft_atol(av[4]) * 1000;
 	if (av[5])
 		table.nbr_of_meals = ft_atol(av[5]);
 	else
