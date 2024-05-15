@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 16:30:36 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/05/13 17:45:25 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/05/15 11:23:02 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,5 @@ int	main(int ac, char **av)
 		printf("hello %s!\n", av[0]);
 	}
 	
-
 	return (0);
 }
