@@ -21,7 +21,6 @@ int main()
 	pthread_create(baristas + i, NULL, make_coffee, NULL);
 	printf("Identifier -> %lu\n",baristas[i]);
 	}
-	
 
 	for (size_t i = 0; i < 50; i++)
 	{
