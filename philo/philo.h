@@ -6,28 +6,26 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 16:30:31 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/05/13 17:43:54 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/05/15 15:03:58 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHILO_H
 # define PHILO_H
 
-#include <unistd.h>
-#include <stdlib.h>
-#include <stdio.h>
-#include <pthread.h>
-#include <sys/time.h>
-#include <stdbool.h>
+# include <unistd.h>
+# include <stdlib.h>
+# include <stdio.h>
+# include <pthread.h>
+# include <sys/time.h>
+# include <stdbool.h>
 
-typedef struct s_table t_table;
-
+typedef struct s_table	t_table;
 
 typedef struct s_fork
 {
-	pthread_mutex_t fork;
+	pthread_mutex_t	fork;
 	int				fork_id;
-	
 }					t_fork;
 
 typedef struct s_philo
@@ -38,9 +36,8 @@ typedef struct s_philo
 	long		last_meal_time;
 	t_fork		*left_fork;
 	t_fork		*right_fork;
-	pthread_t 	thread_id;
+	pthread_t	thread_id;
 	t_table		*table;
-	
 }		t_philo;
 
 typedef struct s_table
@@ -55,10 +52,5 @@ typedef struct s_table
 	t_fork		*forks;
 	t_philo		*philos;
 }				t_table;
-
-
-
-
-
 
 #endif
