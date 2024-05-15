@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 16:30:31 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/05/15 16:02:59 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/05/15 16:54:09 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,11 @@ typedef struct s_philo
 
 typedef struct s_table
 {
-	long		philo_number;
+	long		nbr_philos;
 	long		time_to_die;
 	long		time_to_eat;
 	long		time_to_sleep;
-	long		nbr_limit_meals;
+	long		nbr_of_meals;
 	long		start_simulation;
 	bool		end_simulation;
 	t_fork		*forks;
