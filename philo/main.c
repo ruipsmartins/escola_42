@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 16:30:36 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/05/15 15:07:41 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/05/15 16:08:27 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(int ac, char **av)
 	{
 		printf("hello %s!\n", av[0]);
 		//1) errors cheacking, filling table
-		parse_input(&table, av);
+		check_arguments(&table, av);
 
 		//2) creating actual thing
 		data_init(&table);

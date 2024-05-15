@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 16:30:31 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/05/15 15:03:58 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/05/15 16:02:59 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,8 @@ typedef struct s_table
 	t_fork		*forks;
 	t_philo		*philos;
 }				t_table;
+
+void	check_arguments(t_table table, char **av);
+
 
 #endif
