@@ -6,13 +6,13 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 16:01:52 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/05/16 16:50:11 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/05/16 17:03:11 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-long	ft_atol(char *str)
+static long	ft_atol(char *str)
 {
 	long	number;
 	int		sign;
@@ -37,7 +37,7 @@ long	ft_atol(char *str)
 	return (number * sign);
 }
 
-void	check_errors(char **av)
+void	check_input_errors(char **av)
 {
 	int	i;
 
@@ -56,7 +56,7 @@ void	check_arguments(t_table *table, char **av)
 
 	i = 0;
 	i++;
-	check_errors(av);
+	check_input_errors(av);
 	table->nbr_philos = ft_atol(av[1]);
 	table->time_to_die = ft_atol(av[2]) * 1000;
 	table->time_to_eat = ft_atol(av[3]) * 1000;
