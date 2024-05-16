@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 16:01:52 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/05/15 17:36:51 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/05/16 12:03:22 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,9 @@ void	check_errors(char **av)
 	i = 1;
 	while (av[i])
 	{
-		if (ft_atol(av[i++]) < 1)
-		{
-			printf("there is an error in the arguments\n");
-			exit(EXIT_FAILURE);
-		}
+		if (ft_atol(av[i]) < 1 || ft_atol(av[i]) > INT_MAX)
+			print_error("There is an error in the arguments");
+		i++;	
 	}
 }
 

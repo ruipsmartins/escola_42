@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 16:30:31 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/05/15 16:54:09 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/05/16 12:02:25 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <pthread.h>
 # include <sys/time.h>
 # include <stdbool.h>
+# include <limits.h>
 
 typedef struct s_table	t_table;
 
@@ -54,6 +55,7 @@ typedef struct s_table
 }				t_table;
 
 void	check_arguments(t_table table, char **av);
+void	print_error(char *str);
 
 
 #endif

@@ -1,41 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/09 16:30:36 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/05/16 11:40:12 by ruidos-s         ###   ########.fr       */
+/*   Created: 2024/05/16 11:38:09 by ruidos-s          #+#    #+#             */
+/*   Updated: 2024/05/16 11:40:58 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-// ./philo 5 800 200 200 [5]
-int	main(int ac, char **av)
+void	print_error(char *str)
 {
-	t_table	table;
-
-	if (ac == 5 || ac == 6)
-	{
-		//1) errors cheacking, filling table
-		check_arguments(table, av);
-
-		//2) creating actual thing
-		//data_init(&table);
-
-		//3)
-		//dinner_start(&table);
-
-		//4) No leaks -> philos full || 1 philo died
-		//clean(&table);
-	
-	}
-	else
-	{
-		print_error("Wrong number of arguments");
-	}
-
-	return (0);
+	printf("%s\n", str);
+	exit(EXIT_FAILURE);
 }
+
