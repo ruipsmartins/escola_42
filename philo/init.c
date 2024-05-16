@@ -1,31 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/16 11:38:09 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/05/16 16:56:53 by ruidos-s         ###   ########.fr       */
+/*   Created: 2024/05/16 16:08:55 by ruidos-s          #+#    #+#             */
+/*   Updated: 2024/05/16 16:12:44 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	ft_strlen(char *str)
+void	data_init(t_table *table)
 {
-	int	i;
+	table->end_simulation = false;
+	table->philos = safe_malloc(sizeof(t_philo) * table->nbr_philos);
+	table->forks = safe_malloc(sizeof(t_fork) * table->nbr_philos);
 
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
 }
-
-void	print_error(char *str)
-{
-	write(STDERR_FILENO, str, ft_strlen(str) + 1);
-	write(STDERR_FILENO, "\n", 1);
-	exit(EXIT_FAILURE);
-}
-

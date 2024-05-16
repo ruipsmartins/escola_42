@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 16:30:31 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/05/16 12:02:25 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/05/16 16:49:45 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,16 @@ typedef struct s_table
 	t_philo		*philos;
 }				t_table;
 
-void	check_arguments(t_table table, char **av);
-void	print_error(char *str);
+enum	mutex_action 
+{
+	MUTEX_INIT,
+	MUTEX_LOCK,
+	MUTEX_UNLOCK,
+	MUTEX_DESTROY
+};
 
+void	check_arguments(t_table *table, char **av);
+void	print_error(char *str);
+void	*safe_malloc(size_t size);
 
 #endif
