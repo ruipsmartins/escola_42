@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 16:30:36 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/05/16 17:00:02 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/05/16 17:01:38 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_test(int mutex_action)
 		printf("mutex destroy\n");
 	}
 }
-// ./philo 5 800 200 200 [5]
+// ./philo 5 800 200 200 5
 int	main(int ac, char **av)
 {
 	t_table	table;
