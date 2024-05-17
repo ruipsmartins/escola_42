@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 15:55:41 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/05/16 18:10:06 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/05/17 11:42:10 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,5 @@ void	mutex_handle(pthread_mutex_t *mutex, int mutex_action)
 			print_error("Error destroying mutex");
 	}
 	else
-		print_error("erro na mutex_action");
+		print_error("Wrong mutex_action");
 }
-
