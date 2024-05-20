@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 16:30:36 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/05/20 17:26:36 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/05/20 17:41:17 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,6 @@ int	main(int ac, char **av)
 		//2) init data and philos
 		data_init(&table);
 		print_philos(&table);
-		
-		//3)
 		pthread_t thread;
     	char *message = "Hello, Threads!";
     	// Criar a thread
@@ -49,6 +47,9 @@ int	main(int ac, char **av)
 
     	// Esperar a thread terminar
     	thread_handle(&thread, NULL, NULL, THREAD_JOIN);
+		start_meal();
+		
+		//3)
 		//start_eating(&table);
 
 		//4) No leaks -> philos full || 1 philo died

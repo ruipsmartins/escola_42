@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 16:30:31 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/05/20 17:29:46 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/05/20 17:39:38 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,5 +79,7 @@ void	thread_handle(pthread_t *thread,
 			int e_thread_action);
 void	data_init(t_table *table);
 void	clean_table(t_table *table);
+void	start_meal();
+
 
 #endif
