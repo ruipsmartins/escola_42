@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 15:55:41 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/05/20 14:53:01 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/05/20 17:28:26 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,27 @@ void	mutex_handle(pthread_mutex_t *mutex, int e_mutex_action)
 	}
 	else
 		print_error("Wrong e_mutex_action");
+}
+
+void	thread_handle(pthread_t *thread,
+					void *(*start_routine) (void *),
+					void *data, int e_thread_action)
+{
+	if (e_thread_action == THREAD_CREATE)
+	{
+		if (pthread_create(thread, NULL, start_routine, data) != 0)
+			print_error("Error creating thread");
+	}
+	else if (e_thread_action == THREAD_JOIN)
+	{
+		if (pthread_join(*thread, NULL) != 0)
+			print_error("Error joining thread");
+	}
+	else if (e_thread_action == THREAD_DETACH)
+	{
+		if (pthread_detach(*thread) != 0)
+			print_error("Error detaching thread");
+	}
+	else
+		print_error("wrong e_thread_action");
 }

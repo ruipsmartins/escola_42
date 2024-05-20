@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 16:30:31 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/05/20 14:54:11 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/05/20 17:29:46 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,10 +62,21 @@ enum	e_mutex_action
 	MUTEX_DESTROY
 };
 
+enum	e_thread_action
+{
+	THREAD_CREATE,
+	THREAD_JOIN,
+	THREAD_DETACH
+};
+
 void	check_arguments(t_table *table, char **av);
 void	print_error(char *str);
 void	*safe_malloc(size_t size);
 void	mutex_handle(pthread_mutex_t *mutex, int e_mutex_action);
+void	thread_handle(pthread_t *thread,
+			void *(*start_routine) (void *),
+			void *data,
+			int e_thread_action);
 void	data_init(t_table *table);
 void	clean_table(t_table *table);
 
