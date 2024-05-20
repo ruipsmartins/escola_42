@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 16:01:52 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/05/16 17:03:11 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/05/20 14:48:48 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	check_input_errors(char **av)
 	{
 		if (ft_atol(av[i]) < 1 || ft_atol(av[i]) > INT_MAX)
 			print_error("There is an error in the arguments");
-		i++;	
+		i++;
 	}
 }
 
