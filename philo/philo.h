@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 16:30:31 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/05/17 12:13:28 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/05/20 12:45:51 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ void	check_arguments(t_table *table, char **av);
 void	print_error(char *str);
 void	*safe_malloc(size_t size);
 void	mutex_handle(pthread_mutex_t *mutex, int mutex_action);
-
+void	data_init(t_table *table);
+void	clean_table(t_table *table);
 
 #endif
