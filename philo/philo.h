@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 16:30:31 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/05/20 12:45:51 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/05/20 14:54:11 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ typedef struct s_table
 	t_philo		*philos;
 }				t_table;
 
-enum	mutex_action 
+enum	e_mutex_action
 {
 	MUTEX_INIT,
 	MUTEX_LOCK,
@@ -65,7 +65,7 @@ enum	mutex_action
 void	check_arguments(t_table *table, char **av);
 void	print_error(char *str);
 void	*safe_malloc(size_t size);
-void	mutex_handle(pthread_mutex_t *mutex, int mutex_action);
+void	mutex_handle(pthread_mutex_t *mutex, int e_mutex_action);
 void	data_init(t_table *table);
 void	clean_table(t_table *table);
 
