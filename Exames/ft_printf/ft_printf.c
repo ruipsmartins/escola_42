@@ -1,98 +1,90 @@
-#include <stdarg.h>
 #include <unistd.h>
+#include <stdarg.h>
 #include <stdlib.h>
+#include <stdio.h>
 
-static int	ft_putstr(const char *s)
+int ft_putchar(char c)
 {
-	int len = 0;
-	while (s[len])
-		len++;
-	write(1, s, len);
-	return (len);
+	return (write(1, &c, 1));
 }
 
-static int	ft_putnbr(int n)
+int ft_putstr(char *str)
 {
-	char	c;
-	long	nbr;
-	int		len = 0;
-
-	nbr = n;
-	if (nbr < 0)
+	int count = 0;
+	if (str == NULL)
+		return ft_putstr("(null)");
+	while (*str)
 	{
-		write(1, "-", 1);
-		len++;
-		nbr = -nbr;
+		write(1, str++, 1);
+		count++;
 	}
-	if (nbr > 9)
-		len += ft_putnbr(nbr / 10);
-	c = nbr % 10 + '0';
-	write(1, &c, 1);
-	return (len + 1);
+	return (count);
 }
 
-static int	ft_puthex(unsigned int n)
+int	ft_putnbr(long number, int base)
 {
-	char	*hex = "0123456789abcdef";
-	int		len = 0;
-	
-	if (n >= 16)
-		len += ft_puthex(n / 16);
-	write(1, &hex[n % 16], 1);
-	return (len + 1);
-}
-
-static int	handle_conversion(const char *format, va_list args)
-{
-	if (*format == 's')
-	{
-		char *str = va_arg(args, char *);
-		if (str)
-			return ft_putstr(str);
-		else
-			return ft_putstr("(null)");
-	}
-	else if (*format == 'd')
-		return ft_putnbr(va_arg(args, int));
-	else if (*format == 'x')
-		return ft_puthex(va_arg(args, unsigned int));
-	return (0);
-}
-
-int	ft_printf(const char *format, ...)
-{
-	va_list	args;
+	char	*symbols = "0123456789abcdef";
 	int		count = 0;
-	int		tmp;
 
-	va_start(args, format);
+	if (number < 0)
+	{
+		count += ft_putchar('-');
+		number = number * -1;
+	}
+	if (number < base)
+	{
+		count += ft_putchar(symbols[number % base]);
+	}
+	else
+	{
+		count += ft_putnbr(number / base, base);
+		count += ft_putnbr(number % base, base);
+	}
+	return count;
+}
+static int handle_conversion(const char *format, va_list ap)
+{
+	if (*format == 'c')
+		return (ft_putchar(va_arg(ap, int)));
+	else if(*format == 's')
+		return ft_putstr(va_arg(ap, char *));
+	else if (*format == 'd')
+		return ft_putnbr(va_arg(ap, int), 10);
+	else if (*format == 'x')
+		return ft_putnbr(va_arg(ap,unsigned int), 16);
+	return 0;
+}
+
+int ft_printf(char *format, ... )
+{
+	va_list ap;
+	int count = 0;
+	int tmp = 0;
+
+	va_start(ap, format);
 	while (*format)
 	{
 		if (*format == '%' && *(format + 1))
 		{
 			format++;
-			tmp = handle_conversion(format, args);
+			tmp = handle_conversion(format++, ap);
 			count += tmp;
 		}
 		else
 		{
-			write(1, format, 1);
+			write(1, format++, 1);
 			count++;
 		}
-		format++;
 	}
-	va_end(args);
+	va_end(ap);
 	return (count);
 }
-
-/* int	main(void)
+/* 
+int	main(void)
 {
-	int written = 0;
+	int count = 0;
 
-	written += ft_printf("%s\n", "toto");
-	written += ft_printf("Magic %s is %d\n", "number", 42);
-	written += ft_printf("Hexadecimal for %d is %x\n", 42, 42);
-	
-	ft_printf("written: %d\n", written);
+	ft_printf("%d\n", -21474836488);
+	printf("%d\n", -21474836488);
 	return (0);
 } */
