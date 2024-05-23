@@ -1,18 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   start_meal.c                                       :+:      :+:    :+:   */
+/*   start_eating.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 17:32:06 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/05/20 17:39:18 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/05/23 15:31:33 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	start_meal()
+void	*start_routine(void *data)
 {
-	printf("start meal function\n");
+	t_philo *philo;
+	philo = (t_philo *)data;
+	philo++;
+	return(philo);
+}
+
+
+void	start_eating(t_table *table)
+{
+	int	i;
+
+	i = 0;
+
+	while (i < table->nbr_philos)
+	{
+		thread_handle(&table->philos[i].thread_id, start_routine,
+					&table->philos[i], THREAD_CREATE);
+		i++;
+	}
+	
+
 }
