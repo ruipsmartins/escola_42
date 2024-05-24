@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 17:32:06 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/05/23 15:31:33 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/05/24 14:27:35 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	*start_routine(void *data)
 	t_philo *philo;
 	philo = (t_philo *)data;
 	philo++;
-	return(philo);
+	return(NULL);
 }
 
 
