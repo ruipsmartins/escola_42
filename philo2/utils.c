@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 11:38:09 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/05/27 15:00:43 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/05/27 17:53:36 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,31 @@ void	print_error(char *str)
 	exit(EXIT_FAILURE);
 }
 
+int	ft_atoi(char *str)
+{
+	int	number;
+	int		sign;
+	int		i;
+
+	sign = 1;
+	i = 0;
+	number = 0;
+	while (str[i] == ' ')
+		i++;
+	if (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-')
+			sign *= -1;
+		i++;
+	}
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		number = number * 10 + str[i] - '0';
+		i++;
+	}
+	return (number * sign);
+}
+
 /* void	clean_table(t_table *table)
 {
 	int	i;
@@ -36,7 +61,7 @@ void	print_error(char *str)
 	i = 0;
 	while (i < table->nbr_philos)
 	{
-		mutex_handle(&table->forks[i].fork, MUTEX_DESTROY);
+		safe_mutex(&table->forks[i].fork, MUTEX_DESTROY);
 		i++;
 	}
 	free(table->philos);

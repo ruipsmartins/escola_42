@@ -6,36 +6,13 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 16:01:52 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/05/27 14:59:31 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/05/27 17:53:25 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-static long	ft_atoi(char *str)
-{
-	int	number;
-	int		sign;
-	int		i;
 
-	sign = 1;
-	i = 0;
-	number = 0;
-	while (str[i] == ' ')
-		i++;
-	if (str[i] == '-' || str[i] == '+')
-	{
-		if (str[i] == '-')
-			sign *= -1;
-		i++;
-	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		number = number * 10 + str[i] - '0';
-		i++;
-	}
-	return (number * sign);
-}
 int	check_arg_content(char *arg)
 {
 	int	i;

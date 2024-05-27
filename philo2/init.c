@@ -6,60 +6,41 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 16:08:55 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/05/20 14:50:59 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/05/27 17:50:25 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-static void	assign_forks(t_philo *philo, t_fork *forks, int philo_position)
-{
-	int	nbr_philos;
 
-	nbr_philos = philo->table->nbr_philos;
-	if (philo->id % 2 == 0)
-	{
-		philo->first_fork = &forks[philo_position];
-		philo->second_fork = &forks[(philo_position + 1) % nbr_philos];
-	}
-	else
-	{
-		philo->second_fork = &forks[philo_position];
-		philo->first_fork = &forks[(philo_position + 1) % nbr_philos];
-	}
-}
-
-static void	philo_init(t_table *table)
-{
-	int		i;
-	t_philo	*philo;
-
-	i = 0;
-	while (i < table->nbr_philos)
-	{
-		philo = &table->philos[i];
-		philo->id = i + 1;
-		philo->meals_counter = 0;
-		philo->full = false;
-		philo->table = table;
-		assign_forks(philo, table->forks, i);
-		i++;
-	}
-}
-
-void	data_init(t_table *table)
+void	init_forks(pthread_mutex_t *forks, int philo_num)
 {
 	int	i;
 
 	i = 0;
-	table->end_simulation = false;
-	table->philos = safe_malloc(sizeof(t_philo) * table->nbr_philos);
-	table->forks = safe_malloc(sizeof(t_fork) * table->nbr_philos);
-	while (i < table->nbr_philos)
+	while (i < philo_num)
 	{
-		mutex_handle(&table->forks[i].fork, MUTEX_INIT);
-		table->forks[i].fork_id = i; //for debug
+		//pthread_mutex_init(&forks[i], NULL);
+		safe_mutex(&forks[i], MUTEX_INIT);
 		i++;
 	}
-	philo_init(table);
+}
+void	init_table(t_table *table, t_philo *philos)
+{
+	table->dead_flag = 0;
+	table->philos = philos;
+	safe_mutex(&table->write_lock, MUTEX_INIT);
+	safe_mutex(&table->dead_lock, MUTEX_INIT);
+	safe_mutex(&table->meal_lock, MUTEX_INIT);
+
+/* 	pthread_mutex_init(&table->write_lock, NULL);
+	pthread_mutex_init(&table->dead_lock, NULL);
+	pthread_mutex_init(&table->meal_lock, NULL); */
+}
+
+void	data_init(t_table *table, t_philo *philos, pthread_mutex_t *forks, char **av)
+{
+	init_table(table, philos);
+	init_forks(forks, ft_atoi(av[1]));
+	
 }

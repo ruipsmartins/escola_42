@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 17:32:06 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/05/24 14:27:35 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/05/27 15:58:58 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	start_eating(t_table *table)
 
 	while (i < table->nbr_philos)
 	{
-		thread_handle(&table->philos[i].thread_id, start_routine,
+		safe_thread(&table->philos[i].thread_id, start_routine,
 					&table->philos[i], THREAD_CREATE);
 		i++;
 	}

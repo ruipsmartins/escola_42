@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 16:30:31 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/05/27 14:54:54 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/05/27 17:55:40 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@
 # include <sys/time.h>
 # include <stdbool.h>
 # include <limits.h>
-
-typedef struct s_table	t_table;
 
 typedef struct s_philo
 {
@@ -43,14 +41,14 @@ typedef struct s_philo
 	pthread_mutex_t	*dead_lock;
 	pthread_mutex_t	*meal_lock;
 }					t_philo;
-typedef struct s_program
+typedef struct s_table
 {
 	int				dead_flag;
 	pthread_mutex_t	dead_lock;
 	pthread_mutex_t	meal_lock;
 	pthread_mutex_t	write_lock;
 	t_philo			*philos;
-}					t_program;
+}					t_table;
 enum	e_mutex_action
 {
 	MUTEX_INIT,
@@ -69,13 +67,14 @@ enum	e_thread_action
 void	check_arguments(char **av);
 void	print_error(char *str);
 void	*safe_malloc(size_t size);
-void	mutex_handle(pthread_mutex_t *mutex, int e_mutex_action);
-void	thread_handle(pthread_t *thread,
+void	safe_mutex(pthread_mutex_t *mutex, int e_mutex_action);
+void	safe_thread(pthread_t *thread,
 			void *(*start_routine) (void *),
 			void *data,
 			int e_thread_action);
-void	data_init(t_table *table);
-void	clean_table(t_table *table);
-void	start_eating(t_table *table);
+int		ft_atoi(char *str);
+void	data_init(t_table *table, t_philo *philos, pthread_mutex_t *forks, char **av);
+
+
 
 #endif
