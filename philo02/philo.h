@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 16:30:31 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/05/27 19:00:23 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/05/23 14:33:50 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,34 +21,39 @@
 # include <stdbool.h>
 # include <limits.h>
 
+typedef struct s_table	t_table;
+
+typedef struct s_fork
+{
+	pthread_mutex_t	fork;
+	int				fork_id;
+}					t_fork;
+
 typedef struct s_philo
 {
-	pthread_t		thread;
-	int				id;
-	int				eating;
-	int				meals_eaten;
-	size_t			last_meal;
-	size_t			time_to_die;
-	size_t			time_to_eat;
-	size_t			time_to_sleep;
-	size_t			start_time;
-	int				num_of_philos;
-	int				num_times_to_eat;
-	int				*dead;
-	pthread_mutex_t	*r_fork;
-	pthread_mutex_t	*l_fork;
-	pthread_mutex_t	*write_lock;
-	pthread_mutex_t	*dead_lock;
-	pthread_mutex_t	*meal_lock;
-}					t_philo;
+	int			id;
+	long		meals_counter;
+	bool		full;
+	long		last_meal_time;
+	t_fork		*first_fork;
+	t_fork		*second_fork;
+	pthread_t	thread_id;
+	t_table		*table;
+}				t_philo;
+
 typedef struct s_table
 {
-	int				dead_flag;
-	pthread_mutex_t	dead_lock;
-	pthread_mutex_t	meal_lock;
-	pthread_mutex_t	write_lock;
-	t_philo			*philos;
-}					t_table;
+	long		nbr_philos;
+	long		time_to_die;
+	long		time_to_eat;
+	long		time_to_sleep;
+	long		nbr_of_meals;
+	long		start_simulation;
+	bool		end_simulation;
+	t_fork		*forks;
+	t_philo		*philos;
+}				t_table;
+
 enum	e_mutex_action
 {
 	MUTEX_INIT,
@@ -64,18 +69,16 @@ enum	e_thread_action
 	THREAD_DETACH
 };
 
-void	check_arguments(char **av);
+void	check_arguments(t_table *table, char **av);
 void	print_error(char *str);
 void	*safe_malloc(size_t size);
-void	safe_mutex(pthread_mutex_t *mutex, int e_mutex_action);
-void	safe_thread(pthread_t *thread,
+void	mutex_handle(pthread_mutex_t *mutex, int e_mutex_action);
+void	thread_handle(pthread_t *thread,
 			void *(*start_routine) (void *),
 			void *data,
 			int e_thread_action);
-int		ft_atoi(char *str);
-void	data_init(t_table *table, t_philo *philos, pthread_mutex_t *forks, char **av);
-size_t	get_current_time(void);
-
-
+void	data_init(t_table *table);
+void	clean_table(t_table *table);
+void	start_eating(t_table *table);
 
 #endif

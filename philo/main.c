@@ -6,51 +6,35 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 16:30:36 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/05/23 15:39:34 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/05/27 17:55:12 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void print_philos(t_table *table) {
-    for (int i = 0; i < table->nbr_philos; i++) {
-        t_philo *philo = &table->philos[i];
-        printf("Philosopher %d: first fork ID = %d, second fork ID = %d\n",
-               philo->id,
-               philo->first_fork->fork_id,
-               philo->second_fork->fork_id);
-    }
-}
-
-void *print_message(void *message) {
-    printf("%s\n", (char *)message);
-    return NULL;
-}
-// ./philo 5 800 200 200 5
+/* 
+ ./philo 5 800 200 200 6 
+5 — The number of philosophers
+800 — The time a philosopher will die if he doesn’t eat
+200 — The time it takes a philosopher to eat
+200 — The time it takes a philosopher to sleep
+6 — Number of times all the philosophers need to eat before terminating the program **
+*/
 
 int	main(int ac, char **av)
 {
-	t_table	table;
+	t_table			table;
+	t_philo			philos[200];
+	pthread_mutex_t	forks[200];
 
-	if (ac == 5 || ac == 6)
-	{
-		//1) errors checking
-		check_arguments(&table, av);
-
-		//2) init data and philos
-		data_init(&table);
-		
-		//3)
-		start_eating(&table);
-
-		//4) No leaks -> philos full || 1 philo died
-		clean_table(&table);
-   
-	}
-	else
-	{
+	if (ac != 5 && ac != 6)
 		print_error("Wrong number of arguments.");
-	}
+	//1) errors checking
+	check_arguments(av);
+
+	//2) init stuff
+	data_init(&table, philos, forks, av);
+	
 
 	return (0);
 }

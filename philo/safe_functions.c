@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 15:55:41 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/05/20 17:28:26 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/05/27 19:01:44 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,11 @@ void	*safe_malloc(size_t size)
 	return (ptr);
 }
 
-void	mutex_handle(pthread_mutex_t *mutex, int e_mutex_action)
+void	safe_mutex(pthread_mutex_t *mutex, int e_mutex_action)
 {
 	if (e_mutex_action == MUTEX_INIT)
 	{
+		//printf("teste mutex init\n");
 		if (pthread_mutex_init(mutex, NULL) != 0)
 			print_error("Error INIT mutex");
 	}
@@ -48,7 +49,7 @@ void	mutex_handle(pthread_mutex_t *mutex, int e_mutex_action)
 		print_error("Wrong e_mutex_action");
 }
 
-void	thread_handle(pthread_t *thread,
+void	safe_thread(pthread_t *thread,
 					void *(*start_routine) (void *),
 					void *data, int e_thread_action)
 {
