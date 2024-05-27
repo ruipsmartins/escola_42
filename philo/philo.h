@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 16:30:31 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/05/27 19:00:23 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/05/27 19:35:52 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,6 @@ int		ft_atoi(char *str);
 void	data_init(t_table *table, t_philo *philos, pthread_mutex_t *forks, char **av);
 size_t	get_current_time(void);
 
-
+void	clean_table(char *str, t_table *table, pthread_mutex_t *forks);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 11:38:09 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/05/27 18:57:46 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/05/27 19:39:09 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,27 @@ size_t	get_current_time(void)
 	return (time.tv_sec * 1000 + time.tv_usec / 1000);
 }
 
+void	clean_table(char *str, t_table *table, pthread_mutex_t *forks)
+{
+	int	i;
+
+	i = 0;
+	if (str)
+		printf("%s\n", str);
+	safe_mutex(&table->write_lock, MUTEX_DESTROY);
+	safe_mutex(&table->meal_lock, MUTEX_DESTROY);
+	safe_mutex(&table->dead_lock, MUTEX_DESTROY);
+
+	/* pthread_mutex_destroy(&table->write_lock);
+	pthread_mutex_destroy(&table->meal_lock);
+	pthread_mutex_destroy(&table->dead_lock); */
+	while (i < table->philos[0].num_of_philos)
+	{
+		safe_mutex(&forks[i], MUTEX_DESTROY);
+		//pthread_mutex_destroy(&forks[i]);
+		i++;
+	}
+}
 
 
 
