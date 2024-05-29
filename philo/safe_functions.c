@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 15:55:41 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/05/29 12:08:17 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/05/29 17:57:35 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ void	safe_mutex(pthread_mutex_t *mutex, int e_mutex_action)
 	}
 	else if (e_mutex_action == MUTEX_DESTROY)
 	{
+		printf("teste mutex destroy\n");
 		if (pthread_mutex_destroy(mutex) != 0)
 			print_error("Error destroying mutex");
 	}

@@ -6,21 +6,20 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 16:08:55 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/05/27 19:06:12 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/05/29 19:19:18 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
 
-void	init_forks(pthread_mutex_t *forks, int philo_num)
+void	init_forks(pthread_mutex_t *forks, int num_philos)
 {
 	int	i;
 
 	i = 0;
-	while (i < philo_num)
+	while (i < num_philos)
 	{
-		//pthread_mutex_init(&forks[i], NULL);
 		safe_mutex(&forks[i], MUTEX_INIT);
 		i++;
 	}
@@ -32,10 +31,6 @@ void	init_table(t_table *table, t_philo *philos)
 	safe_mutex(&table->write_lock, MUTEX_INIT);
 	safe_mutex(&table->dead_lock, MUTEX_INIT);
 	safe_mutex(&table->meal_lock, MUTEX_INIT);
-
-/* 	pthread_mutex_init(&table->write_lock, NULL);
-	pthread_mutex_init(&table->dead_lock, NULL);
-	pthread_mutex_init(&table->meal_lock, NULL); */
 }
 void	init_input(t_philo *philo, char **av)
 {
@@ -50,12 +45,12 @@ void	init_input(t_philo *philo, char **av)
 }
 
 void	init_philos(t_philo *philos, t_table *table, pthread_mutex_t *forks,
-		char **av)
+		char **av, int num_philos)
 {
 	int	i;
 
 	i = 0;
-	while (i < ft_atoi(av[1]))
+	while (i < num_philos)
 	{
 		philos[i].id = i + 1;
 		philos[i].eating = 0;
@@ -68,17 +63,26 @@ void	init_philos(t_philo *philos, t_table *table, pthread_mutex_t *forks,
 		philos[i].meal_lock = &table->meal_lock;
 		philos[i].dead = &table->dead_flag;
 		philos[i].l_fork = &forks[i];
-		if (i == 0)
-			philos[i].r_fork = &forks[philos[i].num_of_philos - 1];
+		if (i % 2 == 0)
+		{
+			philos[i].l_fork = &forks[i];
+			philos[i].r_fork = &forks[(i + 1) % num_philos];
+		}
 		else
-			philos[i].r_fork = &forks[i - 1];
+		{
+		philos[i].r_fork = &forks[i];
+		philos[i].l_fork = &forks[(i + 1) % num_philos];
+		}
 		i++;	
 	}
 }
 
 void	data_init(t_table *table, t_philo *philos, pthread_mutex_t *forks, char **av)
 {
+	int num_philos;
+
+	num_philos = ft_atoi(av[1]);
 	init_table(table, philos);
-	init_forks(forks, ft_atoi(av[1]));
-	init_philos(philos, table, forks, av);
+	init_forks(forks, num_philos);
+	init_philos(philos, table, forks, av, num_philos);
 }

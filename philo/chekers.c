@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   start_dinner.c                                     :+:      :+:    :+:   */
+/*   chekers.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/28 21:25:31 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/05/29 17:27:45 by ruidos-s         ###   ########.fr       */
+/*   Created: 2024/05/29 17:29:14 by ruidos-s          #+#    #+#             */
+/*   Updated: 2024/05/29 17:32:21 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	thread_create(t_table *table, pthread_mutex_t *forks)
+
+
+
+
+
+
+void	*checkers(void *pointer)
 {
-	pthread_t	observer;
-	int 		i;
+	t_philo	*philos;
 
-	safe_thread(&observer,&monitor,table->philos, THREAD_CREATE);
-	
-
-
-
+	philos = (t_philo *)pointer;
+	while (1)
+		if (check_if_dead(philos) == true || check_if_all_ate(philos) == true)
+			break ;
+	return (pointer);
 }
