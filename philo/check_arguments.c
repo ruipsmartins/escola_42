@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 16:01:52 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/05/27 17:53:25 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/05/29 17:19:57 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	check_input_errors(char **av)
 		exit(EXIT_SUCCESS);
 	if (ft_atoi(av[1]) > 200 || ft_atoi(av[1]) <= 0
 		|| check_arg_content(av[1]) == 1)
-		print_error("Invalid philosophers number\n" );
+		print_error("Invalid philosophers number\n");
 	if (ft_atoi(av[2]) <= 0 || check_arg_content(av[2]) == 1)
 		print_error("Invalid time to die\n");
 	if (ft_atoi(av[3]) <= 0 || check_arg_content(av[3]) == 1)

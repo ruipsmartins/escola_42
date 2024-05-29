@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 15:55:41 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/05/27 19:01:44 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/05/29 12:08:17 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	safe_mutex(pthread_mutex_t *mutex, int e_mutex_action)
 {
 	if (e_mutex_action == MUTEX_INIT)
 	{
-		//printf("teste mutex init\n");
+		printf("teste mutex init\n");
 		if (pthread_mutex_init(mutex, NULL) != 0)
 			print_error("Error INIT mutex");
 	}

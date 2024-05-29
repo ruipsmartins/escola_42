@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 11:38:09 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/05/27 19:39:09 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/05/29 17:24:58 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,6 @@ int	ft_strlen(char *str)
 	while (str[i])
 		i++;
 	return (i);
-}
-
-void	print_error(char *str)
-{
-	write(STDERR_FILENO, str, ft_strlen(str) + 1);
-	write(STDERR_FILENO, "\n", 1);
-	exit(EXIT_FAILURE);
 }
 
 int	ft_atoi(char *str)
@@ -61,6 +54,13 @@ size_t	get_current_time(void)
 	if (gettimeofday(&time, NULL) == -1)
 		printf("gettimeofday() error\n");
 	return (time.tv_sec * 1000 + time.tv_usec / 1000);
+}
+
+void	print_error(char *str)
+{
+	write(STDERR_FILENO, str, ft_strlen(str) + 1);
+	write(STDERR_FILENO, "\n", 1);
+	exit(EXIT_FAILURE);
 }
 
 void	clean_table(char *str, t_table *table, pthread_mutex_t *forks)
