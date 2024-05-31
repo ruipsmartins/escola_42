@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 16:30:36 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/05/29 18:08:29 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/05/31 15:23:48 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,21 +25,21 @@ int	main(int ac, char **av)
 {
 	t_table			table;
 	t_philo			*philos;
-	pthread_mutex_t	*forks;
+	t_fork			*forks;
 
 	if (ac != 5 && ac != 6)
-		print_error("Wrong number of arguments.");
+		print_error("Wrong number of arguments.", true);
 	//1) errors checking
 	check_arguments(av);
 	philos = (t_philo *)safe_malloc(ft_atoi(av[1]) * sizeof(t_philo));
-	forks = (pthread_mutex_t *)safe_malloc(ft_atoi(av[1])* sizeof(pthread_mutex_t));
+	forks = (t_fork *)safe_malloc(ft_atoi(av[1]) * sizeof(t_fork));
 	//2) init stuff
 	data_init(&table, philos, forks, av);
 
 	//3) start dinner
-	
+	//start_dinner(&table, forks);
 	//4) clean table
-	clean_table(NULL, &table, forks);
+	clean_table(NULL, &table);
 
 	return (0);
 }

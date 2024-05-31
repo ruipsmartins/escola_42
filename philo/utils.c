@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 11:38:09 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/05/29 18:30:36 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/05/31 15:23:14 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,19 +56,23 @@ size_t	get_current_time(void)
 	return (time.tv_sec * 1000 + time.tv_usec / 1000);
 }
 
-void	print_error(char *str)
+void	print_error(char *str, bool sair)
 {
 	write(STDERR_FILENO, str, ft_strlen(str) + 1);
 	write(STDERR_FILENO, "\n", 1);
-	exit(EXIT_FAILURE);
+	if (sair)
+	{
+		exit(EXIT_FAILURE);
+	}
+	
 }
 
-void	clean_table(char *str, t_table *table, pthread_mutex_t *forks)
+void	clean_table(char *str, t_table *table)
 {
 	int	i;
 	int philo_num;
 
-	philo_num = table->philos[0].num_of_philos;
+	philo_num = table->num_of_philos;
 	i = 0;
 	if (str)
 		printf("%s\n", str);
@@ -77,27 +81,12 @@ void	clean_table(char *str, t_table *table, pthread_mutex_t *forks)
 	safe_mutex(&table->dead_lock, MUTEX_DESTROY);
 	while (i < philo_num)
 	{
-		safe_mutex(&forks[i], MUTEX_DESTROY);
+		safe_mutex(&table->forks[i].fork_thread, MUTEX_DESTROY);
 		i++;
 	}
 	if (table->philos)
 		free(table->philos);
-	if (forks)
-		free(forks);
+	if (table->forks)
+		free(table->forks);
 }
 
-
-
-/* void	clean_table(t_table *table)
-{
-	int	i;
-
-	i = 0;
-	while (i < table->nbr_philos)
-	{
-		safe_mutex(&table->forks[i].fork, MUTEX_DESTROY);
-		i++;
-	}
-	free(table->philos);
-	free(table->forks);
-} */
