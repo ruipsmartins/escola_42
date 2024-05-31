@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 16:52:19 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/05/31 17:44:05 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/05/31 18:04:43 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,13 @@ void	eat(t_table *table, t_philo *philo)
 	philo->eating = 1;
 	print_message("is eating", philo, philo->id);
 	//
-	pthread_mutex_lock(&philo->table->meal_lock);
+	pthread_mutex_lock(&table->meal_lock);
 	//
 	philo->last_meal = get_current_time();
 	philo->meals_eaten++;
 	pthread_mutex_unlock(&philo->table->meal_lock);
 	ft_usleep(table->time_to_eat);
 	philo->eating = 0;
-	pthread_mutex_unlock(philo->second_fork);
 	pthread_mutex_unlock(philo->first_fork);
+	pthread_mutex_unlock(philo->second_fork);
 }

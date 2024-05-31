@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 11:38:09 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/05/31 15:35:41 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/05/31 18:14:46 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ size_t	get_current_time(void)
 	struct timeval	time;
 
 	if (gettimeofday(&time, NULL) == -1)
-		printf("gettimeofday() error\n");
+		print_error("gettimeofday() error", true);
 	return (time.tv_sec * 1000 + time.tv_usec / 1000);
 }
 
