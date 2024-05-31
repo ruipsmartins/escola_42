@@ -6,12 +6,11 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 16:08:55 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/05/31 15:17:26 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/05/31 17:37:51 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
-
 
 void	init_philos(t_philo *philos, t_table *table,
 			t_fork *forks, int num_philos)
@@ -21,26 +20,24 @@ void	init_philos(t_philo *philos, t_table *table,
 	i = 0;
 	while (i < num_philos)
 	{
+		philos[i].table = table;
 		philos[i].id = i + 1;
 		philos[i].eating = 0;
 		philos[i].meals_eaten = 0;
 		philos[i].start_time = get_current_time();
 		philos[i].last_meal = get_current_time();
-		philos[i].write_lock = &table->write_lock;
-		philos[i].dead_lock = &table->dead_lock;
-		philos[i].meal_lock = &table->meal_lock;
 		philos[i].dead = &table->dead_flag;
 		if (i % 2 == 0)
+		{
+			philos[i].second_fork = &forks[i + 1];
+			philos[i].first_fork = &forks[(i) % num_philos];
+		}
+		else
 		{
 			philos[i].first_fork = &forks[i + 1];
 			philos[i].second_fork = &forks[(i) % num_philos];
 		}
-		else
-		{
-		philos[i].second_fork = &forks[i + 1];
-		philos[i].first_fork = &forks[(i) % num_philos];
-		}
-		printf("philo nbr = %d, first fork:%d, second fork_%d\n", table->philos[i].id, philos[i].first_fork->fork_id, philos[i].second_fork->fork_id);
+		printf("philo nbr = %d, first fork:%d, second fork_%d\n", philos[i].table->philos[i].id, philos[i].first_fork->fork_id, philos[i].second_fork->fork_id);
 		i++;
 	}
 }
@@ -56,6 +53,7 @@ void	init_forks(t_fork *forks, int num_philos)
 		i++;
 	}
 }
+
 void	init_table(t_table *table, t_philo *philos, t_fork *forks, char **av)
 {
 	table->dead_flag = 0;
@@ -75,13 +73,10 @@ void	init_table(t_table *table, t_philo *philos, t_fork *forks, char **av)
 	safe_mutex(&table->meal_lock, MUTEX_INIT);
 }
 
-
 void	data_init(t_table *table, t_philo *philos, t_fork *forks, char **av)
 {
-	int num_philos;
 
-	num_philos = ft_atoi(av[1]);
 	init_table(table, philos, forks, av);
-	init_forks(forks, num_philos);
-	init_philos(philos, table, forks, num_philos);
+	init_forks(forks, table->num_of_philos);
+	init_philos(philos, table, forks, table->num_of_philos);
 }

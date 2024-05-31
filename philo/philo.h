@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 16:30:31 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/05/31 15:23:24 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/05/31 17:24:31 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 # include <stdbool.h>
 # include <limits.h>
 
+typedef struct s_table t_table;
+
 typedef struct s_forks
 {
 	int				fork_id;
@@ -30,18 +32,17 @@ typedef struct s_forks
 typedef struct s_philo
 {
 	pthread_t		thread;
+	t_table			*table;
 	int				id;
 	int				eating;
 	int				meals_eaten;
-	size_t			last_meal;
 	size_t			start_time;
+	size_t			last_meal;
 	int				*dead;
 	t_fork			*first_fork;
 	t_fork			*second_fork;
-	pthread_mutex_t	*write_lock;
-	pthread_mutex_t	*dead_lock;
-	pthread_mutex_t	*meal_lock;
 }					t_philo;
+
 typedef struct s_table
 {
 	int				num_of_philos;
@@ -86,6 +87,6 @@ int		ft_atoi(char *str);
 void	data_init(t_table *table, t_philo *philos, t_fork *forks, char **av);
 size_t	get_current_time(void);
 int		start_dinner(t_table *table, t_fork *forks);
-void	clean_table(char *str, t_table *table);
+void	clean_table(char *str, t_table *table, bool sair);
 
 #endif

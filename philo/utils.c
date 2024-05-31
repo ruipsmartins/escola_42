@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 11:38:09 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/05/31 15:23:14 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/05/31 15:35:41 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,13 +61,11 @@ void	print_error(char *str, bool sair)
 	write(STDERR_FILENO, str, ft_strlen(str) + 1);
 	write(STDERR_FILENO, "\n", 1);
 	if (sair)
-	{
 		exit(EXIT_FAILURE);
-	}
 	
 }
 
-void	clean_table(char *str, t_table *table)
+void	clean_table(char *str, t_table *table, bool sair)
 {
 	int	i;
 	int philo_num;
@@ -75,7 +73,7 @@ void	clean_table(char *str, t_table *table)
 	philo_num = table->num_of_philos;
 	i = 0;
 	if (str)
-		printf("%s\n", str);
+		print_error(str, sair);
 	safe_mutex(&table->write_lock, MUTEX_DESTROY);
 	safe_mutex(&table->meal_lock, MUTEX_DESTROY);
 	safe_mutex(&table->dead_lock, MUTEX_DESTROY);
@@ -87,6 +85,6 @@ void	clean_table(char *str, t_table *table)
 	if (table->philos)
 		free(table->philos);
 	if (table->forks)
-		free(table->forks);
+		free(table->forks);		
 }
 

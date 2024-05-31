@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 16:30:36 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/05/31 15:23:48 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/05/31 17:13:30 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	main(int ac, char **av)
 	//3) start dinner
 	//start_dinner(&table, forks);
 	//4) clean table
-	clean_table(NULL, &table);
+	clean_table(NULL, &table, true);
 
 	return (0);
 }
