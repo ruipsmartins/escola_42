@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 16:30:31 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/05/31 17:24:31 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/05/31 17:49:48 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,5 +88,8 @@ void	data_init(t_table *table, t_philo *philos, t_fork *forks, char **av);
 size_t	get_current_time(void);
 int		start_dinner(t_table *table, t_fork *forks);
 void	clean_table(char *str, t_table *table, bool sair);
+void	eat(t_table *table, t_philo *philo);
+void	dream(t_table *table, t_philo *philo);
+void	think(t_philo *philo);
 
 #endif
