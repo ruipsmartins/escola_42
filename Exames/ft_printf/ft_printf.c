@@ -51,7 +51,7 @@ static int handle_conversion(const char *format, va_list ap)
 	else if (*format == 'd')
 		return ft_putnbr(va_arg(ap, int), 10);
 	else if (*format == 'x')
-		return ft_putnbr(va_arg(ap,unsigned int), 16);
+		return ft_putnbr(va_arg(ap, unsigned int), 16);
 	return 0;
 }
 
