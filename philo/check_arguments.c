@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 16:01:52 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/05/31 15:25:24 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/06/03 17:09:38 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,4 @@ void	check_input_errors(char **av)
 void	check_arguments(char **av)
 {
 	check_input_errors(av);
-
 }
