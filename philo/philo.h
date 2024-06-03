@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 16:30:31 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/06/03 15:35:11 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/06/03 17:02:18 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ enum	e_thread_action
 };
 
 void	check_arguments(char **av);
+int		ft_strlen(char *str);
 void	print_error(char *str, bool sair);
 void	*safe_malloc(size_t size);
 void	safe_mutex(pthread_mutex_t *mutex, int e_mutex_action);
@@ -89,7 +90,7 @@ size_t	get_current_time(void);
 int		start_dinner(t_table *table);
 void	clean_table(char *str, t_table *table, bool sair);
 void	eat(t_table *table, t_philo *philo);
-void	dream(t_table *table, t_philo *philo);
+void	rest(t_table *table, t_philo *philo);
 void	think(t_philo *philo);
 void	*monitor(void *pointer);
 void	print_message(char *str, t_philo *philo, int id);

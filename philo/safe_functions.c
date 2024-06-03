@@ -6,11 +6,21 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 15:55:41 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/05/31 15:24:53 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/06/03 16:55:53 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
+
+void	print_error(char *str, bool sair)
+{
+	write(STDERR_FILENO, str, ft_strlen(str) + 1);
+	write(STDERR_FILENO, "\n", 1);
+	if (sair)
+		exit(EXIT_FAILURE);
+	
+}
 
 void	*safe_malloc(size_t size)
 {
@@ -26,7 +36,6 @@ void	safe_mutex(pthread_mutex_t *mutex, int e_mutex_action)
 {
 	if (e_mutex_action == MUTEX_INIT)
 	{
-		printf("teste mutex init\n");
 		if (pthread_mutex_init(mutex, NULL) != 0)
 			print_error("Error INIT mutex", true);
 	}
@@ -42,7 +51,6 @@ void	safe_mutex(pthread_mutex_t *mutex, int e_mutex_action)
 	}
 	else if (e_mutex_action == MUTEX_DESTROY)
 	{
-		printf("teste mutex destroy\n");
 		if (pthread_mutex_destroy(mutex) != 0)
 			print_error("Error destroying mutex", true);
 	}

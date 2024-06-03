@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 16:52:19 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/06/03 15:02:14 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/06/03 17:02:18 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	think(t_philo *philo)
 	print_message("is thinking", philo, philo->id);
 }
 
-void	dream(t_table *table, t_philo *philo)
+void	rest(t_table *table, t_philo *philo)
 {
 	print_message("is sleeping", philo, philo->id);
 	ft_usleep(table->time_to_sleep);

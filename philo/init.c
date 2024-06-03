@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 16:08:55 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/05/31 17:37:51 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/06/03 16:36:49 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	init_philos(t_philo *philos, t_table *table,
 			philos[i].first_fork = &forks[i + 1];
 			philos[i].second_fork = &forks[(i) % num_philos];
 		}
-		printf("philo nbr = %d, first fork:%d, second fork_%d\n", philos[i].table->philos[i].id, philos[i].first_fork->fork_id, philos[i].second_fork->fork_id);
+		//printf("philo nbr = %d, first fork:%d, second fork_%d\n", philos[i].table->philos[i].id, philos[i].first_fork->fork_id, philos[i].second_fork->fork_id);
 		i++;
 	}
 }
