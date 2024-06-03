@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 14:23:28 by druina            #+#    #+#             */
-/*   Updated: 2024/05/31 16:06:54 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/06/03 15:05:01 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	check_valid_args(char **argv)
 
 int	main(int argc, char **argv)
 {
-	t_program		program;
+	t_table		program;
 	t_philo			philos[PHILO_MAX];
 	pthread_mutex_t	forks[PHILO_MAX];
 

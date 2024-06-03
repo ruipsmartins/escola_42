@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 12:05:40 by druina            #+#    #+#             */
-/*   Updated: 2024/05/31 15:58:14 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/06/03 15:05:01 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	init_input(t_philo *philo, char **argv)
 
 // Initializing the philosophers
 
-void	init_philos(t_philo *philos, t_program *table, pthread_mutex_t *forks,
+void	init_philos(t_philo *philos, t_table *table, pthread_mutex_t *forks,
 		char **argv)
 {
 	int	i;
@@ -84,7 +84,7 @@ void	init_forks(pthread_mutex_t *forks, int philo_num)
 
 // Initializing the program structure
 
-void	init_program(t_program *program, t_philo *philos)
+void	init_program(t_table *program, t_philo *philos)
 {
 	program->dead_flag = 0;
 	program->philos = philos;

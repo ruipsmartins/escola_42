@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 14:20:06 by druina            #+#    #+#             */
-/*   Updated: 2024/05/31 16:06:54 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/06/03 15:05:01 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,23 +47,23 @@ typedef struct s_program
 	pthread_mutex_t	meal_lock;
 	pthread_mutex_t	write_lock;
 	t_philo			*philos;
-}					t_program;
+}					t_table;
 
 // Main functions
 int					check_arg_content(char *arg);
 int					check_valid_args(char **argv);
-void				destory_all(char *str, t_program *program,
+void				destory_all(char *str, t_table *program,
 						pthread_mutex_t *forks);
 
 // Initialization
-void				init_program(t_program *program, t_philo *philos);
+void				init_program(t_table *program, t_philo *philos);
 void				init_forks(pthread_mutex_t *forks, int philo_num);
-void				init_philos(t_philo *philos, t_program *program,
+void				init_philos(t_philo *philos, t_table *program,
 						pthread_mutex_t *forks, char **argv);
 void				init_input(t_philo *philo, char **argv);
 
 // Threads
-int					start_dinner(t_program *program, pthread_mutex_t *forks);
+int					start_dinner(t_table *program, pthread_mutex_t *forks);
 void				*monitor(void *pointer);
 void				*philo_routine(void *pointer);
 

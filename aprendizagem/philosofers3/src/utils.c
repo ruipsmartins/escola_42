@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 09:17:55 by druina            #+#    #+#             */
-/*   Updated: 2024/05/31 15:33:51 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/06/03 15:05:01 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	ft_atoi(char *str)
 }
 // Destroys all the mutexes
 
-void	destory_all(char *str, t_program *program, pthread_mutex_t *forks)
+void	destory_all(char *str, t_table *program, pthread_mutex_t *forks)
 {
 	int	i;
 

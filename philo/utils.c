@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 11:38:09 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/05/31 18:14:46 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/06/03 14:57:47 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,16 @@ void	print_error(char *str, bool sair)
 	if (sair)
 		exit(EXIT_FAILURE);
 	
+}
+
+int	ft_usleep(size_t milliseconds)
+{
+	size_t	start;
+
+	start = get_current_time();
+	while ((get_current_time() - start) < milliseconds)
+		usleep(500);
+	return (0);
 }
 
 void	clean_table(char *str, t_table *table, bool sair)
