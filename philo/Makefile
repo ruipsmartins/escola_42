@@ -2,7 +2,7 @@ NAME = philo
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror -g -pthread
+CFLAGS = -Wall -Wextra -Werror -pthread -g #-fsanitize=thread 
 
 SRCS = main.c check_arguments.c utils.c init.c safe_functions.c filo_routines.c start_dinner.c monitor.c
 
@@ -21,4 +21,7 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+run:
+	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --track-fds=yes ./philo 5 800 60 60 5
+
+.PHONY: all clean fclean re run
