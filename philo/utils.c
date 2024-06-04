@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 11:38:09 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/06/04 09:02:48 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/06/04 09:44:43 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,16 +75,16 @@ void	clean_table(char *str, t_table *table, bool sair)
 	i = 0;
 	if (str)
 		print_error(str, sair);
-	safe_mutex(&table->write_lock, MUTEX_DESTROY);
-	safe_mutex(&table->meal_lock, MUTEX_DESTROY);
-	safe_mutex(&table->dead_lock, MUTEX_DESTROY);
-	while (i < philo_num)
-	{
-		safe_mutex(&table->forks[i].fork_thread, MUTEX_DESTROY);
-		i++;
-	}
 	if (table->philos)
 		free(table->philos);
 	if (table->forks)
 		free(table->forks);
+	while (i < philo_num)
+	{
+		safe_mutex(&table->forks[i].fork_mutex, MUTEX_DESTROY);
+		i++;
+	}
+	safe_mutex(&table->write_lock, MUTEX_DESTROY);
+	safe_mutex(&table->meal_lock, MUTEX_DESTROY);
+	safe_mutex(&table->dead_lock, MUTEX_DESTROY);
 }

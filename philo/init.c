@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 16:08:55 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/06/04 09:12:03 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/06/04 09:35:51 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	init_forks(t_fork *forks, int num_philos)
 	while (i < num_philos)
 	{
 		forks[i].fork_id = i;
-		safe_mutex(&forks[i].fork_thread, MUTEX_INIT);
+		safe_mutex(&forks[i].fork_mutex, MUTEX_INIT);
 		i++;
 	}
 }

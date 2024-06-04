@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 16:30:31 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/06/04 09:06:48 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/06/04 09:35:51 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ typedef struct s_table	t_table;
 typedef struct s_forks
 {
 	int				fork_id;
-	pthread_mutex_t	fork_thread;
+	pthread_mutex_t	fork_mutex;
 }					t_fork;
 
 typedef struct s_philo
