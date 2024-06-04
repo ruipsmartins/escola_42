@@ -6,12 +6,11 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 16:01:52 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/06/03 17:09:38 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/06/04 09:00:50 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
-
 
 int	check_arg_content(char *arg)
 {
@@ -26,6 +25,7 @@ int	check_arg_content(char *arg)
 	}
 	return (0);
 }
+
 void	check_input_errors(char **av)
 {
 	if (av[5] && av[5][0] == '0')

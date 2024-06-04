@@ -6,12 +6,11 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 15:55:41 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/06/03 16:55:53 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/06/04 09:06:12 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
-
 
 void	print_error(char *str, bool sair)
 {
@@ -19,7 +18,6 @@ void	print_error(char *str, bool sair)
 	write(STDERR_FILENO, "\n", 1);
 	if (sair)
 		exit(EXIT_FAILURE);
-	
 }
 
 void	*safe_malloc(size_t size)

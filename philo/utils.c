@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 11:38:09 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/06/03 16:55:46 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/06/04 09:02:48 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	ft_strlen(char *str)
 
 int	ft_atoi(char *str)
 {
-	int	number;
+	int		number;
 	int		sign;
 	int		i;
 
@@ -56,7 +56,6 @@ size_t	get_current_time(void)
 	return (time.tv_sec * 1000 + time.tv_usec / 1000);
 }
 
-
 int	ft_usleep(size_t milliseconds)
 {
 	size_t	start;
@@ -70,7 +69,7 @@ int	ft_usleep(size_t milliseconds)
 void	clean_table(char *str, t_table *table, bool sair)
 {
 	int	i;
-	int philo_num;
+	int	philo_num;
 
 	philo_num = table->num_of_philos;
 	i = 0;
@@ -87,6 +86,5 @@ void	clean_table(char *str, t_table *table, bool sair)
 	if (table->philos)
 		free(table->philos);
 	if (table->forks)
-		free(table->forks);		
+		free(table->forks);
 }
-

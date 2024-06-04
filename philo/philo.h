@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 16:30:31 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/06/03 17:02:18 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/06/04 09:06:48 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <stdbool.h>
 # include <limits.h>
 
-typedef struct s_table t_table;
+typedef struct s_table	t_table;
 
 typedef struct s_forks
 {
@@ -57,8 +57,6 @@ typedef struct s_table
 	t_philo			*philos;
 	t_fork			*forks;
 }					t_table;
-
-
 
 enum	e_mutex_action
 {
@@ -96,6 +94,5 @@ void	*monitor(void *pointer);
 void	print_message(char *str, t_philo *philo, int id);
 int		ft_usleep(size_t milliseconds);
 int		dead_loop(t_philo *philo);
-
 
 #endif

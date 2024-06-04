@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 14:40:00 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/06/03 14:50:42 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/06/04 09:08:17 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ int	philosopher_dead(t_philo *philo, size_t time_to_die)
 
 int	check_if_dead(t_philo *philos)
 {
-	int	i;
-	t_table *table;
+	int		i;
+	t_table	*table;
 
 	table = philos->table;
 	i = 0;
@@ -65,9 +65,9 @@ int	check_if_dead(t_philo *philos)
 
 int	check_if_all_ate(t_philo *philos)
 {
-	int	i;
-	t_table *table;
-	int	finished_eating;
+	int		i;
+	t_table	*table;
+	int		finished_eating;
 
 	table = philos->table;
 	i = 0;

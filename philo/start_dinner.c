@@ -6,19 +6,17 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 21:25:31 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/06/03 17:12:04 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/06/04 09:05:38 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-
 int	dead_loop(t_philo *philo)
 {
-	t_table *table;
-	
+	t_table	*table;
+
 	table = philo->table;
-	
 	pthread_mutex_lock(&table->dead_lock);
 	if (*philo->dead == 1)
 		return (pthread_mutex_unlock(&table->dead_lock), 1);
@@ -45,22 +43,22 @@ void	*philo_routine(void *pointer)
 int	start_dinner(t_table *table)
 {
 	pthread_t	observer;
-	int 		i;
+	int			i;
 
-	safe_thread(&observer,&monitor,table->philos, THREAD_CREATE);
+	safe_thread(&observer, &monitor, table->philos, THREAD_CREATE);
 	i = 0;
 	while (i < table->num_of_philos)
 	{
-	safe_thread(&table->philos[i].thread, &philo_routine, &table->philos[i], THREAD_CREATE);
-	i++;
+		safe_thread(&table->philos[i].thread,
+			&philo_routine, &table->philos[i], THREAD_CREATE);
+		i++;
 	}
 	i = 0;
-	safe_thread(&observer,NULL, NULL, THREAD_JOIN);
+	safe_thread(&observer, NULL, NULL, THREAD_JOIN);
 	while (i < table->num_of_philos)
 	{
 		safe_thread(&table->philos[i].thread, NULL, NULL, THREAD_JOIN);
 		i++;
 	}
-
 	return (0);
 }
