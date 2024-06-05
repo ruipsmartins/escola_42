@@ -1,11 +1,4 @@
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 42
-# endif
-
-# include <stdio.h>
-# include <stdlib.h>
-# include <unistd.h>
-# include <fcntl.h>
+#include "get_next_line.h"
 
 char	*get_next_line(int fd);
 char	*gnl_create_line(int fd, char *buffer);
