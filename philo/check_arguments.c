@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 16:01:52 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/06/04 09:00:50 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/06/13 14:22:36 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	check_arg_content(char *arg)
 	return (0);
 }
 
-void	check_input_errors(char **av)
+void	check_arguments(char **av)
 {
 	if (av[5] && av[5][0] == '0')
 		exit(EXIT_SUCCESS);
@@ -41,9 +41,4 @@ void	check_input_errors(char **av)
 		print_error("Invalid time to sleep\n", true);
 	if (av[5] && (ft_atoi(av[5]) < 0 || check_arg_content(av[5]) == 1))
 		print_error("Invalid number of meals\n", true);
-}
-
-void	check_arguments(char **av)
-{
-	check_input_errors(av);
 }

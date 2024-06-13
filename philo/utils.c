@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 11:38:09 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/06/13 11:37:32 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/06/13 14:54:59 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,13 +64,13 @@ int	ft_usleep(size_t milliseconds, int *dead_flag, pthread_mutex_t *dead_lock)
 	while ((get_current_time() - start) < milliseconds)
 	{
 		usleep(500);
-		pthread_mutex_lock(dead_lock);
+		safe_mutex(dead_lock, MUTEX_LOCK);
 		if (*dead_flag)
 		{
-			pthread_mutex_unlock(dead_lock);
+			safe_mutex(dead_lock, MUTEX_UNLOCK);
 			break ;
 		}
-		pthread_mutex_unlock(dead_lock);
+		safe_mutex(dead_lock, MUTEX_UNLOCK);
 	}
 	return (0);
 }

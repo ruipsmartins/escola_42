@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 16:52:19 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/06/13 10:56:18 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/06/13 15:12:07 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,24 +25,24 @@ void	rest(t_table *table, t_philo *philo)
 
 void	eat(t_table *table, t_philo *philo)
 {
-	pthread_mutex_lock(&philo->first_fork->fork_mutex);
+	safe_mutex(&philo->first_fork->fork_mutex, MUTEX_LOCK);
 	print_message("has taken a fork", philo, philo->id);
 	if (table->num_of_philos == 1)
 	{
 		ft_usleep(table->time_to_die, &table->dead_flag, &table->dead_lock);
-		pthread_mutex_unlock(&philo->first_fork->fork_mutex);
+		safe_mutex(&philo->first_fork->fork_mutex, MUTEX_UNLOCK);
 		return ;
 	}
-	pthread_mutex_lock(&philo->second_fork->fork_mutex);
+	safe_mutex(&philo->second_fork->fork_mutex, MUTEX_LOCK);
 	print_message("has taken a fork", philo, philo->id);
 	philo->eating = 1;
 	print_message("is eating", philo, philo->id);
-	pthread_mutex_lock(&table->meal_lock);
+	safe_mutex(&table->meal_lock, MUTEX_LOCK);
 	philo->last_meal = get_current_time();
 	philo->meals_eaten++;
-	pthread_mutex_unlock(&philo->table->meal_lock);
+	safe_mutex(&philo->table->meal_lock, MUTEX_UNLOCK);
 	ft_usleep(table->time_to_eat, &table->dead_flag, &table->dead_lock);
 	philo->eating = 0;
-	pthread_mutex_unlock(&philo->first_fork->fork_mutex);
-	pthread_mutex_unlock(&philo->second_fork->fork_mutex);
+	safe_mutex(&philo->first_fork->fork_mutex, MUTEX_UNLOCK);
+	safe_mutex(&philo->second_fork->fork_mutex, MUTEX_UNLOCK);
 }

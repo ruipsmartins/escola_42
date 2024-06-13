@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 21:25:31 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/06/13 10:57:27 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/06/13 14:36:45 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ int	dead_loop(t_philo *philo)
 	t_table	*table;
 
 	table = philo->table;
-	pthread_mutex_lock(&table->dead_lock);
+	safe_mutex(&table->dead_lock, MUTEX_LOCK);
 	if (*philo->dead == 1)
-		return (pthread_mutex_unlock(&table->dead_lock), 1);
-	pthread_mutex_unlock(&table->dead_lock);
-	return (0);
+		return (safe_mutex(&table->dead_lock, MUTEX_UNLOCK), true);
+	safe_mutex(&table->dead_lock, MUTEX_UNLOCK);
+	return (false);
 }
 
 void	*philo_routine(void *pointer)

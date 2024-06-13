@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 14:40:00 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/06/04 13:49:23 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/06/13 14:52:26 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,22 +18,22 @@ void	print_message(char *str, t_philo *philo, int id)
 {
 	size_t	time;
 
-	pthread_mutex_lock(&philo->table->write_lock);
+	safe_mutex(&philo->table->write_lock, MUTEX_LOCK);
 	time = get_current_time() - philo->start_time;
 	if (!dead_loop(philo))
 		printf("%zu %d %s\n", time, id, str);
-	pthread_mutex_unlock(&philo->table->write_lock);
+	safe_mutex(&philo->table->write_lock, MUTEX_UNLOCK);
 }
 
 // Checks if the philosopher is dead
 
 int	philosopher_dead(t_philo *philo, size_t time_to_die)
 {
-	pthread_mutex_lock(&philo->table->meal_lock);
+	safe_mutex(&philo->table->meal_lock, MUTEX_LOCK);
 	if (get_current_time() - philo->last_meal >= time_to_die
 		&& philo->eating == 0)
 		return (pthread_mutex_unlock(&philo->table->meal_lock), 1);
-	pthread_mutex_unlock(&philo->table->meal_lock);
+	safe_mutex(&philo->table->meal_lock, MUTEX_UNLOCK);
 	return (0);
 }
 
@@ -51,9 +51,9 @@ int	check_if_dead(t_philo *philos)
 		if (philosopher_dead(&philos[i], table->time_to_die))
 		{
 			print_message("died", &philos[i], philos[i].id);
-			pthread_mutex_lock(&table->dead_lock);
+			safe_mutex(&table->dead_lock, MUTEX_LOCK);
 			*philos->dead = 1;
-			pthread_mutex_unlock(&table->dead_lock);
+			safe_mutex(&table->dead_lock, MUTEX_UNLOCK);
 			return (1);
 		}
 		i++;
@@ -76,17 +76,17 @@ int	check_if_all_ate(t_philo *philos)
 		return (0);
 	while (i < table->num_of_philos)
 	{
-		pthread_mutex_lock(&table->meal_lock);
+		safe_mutex(&table->meal_lock, MUTEX_LOCK);
 		if (philos[i].meals_eaten >= table->num_times_to_eat)
 			finished_eating++;
-		pthread_mutex_unlock(&table->meal_lock);
+		safe_mutex(&table->meal_lock, MUTEX_UNLOCK);
 		i++;
 	}
 	if (finished_eating == table->num_of_philos)
 	{
-		pthread_mutex_lock(&table->dead_lock);
+		safe_mutex(&table->dead_lock, MUTEX_LOCK);
 		*philos->dead = 1;
-		pthread_mutex_unlock(&table->dead_lock);
+		safe_mutex(&table->dead_lock, MUTEX_UNLOCK);
 		return (1);
 	}
 	return (0);
