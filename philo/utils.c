@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 11:38:09 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/06/13 09:42:18 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/06/13 11:37:32 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ int	ft_usleep(size_t milliseconds, int *dead_flag, pthread_mutex_t *dead_lock)
 		if (*dead_flag)
 		{
 			pthread_mutex_unlock(dead_lock);
-			break;
+			break ;
 		}
 		pthread_mutex_unlock(dead_lock);
 	}
@@ -84,10 +84,6 @@ void	clean_table(char *str, t_table *table, bool sair)
 	i = 0;
 	if (str)
 		print_error(str, sair);
-	/* if (table->philos)
-		free(table->philos);
-	if (table->forks)
-		free(table->forks); */
 	while (i < philo_num)
 	{
 		safe_mutex(&table->forks[i].fork_mutex, MUTEX_DESTROY);
