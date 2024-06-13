@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 16:30:31 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/06/04 09:35:51 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/06/13 09:58:27 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,8 @@ void	rest(t_table *table, t_philo *philo);
 void	think(t_philo *philo);
 void	*monitor(void *pointer);
 void	print_message(char *str, t_philo *philo, int id);
-int		ft_usleep(size_t milliseconds);
+int		ft_usleep(size_t milliseconds, int *dead_flag,
+			pthread_mutex_t *dead_lock);
 int		dead_loop(t_philo *philo);
 
 #endif

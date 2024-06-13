@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 11:38:09 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/06/04 12:38:10 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/06/13 09:42:18 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,13 +56,22 @@ size_t	get_current_time(void)
 	return (time.tv_sec * 1000 + time.tv_usec / 1000);
 }
 
-int	ft_usleep(size_t milliseconds)
+int	ft_usleep(size_t milliseconds, int *dead_flag, pthread_mutex_t *dead_lock)
 {
 	size_t	start;
 
 	start = get_current_time();
 	while ((get_current_time() - start) < milliseconds)
+	{
 		usleep(500);
+		pthread_mutex_lock(dead_lock);
+		if (*dead_flag)
+		{
+			pthread_mutex_unlock(dead_lock);
+			break;
+		}
+		pthread_mutex_unlock(dead_lock);
+	}
 	return (0);
 }
 
