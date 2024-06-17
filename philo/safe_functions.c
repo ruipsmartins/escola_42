@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 15:55:41 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/06/04 09:06:12 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/06/17 12:07:33 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,6 @@ void	print_error(char *str, bool sair)
 		exit(EXIT_FAILURE);
 }
 
-void	*safe_malloc(size_t size)
-{
-	void	*ptr;
-
-	ptr = malloc(size);
-	if (ptr == NULL)
-		print_error("Error using malloc", true);
-	return (ptr);
-}
 
 void	safe_mutex(pthread_mutex_t *mutex, int e_mutex_action)
 {

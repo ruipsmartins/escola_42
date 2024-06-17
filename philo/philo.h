@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 16:30:31 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/06/13 09:58:27 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/06/17 12:07:41 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,6 @@ enum	e_thread_action
 void	check_arguments(char **av);
 int		ft_strlen(char *str);
 void	print_error(char *str, bool sair);
-void	*safe_malloc(size_t size);
 void	safe_mutex(pthread_mutex_t *mutex, int e_mutex_action);
 void	safe_thread(pthread_t *thread,
 			void *(*start_routine) (void *),

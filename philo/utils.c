@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 11:38:09 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/06/13 14:54:59 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/06/17 12:06:18 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ int	ft_atoi(char *str)
 	return (number * sign);
 }
 
+//function to get current time in miliseconds
+
 size_t	get_current_time(void)
 {
 	struct timeval	time;
@@ -55,6 +57,8 @@ size_t	get_current_time(void)
 		print_error("gettimeofday() error", true);
 	return (time.tv_sec * 1000 + time.tv_usec / 1000);
 }
+
+//better usleep function that also checks if some one died
 
 int	ft_usleep(size_t milliseconds, int *dead_flag, pthread_mutex_t *dead_lock)
 {
