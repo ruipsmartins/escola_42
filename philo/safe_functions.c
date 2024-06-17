@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 15:55:41 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/06/17 12:07:33 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/06/17 15:37:12 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	print_error(char *str, bool sair)
 	if (sair)
 		exit(EXIT_FAILURE);
 }
-
 
 void	safe_mutex(pthread_mutex_t *mutex, int e_mutex_action)
 {
