@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 14:40:00 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/06/13 14:52:26 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/06/18 12:10:01 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	philosopher_dead(t_philo *philo, size_t time_to_die)
 	safe_mutex(&philo->table->meal_lock, MUTEX_LOCK);
 	if (get_current_time() - philo->last_meal >= time_to_die
 		&& philo->eating == 0)
-		return (pthread_mutex_unlock(&philo->table->meal_lock), 1);
+		return (safe_mutex(&philo->table->meal_lock, MUTEX_UNLOCK), 1);
 	safe_mutex(&philo->table->meal_lock, MUTEX_UNLOCK);
 	return (0);
 }
