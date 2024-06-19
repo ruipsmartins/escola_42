@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 16:30:31 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/06/17 12:07:41 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/06/19 12:19:54 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void	safe_thread(pthread_t *thread,
 			void *(*start_routine) (void *),
 			void *data,
 			int e_thread_action);
-int		ft_atoi(char *str);
+long	ft_atol(char *str);
 void	data_init(t_table *table, t_philo *philos, t_fork *forks, char **av);
 size_t	get_current_time(void);
 int		start_dinner(t_table *table);

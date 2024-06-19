@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 11:38:09 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/06/17 12:06:18 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/06/19 11:04:10 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ int	ft_strlen(char *str)
 	return (i);
 }
 
-int	ft_atoi(char *str)
+long	ft_atol(char *str)
 {
-	int		number;
-	int		sign;
-	int		i;
+	long		number;
+	int			sign;
+	int			i;
 
 	sign = 1;
 	i = 0;
