@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 16:52:19 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/06/13 15:12:07 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/06/24 13:08:46 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	eat(t_table *table, t_philo *philo)
 	safe_mutex(&table->meal_lock, MUTEX_LOCK);
 	philo->last_meal = get_current_time();
 	philo->meals_eaten++;
-	safe_mutex(&philo->table->meal_lock, MUTEX_UNLOCK);
+	safe_mutex(&table->meal_lock, MUTEX_UNLOCK);
 	ft_usleep(table->time_to_eat, &table->dead_flag, &table->dead_lock);
 	philo->eating = 0;
 	safe_mutex(&philo->first_fork->fork_mutex, MUTEX_UNLOCK);
