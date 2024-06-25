@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 16:52:19 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/06/24 13:08:46 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/06/25 10:12:18 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 void	think(t_philo *philo)
 {
 	print_message("is thinking", philo, philo->id);
+	ft_usleep(1, &philo->table->dead_flag, &philo->table->dead_lock);
+
 }
 
 void	rest(t_table *table, t_philo *philo)

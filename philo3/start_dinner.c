@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 21:25:31 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/06/13 14:36:45 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/06/25 09:55:56 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	*philo_routine(void *pointer)
 	if (philo->id % 2 == 0)
 	{
 		think(philo);
-		ft_usleep(13, &table->dead_flag, &table->dead_lock);
+		ft_usleep(3, &table->dead_flag, &table->dead_lock);
 	}
 	while (!dead_loop(philo))
 	{
