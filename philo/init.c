@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 16:08:55 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/06/19 11:03:52 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2024/06/25 10:04:52 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,13 @@ void	init_philos(t_philo *philos, t_table *table,
 		philos[i].dead = &table->dead_flag;
 		if (i % 2 == 0)
 		{
-			philos[i].second_fork = &forks[i + 1];
-			philos[i].first_fork = &forks[(i) % num_philos];
+			philos[i].first_fork = &forks[i];
+			philos[i].second_fork = &forks[(i + 1) % num_philos];
 		}
 		else
 		{
-			philos[i].first_fork = &forks[i + 1];
-			philos[i].second_fork = &forks[(i) % num_philos];
+			philos[i].first_fork = &forks[(i + 1) % num_philos];
+			philos[i].second_fork = &forks[i];
 		}
 		i++;
 	}
