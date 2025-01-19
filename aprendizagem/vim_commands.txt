@@ -1,0 +1,64 @@
+Modos do Vim:
+
+O Vim opera em diferentes modos. Os principais são:
+
+Modo Normal (ou Comando): É o modo padrão ao abrir o Vim. Usado para navegar, executar comandos e editar o texto de forma indireta.
+Modo Inserção: Usado para inserir texto diretamente no documento, como em um editor comum.
+Modo Visual: Usado para selecionar blocos de texto para operações como copiar, colar, deletar, etc.
+Transição entre os Modos:
+
+Esc: Sai de qualquer modo e volta para o Modo Normal.
+i: Entra no Modo Inserção (insere antes do cursor).
+a: Entra no Modo Inserção (insere após o cursor).
+o: Entra no Modo Inserção (abre uma nova linha abaixo da atual).
+O: Entra no Modo Inserção (abre uma nova linha acima da atual).
+v: Entra no Modo Visual (seleção de caracteres).
+V: Entra no Modo Visual (seleção de linhas).
+Ctrl + v: Entra no Modo Visual Bloco (seleção retangular).
+Movimentação (Modo Normal):
+
+h: Move o cursor para a esquerda.
+j: Move o cursor para baixo.
+k: Move o cursor para cima.
+l: Move o cursor para a direita.
+w: Move o cursor para o início da próxima palavra.
+b: Move o cursor para o início da palavra anterior.
+0 (zero): Move o cursor para o início da linha.
+$: Move o cursor para o final da linha.
+gg: Move o cursor para o início do arquivo.
+G: Move o cursor para o final do arquivo.
+:n (onde n é um número): Move o cursor para a linha n. Ex: :10 move para a linha 10.
+Edição (Modo Normal):
+
+x: Deleta o caractere sob o cursor.
+dd: Deleta a linha inteira.
+dw: Deleta a palavra a partir do cursor.
+d$: Deleta do cursor até o final da linha.
+yy: Copia (yank) a linha inteira.
+yw: Copia (yank) a palavra a partir do cursor.
+p: Cola (paste) o texto copiado após o cursor.
+P: Cola (paste) o texto copiado antes do cursor.
+u: Desfaz (undo) a última ação.
+Ctrl + r: Refaz (redo) a última ação desfeita.
+. (ponto): Repete a última ação.
+Salvar e Sair (Modo Normal):
+
+:w: Salva o arquivo.
+:q: Sai do Vim (se não houver alterações não salvas).
+:q!: Sai do Vim sem salvar as alterações (força a saída).
+:wq: Salva o arquivo e sai do Vim.
+:x: Salva o arquivo somente se houver alterações e sai do Vim.
+Busca (Modo Normal):
+
+/palavra: Busca pela "palavra" no texto (use n para ir para o próximo resultado e N para o anterior).
+Exemplo Prático:
+
+Abra um arquivo no Vim: vim nome_do_arquivo.txt
+Pressione i para entrar no Modo Inserção e comece a escrever algum texto.
+Pressione Esc para voltar ao Modo Normal.
+Use as teclas h, j, k, l para navegar pelo texto.
+Posicione o cursor sobre uma palavra e pressione dw para deletá-la.
+Pressione yy para copiar uma linha e depois p para colá-la.
+Digite /exemplo para buscar a palavra "exemplo".
+Finalmente, digite :wq para salvar as alterações e sair do Vim.
+Dica: O comando :help dentro do Vim abre o manual de ajuda, onde podes encontrar informações detalhadas sobre todos os comandos.
