@@ -6,7 +6,17 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-void err(char *str)
+/* 
+
+./microshell  cd /home/ruidos-s/ ";" /bin/ls ; /bin/pwd
+
+cc microshell.c -o microshell -Wall -Wextra -Werror
+
+ver do porque de estar a dar mais um \n
+
+ */
+
+void print_error(char *str)
 {
     // Loop through each character in the string and write it to stderr
     while (*str)
@@ -16,12 +26,12 @@ void err(char *str)
 int cd_command(char **argv, int i)
 {
 	if (i != 2)
-        return err("error: cd: bad arguments\n"), 1;
+        return print_error("error: cd: bad arguments\n"), 1;
 	if (chdir(argv[1]) == -1)
 	{
-		err("error: cd: cannot change directory to ");
-		err(argv[1]);
-		err("\n");
+		print_error("error: cd: cannot change directory to ");
+		print_error(argv[1]);
+		print_error("\n");
 		return 1;
 	}
 
@@ -30,8 +40,8 @@ return 0;
 
 int	execute(char **argv, char **envp, int i)
 {
-	int		has_pipe;
-	int		fd[2];
+	/* int		has_pipe;
+	int		fd[2]; */
 	pid_t	pid;
 	int		status;
 
@@ -39,14 +49,14 @@ int	execute(char **argv, char **envp, int i)
 			return(cd_command(argv, i));
 	if ((pid = fork()) == -1)
 	{
-		write(2, "fork error\n", 12);
+		print_error("fork error\n");
 		return 1;
 	}
 	if (pid == 0)
 	{
 		argv[i] = 0;
 		execve(*argv, argv , envp);
-		err("error: cannot execute "), err(*argv), err("\n"), exit(1);	
+		print_error("error: cannot execute "), print_error(*argv), print_error("\n"), exit(1);	
 	}
 	else
 		waitpid(pid, &status, 0);
@@ -74,7 +84,6 @@ int	main (int argc, char **argv, char **envp)
 		if (i)
 			status = execute(argv, envp, i);
 	}
-
 	printf("exit status: %d\n", status);
 	return (status);
 }
