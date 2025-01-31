@@ -10,7 +10,7 @@
             "request": "launch",
             "program": "${workspaceFolder}/microshell",  // O caminho para o executável
             //"args": [],  // Aqui podes passar argumentos de linha de comandos
-			"args": ["/bin/ls", "-l"],
+			"args": ["/bin/ls", ";" ,"/bin/pwd", ";", "/bin/ls", "-l"],  // Exemplo de argumentos
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
             "environment": [],
@@ -24,12 +24,12 @@
                 "engineLogging": true
             },
             "setupCommands": [
-				/* {
+			/* 	{
                     "description": "Follow the child process after fork",
                     "text": "set follow-fork-mode child",  // Seguir o processo filho
                     "ignoreFailures": true
-                },
-                {
+                }, */
+             /*    {
                     "description": "Don't detach on fork",
                     "text": "set detach-on-fork off",  // Não desprender o filho
                     "ignoreFailures": true
