@@ -3,19 +3,24 @@
 #include <sys/wait.h>
 #include <unistd.h>
 
-int	print_error(char *str1, char *str2, char *str3)
+int	ft_strlen(char *str)
 {
 	int	i;
 
 	i = 0;
-	while (str1 && str1[i])
-		write(2, &str1[i++], 1);
-	i = 0;
-	while (str2 && str2[i])
-		write(2, &str2[i++], 1);
-	i = 0;
-	while (str3 && str3[i])
-		write(2, &str3[i++], 1);
+	while (str[i])
+		i++;
+	return (i);
+}
+
+int	print_error(char *str1, char *str2, char *str3)
+{
+	if (str1)
+		write(2, str1, ft_strlen(str1));
+	if (str2)
+		write(2, str2, ft_strlen(str2));
+	if (str1)
+		write(2, str3, ft_strlen(str3));
 	return (1);
 }
 int	cd_command(char **argv, int i)
