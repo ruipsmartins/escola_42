@@ -1,90 +1,90 @@
-#include <stdlib.h>
-#include <string.h>
+#include<unistd.h>
+#include<stdlib.h>
+#include<string.h>
 #include <sys/wait.h>
-#include <unistd.h>
 
-int	ft_strlen(char *str)
+int ft_strlen(char *str)
 {
-	int	i;
-
-	i = 0;
-	while (str[i])
+	int i = 0;
+	while(str[i])
 		i++;
-	return (i);
+	return i;
 }
 
-int	print_error(char *str1, char *str2, char *str3)
+int		print_error(char *str1, char *str2)
 {
-	if (str1)
+	if(str1)
 		write(2, str1, ft_strlen(str1));
-	if (str2)
+    if(str2)
 		write(2, str2, ft_strlen(str2));
-	if (str1)
-		write(2, str3, ft_strlen(str3));
-	return (1);
+	write(2, "\n", 1);
+	return 1;
 }
-int	cd_command(char **argv, int i)
+
+void set_pipes(int has_pipe, int *fd, int end)
+{
+	if(has_pipe && (dup2(fd[end], end) == -1 || close(fd[0]) == -1 || close(fd[1]) == -1))
+		exit(print_error("error: fatal", 0));
+}
+
+int cd_command(char **argv, int i)
 {
 	if (i != 2)
-		return (print_error("error: cd: bad arguments", "\n", 0));
-	if (chdir(argv[1]) == -1)
-		return (print_error("error: cd: cannot change directory to ", *argv,
-				"\n"));
-	return (0);
+		return print_error("error: cd: bad arguments", 0);
+	if(chdir(argv[1]) == -1)
+		print_error("error: cd: cannot change directory to ", argv[1]);
+	return 0;
 }
 
-void	set_pipes(int has_pipe, int *fd, int end)
+int		execute(char **argv, int i, char **envp)
 {
-	if (has_pipe && (dup2(fd[end], end) == -1 || close(fd[0]) == -1
-			|| close(fd[1]) == -1))
-		exit(print_error("error: fatal\n", NULL, NULL));
-}
+	int status = 0;
+	int pid;
+	int has_pipe;
+	int fd[2];
 
-int	execute(char **argv, int i, char **envp)
-{
-	int	status;
-	int	pid;
-	int	has_pipe;
-	int	fd[2];
-
-	status = 0;
 	has_pipe = argv[i] && !strcmp(argv[i], "|");
-	if (!has_pipe && !strcmp(*argv, "cd"))
-		return (cd_command(argv, i));
-	if (has_pipe && (pipe(fd)) == -1)
-		exit(print_error("error: fatal\n", NULL, NULL));
-	if ((pid = fork()) == -1)
-		exit(print_error("error: fatal\n", NULL, NULL));
-	if (!pid)
+
+	if(!has_pipe && !strcmp(*argv, "cd"))
+		return(cd_command(argv, i));
+
+	if(has_pipe && pipe(fd) == -1)
+		exit(print_error("error: fatal pipe", 0));
+
+	if ((pid=fork()) == -1)
+		exit(print_error("error: fatal", 0));
+	if(pid == 0)
 	{
 		argv[i] = 0;
 		set_pipes(has_pipe, fd, 1);
 		execve(*argv, argv, envp);
-		exit(print_error("error: cannot execute ", *argv, "\n"));
+		exit(print_error("error: cannot execute ", *argv));
 	}
-	set_pipes(has_pipe, fd, 0);
 	waitpid(0, &status, 0);
-	return (WIFEXITED(status) && WEXITSTATUS(status));
+	set_pipes(has_pipe, fd, 0);
+
+	return(WIFEXITED(status) && WEXITSTATUS(status));
 }
 
-int	main(int argc, char **argv, char **envp)
+int main (int argc, char **argv, char **envp)
 {
-	int	status;
-	int	i;
+	int status=0;
+	int i = 0;
 
-	status = 0;
-	i = 0;
+
 	(void)envp;
-	if (argc < 2)
-		return (print_error("need more args", NULL, "\n"));
-	while (argv[i])
+	if(argc < 2)
+		return (print_error("invalid number of arguments", 0));
+	while(argv[i])
 	{
 		argv += i + 1;
 		i = 0;
-		while (argv[i] && strcmp(argv[i], ";") && strcmp(argv[i], "|"))
+		while(argv[i] && strcmp(argv[i], ";") && strcmp(argv[i], "|"))
 			i++;
 		if (i)
-			execute(argv, i, envp);
+		{
+			status = execute(argv, i, envp);
+		}
 	}
-	return (status);
+	return status;
 }
