@@ -15,10 +15,10 @@ int		print_error(char *str1, char *str2)
 {
 	if(str1)
 		write(2, str1, ft_strlen(str1));
-    if(str2)
+	if(str2)
 		write(2, str2, ft_strlen(str2));
 	write(2, "\n", 1);
-	return 1;
+	return (1);
 }
 
 void set_pipes(int has_pipe, int *fd, int end)
@@ -33,7 +33,7 @@ int cd_command(char **argv, int i)
 		return print_error("error: cd: bad arguments", 0);
 	if(chdir(argv[1]) == -1)
 		print_error("error: cd: cannot change directory to ", argv[1]);
-	return 0;
+	return (0);
 }
 
 int		execute(char **argv, int i, char **envp)
@@ -71,8 +71,6 @@ int main (int argc, char **argv, char **envp)
 	int status=0;
 	int i = 0;
 
-
-	(void)envp;
 	if(argc < 2)
 		return (print_error("invalid number of arguments", 0));
 	while(argv[i])
