@@ -71,17 +71,18 @@ int main (int argc, char **argv, char **envp)
 	int status=0;
 	int i = 0;
 
-	if(argc < 2)
-		return (print_error("invalid number of arguments", 0));
-	while(argv[i])
+	if(argc > 1)
 	{
-		argv += i + 1;
-		i = 0;
-		while(argv[i] && strcmp(argv[i], ";") && strcmp(argv[i], "|"))
-			i++;
-		if (i)
+		while(argv[i])
 		{
-			status = execute(argv, i, envp);
+			argv += i + 1;
+			i = 0;
+			while(argv[i] && strcmp(argv[i], ";") && strcmp(argv[i], "|"))
+				i++;
+			if (i)
+			{
+				status = execute(argv, i, envp);
+			}
 		}
 	}
 	return status;
