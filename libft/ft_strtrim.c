@@ -6,13 +6,13 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 10:09:49 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/27 19:04:03 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2025/02/21 12:17:29 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//trim beginning and end of string with the specified characters
 #include "libft.h"
 
+//trim beginning and end of string with the specified characters
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	size_t	i;

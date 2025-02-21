@@ -6,14 +6,14 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 12:07:16 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/03/27 12:33:46 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2025/02/21 12:14:39 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/* Outputs the integer ’n’ to the given file
-descriptor. */
 #include "libft.h"
 
+/* Outputs the integer ’n’ to the given file
+descriptor. */
 void	ft_putnbr_fd(int n, int fd)
 {
 	if (n == -2147483648)

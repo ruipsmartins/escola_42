@@ -6,14 +6,13 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 17:22:02 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/27 17:57:37 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2025/02/21 12:20:46 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//convert ASCII string to integer.
-
 #include "libft.h"
 
+// convert ASCII string to integer.
 int	ft_atoi(const char *str)
 {
 	int	i;
@@ -35,7 +34,7 @@ int	ft_atoi(const char *str)
 		}
 		i++;
 	}
-	while (str[i] >= '0' && str [i] <= '9')
+	while (str[i] >= '0' && str[i] <= '9')
 	{
 		res = res * 10 + (str[i] - '0');
 		i++;
@@ -50,11 +49,11 @@ int	main(void)
 	int		nbr;
 	int		nbr2;
 	char	str[] = " \t   -007 8";
-	
+
 	nbr = ft_atoi(str);
 	nbr2 = atoi(str);
 	printf("%d\n", nbr);
 	printf("%d\n", nbr2);
-	
+
 	return (0);
 }  */

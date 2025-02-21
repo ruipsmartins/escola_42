@@ -6,9 +6,11 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 12:00:24 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/27 19:33:28 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2025/02/21 12:17:35 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 /*
 extract substring from string
@@ -16,8 +18,6 @@ extract substring from string
 Allocates (with malloc(3)) and returns a substring from the string ’s’.
 The substring begins at index ’start’ and is of maximum size ’len’.
 */
-#include "libft.h"
-
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	size_t	i;

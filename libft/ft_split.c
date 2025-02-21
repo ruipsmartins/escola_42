@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 14:18:53 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/28 16:43:34 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2025/02/21 12:21:07 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,10 @@
 of strings obtained by splitting ’s’ using the
 character ’c’ as a delimiter. The array must end
 with a NULL pointer. */
-
 static int	count_words(char const *str, char c)
 {
-	int		count;
-	int		i;
+	int	count;
+	int	i;
 
 	if (ft_strlen(str) == 0)
 		return (0);
@@ -84,16 +83,18 @@ char	**ft_split(char const *s, char c)
 	box[j] = NULL;
 	return (box);
 }
-/* 
+/*
 #include <stdio.h>
 
 int	main(void)
 {
-	char	*str = "hello to this world!";
-	char	c = ' ';
-	int	i;
+	char	*str;
+	char	c;
+	int		i;
 	char	**box;
 
+	str = "hello to this world!";
+	c = ' ';
 	box = ft_split(str, c);
 	i = 0;
 	while (box[i])
@@ -103,7 +104,7 @@ int	main(void)
 		i++;
 	}
 	free(box[i]);
-	free(box); 
+	free(box);
 	return (0);
 }
    */

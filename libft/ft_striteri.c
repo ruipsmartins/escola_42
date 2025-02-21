@@ -6,16 +6,16 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 15:46:42 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/30 11:32:17 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2025/02/21 12:15:58 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 /*Applies the function ’f’ on each character of
 the string passed as argument, passing its index
 as first argument. Each character is passed by
 address to ’f’ to be modified if necessary.*/
-#include "libft.h"
-
 void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
 	unsigned int	i;

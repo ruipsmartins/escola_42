@@ -6,15 +6,14 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 15:34:41 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/26 14:52:15 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2025/02/21 12:21:45 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/* checks for an alphanumeric character; it is
- equivalent to (isalpha(c) || isdigit(c)). */
-
 #include "libft.h"
 
+/* checks for an alphanumeric character; it is
+ equivalent to (isalpha(c) || isdigit(c)). */
 int	ft_isalnum(int c)
 {
 	if (ft_isalpha(c) || ft_isdigit(c))
@@ -23,8 +22,8 @@ int	ft_isalnum(int c)
 }
 
 /*
-#include <stdio.h>
 #include <ctype.h>
+#include <stdio.h>
 
 int	main(void)
 {

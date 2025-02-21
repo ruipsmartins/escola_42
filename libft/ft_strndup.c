@@ -1,39 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strndup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/10 14:17:46 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/08/27 15:55:28 by ruidos-s         ###   ########.fr       */
+/*   Created: 2024/12/30 11:35:32 by duamarqu          #+#    #+#             */
+/*   Updated: 2025/02/21 12:20:32 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/* The strchr() function returns a pointer to the 
-	first occurrence of the character c in the string s. */
-char	*ft_strchr(const char *s, int c)
+/* Allocates sufficient memory for a copy of the string s1, does the copy,
+	and returns a pointer to it.
+	The pointer may subsequently be used as an argument to the function free(3).
+	If insufficient memory is available, NULL is returned. */
+char	*ft_strndup(const char *s1, size_t n)
 {
-	int	i;
+	char	*dst;
+	size_t	i;
 
+	dst = (char *)malloc(n + 1);
+	if (!dst)
+		return (NULL);
 	i = 0;
-	while (s[i] != (char)c)
+	while (s1[i] && i < n)
 	{
-		if (s[i] == '\0')
-			return (NULL);
+		dst[i] = s1[i];
 		i++;
 	}
-	return ((char *)&s[i]);
+	dst[i] = '\0';
+	return (dst);
 }
-/*
-#include <stdio.h>
-
-int	main(void)
-{
-	printf("strchr: %s\n", strchr("teste", 101));
-	printf("ft_strchr: %s\n", ft_strchr( "101teste", 'e'));
-	return (0);
-}
- */

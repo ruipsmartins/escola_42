@@ -6,14 +6,14 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 10:33:15 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/01/30 12:13:27 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2025/02/21 12:19:13 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/* Outputs the string ’s’ to the given file
-descriptor. */
 #include "libft.h"
 
+/* Outputs the string ’s’ to the given file
+descriptor. */
 int	printf_putstr(char *s)
 {
 	int	count;

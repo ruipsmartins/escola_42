@@ -6,16 +6,19 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 15:53:49 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/01/30 15:05:43 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2025/02/21 12:18:59 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 
+/*
+	This function reads the file line by line and returns the line that was read.
+*/
 char	*get_next_line(int fd)
 {
-	static char	buffer[FOPEN_MAX][BUFFER_SIZE +1];
+	static char	buffer[FOPEN_MAX][BUFFER_SIZE + 1];
 	char		*new_line;
 	int			i;
 
@@ -40,7 +43,7 @@ char	*get_next_line(int fd)
 	char	*line;
 	int		i;
 	int		change_fd;
-	
+
 	i = 0;
 	change_fd = 1;
 	fd1 = open("file1.txt", O_RDONLY);

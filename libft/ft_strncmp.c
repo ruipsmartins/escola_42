@@ -6,15 +6,15 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 16:08:57 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/27 16:09:14 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2025/02/21 12:16:42 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 /* The  strcmp()  function compares the two strings s1 and s2.
 The strncmp() function is similar, except it 
 compares only the first (at most) n bytes of s1 and s2. */
-#include "libft.h"
-
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	size_t	i;

@@ -6,14 +6,13 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 10:49:52 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/26 14:55:33 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2025/02/21 12:20:55 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//checks for any printable character including space.
-
 #include "libft.h"
 
+// checks for any printable character including space.
 int	ft_isprint(int c)
 {
 	if (c >= 32 && c <= 126)
@@ -22,17 +21,17 @@ int	ft_isprint(int c)
 }
 
 /*
-#include <stdio.h>
 #include <ctype.h>
+#include <stdio.h>
 
-int	main()
+int	main(void)
 {
-	printf("%d\n", ft_isprint(30));
+	int	c;
 
-	int c;
+	printf("%d\n", ft_isprint(30));
 	for(c = 1; c <= 127; ++c)
-   	if (ft_isprint(c)!= 0)
-             printf("%c ", c);
-   return 0;
+	if (ft_isprint(c)!= 0)
+				printf("%c ", c);
+   return (0);
 }
 */

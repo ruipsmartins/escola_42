@@ -6,12 +6,13 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 15:36:27 by ruidos-s          #+#    #+#             */
-/*   Updated: 2024/03/27 12:35:14 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2025/02/21 12:14:02 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+// Function to print the format specifier and its corresponding argument.
 int	ft_printf(const char *format, ...)
 {
 	va_list	ap;

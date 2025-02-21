@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/22 10:11:06 by ruidos-s          #+#    #+#             */
-/*   Updated: 2025/02/21 12:19:43 by ruidos-s         ###   ########.fr       */
+/*   Created: 2024/12/30 12:18:59 by duamarqu          #+#    #+#             */
+/*   Updated: 2025/02/21 12:15:49 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/* Outputs the character ’c’ to the given file
-descriptor. */
-void	ft_putchar_fd(char c, int fd)
+// Copies the string pointed to by src,
+//	including the terminating null byte ('\0'), to the buffer pointed to by dst.
+char	*ft_strcpy(char *dst, const char *src)
 {
-	write(fd, &c, 1);
-}
+	int	i;
 
-/* int	main(void)
-{
-	char	c;
-
-	c = 'z';
-	ft_putchar_fd(c, 1);
-	return (0);
+	i = 0;
+	while (src[i])
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	dst[i] = '\0';
+	return (dst);
 }
- */

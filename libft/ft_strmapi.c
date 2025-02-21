@@ -6,21 +6,20 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 14:05:26 by ruidos-s          #+#    #+#             */
-/*   Updated: 2023/10/30 11:29:22 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2025/02/21 12:22:03 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 /* Applies the function ’f’ to each character of the
 string ’s’, and passing its index as first argument
 to create a new string (with malloc(3)) resulting
 from successive applications of ’f’. */
-
-#include "libft.h"
-
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char				*result;
-	unsigned int		i;
+	char			*result;
+	unsigned int	i;
 
 	result = (char *)malloc(ft_strlen(s) + 1);
 	if (!result)
@@ -36,6 +35,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 }
 /*
 #include <stdio.h>
+
 char	ft_teste(unsigned int i, char c)
 {
 	i = 32;
