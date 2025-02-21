@@ -3,17 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: duamarqu <duamarqu@student.42.fr>          +#+  +:+       +#+         #
+#    By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/04 14:19:42 by ruidos-s          #+#    #+#              #
-#    Updated: 2025/01/17 11:05:21 by duamarqu         ###   ########.fr        #
+#    Updated: 2025/02/21 12:29:19 by ruidos-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
 CC = cc
-
 CFLAGS = -Wall -Wextra -Werror
 
 SRCS = 	ft_atol.c  ft_atoi.c  ft_isalnum.c  ft_isalpha.c  ft_isascii.c  ft_isdigit.c  ft_isprint.c\
@@ -25,42 +24,48 @@ SRCS = 	ft_atol.c  ft_atoi.c  ft_isalnum.c  ft_isalpha.c  ft_isascii.c  ft_isdig
 		ft_printf.c print_format.c printf_putchar.c printf_putstr.c printf_putnbr.c printf_putptr.c\
 		get_next_line.c get_next_line_utils.c ft_strndup.c ft_strcpy.c ft_realloc.c\
 
-OBJS = $(SRCS:.c=.o)
-
-
 BONUS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c\
 		ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c 
 
-BONUS_OBJS = $(BONUS:.c=.o)
+OBJS_DIR = obj
+OBJS = $(SRCS:%.c=$(OBJS_DIR)/%.o)
+BONUS_OBJS = $(BONUS:%.c=$(OBJS_DIR)/%.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	ar rc $(NAME) $(OBJS)
-	
+$(OBJS_DIR):
+	@mkdir -p $(OBJS_DIR)
+	@echo "📂 Created obj directory"
 
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+$(NAME): $(OBJS_DIR) $(OBJS)
+	@ar rcs $(NAME) $(OBJS)
+	@echo "✅ Libft compiled successfully!"
+
+$(OBJS_DIR)/%.o: %.c | $(OBJS_DIR)
+	@$(CC) $(CFLAGS) -c $< -o $@
+
+bonus: $(OBJS_DIR) $(OBJS) $(BONUS_OBJS)
+	@ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
+	@echo "✨ Bonus part compiled!"
 
 clean:
-	rm -f $(OBJS) $(BONUS_OBJS) bonus
-	
+	@rm -rf $(OBJS_DIR)
+	@echo "🧹 Cleaned object files"
+
 fclean: clean
-	rm -f $(NAME) ./test*
-	
+	@rm -f $(NAME) ./test*
+	@echo "🗑️ Fully cleaned project"
+
 re: fclean all bonus
 
-bonus:	$(OBJS) $(BONUS_OBJS)
-				ar rc $(NAME) $(OBJS) $(BONUS_OBJS)
-				@touch bonus
-
 test: $(SRCS) main.c
-	$(CC) $(CFLAGS) $(SRCS) $(BONUS) main.c -o teste_main
+	@$(CC) $(CFLAGS) $(SRCS) $(BONUS) main.c -o teste_main
+	@echo "🛠️ Test binary created"
 
 git:
-	git add .
-	git commit -m "guardar coisas no github"
-	git push
-	git status
+	@git add .
+	@git commit -m "guardar coisas no github"
+	@git push
+	@git status
 
 .PHONY: all clean fclean re test git
