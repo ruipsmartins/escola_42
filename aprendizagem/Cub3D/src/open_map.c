@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 16:49:32 by ruidos-s          #+#    #+#             */
-/*   Updated: 2025/02/27 18:21:14 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2025/02/28 13:24:45 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,19 @@ static void check_newlines (char *line, char *holder)
 	}
 }
 
-
+void draw_map(t_game *game)
+{
+	char **map = game->map;
+	int color = 0x0000FF;
+	(void)color;
+	for(int y = 0; map[y]; y++)
+		for(int x = 0; map[y][x]; x++)
+			if(map[y][x] == '1')
+			{
+				//draw_square(x * BLOCK, y * BLOCK, BLOCK, color, game);
+				img_draw(game, game->img_wall, x , y );
+			}
+}
 
 char	**open_map(char *path)
 {

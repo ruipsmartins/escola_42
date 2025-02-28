@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 12:43:28 by ruidos-s          #+#    #+#             */
-/*   Updated: 2025/02/27 18:41:31 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2025/02/28 13:54:01 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,39 +44,91 @@ void draw_square(int x, int y, int size, int color, t_game *game)
     }
 }
 
-static void	img_draw(t_game *game, void *image, int x, int y)
+void	img_draw(t_game *game, void *image, int x, int y)
 {
-	mlx_put_image_to_window(game->mlx, game->win, image, x * 64, y * 64);
+	mlx_put_image_to_window(game->mlx, game->win, image, x * 64 , y * 64);
 }
 
-void draw_map(t_game *game)
+
+
+// touch function 
+bool touch(float px, float py, t_game *game)
 {
-	char **map = game->map;
-	int color = 0x0000FF;
-	(void)color;
-	for(int y = 0; map[y]; y++)
-		for(int x = 0; map[y][x]; x++)
-			if(map[y][x] == '1')
-			{
-				//draw_square(x * BLOCK, y * BLOCK, BLOCK, color, game);
-				img_draw(game, game->img_wall, x , y );
-			}
+	int x = px / BLOCK;
+    int y = py / BLOCK;
+    if(game->map[y][x] == '1')
+	return true;
+    return false;
 }
+
+// distance calculation functions
+float distance(float x, float y){
+	return sqrt(x * x + y * y);
+}
+
+float fixed_dist(float x1, float y1, float x2, float y2, t_game *game)
+{
+	float delta_x = x2 - x1;
+    float delta_y = y2 - y1;
+    float angle = atan2(delta_y, delta_x) - game->player.angle;
+    float fix_dist = distance(delta_x, delta_y) * cos(angle);
+    return fix_dist;
+}
+
+
+// raycasting functions
+void draw_line(t_player *player, t_game *game, float start_x, int i)
+{
+	float cos_angle = cos(start_x);
+    float sin_angle = sin(start_x);
+    float ray_x = player->x;
+    float ray_y = player->y;
+	
+    while(!touch(ray_x, ray_y, game))
+    {
+		if(DEBUG)
+		ft_put_pixel(ray_x, ray_y, 0xFF0000, game);
+        ray_x += cos_angle;
+        ray_y += sin_angle;
+    }
+    if(!DEBUG)
+    {
+		float dist = fixed_dist(player->x, player->y, ray_x, ray_y, game);
+        float height = (BLOCK / dist) * (WINDOW_WIDTH / 2);
+        int start_y = (WINDOW_HEIGHT - height) / 2;
+        int end = start_y + height;
+        while(start_y < end)
+        {
+			ft_put_pixel(i, start_y, 200, game);
+            start_y++;
+        }
+    }
+}
+
 int draw_loop(t_game *game)
 {
-    t_player *player = &game->player;
+	t_player *player = &game->player;
 
 
-    move_player(player);
+	move_player(player);
 	clear_image(game);
-	mlx_clear_window(game->mlx, game->win);
-	draw_map(game);
-    draw_square(player->x, player->y, 40, 0x00FF00, game);
- 
-    mlx_put_image_to_window(game->mlx, game->win, game->img, 0, 0);
-    return 0;
-}
+	//mlx_clear_window(game->mlx, game->win);
+	draw_square(player->x, player->y, 40, 0x00FF00, game);
+	mlx_put_image_to_window(game->mlx, game->win, game->img, 0, 0);
 
+	float fraction = PI / 3 / WINDOW_WIDTH;
+    float start_x = player->angle - PI / 6;
+    int i = 0;
+    while(i < WINDOW_WIDTH)
+    {
+        draw_line(player, game, start_x, i);
+        start_x += fraction;
+        i++;
+    }
+	draw_map(game);
+
+	return 0;
+}
 
 
 int main(int argc, char **argv)
@@ -95,7 +147,10 @@ int main(int argc, char **argv)
 	mlx_hook(game.win, KeyPress, KeyPressMask, key_press, &game);
 	mlx_hook(game.win, KeyRelease, KeyReleaseMask, key_release, &game);
 	
+	mlx_put_image_to_window(game.mlx, game.win, game.img_wall, 200, 200);
 	mlx_loop_hook(game.mlx, draw_loop, &game);
+	
+	
 	
 	mlx_loop(game.mlx);
 	return (0);

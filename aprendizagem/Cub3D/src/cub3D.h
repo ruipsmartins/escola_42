@@ -6,7 +6,7 @@
 /*   By: ruidos-s <ruidos-s@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 15:25:35 by ruidos-s          #+#    #+#             */
-/*   Updated: 2025/02/27 18:39:15 by ruidos-s         ###   ########.fr       */
+/*   Updated: 2025/02/28 13:37:20 by ruidos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # define WINDOW_WIDTH 1920
 # define WINDOW_HEIGHT 1080
 # define BLOCK 64
-# define DEBUG 1
+# define DEBUG 0
 
 # define W 119
 # define A 97
@@ -39,6 +39,9 @@ typedef struct s_player
 	float		y;
 	float		angle;
 
+	void		*img;
+	int			img_width;
+	int			img_height;
 	bool		key_up;
 	bool		key_down;
 	bool		key_left;
@@ -70,6 +73,11 @@ typedef struct s_game
 void			init_game(t_game *game);
 void			init_player(t_player *player);
 void			clean_game(t_game *game);
+
+void	img_draw(t_game *game, void *image, int x, int y);
+
+void draw_map(t_game *game);
+
 
 int				key_press(int keycode, t_game *game);
 int				key_release(int keycode, t_game *game);
